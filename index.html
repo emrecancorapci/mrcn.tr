@@ -8,20 +8,20 @@
   <!-- <link href="/src/index.css" rel="stylesheet"> -->
 </head>
 
-<body class="flex h-full w-full flex-col items-center justify-center bg-background px-2">
-  <div class="grid gap-4 px-4 py-8 md:px-8">
-    <div class="grid gap-4 md:p-16 md:px-8 px-2 p-8 border border-primary">
-      <h1 class="font-bold text-4xl text-center lg:text-5xl md:text-5xl text-primary">
+<body class="flex min-h-screen min-w-screen flex-col items-center justify-center bg-background px-2 py-8">
+  <div class="flex size-full max-w-7xl flex-col gap-4 md:px-8">
+    <div class="grid gap-4 border border-primary p-8 px-2 md:p-16 md:px-8">
+      <h1 class="text-center font-bold text-4xl text-primary md:text-5xl lg:text-5xl">
         Emre Can Çorapçı
       </h1>
-      <div class="flex gap-2 w-full justify-center font-light">
+      <div class="flex w-full justify-center gap-2 font-light">
         <p class="px-2 font-extralight text-secondary">Software Developer</p>
       </div>
 
       <div class="flex justify-center">
-        <div class="grid grid-cols-4 w-fit gap-2">
+        <div class="grid w-fit grid-cols-4 gap-2">
           <a href="https://linkedin.com/in/emrecancorapci"
-            class="flex gap-1 items-center flex-col md:flex-row justify-center border-primary border p-2 font-light text-primary transition-all duration-100 hover:text-secondary hover:border-secondary">
+            class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:border-secondary hover:text-secondary md:flex-row">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-linkedin-icon lucide-linkedin">
@@ -32,7 +32,7 @@
             LinkedIn
           </a>
           <a href="https://github.com/emrecancorapci"
-            class="flex gap-1 items-center flex-col md:flex-row justify-center border-primary border p-2 font-light text-primary transition-all duration-100 hover:text-secondary hover:border-secondary">
+            class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:border-secondary hover:text-secondary md:flex-row">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-github-icon lucide-github">
@@ -43,7 +43,7 @@
             Github
           </a>
           <a href="mailto:emrecancorapci@gmail.com"
-            class="flex gap-1 items-center flex-col md:flex-row justify-center border-primary border p-2 font-light text-primary transition-all hover:cursor-pointer duration-100 hover:text-secondary hover:border-secondary">
+            class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:cursor-pointer hover:border-secondary hover:text-secondary md:flex-row">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-mail-icon lucide-mail">
@@ -53,7 +53,7 @@
             E-Mail
           </a>
           <a href="/docs/emre_can_corapci_cv.pdf"
-            class="flex gap-1 items-center flex-col md:flex-row justify-center border-primary border p-2 font-light text-primary transition-all hover:cursor-pointer duration-100 hover:text-secondary hover:border-secondary">
+            class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:cursor-pointer hover:border-secondary hover:text-secondary md:flex-row">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-file-user-icon lucide-file-user">
@@ -68,60 +68,121 @@
         </div>
       </div>
     </div>
-    
-    <!-- PACKAGES -->
-    <div class="grid gap-4">
-      <h2 class="font-semibold text-3xl py-2 bg-primary text-background text-center px-2">Packages</h2>
 
+    <!-- PACKAGES -->
+    <h2 class="bg-primary px-2 py-2 text-center font-semibold text-3xl text-background">Packages</h2>
+
+    <div class="grid gap-4">
       <div class="grid grid-cols-2 gap-2">
-        <a class="grid group grid-rows-3 py-8 border border-primary hover:border-secondary"
+        <a class="group grid grid-rows-3 border border-primary py-8 hover:border-secondary"
           href="https://crates.io/crates/krustie">
-          <p class="text-primary text-2xl text-center font-bold group-hover:text-secondary">
+          <p class="text-center font-bold text-2xl text-primary group-hover:text-secondary">
             krustie
           </p>
-          <p class="flex text-tertiary justify-center items-center px-4 row-span-2 text-center">
+          <p class="row-span-2 flex items-center justify-center px-4 text-center text-tertiary">
             Easy to use back-end framework for Rust
           </p>
         </a>
 
-        <a class="grid group grid-rows-3 py-8 border border-primary px-2 hover:border-secondary"
+        <a class="group grid grid-rows-3 border border-primary px-2 py-8 hover:border-secondary"
           href="https://crates.io/crates/radyx">
-          <p class="text-primary text-2xl text-center font-bold group-hover:text-secondary">
+          <p class="text-center font-bold text-2xl text-primary group-hover:text-secondary">
             radyx
           </p>
-          <p class="flex text-tertiary justify-center items-center px-4 row-span-2 text-center">
+          <p class="row-span-2 flex items-center justify-center px-4 text-center text-tertiary">
             Radix Tree implementation in Rust.
           </p>
         </a>
       </div>
     </div>
 
-        <div class="grid gap-4">
-      <h2 class="font-semibold text-3xl py-2 bg-primary text-background text-center px-2">Packages</h2>
+    <!-- TECHS -->
+    <div class="grid border border-primary gap-2 pb-2">
+      <h2 class="bg-primary px-2 py-2 text-center font-semibold text-3xl text-background">Technologies</h2>
 
-      <div class="grid grid-cols-2 gap-2">
-        <a class="grid group grid-rows-3 py-8 border border-primary hover:border-secondary"
-          href="https://crates.io/crates/krustie">
-          <p class="text-primary text-2xl text-center font-bold group-hover:text-secondary">
-            krustie
-          </p>
-          <p class="flex text-tertiary justify-center items-center px-4 row-span-2 text-center">
-            Easy to use back-end framework for Rust
-          </p>
-        </a>
-
-        <a class="grid group grid-rows-3 py-8 border border-primary px-2 hover:border-secondary"
-          href="https://crates.io/crates/radyx">
-          <p class="text-primary text-2xl text-center font-bold group-hover:text-secondary">
-            radyx
-          </p>
-          <p class="flex text-tertiary justify-center items-center px-4 row-span-2 text-center">
-            Radix Tree implementation in Rust.
-          </p>
-        </a>
+      <div class="grid gap-4 px-2">
+        <div class="grid gap-2">
+          <h2 class="bg-primary px-2 py-1 text-center font-semibold text-background text-lg">Languages</h2>
+          <div class="grid grid-cols-4 gap-2">
+            <p class="border border-blue-500 p-2 text-center text-secondary hover:border-blue-300">
+              TypeScript
+            </p>
+            <p class="border border-orange-500 p-2 text-center text-secondary hover:border-orange-300">
+              Rust
+            </p>
+            <p class="border border-purple-500 p-2 text-center text-secondary hover:border-purple-300">
+              C#
+            </p>
+            <p class="border border-blue-500 p-2 text-center text-secondary hover:border-blue-300">
+              C/C++
+            </p>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-2 gap-4">
+          <div class="grid gap-2">
+            <h2 class="bg-primary px-2 py-1 text-center font-semibold text-background text-lg">Back-End</h2>
+            <div class="grid grid-cols-4 gap-2">
+              <p class="border border-zinc-400 p-2 text-center text-secondary hover:border-zinc-200">
+                Express
+              </p>
+              <p class="border border-zinc-600 p-2 text-center text-secondary hover:border-zinc-400">
+                Fastify
+              </p>
+              <p class="border border-green-500 p-2 text-center text-secondary hover:border-green-300">
+                Node.js
+              </p>
+              <p class="border border-purple-500 p-2 text-center text-secondary hover:border-purple-300">
+                .NET
+              </p>
+            </div>
+          </div>
+          <div class="grid gap-2">
+            <h2 class="bg-primary px-2 py-1 text-center font-semibold text-background text-lg">Front-End</h2>
+            <div class="grid grid-cols-3 gap-2">
+              <p class="border border-blue-500 p-2 text-center text-secondary hover:border-blue-300">
+                React
+              </p>
+              <p class="border border-orange-500 p-2 text-center text-secondary hover:border-orange-300">
+                Astro
+              </p>
+              <p class="border border-zinc-600 p-2 text-center text-secondary hover:border-zinc-400">
+                Next.js
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="grid gap-2">
+          <h2 class="bg-primary px-2 py-1 text-center font-semibold text-background text-lg">Databases</h2>
+          <div class="grid grid-cols-3 gap-2">
+            <p class="border border-blue-500 p-2 text-center text-secondary hover:border-blue-300">
+              PostgreSQL
+            </p>
+            <p class="border border-green-500 p-2 text-center text-secondary hover:border-green-300">
+              MongoDB
+            </p>
+            <p class="border border-red-500 p-2 text-center text-secondary hover:border-red-300">
+              Redis
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-2">
+          <h2 class="bg-primary px-2 py-1 text-center font-semibold text-background text-lg">ORMs</h2>
+          <div class="grid grid-cols-3 gap-2">
+            <p class="border border-lime-500 p-2 text-center text-secondary hover:border-lime-300">
+              DrizzleORM
+            </p>
+            <p class="border border-blue-500 p-2 text-center text-secondary hover:border-blue-300">
+              Sequelize
+            </p>
+            <p class="border border-purple-500 p-2 text-center text-secondary hover:border-purple-300">
+              Entity Framework
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 
   <style>
     @import "tailwindcss";
