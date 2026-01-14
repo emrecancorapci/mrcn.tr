@@ -6,18 +6,3 @@
     --color-secondary:#dad887;
     --color-tertiary:#f0f8a4
 }
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: var(--color-background);
-}
-
-html {
-  height: 100%;
-  width: 100%;
-}
