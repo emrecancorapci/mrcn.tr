@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  badgeCount: number;
+}
+
+const { title, badgeCount } = Astro.props;
+---
+
+<div class="grid gap-2">
+  <h2
+    class="bg-primary px-2 py-1 text-center font-semibold text-background text-lg"
+  >
+    {title}
+  </h2>
+  <div class=`grid grid-cols-${badgeCount} gap-2`>
+    <slot />
+  </div>
+</div>

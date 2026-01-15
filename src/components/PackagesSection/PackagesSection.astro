@@ -1,0 +1,24 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<h2
+  class="bg-primary px-2 py-2 text-center font-semibold text-3xl text-background"
+>
+  Packages
+</h2>
+
+<div class="grid gap-4">
+  <div class="grid grid-cols-2 gap-2">
+    <ProjectCard
+      title="krustie"
+      href="https://crates.io/crates/krustie"
+      description="Easy to use back-end framework for Rust"
+    />
+    <ProjectCard
+      title="radyx"
+      href="https://crates.io/crates/radyx"
+      description="Radix Tree implementation in Rust."
+    />
+  </div>
+</div>

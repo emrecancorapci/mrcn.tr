@@ -1,0 +1,102 @@
+---
+import TechBadge from "./TechBadge.astro";
+import TechSection from "./TechSection.astro";
+---
+
+<div class="grid border border-primary gap-2 pb-2">
+  <h2
+    class="bg-primary px-2 py-2 text-center font-semibold text-3xl text-background"
+  >
+    Technologies
+  </h2>
+
+  <div class="grid gap-4 px-2">
+    <TechSection title="Languages" badgeCount={4}>
+      <TechBadge class="border-blue-600 hover:border-blue-400">
+        TypeScript
+      </TechBadge>
+      <TechBadge class="border-orange-500 hover:border-orange-300">
+        Rust
+      </TechBadge>
+      <TechBadge class="border-purple-500 hover:border-purple-300">
+        C#
+      </TechBadge>
+      <TechBadge class="border-blue-500 hover:border-blue-300"> C++ </TechBadge>
+    </TechSection>
+    <div class="grid gap-4 grid-cols-1 lg:gap-2 lg:grid-cols-2">
+      <TechSection title="Back-End" badgeCount={4}>
+        <TechBadge class="border-zinc-400 hover:border-zinc-200">
+          Express
+        </TechBadge>
+        <TechBadge class="border-zinc-600 hover:border-zinc-400">
+          Fastify
+        </TechBadge>
+        <TechBadge class="border-green-500 hover:border-green-300">
+          Node.js
+        </TechBadge>
+        <TechBadge class="border-purple-500 hover:border-purple-300">
+          .NET
+        </TechBadge>
+      </TechSection>
+      <TechSection title="Languages" badgeCount={3}>
+        <TechBadge class="border-blue-500 hover:border-blue-300">
+          React
+        </TechBadge>
+        <TechBadge class="border-orange-500 hover:border-orange-300">
+          Astro
+        </TechBadge>
+        <TechBadge class="border-zinc-600 hover:border-zinc-400">
+          Next.js
+        </TechBadge>
+      </TechSection>
+    </div>
+    <TechSection title="Database" badgeCount={3}>
+      <TechBadge class="border-blue-500 hover:border-blue-300">
+        PostgreSQL
+      </TechBadge>
+      <TechBadge class="border-green-500 hover:border-green-300">
+        MongoDB
+      </TechBadge>
+      <TechBadge class="border-red-500 hover:border-red-300"> Redis </TechBadge>
+    </TechSection>
+    <TechSection title="ORM" badgeCount={3}>
+      <TechBadge class="border-lime-500 hover:border-lime-300">
+        DrizzleOrm
+      </TechBadge>
+      <TechBadge class="border-blue-500 hover:border-blue-300">
+        Sequelize
+      </TechBadge>
+      <TechBadge class="border-purple-500 hover:border-purple-300">
+        Entity Framework
+      </TechBadge>
+    </TechSection>
+    <TechSection title="CI/CD" badgeCount={3}>
+      <TechBadge class="border-green-600 hover:border-green-400">
+        Nginx
+      </TechBadge>
+      <TechBadge class="border-purple-600 hover:border-purple-400">
+        PM2
+      </TechBadge>
+      <TechBadge class="border-blue-500 hover:border-blue-300">
+        Docker
+      </TechBadge>
+    </TechSection>
+    <TechSection title="ORM" badgeCount={5}>
+      <TechBadge class="border-blue-600 hover:border-blue-400">
+        Arch Linux
+      </TechBadge>
+      <TechBadge class="border-blue-400 hover:border-blue-200">
+        Fedora
+      </TechBadge>
+      <TechBadge class="border-orange-500 hover:border-orange-300">
+        Ubuntu
+      </TechBadge>
+      <TechBadge class="border-zinc-500 hover:border-zinc-300">
+        MacOS
+      </TechBadge>
+      <TechBadge class="border-blue-500 hover:border-blue-300">
+        Windows
+      </TechBadge>
+    </TechSection>
+  </div>
+</div>

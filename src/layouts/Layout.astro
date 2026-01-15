@@ -1,0 +1,21 @@
+---
+import PostHog from "@/components/PostHog.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Emre Can Çorapçı Portfolio Site</title>
+  </head>
+  <body
+    class="flex min-h-screen min-w-screen flex-col items-center justify-center bg-background px-2 py-8"
+  >
+    <slot />
+    <PostHog />
+  </body>
+</html>
