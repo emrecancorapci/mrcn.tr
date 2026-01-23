@@ -10,8 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "astro": "^6.0.0-beta.3",
+    "class-variance-authority": "^0.7.1",
+    "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^6.0.0-beta.1",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }
