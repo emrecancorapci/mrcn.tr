@@ -1,9 +1,10 @@
+---
+import ContactBadge from "./ContactBadge.astro";
+---
+
 <div class="flex justify-center">
   <div class="grid w-fit grid-cols-4 gap-2">
-    <a
-      href="https://linkedin.com/in/emrecancorapci"
-      class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:border-secondary hover:text-secondary md:flex-row"
-    >
+    <ContactBadge href="https://linkedin.com/in/emrecancorapci">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -23,11 +24,8 @@
         <circle cx="4" cy="4" r="2"></circle>
       </svg>
       LinkedIn
-    </a>
-    <a
-      href="https://github.com/emrecancorapci"
-      class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:border-secondary hover:text-secondary md:flex-row"
-    >
+    </ContactBadge>
+    <ContactBadge href="https://github.com/emrecancorapci">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -46,11 +44,8 @@
         <path d="M9 18c-4.51 2-5-2-7-2"></path>
       </svg>
       Github
-    </a>
-    <a
-      href="mailto:emrecancorapci@gmail.com"
-      class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:cursor-pointer hover:border-secondary hover:text-secondary md:flex-row"
-    >
+    </ContactBadge>
+    <ContactBadge href="mailto:emrecancorapci@gmail.com">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -67,11 +62,8 @@
         <rect x="2" y="4" width="20" height="16" rx="2"></rect>
       </svg>
       E-Mail
-    </a>
-    <a
-      href="/docs/emre_can_corapci_cv.pdf"
-      class="flex flex-col items-center justify-center gap-1 border border-primary p-2 font-light text-primary transition-all duration-100 hover:cursor-pointer hover:border-secondary hover:text-secondary md:flex-row"
-    >
+    </ContactBadge>
+    <ContactBadge href="/docs/emre_can_corapci_cv.pdf">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -92,6 +84,6 @@
         <circle cx="12" cy="15" r="3"></circle>
       </svg>
       CV
-    </a>
+    </ContactBadge>
   </div>
 </div>
