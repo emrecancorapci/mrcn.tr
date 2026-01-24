@@ -1,5 +1,5 @@
 ---
-import ProjectCard from "./ProjectCard.astro";
+import PackageCard from "./package-card.astro";
 
 interface Props {
   title: string;
@@ -17,12 +17,12 @@ const { title } = Astro.props;
 
   <div class="grid gap-4">
     <div class="grid grid-cols-2 gap-2">
-      <ProjectCard
+      <PackageCard
         title="krustie"
         href="https://crates.io/crates/krustie"
         description="Easy to use back-end framework for Rust"
       />
-      <ProjectCard
+      <PackageCard
         title="radyx"
         href="https://crates.io/crates/radyx"
         description="Radix Tree implementation in Rust."
