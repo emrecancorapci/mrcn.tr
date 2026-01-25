@@ -1,8 +1,95 @@
 @import "tailwindcss";
 
-@theme {
-  --color-background: #16454b;
-  --color-primary: #75b06f;
-  --color-secondary: #f0f8a4;
+@custom-variant dark (&:is(.dark *));
+
+:root  {
+  --color-custom-background: #16454b;
+  --color-custom-foreground: #f0f8a4;
+  --color-custom-primary: #75b06f;
+  --color-custom-primary-foreground: #0b2326;
+  --color-custom-secondary: #f0f8a4;
+  --color-custom-secondary-foreground: #16454b;
+  --color-custom-card: #1c565e;
+  --color-custom-card-foreground: #ffffff;
   --color-tertiary: #cac877;
+
+  --background: var(--color-custom-background);
+  --foreground: var(--color-custom-foreground);
+  --card: var(--color-custom-card);
+  --card-foreground: var(--color-custom-foreground);
+  --popover: var(--color-custom-card);
+  --popover-foreground: var(--color-custom-foreground);
+  --primary: var(--color-custom-primary);
+  --primary-foreground: var(--color-custom-primary-foreground);
+  --secondary: var(--color-custom-secondary);
+  --secondary-foreground: var(--color-custom-foreground);
+  --muted: var(--color-custom-secondary);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: var(--color-custom-primary);
+  --accent-foreground: var(--color-custom-primary-foreground);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.552 0.016 285.938);
+  --chart-1: oklch(0.85 0.13 165);
+  --chart-2: var(--color-chart-2);
+  --chart-3: var(--color-custom-primary);
+  --chart-4: oklch(0.6 0.13 163);
+  --chart-5: oklch(0.51 0.1 166);
+  --sidebar: var(--color-custom-card);
+  --sidebar-foreground: var(--color-custom-foreground);
+  --sidebar-primary: var(--color-chart-2);
+  --sidebar-primary-foreground: var(--color-custom-primary-foreground);
+  --sidebar-accent: var(--color-custom-primary);
+  --sidebar-accent-foreground: var(--color-custom-primary-foreground);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.552 0.016 285.938);
+}
+
+@theme inline {
+  --font-sans: "Noto Sans Variable", sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 antialiased;
+  }
 }
