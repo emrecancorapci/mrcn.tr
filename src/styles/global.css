@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+html {
+  scrollbar-gutter: stable;
+}
 
 :root  {
   --color-custom-background: #16454b;
