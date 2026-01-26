@@ -1,0 +1,64 @@
+---
+import {
+  FileUserIcon,
+  GithubIcon,
+  LinkedinIcon,
+  MailIcon,
+} from "@lucide/astro";
+---
+
+<a class="group relative block overflow-hidden font-black" href="/">
+  <span
+    class="block transition-all duration-200 group-hover:-translate-y-full group-hover:opacity-0"
+  >
+    EMRE CAN
+  </span>
+
+  <span
+    class="absolute inset-0 block translate-y-full transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+  >
+    HOME PAGE
+  </span>
+</a>
+<div class="flex gap-4 justify-center">
+  <a href="/projects">Projects</a>
+  <a href="/techs">Technologies</a>
+  <a>Personal</a>
+  <a>Blog</a>
+</div>
+<div
+  class="flex gap-2 justify-end items-center"
+>
+  <a
+    href="https://linkedin.com/in/emrecancorapci"
+    class="text-center hover:text-secondary/80 size-6"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <LinkedinIcon width={24} height={24} stroke-width={1.25} />
+  </a>
+  <a
+    href="https://github.com/emrecancorapci"
+    class="text-center hover:text-secondary/80 size-6"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <GithubIcon width={24} height={24} stroke-width={1.25} />
+  </a>
+  <a
+    href="mailto:emrecancorapci@gmail.com"
+    class="text-center hover:text-secondary/80 size-6"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <MailIcon width={24} height={24} stroke-width={1.25} />
+  </a>
+  <a
+    href="/docs/emre_can_corapci_cv.pdf"
+    class="text-center hover:text-secondary/80 size-6"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FileUserIcon width={24} height={24} stroke-width={1.25} />
+  </a>
+</div>
