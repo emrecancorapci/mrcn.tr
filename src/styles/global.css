@@ -12,6 +12,7 @@
   --color-custom-card: #1c565e;
   --color-custom-card-foreground: #ffffff;
   --color-tertiary: #cac877;
+  --radius: 0.625rem;
 
   --background: var(--color-custom-background);
   --foreground: var(--color-custom-foreground);
