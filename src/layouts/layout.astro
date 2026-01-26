@@ -8,6 +8,13 @@ import {
   MailIcon,
 } from "@lucide/astro";
 import PostHog from "@/components/post-hog.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -16,8 +23,13 @@ import PostHog from "@/components/post-hog.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
-    <title>Emre Can Çorapçı</title>
+    <title>{title ?? "Emre Can Çorapçı"}</title>
+    <meta
+      name="description"
+      content={description ?? "Emre Can Çorapçı's personal website"}
+    />
     <PostHog />
   </head>
   <body
@@ -37,18 +49,38 @@ import PostHog from "@/components/post-hog.astro";
         <div
           class="grid grid-cols-4 ps-18 gap-4 justify-end items-center col-start-11 col-end-13"
         >
-          <div class="text-center size-6">
+          <a
+            href="https://linkedin.com/in/emrecancorapci"
+            class="text-center hover:text-secondary/80 size-6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedinIcon width={24} height={24} stroke-width={1.25} />
-          </div>
-          <div class="text-center size-6">
+          </a>
+          <a
+            href="https://github.com/emrecancorapci"
+            class="text-center hover:text-secondary/80 size-6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <GithubIcon width={24} height={24} stroke-width={1.25} />
-          </div>
-          <div class="text-center size-6">
+          </a>
+          <a
+            href="mailto:emrecancorapci@gmail.com"
+            class="text-center hover:text-secondary/80 size-6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <MailIcon width={24} height={24} stroke-width={1.25} />
-          </div>
-          <div class="text-center size-6">
+          </a>
+          <a
+            href="/docs/emre_can_corapci_cv.pdf"
+            class="text-center hover:text-secondary/80 size-6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FileUserIcon width={24} height={24} stroke-width={1.25} />
-          </div>
+          </a>
         </div>
       </div>
       <div class="row-start-3 px-8 row-end-11">
