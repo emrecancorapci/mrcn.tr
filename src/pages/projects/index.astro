@@ -1,0 +1,32 @@
+---
+import Layout from "@/layouts/layout.astro";
+
+import PackageCard from "./_components/package-card.astro";
+---
+
+<Layout>
+  <div class="grid size-full gap-4">
+    <div class="grid gap-2">
+      <h2
+        class="bg-primary px-2 py-2 text-center font-semibold text-3xl text-background"
+      >
+        Published Packages
+      </h2>
+
+      <div class="grid gap-4">
+        <div class="grid grid-cols-2 gap-2">
+          <PackageCard
+            title="krustie"
+            href="/projects/krustie"
+            description="Easy to use back-end framework for Rust"
+          />
+          <PackageCard
+            title="radyx"
+            href="https://crates.io/crates/radyx"
+            description="Radix Tree implementation in Rust."
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

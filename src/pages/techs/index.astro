@@ -1,19 +1,17 @@
 ---
-import TechBadge from "./tech-badge.astro";
-import TechBlock from "./tech-block.astro";
+import Layout from "@/layouts/layout.astro";
 
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+import TechBadge from "./_components/tech-badge.astro";
+import TechBlock from "./_components/tech-block.astro";
 ---
 
-<div class="grid border border-primary gap-2 pb-2">
+<Layout>
+  <div class="grid gap-4">
+    <div class="grid border border-primary gap-2 pb-2">
   <h2
     class="bg-primary px-2 py-2 text-center font-semibold text-3xl text-background"
   >
-    {title}
+    Technologies
   </h2>
 
   <div class="grid gap-4 px-2">
@@ -106,3 +104,6 @@ const { title } = Astro.props;
     </TechBlock>
   </div>
 </div>
+
+  </div>
+</Layout>
