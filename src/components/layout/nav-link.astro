@@ -1,0 +1,16 @@
+---
+type Props = {
+  title: string;
+  href: string;
+};
+
+const { href } = Astro.props;
+const { pathname } = Astro.url;
+---
+
+<a
+  class={`font-semibold px-1 ${pathname.startsWith(href) ? "bg-secondary text-background" : "hover:text-secondary/80"}`}
+  href={href}
+>
+  <slot />
+</a>
