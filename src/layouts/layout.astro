@@ -9,6 +9,8 @@ interface Props {
   description?: string;
 }
 
+const isProd = import.meta.env.PROD;
+
 const { title, description } = Astro.props as Props;
 ---
 
@@ -25,19 +27,19 @@ const { title, description } = Astro.props as Props;
       name="description"
       content={description ?? "Emre Can Çorapçı's personal website"}
     />
-    <PostHog />
+    {isProd && <PostHog />}
   </head>
   <body class="bg-background text-foreground min-h-screen">
     <div
       class="grid grid-rows-[auto_1fr_auto] min-h-screen w-full max-w-7xl mx-auto"
     >
       <header
-        class="p-6 flex flex-col md:flex-row gap-4 justify-between items-center"
+        class="p-6 flex border-b flex-col md:flex-row gap-4 justify-between items-center"
       >
         <Header />
       </header>
 
-      <main class="px-8">
+      <main class="px-8 py-4">
         <slot />
       </main>
 
