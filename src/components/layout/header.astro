@@ -5,9 +5,11 @@ import {
   LinkedinIcon,
   MailIcon,
 } from "@lucide/astro";
+
+const { pathname } = Astro.url;
 ---
 
-<a class="group relative block overflow-hidden font-black text-3xl sm:text-xl" href="/">
+<a class="group relative block overflow-hidden font-black text-3xl md:text-xl" href="/">
   <span
     class="block transition-all duration-200 group-hover:-translate-y-full group-hover:opacity-0"
   >
@@ -20,12 +22,12 @@ import {
     HOME PAGE
   </span>
 </a>
-<div class="flex gap-4 justify-center">
-  <a href="/projects">Projects</a>
-  <a href="/techs">Technologies</a>
-  <a>Personal</a>
-  <a>Blog</a>
-</div>
+<nav class="flex gap-4 justify-center">
+  <a class={`font-semibold px-1 ${pathname.startsWith("/projects") ? "bg-secondary text-background" : ""}`} href="/projects">Projects</a>
+  <a class={`font-semibold px-1 ${pathname.startsWith("/techs") ? "bg-secondary text-background" : ""}`} href="/techs">Technologies</a>
+  <a class={`font-semibold px-1 ${pathname.startsWith("/personal") ? "bg-secondary text-background" : ""}`} href="/personal">Personal</a>
+  <a class={`font-semibold px-1 ${pathname.startsWith("/blog") ? "bg-secondary text-background" : ""}`} href="/blog">Blog</a>
+</nav>
 <div
   class="flex gap-2 justify-end items-center"
 >
