@@ -18,37 +18,53 @@ type Props = MarkdownLayoutProps<{
 }>;
 
 const { frontmatter: project } = Astro.props;
+
+const [linksClass, linkButtonClass] = (() => {
+  switch (project.links.length) {
+    case 1:
+      return ["grid-cols-1", "rounded-xl"];
+    case 2:
+      return [
+        "grid-cols-2",
+        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
+      ];
+    case 3:
+      return [
+        "grid-cols-3",
+        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
+      ];
+    case 4:
+      return [
+        "grid-cols-4",
+        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
+      ];
+    default:
+      return ["grid-cols-1", "rounded-xl"];
+  }
+})();
 ---
 
 <Layout>
   <div class="flex font-bold gap-1 px-2">
-    <a
-      href="/"
-      class="hover:text-secondary/80 underline"
+    <a href="/" class="hover:text-secondary/80 underline">home</a>
     >
-      home
-    </a>
-    >
-    <a
-      href="/projects"
-      class="hover:text-secondary/80 underline"
-    >
-      projects
-    </a>
+    <a href="/projects" class="hover:text-secondary/80 underline"> projects </a>
     {` > ${project.name}`}
   </div>
-  <div class="grid gap-8 lg:px-8 pt-4">
+  <div class="grid gap-8 pt-4">
     <div
       class="grid bg-linear-65 bg-primary px-4 gap-4 rounded-xl text-background text-center py-30 from-primary from-20% to-secondary to-80% hover:opacity-90 transition-all duration-1000 ease-out"
     >
       <h2 class="text-7xl font-black">{project.name}</h2>
       <p class="font-semibold">{project.description}</p>
     </div>
-    <div class="grid bg-card rounded-xl grid-cols-1 md:grid-cols-3">
+    <div
+      class={`grid bg-card rounded-xl grid-cols-1 md:${linksClass}`}
+    >
       {
         project.links.map((link) => (
           <a
-            class={`text-center text-xl border-y md:border-x md:border-y-0 p-2 py-2 md:py-4 first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl font-bold transition-all duration-300 ease-out ${link.primary ? "bg-primary text-background hover:bg-secondary" : "hover:bg-primary/20"}`}
+            class={`text-center text-xl border-y md:border-x md:border-y-0 p-2 py-2 md:py-4  font-bold transition-all duration-300 ease-out ${linkButtonClass} ${link.primary ? "bg-primary text-background hover:bg-secondary" : "hover:bg-primary/20"}`}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
@@ -59,7 +75,9 @@ const { frontmatter: project } = Astro.props;
       }
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
-      <div class="grid bg-card col-span-1 lg:col-span-3 py-2 px-4 rounded-xl">
+      <div
+        class="grid bg-card col-span-1 lg:col-span-3 py-2 px-4 rounded-xl"
+      >
         <div class="flex flex-col">
           <h3 class="text-3xl font-bold border-b border-border p-4">Summary</h3>
           <div class="grid gap-4 p-4 leading-loose">
@@ -70,7 +88,7 @@ const { frontmatter: project } = Astro.props;
       <div class="flex flex-col w-full gap-4">
         {
           project.blocks.map((block) => (
-            <div class="grid bg-card rounded-xl p-8 md:p-6 lg:p-4 lg:pt-2 gap-2">
+            <div class="grid bg-card rounded-xl pt-2 p-4 lg:p-4 gap-2">
               <h3 class="text-xl font-bold border-b py-2">{block.title}</h3>
               <div class="flex flex-wrap gap-2">
                 {block.type === "tags" &&
