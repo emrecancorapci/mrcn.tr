@@ -22,24 +22,24 @@ const { frontmatter: project } = Astro.props;
 const [linksClass, linkButtonClass] = (() => {
   switch (project.links.length) {
     case 1:
-      return ["grid-cols-1", "rounded-xl"];
+      return ["md:grid-cols-1", "rounded-xl"];
     case 2:
       return [
-        "grid-cols-2",
+        "md:grid-cols-2",
         "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
       ];
     case 3:
       return [
-        "grid-cols-3",
+        "md:grid-cols-3",
         "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
       ];
     case 4:
       return [
-        "grid-cols-4",
+        "md:grid-cols-4",
         "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
       ];
     default:
-      return ["grid-cols-1", "rounded-xl"];
+      return ["md:grid-cols-1", "rounded-xl"];
   }
 })();
 ---
@@ -59,7 +59,7 @@ const [linksClass, linkButtonClass] = (() => {
       <p class="font-semibold">{project.description}</p>
     </div>
     <div
-      class={`grid bg-card rounded-xl grid-cols-1 md:${linksClass}`}
+      class={`grid bg-card rounded-xl grid-cols-1 ${linksClass}`}
     >
       {
         project.links.map((link) => (
