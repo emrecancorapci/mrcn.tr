@@ -1,32 +1,82 @@
 ---
+import { krustie, mrcnTr } from "@/data/projects";
 import Layout from "@/layouts/layout.astro";
 
 import PackageCard from "./_components/package-card.astro";
+
+const projects = [
+  {
+    title: "Published Packages",
+    items: [
+      krustie,
+      {
+        title: "radyx",
+        slug: "radyx",
+        description: "Radix Tree implementation in Rust.",
+        tags: ["rust", "data-structures"],
+      },
+    ],
+  },
+  {
+    title: "Open Source Projects",
+    items: [
+      mrcnTr,
+      {
+        title: "Redis Clone",
+        slug: "redis-clone",
+        description: "A Redis clone built with Typescript",
+        tags: ["typescript", "data-structures", "tcp"],
+      },
+    ],
+  },
+  {
+    title: "Freelance Projects",
+    items: [
+      {
+        title: "ETL Full-Stack Web Application",
+        slug: "etl-application",
+        description:
+          "An ETL application built with Typescript, Express, and React",
+        tags: ["typescript", "express", "react"],
+      },
+      {
+        title: "Sap2000 Report Automation",
+        slug: "sap2000-report-automation",
+        description:
+          "A .NET 10 WPF application that automates the generation of SAP 2000 reports.",
+        tags: [".net", "desktop", "wpf"],
+      },
+      {
+        title: "Koçbizz",
+        slug: "kocbizz",
+        description: "A mentor-mentee matching platform.",
+        tags: ["typescript", "fastify", "graphql", "react"],
+      },
+    ],
+  },
+];
 ---
 
 <Layout>
-  <div class="grid size-full gap-4">
-    <div class="grid gap-2">
-      <h2
-        class="bg-primary px-2 py-2 text-center font-semibold text-3xl text-background"
-      >
-        Published Packages
-      </h2>
+  <div class="grid w-full gap-8">
+    {
+      projects.map((section) => (
+        <div class="grid gap-2">
+          <h2 class="px-2 py-2 text-center font-semibold text-3xl text-secondary">
+            {section.title}
+          </h2>
 
-      <div class="grid gap-4">
-        <div class="grid grid-cols-2 gap-2">
-          <PackageCard
-            title="krustie"
-            href="/projects/krustie"
-            description="Easy to use back-end framework for Rust"
-          />
-          <PackageCard
-            title="radyx"
-            href="https://crates.io/crates/radyx"
-            description="Radix Tree implementation in Rust."
-          />
+          <div class="grid grid-cols-2 gap-8">
+            {section.items.map((project) => (
+              <PackageCard
+                title={project.title}
+                href={`/projects/${project.slug}`}
+                description={project.description}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      ))
+    }
   </div>
 </Layout>
