@@ -6,43 +6,54 @@ import {
   MailIcon,
 } from "@lucide/astro";
 
+interface Props {
+  hasBorder?: boolean;
+  forceCol?: boolean;
+}
+
 import NavLink from "./nav-link.astro";
 import ExternNavLink from "./extern-nav-link.astro";
+
+const { hasBorder = true, forceCol = false } = Astro.props as Props;
 ---
 
-<a
-  class="group relative block overflow-hidden font-black text-3xl md:text-xl"
-  href="/"
+<header
+  class=`p-6 flex flex-col gap-4 justify-between items-center ${forceCol ? "" : "md:flex-row "} ${hasBorder ? "border-b border-border" : ""}`
 >
-  <span
-    class="block transition-all duration-200 group-hover:-translate-y-full group-hover:opacity-0"
+  <a
+    class=`group relative block overflow-hidden font-black ${forceCol ? "text-center text-4xl" : "text-4xl md:text-3xl"}`
+    href="/"
   >
-    EMRE CAN ÇORAPÇI
-  </span>
+    <span
+      class="block transition-all duration-200 group-hover:-translate-y-full group-hover:opacity-0"
+    >
+      EMRE CAN ÇORAPÇI
+    </span>
 
-  <span
-    class="absolute inset-0 block translate-y-full transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
-  >
-    HOME PAGE
-  </span>
-</a>
-<nav class="flex gap-4 justify-center">
-  <NavLink href="/projects">Projects</NavLink>
-  <NavLink href="/techs">Technologies</NavLink>
-  <NavLink href="/personal">Personal</NavLink>
-  <NavLink href="/blog">Blog</NavLink>
-</nav>
-<div class="flex gap-2 justify-end items-center">
-  <ExternNavLink href="https://linkedin.com/in/emrecancorapci">
-    <LinkedinIcon width={24} height={24} stroke-width={1.25} />
-  </ExternNavLink>
-  <ExternNavLink href="https://github.com/emrecancorapci">
-    <GithubIcon width={24} height={24} stroke-width={1.25} />
-  </ExternNavLink>
-  <ExternNavLink href="mailto:emrecancorapci@gmail.com">
-    <MailIcon width={24} height={24} stroke-width={1.25} />
-  </ExternNavLink>
-  <ExternNavLink href="/docs/emre_can_corapci_cv.pdf">
-    <FileUserIcon width={24} height={24} stroke-width={1.25} />
-  </ExternNavLink>
-</div>
+    <span
+      class="absolute inset-0 block translate-y-full transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+    >
+      HOME PAGE
+    </span>
+  </a>
+  <nav class="flex gap-4 justify-center">
+    <NavLink href="/projects">Projects</NavLink>
+    <NavLink href="/techs">Technologies</NavLink>
+    <NavLink href="/personal">Personal</NavLink>
+    <NavLink href="/blog">Blog</NavLink>
+  </nav>
+  <div class="flex gap-2 justify-end items-center">
+    <ExternNavLink href="https://linkedin.com/in/emrecancorapci">
+      <LinkedinIcon width={24} height={24} stroke-width={1.25} />
+    </ExternNavLink>
+    <ExternNavLink href="https://github.com/emrecancorapci">
+      <GithubIcon width={24} height={24} stroke-width={1.25} />
+    </ExternNavLink>
+    <ExternNavLink href="mailto:emrecancorapci@gmail.com">
+      <MailIcon width={24} height={24} stroke-width={1.25} />
+    </ExternNavLink>
+    <ExternNavLink href="/docs/emre_can_corapci_cv.pdf">
+      <FileUserIcon width={24} height={24} stroke-width={1.25} />
+    </ExternNavLink>
+  </div>
+</header>

@@ -1,50 +1,25 @@
 ---
-import "@/styles/global.css";
-import '@fontsource-variable/outfit';
-
 import Header from "@/components/layout/header.astro";
-import PostHog from "@/components/post-hog.astro";
+import BaseLayout from "./base.astro";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const isProd = import.meta.env.PROD;
-
 const { title, description } = Astro.props as Props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title ?? "Emre Can Çorapçı"}</title>
-    <meta
-      name="description"
-      content={description ?? "Emre Can Çorapçı's personal website"}
-    />
-    {isProd && <PostHog />}
-  </head>
-  <body class="bg-background text-foreground min-h-screen font-sans">
-    <div
-      class="grid grid-rows-[auto_1fr_auto] min-h-screen w-full max-w-7xl mx-auto"
-    >
-      <header
-        class="p-6 flex border-b flex-col md:flex-row gap-4 justify-between items-center"
-      >
-        <Header />
-      </header>
+<BaseLayout title={title} description={description}>
+  <div
+    class="grid grid-rows-[auto_1fr_auto] min-h-screen w-full max-w-7xl mx-auto"
+  >
+    <Header />
 
-      <main class="px-4 py-4">
-        <slot />
-      </main>
+    <main class="px-4 py-4">
+      <slot />
+    </main>
 
-      <footer class="p-6">Footer</footer>
-    </div>
-  </body>
-</html>
+    <footer class="p-6">Footer</footer>
+  </div>
+</BaseLayout>
