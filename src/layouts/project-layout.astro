@@ -1,20 +1,18 @@
 ---
-import type { MarkdownLayoutProps } from "astro";
 import { projects } from "@/data/projects";
 import Layout from "@/layouts/layout.astro";
 
-const { frontmatter: project } = Astro.props;
 const { pathname } = Astro.url;
 const slug = pathname.split("/").at(-1);
 
 if (!slug) {
-  throw new Error(`Project ${slug} not found`);
+  return "";
 }
 
 const data = projects.get(slug);
 
 if (!data) {
-  throw new Error(`Project ${project.slug} not found`);
+  return "";
 }
 
 const [linksClass, linkButtonClass] = (() => {
