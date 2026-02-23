@@ -10,29 +10,30 @@ const { title, href, description, tags } = Astro.props;
 ---
 
 <div
-  class="group grid grid-rows-3 rounded-xl py-8 bg-primary hover:bg-secondary transition-all duration-300 ease-out cursor-pointer"
+  class="group grid grid-rows-1 gap-2 md:gap-0 md:grid-rows-3 rounded-xl pt-8 md:py-8 bg-primary hover:bg-secondary transition-all duration-300 ease-out cursor-pointer"
   onclick={`location.href='${href}'`}
 >
-  <h3 class="text-center font-bold text-2xl text-background transition-all">
+  <h3 class="text-center font-black text-2xl px-6 text-background transition-all">
     {title}
   </h3>
   <p
-    class="row-span-2 flex items-center justify-center px-4 text-center text-background transition-all"
+    class="row-span-2 flex items-center md:pb-0 justify-center px-4 text-center text-background transition-all"
   >
     {description}
   </p>
   <div
-    class="flex flex-wrap px-4 gap-2 text-center items-center justify-center"
+    class="flex flex-wrap px-4 py-2 md:py-0 gap-2 text-center items-center justify-center"
   >
     {
       tags.map((tag) => (
         <a
           href={`/tags/${tag}`}
-          class="bg-background hover:bg-secondary hover:text-background py-1 text-sm text-secondary px-2 rounded transition-all duration-300 ease-out"
+          class="bg-background font-light hover:bg-secondary hover:text-background py-1 text-sm text-secondary px-2 rounded transition-all duration-300 ease-out"
         >
           {tag}
         </a>
       ))
     }
   </div>
+  <a class="w-full visible md:hidden p-4 rounded-b-xl font-light border-t border-background/60 text-background bg-secondary/20 text-center" href={href}>View</a>
 </div>
