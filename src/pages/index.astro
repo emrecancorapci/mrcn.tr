@@ -1,39 +1,15 @@
 ---
+import Header from "@/components/layout/header.astro";
 import Typewriter from "@/components/ui/typewriter.astro";
-import Layout from "@/layouts/layout.astro";
-import HomeCard from "./_components/home-card.astro";
+import Base from "@/layouts/base.astro";
 ---
 
-<Layout>
-  <div class="flex flex-col size-full justify-center items-center">
-    <div class="grid order-2 md:order-1 grid-cols-1 md:grid-cols-2 gap-8 w-full">
-      <HomeCard title="Project I'm Proud Of">
-        <h3 class="text-4xl font-extralight">krustie</h3>
-        <p class="">An easy to use back-end framework for Rust.</p>
-      </HomeCard>
-      <HomeCard title="Books I Read Again and Again">
-        <p class="font-extralight">Foundation Series - Isaac Asimov</p>
-        <p class="font-extralight">
-          Thus Spoke Zarathustra - Friedrich Nietzsche
-        </p>
-        <p class="font-extralight">Cyrano de Bergerac - Edmond Rostand</p>
-      </HomeCard>
-      <HomeCard title="Music I Listen on Repeat">
-        <p class="font-extralight">Comfortably Numb - Pink Floyd</p>
-        <p class="font-extralight">Like A Stone - Audioslave</p>
-        <p class="font-extralight">Cobalt Sun Necropolis - Dvne</p>
-        <p class="font-extralight">Ghost of Perdition - Opeth</p>
-      </HomeCard>
-      <HomeCard title="Books I Recommended">
-        <p class="font-extralight">The Spinoza Miracle - Frédéric Lenoir</p>
-        <p class="font-extralight">Stolen Focus - Johann Hari</p>
-        <p class="font-extralight">Too Late to Awaken - Slavoj Žižek</p>
-      </HomeCard>
-    </div>
-    <div class="flex order-1 md:order-2 flex-col pb-8 md:pb-0 justify-end size-full items-end">
+<Base>
+  <main class="flex px-4 flex-col size-full min-h-screen justify-center items-center">
+    <div class="flex flex-col pb-8 max-w-3xl md:pb-0 justify-end size-full items-end">
       <img class="max-w-80" src="/images/me.png" />
       <div
-        class="flex flex-col bg-card w-full min-h-40 px-8 py-6 gap-2 border-2 border-secondary transition-all"
+        class="flex flex-col bg-card w-full min-h-40 px-8 py-6 gap-2 h-54 md:h-40 border-2 border-secondary transition-all"
       >
         <h3 class="text-2xl font-bold">Emre Can:</h3>
         <Typewriter
@@ -48,5 +24,6 @@ import HomeCard from "./_components/home-card.astro";
         />
       </div>
     </div>
-  </div>
-</Layout>
+    <Header forceCol={true} hasBorder={false} />
+  </main>
+</Base>
