@@ -2,7 +2,7 @@
 import { krustie, mrcnTr } from "@/data/projects";
 import Layout from "@/layouts/layout.astro";
 
-import PackageCard from "./_components/package-card.astro";
+import ProjectCard from "./_components/project-card.astro";
 
 const projects = [
   {
@@ -13,7 +13,7 @@ const projects = [
         title: "radyx",
         slug: "radyx",
         description: "Radix Tree implementation in Rust.",
-        tags: ["rust", "data-structures"],
+        mainTags: ["rust", "data-structures"],
       },
     ],
   },
@@ -25,7 +25,7 @@ const projects = [
         title: "Redis Clone",
         slug: "redis-clone",
         description: "A Redis clone built with Typescript",
-        tags: ["typescript", "data-structures", "tcp"],
+        mainTags: ["typescript", "data-structures", "tcp"],
       },
     ],
   },
@@ -37,20 +37,20 @@ const projects = [
         slug: "etl-application",
         description:
           "An ETL application built with Typescript, Express, and React",
-        tags: ["typescript", "express", "react"],
+        mainTags: ["typescript", "express", "react"],
       },
       {
         title: "Sap2000 Report Automation",
         slug: "sap2000-report-automation",
         description:
           "A .NET 10 WPF application that automates the generation of SAP 2000 reports.",
-        tags: [".net", "desktop", "wpf"],
+        mainTags: [".net", "desktop", "wpf"],
       },
       {
         title: "Koçbizz",
         slug: "kocbizz",
         description: "A mentor-mentee matching platform.",
-        tags: ["typescript", "fastify", "graphql", "react"],
+        mainTags: ["typescript", "fastify", "graphql", "react"],
       },
     ],
   },
@@ -68,10 +68,11 @@ const projects = [
 
           <div class="grid grid-cols-2 gap-8">
             {section.items.map((project) => (
-              <PackageCard
+              <ProjectCard
                 title={project.title}
                 href={`/projects/${project.slug}`}
                 description={project.description}
+                tags={project.mainTags}
               />
             ))}
           </div>
