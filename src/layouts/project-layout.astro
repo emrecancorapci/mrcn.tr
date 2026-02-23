@@ -92,6 +92,18 @@ const [linksClass, linkButtonClass] = (() => {
                       {tag}
                     </a>
                   ))}
+                {block.type === "plain" && (
+                  <p class="text-sm">{block.content}</p>
+                )}
+                {block.type === "records" &&
+                  block.content.map((record) => (
+                    <div class="grid gap-2">
+                      <div class="grid grid-cols-2 gap-2">
+                        <p class="text-sm text-secondary">{record[0]}</p>
+                        <p class="text-sm">{record[1]}</p>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           ))
