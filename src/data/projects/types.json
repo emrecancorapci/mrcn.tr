@@ -1,0 +1,14 @@
+{
+  "published": {
+    "title": "Published Packages",
+    "order": 1
+  },
+  "oss": {
+    "title": "Open Source Projects",
+    "order": 2
+  },
+  "freelance": {
+    "title": "Freelance Projects",
+    "order": 3
+  }
+}

@@ -1,76 +1,46 @@
 ---
-import { krustie, mrcnTr } from "@/data/projects";
-import Layout from "@/layouts/layout.astro";
+import { getCollection } from "astro:content";
 
+import Layout from "@/layouts/layout.astro";
 import ProjectCard from "./_components/project-card.astro";
 
-const projects = [
-  {
-    title: "Published Packages",
-    items: [
-      krustie,
-      {
-        title: "radyx",
-        slug: "radyx",
-        description: "Radix Tree implementation in Rust.",
-        mainTags: ["rust", "data-structures"],
-      },
-    ],
-  },
-  {
-    title: "Open Source Projects",
-    items: [
-      mrcnTr,
-      {
-        title: "Redis Clone",
-        slug: "redis-clone",
-        description: "A Redis clone built with Typescript",
-        mainTags: ["typescript", "data-structures", "tcp"],
-      },
-    ],
-  },
-  {
-    title: "Freelance Projects",
-    items: [
-      {
-        title: "ETL Full-Stack Web Application",
-        slug: "etl-application",
-        description:
-          "An ETL application built with Typescript, Express, and React",
-        mainTags: ["typescript", "express", "react"],
-      },
-      {
-        title: "Sap2000 Report Automation",
-        slug: "sap2000-report-automation",
-        description:
-          "A .NET 10 WPF application that automates the generation of SAP 2000 reports.",
-        mainTags: [".net", "desktop", "wpf"],
-      },
-      {
-        title: "Koçbizz",
-        slug: "kocbizz",
-        description: "A mentor-mentee matching platform.",
-        mainTags: ["typescript", "fastify", "graphql", "react"],
-      },
-    ],
-  },
-];
+const projectCollection = await getCollection("project");
+const projectTypeCollection = await getCollection("projectType");
+
+const projectArray = Object.groupBy(
+  projectCollection.map((p) => ({ ...p.data, id: p.id })),
+  (project) => project.projectType,
+);
+const projectTypes = new Map(
+  projectTypeCollection.map(
+    (p) => [p.id, p.data] as const,
+  ),
+);
+const projects = Object.entries(projectArray)
+  .map(
+    ([type, p]) =>
+      [
+        projectTypes.get(type as (typeof projectTypeCollection)[number]["id"])!,
+        p,
+      ] as const,
+  )
+  .sort(([a], [b]) => a.order - b.order);
 ---
 
 <Layout>
   <div class="grid w-full gap-8">
     {
-      projects.map((section) => (
+      projects.map(([type, p]) => (
         <div class="grid gap-2">
           <h2 class="px-2 py-2 text-center font-semibold text-3xl text-secondary">
-            {section.title}
+            {type.title}
           </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {section.items.map((project) => (
+            {p.map((project) => (
               <ProjectCard
                 title={project.title}
-                href={`/projects/${project.slug}`}
+                href={`/projects/${project.id}`}
                 description={project.description}
                 tags={project.mainTags}
               />

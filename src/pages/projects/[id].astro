@@ -1,22 +1,21 @@
 ---
-import { projects } from "@/data/projects";
+import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/layout.astro";
 
-const { pathname } = Astro.url;
-const slug = pathname.split("/").at(-1);
-
-if (!slug) {
-  return "";
+export async function getStaticPaths() {
+  const projects = await getCollection("project");
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
 }
 
-const data = projects.get(slug);
+const { Content } = await render(Astro.props.project);
 
-if (!data) {
-  return "";
-}
+const data = Astro.props.project.data;
 
 const [linksClass, linkButtonClass] = (() => {
-  switch (data.links.length) {
+  switch (data.links?.length) {
     case 1:
       return ["md:grid-cols-1", "rounded-xl"];
     case 2:
@@ -40,7 +39,7 @@ const [linksClass, linkButtonClass] = (() => {
 })();
 ---
 
-<Layout>
+<Layout title={data.title}>
   <div class="flex font-bold gap-1 px-2">
     <a href="/" class="hover:text-secondary/80 underline">home</a>
     >
@@ -56,7 +55,7 @@ const [linksClass, linkButtonClass] = (() => {
     </div>
     <div class={`grid bg-card rounded-xl grid-cols-1 ${linksClass}`}>
       {
-        data.links.map((link) => (
+        data.links?.map((link) => (
           <a
             class={`text-center text-xl border-y md:border-x md:border-y-0 p-2 py-2 md:py-4  font-bold transition-all duration-300 ease-out ${linkButtonClass} ${link.primary ? "bg-primary text-background hover:bg-secondary" : "hover:bg-primary/20"}`}
             href={link.url}
@@ -73,13 +72,13 @@ const [linksClass, linkButtonClass] = (() => {
         <div class="flex flex-col">
           <h3 class="text-3xl font-bold border-b border-border p-4">Summary</h3>
           <div class="grid gap-4 p-4 leading-loose">
-            <slot />
+            <Content />
           </div>
         </div>
       </div>
       <div class="flex flex-col w-full gap-4">
         {
-          data.blocks.map((block) => (
+          data.blocks?.map((block) => (
             <div class="grid bg-card rounded-xl pt-2 p-4 lg:p-4 gap-2">
               <h3 class="text-xl font-bold border-b py-2">{block.title}</h3>
               <div class="flex flex-wrap gap-2">
@@ -112,3 +111,5 @@ const [linksClass, linkButtonClass] = (() => {
     </div>
   </div>
 </Layout>
+
+---
