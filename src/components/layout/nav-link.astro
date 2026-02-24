@@ -8,7 +8,7 @@ const { pathname } = Astro.url;
 ---
 
 <a
-  class={`font-semibold px-1 ${pathname.startsWith(href) ? "bg-secondary text-background" : "hover:text-secondary/80"}`}
+  class={`font-semibold px-1 transition-all duration-200 ease-out ${pathname.startsWith(href) ? "bg-secondary text-secondary-foreground" : "hover:text-tertiary-foreground hover:bg-tertiary"}`}
   href={href}
 >
   <slot />
