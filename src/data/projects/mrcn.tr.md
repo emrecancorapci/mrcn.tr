@@ -17,7 +17,7 @@ blocks:
           ["Status", "Ongoing"],
           ["Latest Version", "2.0.0"],
         ],
-    }
+    },
     {
       title: "Features",
       type: "tags",
