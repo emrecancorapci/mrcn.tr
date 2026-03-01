@@ -4,6 +4,7 @@ import { getCollection, render } from "astro:content";
 import Tag from "@/components/ui/tag.astro";
 import Layout from "@/layouts/layout.astro";
 import RecordItem from "./_components/record-item.astro";
+import ProjectBlock from "./_components/project-block.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("project");
@@ -72,6 +73,15 @@ const [linksClass, linkButtonClass] = (() => {
         </div>
       )
     }
+    {
+      (data.blocks?.filter((b) => b.onTop).length ?? 0) > 0 && (
+        <div class="flex md:hidden w-full flex-col gap-4">
+          {data.blocks?.map((block) => (
+            <ProjectBlock block={block} />
+          ))}
+        </div>
+      )
+    }
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
       <div class="bg-card col-span-1 grid rounded-xl px-4 py-2 lg:col-span-3">
         <div class="flex flex-col">
@@ -81,22 +91,15 @@ const [linksClass, linkButtonClass] = (() => {
           </div>
         </div>
       </div>
-      <div class="flex w-full flex-col gap-4">
-        {
-          data.blocks?.map((block) => (
-            <div class="bg-card grid gap-2 rounded-xl p-4">
-              <h3 class="border-b pb-2 text-xl font-bold">{block.title}</h3>
-              <div class="flex flex-wrap gap-2">
-                {block.type === "tags" &&
-                  block.content.map((tag: string) => <Tag href={`/tags/${tag}`}>{tag}</Tag>)}
-                {block.type === "plain" && <p class="text-sm">{block.content}</p>}
-                {block.type === "records" &&
-                  block.content.map((record) => <RecordItem key={record[0]} value={record[1]} />)}
-              </div>
-            </div>
-          ))
-        }
-      </div>
+      {
+        (data.blocks?.filter((b) => !b.onTop).length ?? 0) > 0 && (
+          <div class="flex w-full flex-col gap-4">
+            {data.blocks?.map((block) => (
+              <ProjectBlock block={block} />
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 </Layout>
