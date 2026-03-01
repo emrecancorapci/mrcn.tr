@@ -1,34 +1,34 @@
 ---
-  title: "mrcn.tr"
-  projectType: "oss"
-  description: "Personal website built with Astro"
-  mainTags: ["astro", "typescript", "web"]
-  tags: [
-    "astro",
-    "typescript",
-    "markdown",
-    "tailwindcss",
-    "html",
-    "css",
-    "web",
-    "frontend",
-    "web-components",
-    "file-based-routing",
-    "static-site-generation",
-    "markdown-pages",
-  ]
-  links: [
+title: "mrcn.tr"
+projectType: "oss"
+description: "Personal website built with Astro"
+mainTags: ["astro", "typescript", "web"]
+links:
+  [{ title: "View on GitHub", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]
+blocks:
+  [
     {
-      title: "View on GitHub",
-      url: "https://github.com/emrecancorapci/mrcn.tr",
-      primary: true,
-    },
-  ]
-  blocks: [
+      title: "About",
+      type: "records",
+      content:
+        [
+          ["Year", "2026 - Current"],
+          ["Project Type", "Open Source"],
+          ["Status", "Ongoing"],
+          ["Latest Version", "2.0.0"],
+        ],
+    }
     {
       title: "Features",
       type: "tags",
-      content: ["web-components", "file-based-routing", "static-site-generation", "markdown-pages"],
+      content:
+        [
+          "web-components",
+          "file-based-routing",
+          "static-site-generation",
+          "markdown-pages",
+          "astro-collections",
+        ],
     },
     {
       title: "Tags",

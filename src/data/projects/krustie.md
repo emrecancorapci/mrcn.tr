@@ -3,23 +3,6 @@ title: "krustie"
 projectType: "published"
 description: "Easy to use back-end framework for Rust"
 mainTags: ["rust", "web", "tcp"]
-tags:
-  [
-    "software-architecture",
-    "parsing",
-    "routing",
-    "testing",
-    "logging",
-    "serialization-deserialization",
-    "error-handling",
-    "fluent-api",
-    "rust",
-    "http",
-    "tcp",
-    "web",
-    "backend",
-    "system-programming",
-  ]
 links:
   [
     {
@@ -32,6 +15,17 @@ links:
   ]
 blocks:
   [
+    {
+      title: "About",
+      type: "records",
+      content:
+        [
+          ["Year", "2024 - Current"],
+          ["Project Type", "Open Source"],
+          ["Status", "Ongoing"],
+          ["Latest Version", "0.2.1"],
+        ],
+    },
     {
       title: "Features",
       type: "tags",
@@ -55,11 +49,20 @@ blocks:
   ]
 ---
 
-
 Started this project in 2024 when I was learning Rust. I've been following http server project guide on [Codecrafters](https://www.codecrafters.io/).
 
-At first it was a simple http server with a few routes. But when I finished the guide, I had decided to turn the project into a basic framework because I already have plans about it while I was coding. After all these work I realized that **all web infrastructure is just a bunch of parsers bundled together**.
+At first I followed the guide and it was a simple http server with a few basic routes. While I was working on it I started to have ideas about how it can be turned into a basic backend framework. When I finished the guide, I decided to give it a go.
 
-It as a _single threaded http server_ with routing with queries (_`/user?sort=DESC`_) and dynamic parameters (_`/user/:id`_), middleware support with built-in middlewares _such as static file serving, rate limiting, gzip compression_, and some basic testing tools.
+When it turned into a basic framework I started to add more features. I added routing with _queries_ (_`/user?sort=DESC`_) and _dynamic parameters_ (_`/user/:id`_). I had to rewrite the whole routing logic because first iteration was dirty and had no space for improvements.
 
-I'm planning to add multithreading and asynchronous methods support in the future. But right now I'm focusing on learning concurrency and multithreading.
+And then I decided to add _middleware support_. It was kind of a nightmare because again I had to rewrite the whole routing logic with it. And when I started to write the framework I decided that request object must be immutable. It cost my mental health to be persevere with this decision. Because turning it into a mutable object would make so much things easier.
+
+After that I added some basic middlewares _such as static file serving, rate limiting, gzip compression and json parser/serializer_ to see how it works. While doing it I realize there were still some features missing to create these middlewares. I added the missing features but I believe that it still needs some improvements.
+
+I wrote some tests because while I was working on the project I had some issues with the http parser time to time. Tests helped me to fix them so much faster. And And for the final test, I decided to create a basic web server. And after I developed and run it, I found out that some of the parts don't work as expected. And then I added some basic _testing tools_ to test the app as well. It turned out great and helped me to analyze the issues better.
+
+The project helped me to learn how to use Rust and how a http server works under the hood. It also helped me to learn what is the optimal way for me to learn anything. I realized it is better for me to learn things while I'm doing something with them.  
+
+And after all these work I realized that **all web infrastructure is just a bunch of parsers packed together**.
+
+I'm planning to add multithreading and asynchronous methods support in the future. But right now I'm focusing on learning concurrency and multithreading. There are still a lot of things I have to learn about low level stuffs.
