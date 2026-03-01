@@ -53,20 +53,22 @@ const [linksClass, linkButtonClass] = (() => {
       <h2 class="text-7xl font-black">{data.title}</h2>
       <p class="font-semibold">{data.description}</p>
     </div>
-    <div class={`grid bg-card rounded-xl grid-cols-1 ${linksClass}`}>
-      {
-        data.links?.map((link) => (
-          <a
-            class={`text-center text-xl border-y md:border-x md:border-y-0 p-2 py-2 md:py-4  font-bold transition-all duration-300 ease-out ${linkButtonClass} ${link.primary ? "bg-primary text-background hover:bg-secondary" : "hover:bg-primary/20"}`}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {link.title}
-          </a>
-        ))
-      }
-    </div>
+    {
+      data.links && (
+        <div class={`grid bg-card rounded-xl grid-cols-1 ${linksClass}`}>
+          {data.links.map((link) => (
+            <a
+              class={`text-center text-xl border-y md:border-x md:border-y-0 p-2 py-2 md:py-4  font-bold transition-all duration-300 ease-out ${linkButtonClass} ${link.primary ? "bg-primary text-background hover:bg-secondary" : "hover:bg-primary/20"}`}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.title}
+            </a>
+          ))}
+        </div>
+      )
+    }
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
       <div class="grid bg-card col-span-1 lg:col-span-3 py-2 px-4 rounded-xl">
         <div class="flex flex-col">
