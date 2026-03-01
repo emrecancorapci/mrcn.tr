@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier \"src/**/*.{astro}\" --write && biome format --write"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
@@ -20,6 +21,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
     "@tailwindcss/vite": "^4.2.1",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
