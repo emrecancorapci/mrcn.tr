@@ -3,14 +3,14 @@ interface Props {
   title: string;
 }
 
-const {title} = Astro.props;
+const { title } = Astro.props;
 ---
-<div class="flex flex-col bg-card p-4 rounded-2xl">
-  <div class="border-b pb-2 ps-2 border-secondary">
-    <h2 class="font-light text-secondary">{title}</h2>
+
+<div class="bg-card flex flex-col rounded-2xl p-4">
+  <div class="border-secondary border-b ps-2 pb-2">
+    <h2 class="text-secondary font-light">{title}</h2>
   </div>
   <div class="p-2">
     <slot />
-  </div>
   </div>
 </div>

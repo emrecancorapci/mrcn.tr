@@ -9,20 +9,13 @@ const projectTypeCollection = await getCollection("projectType");
 
 const projectArray = Object.groupBy(
   projectCollection.map((p) => ({ ...p.data, id: p.id })),
-  (project) => project.projectType,
+  (project) => project.projectType
 );
-const projectTypes = new Map(
-  projectTypeCollection.map(
-    (p) => [p.id, p.data] as const,
-  ),
-);
+const projectTypes = new Map(projectTypeCollection.map((p) => [p.id, p.data] as const));
 const projects = Object.entries(projectArray)
   .map(
     ([type, p]) =>
-      [
-        projectTypes.get(type as (typeof projectTypeCollection)[number]["id"])!,
-        p,
-      ] as const,
+      [projectTypes.get(type as (typeof projectTypeCollection)[number]["id"])!, p] as const
   )
   .sort(([a], [b]) => a.order - b.order);
 ---
@@ -32,11 +25,9 @@ const projects = Object.entries(projectArray)
     {
       projects.map(([type, p]) => (
         <div class="grid gap-2">
-          <h2 class="px-2 py-2 text-center font-semibold text-3xl text-secondary">
-            {type.title}
-          </h2>
+          <h2 class="text-secondary px-2 py-2 text-center text-3xl font-semibold">{type.title}</h2>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class={`grid grid-cols-1 gap-8 ${p.length > 1 ? "md:grid-cols-2" : ""}`}>
             {p.map((project) => (
               <ProjectCard
                 title={project.title}

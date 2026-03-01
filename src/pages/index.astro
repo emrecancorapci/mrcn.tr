@@ -5,11 +5,11 @@ import Base from "@/layouts/base.astro";
 ---
 
 <Base>
-  <main class="flex px-4 flex-col size-full min-h-screen justify-center items-center">
-    <div class="flex flex-col pb-8 max-w-3xl md:pb-0 justify-end size-full items-end">
+  <main class="flex size-full min-h-screen flex-col items-center justify-center px-4">
+    <div class="flex size-full max-w-3xl flex-col items-end justify-end pb-8 md:pb-0">
       <img class="max-w-80" src="/images/me.png" />
       <div
-        class="flex flex-col bg-card w-full min-h-40 px-8 py-6 gap-2 h-54 md:h-40 border-2 border-secondary transition-all"
+        class="bg-card border-secondary flex h-54 min-h-40 w-full flex-col gap-2 border-2 px-8 py-6 transition-all md:h-40"
       >
         <h3 class="text-2xl font-bold">Emre Can:</h3>
         <Typewriter
@@ -20,7 +20,7 @@ import Base from "@/layouts/base.astro";
             "I build backend systems, write music, read philosophy, play games, and think a lot ",
             [["(and sometimes got paid to do it)."], "italic"],
           ]}
-          class="text-xl text-secondary font-extralight"
+          class="text-secondary text-xl font-extralight"
         />
       </div>
     </div>

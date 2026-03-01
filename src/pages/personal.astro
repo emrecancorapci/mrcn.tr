@@ -5,17 +5,15 @@ import HomeCard from "./_components/home-card.astro";
 ---
 
 <Layout>
-  <div class="flex flex-col size-full justify-center items-center">
-    <div class="grid order-2 md:order-1 grid-cols-1 md:grid-cols-2 gap-8 w-full">
+  <div class="flex size-full flex-col items-center justify-center">
+    <div class="order-2 grid w-full grid-cols-1 gap-8 md:order-1 md:grid-cols-2">
       <HomeCard title="Project I'm Proud Of">
         <h3 class="text-4xl font-extralight">krustie</h3>
         <p class="">An easy to use back-end framework for Rust.</p>
       </HomeCard>
       <HomeCard title="Books I Read Again and Again">
         <p class="font-extralight">Foundation Series - Isaac Asimov</p>
-        <p class="font-extralight">
-          Thus Spoke Zarathustra - Friedrich Nietzsche
-        </p>
+        <p class="font-extralight">Thus Spoke Zarathustra - Friedrich Nietzsche</p>
         <p class="font-extralight">Cyrano de Bergerac - Edmond Rostand</p>
       </HomeCard>
       <HomeCard title="Music I Listen on Repeat">
@@ -30,10 +28,10 @@ import HomeCard from "./_components/home-card.astro";
         <p class="font-extralight">Too Late to Awaken - Slavoj Žižek</p>
       </HomeCard>
     </div>
-    <div class="flex order-1 md:order-2 flex-col pb-8 md:pb-0 justify-end size-full items-end">
+    <div class="order-1 flex size-full flex-col items-end justify-end pb-8 md:order-2 md:pb-0">
       <img class="max-w-80" src="/images/me.png" />
       <div
-        class="flex flex-col bg-card w-full min-h-40 px-8 py-6 gap-2 border-2 border-secondary transition-all"
+        class="bg-card border-secondary flex min-h-40 w-full flex-col gap-2 border-2 px-8 py-6 transition-all"
       >
         <h3 class="text-2xl font-bold">Emre Can:</h3>
         <Typewriter
@@ -44,7 +42,7 @@ import HomeCard from "./_components/home-card.astro";
             "I build backend systems, write music, read philosophy, play games, and think a lot ",
             [["(and sometimes got paid to do it)."], "italic"],
           ]}
-          class="text-xl text-secondary font-extralight"
+          class="text-secondary text-xl font-extralight"
         />
       </div>
     </div>

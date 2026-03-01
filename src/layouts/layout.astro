@@ -11,9 +11,7 @@ const { title, description } = Astro.props as Props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <div
-    class="grid grid-rows-[auto_1fr_auto] min-h-screen w-full max-w-7xl mx-auto"
-  >
+  <div class="mx-auto grid min-h-screen w-full max-w-7xl grid-rows-[auto_1fr_auto]">
     <Header />
 
     <main class="px-4 py-4">

@@ -6,7 +6,7 @@ interface Props {
 
 const { href, variant = "primary" } = Astro.props;
 
-const classString = (() => {
+const variantString = (() => {
   switch (variant) {
     case "primary":
       return `bg-background text-secondary ${href && `hover:bg-secondary hover:text-background`}`;
@@ -17,14 +17,15 @@ const classString = (() => {
   }
 })();
 
+const classString = `${variantString} py-1 text-sm px-2 rounded transition-all duration-300 ease-out`;
 ---
-{href ? <a
-  class=`${classString} py-1 text-sm px-2 rounded transition-all duration-300 ease-out`
->
-  <slot />
-</a>: 
-<p
-  class=`${classString} py-1 text-sm px-2 rounded transition-all duration-300 ease-out`
->
-  <slot />
-</p>}
+
+{
+  href ?
+    <a class={classString}>
+      <slot />
+    </a>
+  : <p class={classString}>
+      <slot />
+    </p>
+}

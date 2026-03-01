@@ -1,5 +1,5 @@
 ---
-import Tag from '@/components/ui/tag.astro';
+import Tag from "@/components/ui/tag.astro";
 
 interface Props {
   title: string;
@@ -12,30 +12,28 @@ const { title, href, description, tags } = Astro.props;
 ---
 
 <div
-  class="group grid grid-rows-1 gap-2 md:gap-0 md:grid-rows-3 rounded-xl pt-8 md:py-8 bg-primary hover:bg-secondary transition-all duration-300 ease-out cursor-pointer"
+  class="group bg-primary hover:bg-secondary grid cursor-pointer grid-rows-1 gap-2 rounded-xl pt-8 transition-all duration-300 ease-out md:grid-rows-3 md:gap-0 md:py-8"
   onclick={`location.href='${href}'`}
 >
-  <h3 class="text-center font-black text-2xl px-6 text-background transition-all">
+  <h3 class="text-background px-6 text-center text-2xl font-black transition-all">
     {title}
   </h3>
   <p
-    class="row-span-2 flex items-center md:pb-0 justify-center px-4 text-center text-background transition-all"
+    class="text-background row-span-2 flex items-center justify-center px-4 text-center transition-all md:pb-0"
   >
     {description}
   </p>
-  <div
-    class="flex flex-wrap px-4 py-2 md:py-0 gap-2 text-center items-center justify-center"
-  >
+  <div class="flex flex-wrap items-center justify-center gap-2 px-4 py-2 text-center md:py-0">
     {
       tags.map((tag) => (
-        <Tag
-          variant="tertiary"
-          href={`/tags/${tag}`}
-        >
+        <Tag variant="tertiary" href={`/tags/${tag}`}>
           {tag}
         </Tag>
       ))
     }
   </div>
-  <a class="w-full visible md:hidden p-4 rounded-b-xl font-light border-t border-background/60 text-background bg-secondary/20 text-center" href={href}>View</a>
+  <a
+    class="border-background/60 text-background bg-secondary/20 visible w-full rounded-b-xl border-t p-4 text-center font-light md:hidden"
+    href={href}>View</a
+  >
 </div>

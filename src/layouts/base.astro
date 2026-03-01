@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-import '@fontsource-variable/outfit';
+import "@fontsource-variable/outfit";
 
 import PostHog from "@/components/post-hog.astro";
 
@@ -23,10 +23,7 @@ const { title, description } = Astro.props as Props;
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? "Emre Can Çorapçı"}</title>
-    <meta
-      name="description"
-      content={description ?? "Emre Can Çorapçı's personal website"}
-    />
+    <meta name="description" content={description ?? "Emre Can Çorapçı's personal website"} />
     {isProd && <PostHog />}
   </head>
   <body class="bg-background text-foreground min-h-screen font-sans">

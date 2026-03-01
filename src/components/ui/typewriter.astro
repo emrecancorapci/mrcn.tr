@@ -9,20 +9,20 @@ interface Props {
   class?: string;
 }
 
-const { 
-  words, 
-  delta = 100, 
-  waitTime = 2000, 
-  noDelete = false, 
+const {
+  words,
+  delta = 100,
+  waitTime = 2000,
+  noDelete = false,
   writeAll = false,
-  class: className 
+  class: className,
 } = Astro.props;
 ---
 
-<type-writer 
+<type-writer
   class={`inline-block ${className}`}
-  data-words={JSON.stringify(words)} 
-  data-delta={delta} 
+  data-words={JSON.stringify(words)}
+  data-delta={delta}
   data-wait={waitTime}
   data-nodelete={noDelete ? "true" : "false"}
   data-writeall={writeAll ? "true" : "false"}
@@ -34,19 +34,19 @@ const {
   class TypeWriter extends HTMLElement {
     constructor() {
       super();
-      
+
       const rawWords = JSON.parse(this.dataset.words || "[]");
       const typingDelta = parseInt(this.dataset.delta || "100");
       const waitTime = parseInt(this.dataset.wait || "2000");
       const noDelete = this.dataset.nodelete === "true";
       const writeAll = this.dataset.writeall === "true";
       const container = this.querySelector(".typewriter-container")!;
-      
+
       let wordIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
       // Store completed spans here when writeAll is true
-      let completedHTML = ""; 
+      let completedHTML = "";
 
       const typeEffect = () => {
         console.log(wordIndex, rawWords.length);
@@ -64,12 +64,13 @@ const {
         }
 
         const visibleText = fullText.substring(0, charIndex);
-        
+
         // Build the current frame
-        const currentSpan = classNames 
-          ? `<span class="${classNames}">${visibleText}</span>` 
+        const currentSpan =
+          classNames ?
+            `<span class="${classNames}">${visibleText}</span>`
           : `<span>${visibleText}</span>`;
-        
+
         container.innerHTML = completedHTML + currentSpan;
 
         let delta = typingDelta;
@@ -87,8 +88,9 @@ const {
           if (charIndex > fullText.length) {
             if (writeAll) {
               // Instead of deleting, save this span and move to next word
-              completedHTML += classNames 
-                ? `<span class="${classNames}">${fullText}</span>` 
+              completedHTML +=
+                classNames ?
+                  `<span class="${classNames}">${fullText}</span>`
                 : `<span>${fullText}</span>`;
               wordIndex++;
               charIndex = 0;
@@ -122,5 +124,5 @@ const {
     }
   }
 
-  customElements.define('type-writer', TypeWriter);
+  customElements.define("type-writer", TypeWriter);
 </script>
