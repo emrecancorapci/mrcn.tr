@@ -1,5 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
+
+import Tag from "@/components/ui/tag.astro";
 import Layout from "@/layouts/layout.astro";
 import RecordItem from "./_components/record-item.astro";
 
@@ -87,12 +89,7 @@ const [linksClass, linkButtonClass] = (() => {
               <div class="flex flex-wrap gap-2">
                 {block.type === "tags" &&
                   block.content.map((tag: string) => (
-                    <a
-                      href={`/tags/${tag}`}
-                      class="bg-background hover:bg-secondary hover:text-background py-1 text-sm text-secondary px-2 rounded transition-all duration-300 ease-out"
-                    >
-                      {tag}
-                    </a>
+                    <Tag href={`/tags/${tag}`}>{tag}</Tag>
                   ))}
                 {block.type === "plain" && (
                   <p class="text-sm">{block.content}</p>
