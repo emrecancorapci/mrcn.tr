@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/layout.astro";
+import RecordItem from "./_components/record-item.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("project");
@@ -81,8 +82,8 @@ const [linksClass, linkButtonClass] = (() => {
       <div class="flex flex-col w-full gap-4">
         {
           data.blocks?.map((block) => (
-            <div class="grid bg-card rounded-xl pt-2 p-4 lg:p-4 gap-2">
-              <h3 class="text-xl font-bold border-b py-2">{block.title}</h3>
+            <div class="grid bg-card rounded-xl p-4 gap-2">
+              <h3 class="text-xl font-bold border-b pb-2">{block.title}</h3>
               <div class="flex flex-wrap gap-2">
                 {block.type === "tags" &&
                   block.content.map((tag: string) => (
@@ -98,12 +99,7 @@ const [linksClass, linkButtonClass] = (() => {
                 )}
                 {block.type === "records" &&
                   block.content.map((record) => (
-                    <div class="grid gap-2">
-                      <div class="grid grid-cols-2 gap-2">
-                        <p class="text-sm text-secondary">{record[0]}</p>
-                        <p class="text-sm">{record[1]}</p>
-                      </div>
-                    </div>
+                    <RecordItem key={record[0]} value={record[1]} />
                   ))}
               </div>
             </div>
