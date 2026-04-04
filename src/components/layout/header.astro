@@ -1,20 +1,22 @@
 ---
-import {
-  FileUserIcon,
-  GithubIcon,
-  LinkedinIcon,
-  MailIcon,
-} from "@lucide/astro";
-
-interface Props {
-  hasBorder?: boolean;
-  forceCol?: boolean;
-}
+import { Icon } from "astro-icon/components";
 
 import NavLink from "./nav-link.astro";
 import ExternNavLink from "./extern-nav-link.astro";
 
-const { hasBorder = true, forceCol = false } = Astro.props as Props;
+interface Props {
+  hasBorder?: boolean;
+  forceCol?: boolean;
+  disableHomePageText?: boolean;
+  isHomePage?: boolean;
+}
+
+const {
+  hasBorder = false,
+  forceCol = false,
+  disableHomePageText = false,
+  isHomePage = false,
+} = Astro.props as Props;
 ---
 
 <header
@@ -25,13 +27,13 @@ const { hasBorder = true, forceCol = false } = Astro.props as Props;
     href="/"
   >
     <span
-      class="block transition-all duration-200 group-hover:-translate-y-full group-hover:opacity-0"
+      class=`block transition-all duration-200 ${disableHomePageText ? "" : "group-hover:-translate-y-full group-hover:opacity-0"}`
     >
       EMRE CAN ÇORAPÇI
     </span>
 
     <span
-      class="absolute inset-0 block translate-y-full transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+      class=`absolute inset-0 block text-center translate-y-full transition-all duration-200 ${disableHomePageText ? "" : "group-hover:translate-y-0 group-hover:opacity-100"}`
     >
       HOME PAGE
     </span>
@@ -39,21 +41,26 @@ const { hasBorder = true, forceCol = false } = Astro.props as Props;
   <nav class="flex justify-center gap-4">
     <NavLink href="/projects">Projects</NavLink>
     <!-- <NavLink href="/techs">Technologies</NavLink> -->
-    <!-- <NavLink href="/personal">Personal</NavLink> -->
+    <NavLink href="/me">Me</NavLink>
     <!-- <NavLink href="/blog">Blog</NavLink> -->
   </nav>
+  {
+    isHomePage ?
+      <div class="bg-border block h-px w-full" />
+    : <div class="bg-border block h-px w-full md:hidden" />
+  }
   <div class="flex items-center justify-end gap-2">
     <ExternNavLink href="https://linkedin.com/in/emrecancorapci">
-      <LinkedinIcon width={24} height={24} stroke-width={1.25} />
+      <Icon name="simple-icons:linkedin" class="text-2xl" />
     </ExternNavLink>
     <ExternNavLink href="https://github.com/emrecancorapci">
-      <GithubIcon width={24} height={24} stroke-width={1.25} />
+      <Icon name="simple-icons:github" class="text-2xl" />
     </ExternNavLink>
     <ExternNavLink href="mailto:emrecancorapci@gmail.com">
-      <MailIcon width={24} height={24} stroke-width={1.25} />
+      <Icon name="material-symbols:mail-rounded" class="-m-0.5 -mt-0.75 text-center text-3xl" />
     </ExternNavLink>
     <ExternNavLink href="/docs/emre_can_corapci_cv.pdf">
-      <FileUserIcon width={24} height={24} stroke-width={1.25} />
+      <p class="-mt-1 text-2xl font-black">CV</p>
     </ExternNavLink>
   </div>
 </header>
