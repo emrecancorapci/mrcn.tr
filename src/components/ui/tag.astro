@@ -9,15 +9,15 @@ const { href, variant = "primary" } = Astro.props;
 const variantString = (() => {
   switch (variant) {
     case "primary":
-      return `bg-background text-secondary ${href && `hover:bg-secondary hover:text-background`}`;
+      return `bg-background rounded text-secondary ${href && `hover:bg-secondary hover:text-background`}`;
     case "tertiary":
-      return `bg-tertiary text-background font-light ${href && `hover:bg-secondary hover:text-background`}`;
+      return `bg-tertiary text-background rounded-lg border-2 border-tertiary font-light ${href && `hover:bg-secondary hover:text-background`}`;
     default:
-      return "bg-background hover:bg-secondary hover:text-background";
+      return "bg-background hover:bg-secondary rounded hover:text-background";
   }
 })();
 
-const classString = `${variantString} py-1 text-sm px-2 rounded transition-all duration-300 ease-out`;
+const classString = `${variantString} py-1 text-sm px-2 transition-all duration-300 ease-out`;
 ---
 
 {
