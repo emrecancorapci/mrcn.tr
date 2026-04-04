@@ -5,8 +5,8 @@ import Base from "@/layouts/base.astro";
 ---
 
 <Base>
-  <main class="flex size-full min-h-screen flex-col items-center justify-center px-4">
-    <div class="flex size-full max-w-3xl flex-col items-end justify-end pb-8 md:pb-0">
+  <main class="flex w-full h-dvh min-h-screen flex-col items-center justify-center px-4">
+    <div class="flex w-full max-w-3xl flex-col items-end justify-end pb-8 md:pb-0">
       <img class="max-w-80" src="/images/me.png" />
       <div
         class="bg-card border-secondary flex h-54 min-h-40 w-full flex-col gap-2 border-2 px-8 py-6 transition-all md:h-40"
@@ -18,12 +18,13 @@ import Base from "@/layouts/base.astro";
           delta={30}
           words={[
             "I build backend systems, write music, read philosophy, play games, and think a lot ",
-            [["(and sometimes got paid to do it)."], "italic"],
+            [["(and sometimes get paid to do it)."], "italic"],
           ]}
           class="text-secondary text-xl font-extralight"
         />
       </div>
     </div>
-    <Header forceCol={true} hasBorder={false} />
+    <Header forceCol disableHomePageText isHomePage />
+    <div class="h-[10dvh]"></div>
   </main>
 </Base>
