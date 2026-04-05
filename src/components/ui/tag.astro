@@ -9,9 +9,9 @@ const { href, variant = "primary" } = Astro.props;
 const variantString = (() => {
   switch (variant) {
     case "primary":
-      return `bg-background rounded text-secondary ${href && `hover:bg-secondary hover:text-background`}`;
+      return `bg-primary-foreground rounded text-secondary ${href && `hover:bg-secondary hover:text-primary-foreground`}`;
     case "tertiary":
-      return `bg-tertiary text-background rounded-lg border-2 border-tertiary font-light ${href && `hover:bg-secondary hover:text-background`}`;
+      return `bg-tertiary text-primary-foreground rounded-lg border-2 border-tertiary font-light ${href && `hover:bg-secondary hover:text-background`}`;
     default:
       return "bg-background hover:bg-secondary rounded hover:text-background";
   }
