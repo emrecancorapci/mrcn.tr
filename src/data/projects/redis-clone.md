@@ -23,9 +23,9 @@ blocks:
       type: "records",
       content:
         [
-          ["Year", "2024 - Current"],
+          ["Year", "2024"],
           ["Project Type", "Open Source"],
-          ["Status", "Paused (prototype completed)"],
+          ["Status", "Prototype Completed"],
         ],
     },
     {
@@ -62,8 +62,6 @@ To implement the protocol one has to read the [Redis documentation](https://redi
 Because learning how protocols works is different than how redis uses them. And not knowing anything about redis is doesn't help. After long document reading sessions and a lot of debugging sessions and rewrites, I completed parsing and serialization of RESPv2 protocol.
 
 And then number of commands started to increase. So if else statements started to look ugly as hell. So I decided to separate the commands into different files and create a command router.
-
-_Ugh! Look at this ugly thing. I could've create a simple context injection but no. I had to make it more complicated than it needed to be._
 
 ```typescript
 export default class ServerHandler {

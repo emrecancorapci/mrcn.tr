@@ -84,4 +84,4 @@ The project helped me to learn how to use Rust and how a http server works under
 
 And after all these work I realized that **all web infrastructure is just a bunch of parsers packed together**.
 
-I'm planning to add multithreading and asynchronous methods support in the future. But right now I'm focusing on learning concurrency and multithreading. There are still a lot of things I have to learn about low level stuffs.
+I'm planning to add multithreading and asynchronous methods support in the future. But right now I'm focusing on learning concurrency and multithreading. There are still a lot of things I have to learn about low level stuff.
