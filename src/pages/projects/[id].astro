@@ -3,6 +3,9 @@ import { getCollection, render } from "astro:content";
 
 import Layout from "@/layouts/layout.astro";
 import ProjectBlock from "./_components/project-block.astro";
+import ProjectSection from "./_components/project-section.astro";
+import ProjectSectionTitle from "./_components/project-section-title.astro";
+import ProjectLink from "./_components/project-link.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("project");
@@ -42,19 +45,18 @@ const [linksClass, linkButtonClass] = (() => {
 
 const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
 const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
-
 ---
 
 <Layout title={data.title}>
-  <div class="flex gap-1 px-2 font-bold">
+  <!-- <div class="flex gap-1 px-2 font-bold">
     <a href="/" class="hover:text-secondary/80 underline">home</a>
     >
     <a href="/projects" class="hover:text-secondary/80 underline"> projects </a>
     {` > ${data.title}`}
-  </div>
-  <div class="grid gap-8 pt-4">
+  </div> -->
+  <div class="grid gap-4 pt-4">
     <div
-      class="bg-primary text-background from-primary to-secondary grid gap-4 rounded-xl bg-linear-65 from-20% to-80% px-4 py-30 text-center transition-all duration-1000 ease-out hover:opacity-90"
+      class="bg-primary text-primary-foreground from-primary to-secondary grid gap-4 rounded-xl bg-linear-65 from-20% to-80% px-4 py-30 text-center transition-all duration-1000 ease-out hover:opacity-90"
     >
       <h2 class="text-7xl font-black">{data.title}</h2>
       <p class="font-semibold">{data.description}</p>
@@ -63,14 +65,9 @@ const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
       data.links && (
         <div class={`bg-card grid grid-cols-1 rounded-xl ${linksClass}`}>
           {data.links.map((link) => (
-            <a
-              class={`hover:bg-secondary hover:text-background border-y p-2 py-2 text-center text-xl font-bold transition-all duration-300 ease-out md:border-x md:border-y-0 md:py-4 ${linkButtonClass} ${link.primary ? "bg-primary text-background" : ""}`}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <ProjectLink href={link.url} class={linkButtonClass} primary={link.primary}>
               {link.title}
-            </a>
+            </ProjectLink>
           ))}
         </div>
       )
@@ -87,19 +84,21 @@ const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
       {
         Astro.props.project.body && (
-          <div class="bg-card col-span-1 grid rounded-xl px-4 py-2 lg:col-span-3">
-            <div class="flex flex-col">
-              <h3 class="border-border border-b p-4 text-3xl font-bold">Summary</h3>
-              <div class="grid gap-4 p-4 leading-loose">
-                <Content />
-              </div>
+          <ProjectSection class="col-span-1 md:col-span-3">
+            <ProjectSectionTitle size="lg" slot="title">
+              Summary
+            </ProjectSectionTitle>
+            <div class="grid gap-4 px-0 py-4 leading-relaxed md:px-4">
+              <Content />
             </div>
-          </div>
+          </ProjectSection>
         )
       }
       {
         blocksOnBottom.length > 0 && (
-          <div class={`flex w-full gap-4 ${Astro.props.project.body ? "flex-col" : "flex-row col-span-4"}`}>
+          <div
+            class={`flex w-full gap-4 ${Astro.props.project.body ? "flex-col" : "col-span-4 flex-row"}`}
+          >
             {data.blocks?.map((block) => (
               <ProjectBlock block={block} class={block.onTop ? "hidden md:grid" : ""} />
             ))}
