@@ -68,6 +68,24 @@ blocks:
 
 Krustie is an experimental HTTP framework built from scratch in Rust. It started as a minimal HTTP server implementation and gradually evolved into a structured backend framework as I explored routing, middleware design, and request lifecycle management.
 
+```rust
+use krustie::{ Router, Server, StatusCode };
+
+fn main() {
+    let mut server = Server::create();
+    let mut router = Router::new();
+
+    router.get("/", |_, res| {
+        res.status(StatusCode::Ok).body_text("Hello World!");
+    });
+
+    server.use_handler(router);
+
+    server.listen(8080);
+}
+```
+
+
 Started this project in 2024 when I was learning Rust. I've been following http server project guide on [Codecrafters](https://www.codecrafters.io/).
 
 At first I followed the guide and it was a simple http server with a few basic routes. While I was working on it I started to have ideas about how it can be turned into a basic backend framework. When I finished the guide, I decided to give it a go.
