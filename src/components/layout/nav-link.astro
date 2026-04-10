@@ -9,8 +9,8 @@ const { pathname } = Astro.url;
 
 <a
   class:list={[
-    "hover:bg-tertiary px-1 font-semibold transition-all duration-200 ease-out",
-    pathname === href ? "bg-secondary text-secondary-foreground" : "hover:text-tertiary-foreground",
+    "hover:bg-primary hover:text-primary-foreground px-1 font-semibold transition-all duration-200 ease-out",
+    pathname === href ? "bg-secondary text-secondary-foreground" : "",
   ]}
   href={href}
 >
