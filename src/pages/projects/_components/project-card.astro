@@ -12,7 +12,7 @@ const { title, href, description, tags } = Astro.props;
 ---
 
 <div
-  class="group bg-primary hover:bg-secondary grid cursor-pointer grid-rows-1 gap-2 rounded-xl pt-8 transition-all duration-300 ease-out md:grid-rows-3 md:gap-0 md:py-8"
+  class="group bg-primary hover:bg-secondary hover:shadow-secondary/20 grid cursor-pointer grid-rows-1 gap-2 rounded-xl pt-8 transition-all duration-300 ease-out hover:shadow-lg md:grid-rows-3 md:gap-0 md:py-8"
   onclick={`location.href='${href}'`}
 >
   <h3 class="text-primary-foreground px-6 text-center text-2xl font-black transition-all">
