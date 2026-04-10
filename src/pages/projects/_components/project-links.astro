@@ -10,35 +10,35 @@ interface Props {
 }
 const { links } = Astro.props;
 
-const [linksClass, linkButtonClass] = (() => {
+const linksClass = (() => {
   switch (links.length) {
     case 1:
-      return ["md:grid-cols-1", "rounded-xl"];
+      return "md:grid-cols-1";
     case 2:
-      return [
-        "md:grid-cols-2",
-        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
-      ];
+      return "md:grid-cols-2";
     case 3:
-      return [
-        "md:grid-cols-3",
-        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
-      ];
+      return "md:grid-cols-3";
     case 4:
-      return [
-        "md:grid-cols-4",
-        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
-      ];
+      return "md:grid-cols-4";
     default:
-      return ["md:grid-cols-1", "rounded-xl"];
+      return "md:grid-cols-1";
   }
 })();
 ---
 
-<div class={`bg-card grid grid-cols-1 rounded-xl ${linksClass}`}>
+<div class:list={[`bg-card grid grid-cols-1 rounded-xl`, linksClass]}>
   {
     links.map((link) => (
-      <ProjectLink href={link.url} class={linkButtonClass} primary={link.primary}>
+      <ProjectLink
+        href={link.url}
+        class:list={[
+          "shadow-secondary/10 hover:shadow-lg",
+          links.length > 1 ?
+            "first:rounded-t-xl first:border-t-0 first:border-l-0 last:rounded-b-xl last:border-e-0 last:border-b-0 first:md:rounded-l-xl first:md:rounded-r-none last:md:rounded-l-none last:md:rounded-r-xl"
+          : "rounded-xl",
+        ]}
+        primary={link.primary}
+      >
         {link.title}
       </ProjectLink>
     ))
