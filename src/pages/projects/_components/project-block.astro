@@ -14,8 +14,8 @@ interface Props {
 const { block, class: className } = Astro.props;
 ---
 
-<ProjectSection class={cn(`gap-2 rounded-xl`, className)}>
-  <ProjectSectionTitle size="sm" slot="title">{block.title}</ProjectSectionTitle>
+<ProjectSection class={cn(`gap-2 shadow-md rounded-xl`, className)}>
+  <ProjectSectionTitle size="sm">{block.title}</ProjectSectionTitle>
   <div class="flex flex-wrap gap-2">
     {block.type === "tags" && block.content.map((t: string) => <Tag href={`/tags/${t}`}>{t}</Tag>)}
     {block.type === "plain" && <p class="text-sm">{block.content}</p>}
