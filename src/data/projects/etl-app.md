@@ -26,7 +26,7 @@ blocks:
           "express",
           "react",
 					"shadcn-ui",
-					"tailwindcss",
+			    "tailwindcss",
           "vite",
           "vitest",
           "supertest",

@@ -2,7 +2,7 @@
 title: "mrcn.tr"
 projectType: "oss"
 description: "Personal website built with Astro"
-mainTags: ["astro", "typescript", "web"]
+mainTags: ["typescript", "web", "astro"]
 links:
   [{ title: "View on GitHub", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]
 blocks:
