@@ -5,7 +5,7 @@ import Layout from "@/layouts/layout.astro";
 import ProjectBlock from "./_components/project-block.astro";
 import ProjectSection from "./_components/project-section.astro";
 import ProjectSectionTitle from "./_components/project-section-title.astro";
-import ProjectLink from "./_components/project-link.astro";
+import ProjectLinks from "./_components/project-links.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("project");
@@ -19,59 +19,19 @@ export async function getStaticPaths() {
 const { Content } = await render(Astro.props.project);
 const data = Astro.props.project.data;
 
-const [linksClass, linkButtonClass] = (() => {
-  switch (data.links?.length) {
-    case 1:
-      return ["md:grid-cols-1", "rounded-xl"];
-    case 2:
-      return [
-        "md:grid-cols-2",
-        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
-      ];
-    case 3:
-      return [
-        "md:grid-cols-3",
-        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
-      ];
-    case 4:
-      return [
-        "md:grid-cols-4",
-        "first:border-l-0 first:border-t-0 first:md:rounded-l-xl first:md:rounded-r-none first:rounded-t-xl last:border-e-0 last:border-b-0 last:rounded-r-xl",
-      ];
-    default:
-      return ["md:grid-cols-1", "rounded-xl"];
-  }
-})();
-
 const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
 const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
 ---
 
 <Layout title={data.title}>
-  <!-- <div class="flex gap-1 px-2 font-bold">
-    <a href="/" class="hover:text-secondary/80 underline">home</a>
-    >
-    <a href="/projects" class="hover:text-secondary/80 underline"> projects </a>
-    {` > ${data.title}`}
-  </div> -->
   <div class="grid gap-4 pt-4">
     <div
-      class="bg-primary text-primary-foreground from-primary to-secondary grid gap-4 rounded-xl bg-linear-65 from-20% to-80% px-4 py-30 text-center transition-all duration-1000 ease-out hover:opacity-90"
+      class="bg-primary text-primary-foreground from-primary to-secondary flex flex-col items-center justify-center gap-4 rounded-xl bg-linear-65 from-20% to-80% px-4 py-30 text-center transition-all duration-1000 ease-out hover:opacity-90"
     >
       <h2 class="text-7xl font-black">{data.title}</h2>
-      <p class="font-semibold">{data.description}</p>
+      <p class="max-w-4xl w-full font-semibold">{data.description}</p>
     </div>
-    {
-      data.links && (
-        <div class={`bg-card grid grid-cols-1 rounded-xl ${linksClass}`}>
-          {data.links.map((link) => (
-            <ProjectLink href={link.url} class={linkButtonClass} primary={link.primary}>
-              {link.title}
-            </ProjectLink>
-          ))}
-        </div>
-      )
-    }
+    {data.links && <ProjectLinks links={data.links} />}
     {
       Astro.props.project.body && blocksOnTop.length > 0 && (
         <div class="flex w-full flex-col gap-4 md:hidden">
@@ -108,5 +68,3 @@ const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
     </div>
   </div>
 </Layout>
-
----
