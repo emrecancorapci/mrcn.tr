@@ -1,0 +1,249 @@
+---
+import Layout from "@/layouts/layout.astro";
+import MySetupSection from "./me/_components/my-setup-section.astro";
+import MySetupDetailButton from "./me/_components/my-setup-detail-button.astro";
+import MeCard from "./me/_components/me-card.astro";
+import MeCardTitle from "./me/_components/me-card-title.astro";
+import MeCardHeader from "./me/_components/me-card-header.astro";
+import MeCardContent from "./me/_components/me-card-content.astro";
+
+const setupObject = [
+  {
+    title: "OS",
+    value: "EndeavourOS",
+    detailed: "EndeavourOS (Arch Linux)",
+    icon: "simple-icons:linux",
+  },
+  {
+    title: "Window Manager",
+    value: "Hyprland",
+    detailed: "illogical-impulse (Hyprland + Quickshell)",
+    icon: "material-symbols:select-window",
+  },
+  {
+    title: "CPU",
+    value: "AMD Ryzen 9 7900X",
+    detailed: "AMD Ryzen 9 7900X 12-Core 4.7GHz",
+    icon: "material-symbols:memory-outline",
+  },
+  {
+    title: "GPU",
+    value: "AMD Radeon RX 7800XT",
+    detailed: "AMD Radeon RX 7800XT 16GB GDDR6",
+    icon: "material-symbols:imagesmode",
+  },
+  {
+    title: "Memory",
+    value: "32GB",
+    detailed: "Corsair Vengeance 32GB DDR5 6000MHz",
+    icon: "material-symbols:memory-alt",
+  },
+  {
+    title: "Storage",
+    value: "1TB SSD + 2TB HDD",
+    detailed: "Samsung 990 Evo+ 1 TB NVMe SSD + 2TB HDD",
+    icon: "material-symbols:hard-disk",
+  },
+  {
+    title: "Display",
+    value: "MSI Modern MD342CQP",
+    detailed: 'MSI Modern MD342CQP 34" 120Hz',
+    icon: "material-symbols:monitor-outline",
+  },
+  {
+    title: "Motherboard",
+    value: undefined,
+    detailed: "MSI Pro B650-P WIFI",
+    icon: "material-symbols:memory",
+  },
+  {
+    title: "PSU",
+    value: undefined,
+    detailed: "Corsair RM850E 850W - 80+ Gold",
+    icon: "material-symbols:power-settings-circle-rounded",
+  },
+  {
+    title: "Cooler",
+    value: undefined,
+    detailed: "Thermalright Peerless Assassin 120 SE",
+    icon: "material-symbols:mode-fan",
+  },
+  {
+    title: "Case",
+    value: undefined,
+    detailed: "NZXT H6 Flow Black",
+    icon: "material-symbols:settings-input-hdmi",
+  },
+];
+
+const langTierList: [string, string[]][] = [
+  ["A", ["Rust", "TypeScript"]],
+  ["B", ["C/C++", "OCaml"]],
+  ["C", ["C#", "Zig"]],
+  ["D", ["Go", "Python", "Lua"]],
+  ["E", ["Java", "PHP"]],
+  ["F", ["Matlab"]],
+] as const;
+
+const techs = [{
+  title: "Languages",
+  items: [
+    {
+      title: "Rust",
+      proficiency: "Intermediate",
+      experience: "Low",
+    },
+    {
+      title: "TypeScript",
+      proficiency: "Advanced",
+      experience: "High",
+    },
+    {
+      title: "C/C++",
+      proficiency: "Intermediate",
+      experience: "Low",
+    },
+    {
+      title: "C#",
+      proficiency: "Intermediate",
+      experience: "Medium",
+    },
+    {
+      title: "Python",
+      proficiency: "Basic",
+      experience: "Medium",
+    },
+    {
+      title: "OCaml",
+      proficiency: "Basic",
+      experience: "Low",
+    },
+  ]
+}]
+
+// const musicGenres = [
+//   "Rock",
+//   "Classic Rock",
+//   "Psychedelic Rock",
+//   "Progressive Rock",
+//   "Indie Rock",
+//   "Post Rock",
+//   "Grunge",
+//   "Metal",
+//   "Doom Metal",
+//   "Thrash Metal",
+//   "Sludge Metal",
+//   "Black Metal",
+//   "Death Metal",
+//   "Progressive Metal",
+//   "Progressive Death Metal",
+//   "Technical Death Metal",
+//   "Melodic Death Metal",
+//   "Blackened Death Metal",
+//   "Melodic Black Metal",
+//   "Progressive Sludge Metal",
+//   "Post Metal",
+//   "Shoegaze",
+//   "Blues",
+//   "Soul",
+//   "Funk",
+//   "Psychedelic Funk",
+//   "Jazz-Funk",
+//   "Electronic",
+//   "French House",
+//   "Disco",
+//   "Nu-Disco",
+//   "Electropop",
+//   "Pop",
+//   "City Pop",
+//   "Jazz Rap",
+// ];
+
+const books = [
+  ["Too Late to Awaken", "Slavoj Žižek", ["philosophy"]],
+  ["Courage to Create", "Rollo May", ["philosophy", "psychology"]],
+  ["Foundation and Empire", "Isaac Asimov", ["sci-fi"]],
+  ["Heart of a Dog", "Mikhail Bulgakov", ["fiction"]],
+  ["Simulacra and Simulation", "Jean Baudrillard", ["philosophy", "sociology"]],
+] as const;
+---
+
+<Layout>
+  <div class="grid grid-cols-1 items-start justify-center gap-6 md:grid-cols-2">
+    <MeCard>
+      <MeCardHeader>
+        <MeCardTitle size="lg">My Setup</MeCardTitle>
+        <MySetupDetailButton />
+      </MeCardHeader>
+
+      <MeCardContent>
+        <MySetupSection setupData={setupObject} />
+      </MeCardContent>
+    </MeCard>
+
+    <MeCard>
+      <MeCardHeader>
+        <MeCardTitle size="md">Very Opinionated Tier List of Programming Languages</MeCardTitle>
+      </MeCardHeader>
+
+      <MeCardContent>
+        <div class="grid">
+          {
+            langTierList.map(([rank, list]) => (
+              <div class="even:bg-primary/10 flex items-center gap-4 border-b p-1 first:border-t">
+                <h2 class="w-8 border-r pe-1 text-center text-2xl font-bold">{rank}</h2>
+                <div class="flex gap-2">
+                  {list.map((item) => (
+                    <div class="border-r pe-2 last:border-0">{item}</div>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </MeCardContent>
+    </MeCard>
+    <!-- <MeCard>
+      <MeCardHeader>
+        <MeCardTitle size="md">Genres of Music</MeCardTitle>
+      </MeCardHeader>
+
+      <MeCardContent>
+        <div class="flex gap-2 flex-wrap px-2">
+          {
+            musicGenres.map((item) => (
+                <p class="text-sm">{item}</p>
+            ))
+          }
+        </div>
+      </MeCardContent>
+    </MeCard> -->
+    <MeCard>
+      <MeCardHeader>
+        <MeCardTitle size="md">Books I've Read This Year</MeCardTitle>
+      </MeCardHeader>
+      <MeCardContent>
+        <li class="grid">
+          {
+            books.map(([book, author, tags], i) => (
+              <ul class="flex flex-wrap items-center justify-between border-b py-1 last:border-b-0">
+                <div class="flex flex-wrap items-baseline justify-start gap-2">
+                  <p class="w-2 text-center">{i + 1}</p>
+                  <p class="text-primary text-lg font-semibold md:text-xl">{book}</p>
+                  <p class="text-base font-light md:text-lg">{author}</p>
+                </div>
+                <li class="flex gap-2">
+                  {tags.map((tag) => (
+                    <p class="text-primary-foreground bg-secondary px-2 py-0.5 text-xs md:text-sm">
+                      {tag}
+                    </p>
+                  ))}
+                </li>
+              </ul>
+            ))
+          }
+        </li>
+      </MeCardContent>
+    </MeCard>
+  </div>
+</Layout>

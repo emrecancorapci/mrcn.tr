@@ -1,0 +1,62 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+interface Props extends HTMLAttributes<"div"> {
+  setupData: {
+    title: string;
+    value: string | undefined;
+    detailed: string;
+    icon: string;
+  }[];
+  class?: string;
+}
+
+const { setupData, class: className, ...props } = Astro.props;
+---
+
+<div
+  id="setup-wrapper"
+  data-show-details="false"
+  class:list={["group/setup-wrapper grid grid-cols-2 gap-y-2", className]}
+  {...props}
+>
+  {
+    setupData.map(({ title, value, detailed, icon }) => (
+      <div
+        class={`flex flex-col ${!value ? 'group-data-[show-details="false"]/setup-wrapper:hidden' : ""}`}
+      >
+        <div class="flex gap-1 items-center text-lg font-bold"><Icon name={icon}></Icon> {title}</div>
+        <div class="text-primary ps-1 text-sm">
+          {value ?
+            <>
+              <span class='group-data-[show-details="true"]/setup-wrapper:hidden'>{value}</span>
+              <span class='hidden group-data-[show-details="true"]/setup-wrapper:inline'>
+                {detailed}
+              </span>
+            </>
+          : <span>{detailed}</span>}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const SIMPLE_TEXT = "Hide Details";
+  const DETAILED_TEXT = "Show Details";
+
+  const WRAPPER_ID = "setup-wrapper";
+  const BTN_ID = "toggle-details";
+  const DATA_SHOW_DETAILS = "data-show-details";
+
+  const wrapper = document.getElementById(WRAPPER_ID);
+  const btn = document.getElementById(BTN_ID);
+
+  btn?.addEventListener("click", () => {
+    const isShowing = wrapper?.getAttribute(DATA_SHOW_DETAILS) === "true";
+
+    wrapper?.setAttribute(DATA_SHOW_DETAILS, (!isShowing).toString());
+    btn.textContent = !isShowing ? SIMPLE_TEXT : DETAILED_TEXT;
+  });
+</script>
