@@ -21,7 +21,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.8",
     "@biomejs/biome": "^2.4.11",
     "@iconify-json/material-symbols": "^1.2.66",
     "@iconify-json/simple-icons": "^1.2.77",

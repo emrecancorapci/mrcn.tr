@@ -34,7 +34,7 @@ importers:
         version: 3.5.0
     devDependencies:
       '@astrojs/check':
-        specifier: ^0.9.6
+        specifier: ^0.9.8
         version: 0.9.8(prettier-plugin-astro@0.14.1)(prettier@3.8.2)(typescript@6.0.2)
       '@biomejs/biome':
         specifier: ^2.4.11
