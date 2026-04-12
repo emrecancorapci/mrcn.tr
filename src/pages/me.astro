@@ -1,80 +1,10 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import MySetupSection from "./me/_components/my-setup-section.astro";
-import MySetupDetailButton from "./me/_components/my-setup-detail-button.astro";
 import MeCard from "./me/_components/me-card.astro";
 import MeCardTitle from "./me/_components/me-card-title.astro";
 import MeCardHeader from "./me/_components/me-card-header.astro";
 import MeCardContent from "./me/_components/me-card-content.astro";
-
-const setupObject = [
-  {
-    title: "OS",
-    value: "EndeavourOS",
-    detailed: "EndeavourOS (Arch Linux)",
-    icon: "simple-icons:linux",
-  },
-  {
-    title: "Window Manager",
-    value: "Hyprland",
-    detailed: "illogical-impulse (Hyprland + Quickshell)",
-    icon: "material-symbols:select-window",
-  },
-  {
-    title: "CPU",
-    value: "AMD Ryzen 9 7900X",
-    detailed: "AMD Ryzen 9 7900X 12-Core 4.7GHz",
-    icon: "material-symbols:memory-outline",
-  },
-  {
-    title: "GPU",
-    value: "AMD Radeon RX 7800XT",
-    detailed: "AMD Radeon RX 7800XT 16GB GDDR6",
-    icon: "material-symbols:imagesmode",
-  },
-  {
-    title: "Memory",
-    value: "32GB",
-    detailed: "Corsair Vengeance 32GB DDR5 6000MHz",
-    icon: "material-symbols:memory-alt",
-  },
-  {
-    title: "Storage",
-    value: "1TB SSD + 2TB HDD",
-    detailed: "Samsung 990 Evo+ 1 TB NVMe SSD + 2TB HDD",
-    icon: "material-symbols:hard-disk",
-  },
-  {
-    title: "Display",
-    value: "MSI Modern MD342CQP",
-    detailed: 'MSI Modern MD342CQP 34" 120Hz',
-    icon: "material-symbols:monitor-outline",
-  },
-  {
-    title: "Motherboard",
-    value: undefined,
-    detailed: "MSI Pro B650-P WIFI",
-    icon: "material-symbols:memory",
-  },
-  {
-    title: "PSU",
-    value: undefined,
-    detailed: "Corsair RM850E 850W - 80+ Gold",
-    icon: "material-symbols:power-settings-circle-rounded",
-  },
-  {
-    title: "Cooler",
-    value: undefined,
-    detailed: "Thermalright Peerless Assassin 120 SE",
-    icon: "material-symbols:mode-fan",
-  },
-  {
-    title: "Case",
-    value: undefined,
-    detailed: "NZXT H6 Flow Black",
-    icon: "material-symbols:settings-input-hdmi",
-  },
-];
 
 const langTierList: [string, string[]][] = [
   ["A", ["Rust", "TypeScript"]],
@@ -84,42 +14,6 @@ const langTierList: [string, string[]][] = [
   ["E", ["Java", "PHP"]],
   ["F", ["Matlab"]],
 ] as const;
-
-const techs = [{
-  title: "Languages",
-  items: [
-    {
-      title: "Rust",
-      proficiency: "Intermediate",
-      experience: "Low",
-    },
-    {
-      title: "TypeScript",
-      proficiency: "Advanced",
-      experience: "High",
-    },
-    {
-      title: "C/C++",
-      proficiency: "Intermediate",
-      experience: "Low",
-    },
-    {
-      title: "C#",
-      proficiency: "Intermediate",
-      experience: "Medium",
-    },
-    {
-      title: "Python",
-      proficiency: "Basic",
-      experience: "Medium",
-    },
-    {
-      title: "OCaml",
-      proficiency: "Basic",
-      experience: "Low",
-    },
-  ]
-}]
 
 // const musicGenres = [
 //   "Rock",
@@ -170,16 +64,7 @@ const books = [
 
 <Layout>
   <div class="grid grid-cols-1 items-start justify-center gap-6 md:grid-cols-2">
-    <MeCard>
-      <MeCardHeader>
-        <MeCardTitle size="lg">My Setup</MeCardTitle>
-        <MySetupDetailButton />
-      </MeCardHeader>
-
-      <MeCardContent>
-        <MySetupSection setupData={setupObject} />
-      </MeCardContent>
-    </MeCard>
+    <MySetupSection />
 
     <MeCard>
       <MeCardHeader>
