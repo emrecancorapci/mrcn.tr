@@ -11,9 +11,6 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
-      '@fontsource-variable/outfit':
-        specifier: ^5.2.8
-        version: 5.2.8
       '@lucide/astro':
         specifier: ^1.7.0
         version: 1.7.0(astro@6.1.5(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.55.1)(typescript@6.0.2))
@@ -340,9 +337,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource-variable/outfit@5.2.8':
-    resolution: {integrity: sha512-4oUDCZx/Tcz6HZP423w/niqEH31Gks5IsqHV2ZZz1qKHaVIZdj2f0/S1IK2n8jl6Xo0o3N+3RjNHlV9R73ozQA==}
 
   '@iconify-json/material-symbols@1.2.65':
     resolution: {integrity: sha512-0kGO7z+yuWjn4de2gAz1hrOpDHN1rvnb1Lr3YnkmZr/pJ9bfLSv2bRXQo/nKx6oODXKcoYuFLcLvg2xPxMq5Pg==}
@@ -2250,8 +2244,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.3':
     optional: true
-
-  '@fontsource-variable/outfit@5.2.8': {}
 
   '@iconify-json/material-symbols@1.2.65':
     dependencies:
