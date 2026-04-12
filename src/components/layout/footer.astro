@@ -1,0 +1,108 @@
+---
+const footerLinks = [
+  {
+    title: "Portfolio",
+    links: [
+      { title: "Home", href: "/" },
+      { title: "Projects", href: "/projects" },
+      { title: "Skills", href: "/skills" },
+    ],
+  },
+  {
+    title: "Featured Projects",
+    links: [
+      { title: "krustie", href: "/projects/krustie" },
+      { title: "mrcn.tr", href: "/projects/mrcn-tr" },
+      { title: "Redis Clone", href: "/projects/redis-clone" },
+    ],
+  },
+];
+
+const socialLinks = [
+  { title: "LinkedIn", href: "https://www.linkedin.com/in/emrecancorapci" },
+  { title: "Github", href: "https://github.com/emrecancorapci" },
+  { title: "crates.io", href: "https://crates.io/users/emrecancorapci" },
+  { title: "Substack", href: "https://substack.com/@mrcnc" },
+];
+---
+
+<footer class="px-4 py-8">
+  <div class="flex flex-col justify-between md:flex-row p-0">
+    <div class="flex w-full flex-col gap-4">
+      <div>
+        
+        <h2 class="text-foreground w-full text-4xl leading-tight font-bold lg:text-5xl">
+          Emre Can Çorapçı
+        </h2>
+        <p>
+          Software Developer
+        </p>
+      </div>
+      <div class="grid w-full grid-cols-1 gap-6 md:gap-4 md:grid-cols-2">
+        {
+          footerLinks.map(({ title, links }) => (
+            <div>
+              <h3 class="text-primary pb-2 font-medium tracking-wider uppercase">{title}</h3>
+              <ul class="grid gap-2">
+                {links.map(({ title, href }) => (
+                  <li>
+                    <a
+                      href={href}
+                      class="text-secondary hover:border-primary hover:text-primary border-b border-transparent transition-all duration-300 ease-in-out"
+                    >
+                      {title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="pt-4 md:pt-0">
+      <div class="flex w-full md:w-fit h-full justify-center md:justify-end border-secondary md:pt-0 md:pe-2 items-end flex-row gap-2 md:flex-col">
+        {
+          socialLinks.map(({ title, href }) => (
+            <a
+              href={href}
+              class="group text-foreground hover:text-foreground/80 flex items-center gap-0 md:gap-0.5 transition-colors"
+            >
+              <span class="text-lg md:text-xl font-medium">{title}</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-up-right h-6 w-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <div class="mt-16">
+    <div>
+      <div
+        data-orientation="horizontal"
+        role="none"
+        data-slot="separator"
+        class="bg-border mb-8 shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch"
+      >
+      </div>
+    </div>
+    <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+      <p class="text-muted-foreground text-sm">© Copyright 2026. All rights Reserved.</p>
+    </div>
+  </div>
+</footer>
