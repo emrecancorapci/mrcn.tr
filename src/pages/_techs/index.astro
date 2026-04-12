@@ -1,0 +1,108 @@
+---
+import Layout from "@/layouts/layout.astro";
+
+import TechBadge from "./_components/tech-badge.astro";
+import TechBlock from "./_components/tech-block.astro";
+---
+
+<Layout>
+  <div class="grid gap-4">
+    <div class="border-primary grid gap-2 border pb-2">
+      <h2 class="bg-primary text-background px-2 py-2 text-center text-3xl font-semibold">
+        Technologies
+      </h2>
+
+      <div class="grid gap-4 px-2">
+        <TechBlock title="Languages" badgeCount={4}>
+          <TechBadge class="border-blue-600 transition-all hover:bg-blue-600">
+            TypeScript
+          </TechBadge>
+          <TechBadge
+            class="hover:text-background border-orange-400 transition-all hover:bg-orange-400"
+          >
+            Rust
+          </TechBadge>
+          <TechBadge class="border-purple-500 transition-all hover:bg-purple-500"> C# </TechBadge>
+          <TechBadge class="hover:text-background border-blue-400 transition-all hover:bg-blue-400">
+            C++
+          </TechBadge>
+        </TechBlock>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-2">
+          <TechBlock title="Back-End" badgeCount={4}>
+            <TechBadge
+              class="hover:text-background border-zinc-300 transition-all hover:bg-zinc-300"
+            >
+              Express
+            </TechBadge>
+            <TechBadge class="border-zinc-600 transition-all hover:bg-zinc-600">
+              Fastify
+            </TechBadge>
+            <TechBadge
+              class="hover:text-background border-green-400 transition-all hover:bg-green-400"
+            >
+              Node.js
+            </TechBadge>
+            <TechBadge class="border-purple-500 transition-all hover:bg-purple-500">
+              .NET
+            </TechBadge>
+          </TechBlock>
+          <TechBlock title="Front-End" badgeCount={3}>
+            <TechBadge class="border-blue-600 transition-all hover:bg-blue-600"> React </TechBadge>
+            <TechBadge
+              class="hover:text-background border-orange-400 transition-all hover:bg-orange-400"
+            >
+              Astro
+            </TechBadge>
+            <TechBadge class="border-zinc-600 transition-all hover:bg-zinc-600">
+              Next.js
+            </TechBadge>
+          </TechBlock>
+        </div>
+        <TechBlock title="Database" badgeCount={3}>
+          <TechBadge class="border-blue-500 transition-all hover:bg-blue-500">
+            PostgreSQL
+          </TechBadge>
+          <TechBadge
+            class="hover:text-background border-green-500 transition-all hover:bg-green-500"
+          >
+            MongoDB
+          </TechBadge>
+          <TechBadge class="hover:text-background border-red-400 transition-all hover:bg-red-400">
+            Redis
+          </TechBadge>
+        </TechBlock>
+        <TechBlock title="ORM" badgeCount={3}>
+          <TechBadge class="hover:text-background border-lime-400 transition-all hover:bg-lime-400">
+            DrizzleOrm
+          </TechBadge>
+          <TechBadge class="hover:text-background border-blue-400 transition-all hover:bg-blue-400">
+            Sequelize
+          </TechBadge>
+          <TechBadge class="border-purple-500 transition-all hover:bg-purple-500">
+            Entity Framework
+          </TechBadge>
+        </TechBlock>
+        <TechBlock title="CI/CD" badgeCount={3}>
+          <TechBadge class="border-green-600 transition-all hover:bg-green-600"> Nginx </TechBadge>
+          <TechBadge class="border-purple-600 transition-all hover:bg-purple-600"> PM2 </TechBadge>
+          <TechBadge class="border-blue-600 transition-all hover:bg-blue-600"> Docker </TechBadge>
+        </TechBlock>
+        <TechBlock title="OS" badgeCount={5}>
+          <TechBadge class="border-blue-600 transition-all hover:bg-blue-600">
+            Arch Linux
+          </TechBadge>
+          <TechBadge class="hover:text-background border-blue-400 transition-all hover:bg-blue-400">
+            Fedora
+          </TechBadge>
+          <TechBadge
+            class="hover:text-background border-orange-400 transition-all hover:bg-orange-400"
+          >
+            Ubuntu
+          </TechBadge>
+          <TechBadge class="border-zinc-500 transition-all hover:bg-zinc-500"> MacOS </TechBadge>
+          <TechBadge class="border-blue-600 transition-all hover:bg-blue-600"> Windows </TechBadge>
+        </TechBlock>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,128 @@
+---
+// Typewriter.astro
+interface Props {
+  words: (string | [string | string[], string])[];
+  delta?: number;
+  waitTime?: number;
+  noDelete?: boolean;
+  writeAll?: boolean; // New: If true, appends strings instead of replacing them
+  class?: string;
+}
+
+const {
+  words,
+  delta = 100,
+  waitTime = 2000,
+  noDelete = false,
+  writeAll = false,
+  class: className,
+} = Astro.props;
+---
+
+<type-writer
+  class={`inline-block ${className}`}
+  data-words={JSON.stringify(words)}
+  data-delta={delta}
+  data-wait={waitTime}
+  data-nodelete={noDelete ? "true" : "false"}
+  data-writeall={writeAll ? "true" : "false"}
+>
+  <span class="typewriter-container"></span>
+</type-writer>
+
+<script>
+  class TypeWriter extends HTMLElement {
+    constructor() {
+      super();
+
+      const rawWords = JSON.parse(this.dataset.words || "[]");
+      const typingDelta = parseInt(this.dataset.delta || "100");
+      const waitTime = parseInt(this.dataset.wait || "2000");
+      const noDelete = this.dataset.nodelete === "true";
+      const writeAll = this.dataset.writeall === "true";
+      const container = this.querySelector(".typewriter-container")!;
+
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      // Store completed spans here when writeAll is true
+      let completedHTML = "";
+
+      const typeEffect = () => {
+        console.log(wordIndex, rawWords.length);
+
+        const currentEntry = rawWords[wordIndex];
+        let fullText = "";
+        let classNames = "";
+
+        if (Array.isArray(currentEntry)) {
+          const [textData, classes] = currentEntry;
+          fullText = Array.isArray(textData) ? textData.join(" ") : textData;
+          classNames = classes;
+        } else {
+          fullText = currentEntry;
+        }
+
+        const visibleText = fullText.substring(0, charIndex);
+
+        // Build the current frame
+        const currentSpan =
+          classNames ?
+            `<span class="${classNames}">${visibleText}</span>`
+          : `<span>${visibleText}</span>`;
+
+        container.innerHTML = completedHTML + currentSpan;
+
+        let delta = typingDelta;
+
+        if (isDeleting) {
+          charIndex--;
+          delta /= 2;
+          if (charIndex < 0) {
+            isDeleting = false;
+            wordIndex++;
+            charIndex = 0;
+          }
+        } else {
+          charIndex++;
+          if (charIndex > fullText.length) {
+            if (writeAll) {
+              // Instead of deleting, save this span and move to next word
+              completedHTML +=
+                classNames ?
+                  `<span class="${classNames}">${fullText}</span>`
+                : `<span>${fullText}</span>`;
+              wordIndex++;
+              charIndex = 0;
+              // If there are more words, continue immediately
+              if (wordIndex < rawWords.length) {
+                setTimeout(typeEffect, delta);
+                return;
+              }
+            } else if (noDelete) {
+              delta = waitTime;
+              isDeleting = false;
+              wordIndex++;
+              charIndex = 0;
+            } else {
+              isDeleting = true;
+              delta = waitTime;
+            }
+          }
+        }
+
+        if (wordIndex < rawWords.length) {
+          setTimeout(typeEffect, delta);
+        } else if (wordIndex >= rawWords.length && !writeAll) {
+          wordIndex = 0; // Loop if not writeAll
+        } else if (wordIndex >= rawWords.length && writeAll) {
+          return; // Stop entirely if writeAll is finished
+        }
+      };
+
+      if (rawWords.length > 0) typeEffect();
+    }
+  }
+
+  customElements.define("type-writer", TypeWriter);
+</script>

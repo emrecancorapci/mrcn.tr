@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@/layouts/layout.astro";
+import ProjectCard from "./projects/_components/project-card.astro";
+
+const projectCollection = await getCollection("project");
+const projectTypeCollection = await getCollection("projectType");
+
+const projectArray = Object.groupBy(
+  projectCollection.map((p) => ({ ...p.data, id: p.id })),
+  (project) => project.projectType
+);
+const projectTypes = new Map(projectTypeCollection.map((p) => [p.id, p.data] as const));
+const projects = Object.entries(projectArray)
+  .map(
+    ([type, p]) =>
+      [projectTypes.get(type as (typeof projectTypeCollection)[number]["id"])!, p] as const
+  )
+  .sort(([a], [b]) => a.order - b.order);
+---
+
+<Layout>
+  <div class="grid w-full gap-8">
+    {
+      projects.map(([type, p]) => (
+        <div class="grid gap-2">
+          <h2 class="text-secondary px-2 py-2 text-center text-3xl font-semibold">{type.title}</h2>
+
+          <div class={`grid grid-cols-1 gap-8 ${p.length > 1 ? "md:grid-cols-2" : ""}`}>
+            {p.map((project) => (
+              <ProjectCard
+                title={project.title}
+                href={`/projects/${project.id}`}
+                description={project.description}
+                tags={project.mainTags}
+              />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Layout>

@@ -1,0 +1,33 @@
+---
+import Tag from "@/components/ui/tag.astro";
+import RecordItem from "./record-item.astro";
+import type { ProjectBlock } from "@/schemas/project.schema";
+import { cn } from "@/lib/utils";
+import ProjectSection from "./project-section.astro";
+import ProjectSectionTitle from "./project-section-title.astro";
+
+interface Props {
+  block: ProjectBlock;
+  class?: string;
+}
+
+const { block, class: className } = Astro.props;
+---
+
+<ProjectSection class={cn(`gap-2 shadow-md rounded-xl`, className)}>
+  <ProjectSectionTitle size="sm">{block.title}</ProjectSectionTitle>
+  <div class="flex flex-wrap gap-2">
+    {block.type === "tags" && block.content.map((t: string) => <Tag href={`/tags/${t}`}>{t}</Tag>)}
+    {block.type === "plain" && <p class="text-sm">{block.content}</p>}
+    {
+      block.type === "list" && (
+        <ul class="grid w-full list-disc gap-2 ps-3">
+          {block.content.map((i) => (
+            <li class="w-full px-1 py-0.5">{i}</li>
+          ))}
+        </ul>
+      )
+    }
+    {block.type === "records" && block.content.map((r) => <RecordItem key={r[0]} value={r[1]} />)}
+  </div>
+</ProjectSection>

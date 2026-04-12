@@ -1,21 +1,24 @@
 ---
-import PostHog from "@/components/post-hog.astro";
-import "../styles/global.css";
+import Header from "@/components/layout/header.astro";
+import BaseLayout from "./base.astro";
+import Footer from "@/components/layout/footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props as Props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Emre Can Çorapçı Portfolio Site</title>
-  </head>
-  <body
-    class="flex min-h-screen min-w-screen flex-col items-center justify-center bg-background px-2 py-8"
-  >
-    <slot />
-    <PostHog />
-  </body>
-</html>
+<BaseLayout title={title} description={description}>
+  <div class="mx-auto grid min-h-screen w-full max-w-7xl grid-rows-[auto_1fr_auto]">
+    <Header />
+
+    <main class="px-4 py-4">
+      <slot />
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

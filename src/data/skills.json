@@ -1,0 +1,243 @@
+[
+  {
+    "id": 1,
+    "title": "Languages",
+    "items": [
+      {
+        "title": "TypeScript",
+        "proficiency": 4,
+        "icon": "simple-icons:typescript",
+        "color": "text-sky-600"
+      },
+      {
+        "title": "Rust",
+        "proficiency": 3,
+        "icon": "simple-icons:rust",
+        "color": "text-orange-400"
+      },
+      {
+        "title": "C/C++",
+        "proficiency": 2,
+        "icon": "simple-icons:cplusplus",
+        "color": "text-blue-500"
+      },
+      {
+        "title": "C#",
+        "proficiency": 2,
+        "icon": "simple-icons:csharp",
+        "color": "text-purple-500"
+      },
+      {
+        "title": "Python",
+        "proficiency": 1,
+        "icon": "simple-icons:python",
+        "color": "text-yellow-300"
+      },
+      {
+        "title": "OCaml",
+        "proficiency": 1,
+        "icon": "simple-icons:ocaml",
+        "color": "text-orange-400"
+      },
+      {
+        "title": "Bash",
+        "proficiency": 1,
+        "icon": "simple-icons:gnubash",
+        "color": "text-white"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Back-End Frameworks",
+    "items": [
+      {
+        "title": "Fastify",
+        "proficiency": 3,
+        "icon": "simple-icons:fastify",
+        "color": "text-white"
+      },
+      {
+        "title": "Express",
+        "proficiency": 3,
+        "icon": "simple-icons:express",
+        "color": "text-white"
+      },
+      {
+        "title": ".NET",
+        "proficiency": 2,
+        "icon": "simple-icons:dotnet",
+        "color": "text-purple-500"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Front-End Frameworks",
+    "items": [
+      {
+        "title": "React",
+        "proficiency": 4,
+        "icon": "simple-icons:react",
+        "color": "text-sky-400"
+      },
+      {
+        "title": "Astro",
+        "proficiency": 3,
+        "icon": "simple-icons:astro",
+        "color": "text-white"
+      },
+      {
+        "title": "Svelte",
+        "proficiency": 1,
+        "icon": "simple-icons:svelte",
+        "color": "text-orange-500"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Databases",
+    "items": [
+      {
+        "title": "PostgreSQL",
+        "proficiency": 3,
+        "icon": "simple-icons:postgresql",
+        "color": "text-sky-600"
+      },
+      {
+        "title": "MongoDB",
+        "proficiency": 3,
+        "icon": "simple-icons:mongodb",
+        "color": "text-green-500"
+      },
+      {
+        "title": "Redis",
+        "proficiency": 2,
+        "icon": "simple-icons:redis",
+        "color": "text-red-400"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Front-End Libraries/Tools",
+    "items": [
+      {
+        "title": "TailwindCSS",
+        "proficiency": 4,
+        "icon": "simple-icons:tailwindcss",
+        "color": "text-sky-400"
+      },
+      {
+        "title": "Figma",
+        "proficiency": 3,
+        "icon": "simple-icons:figma"
+      },
+      {
+        "title": "Tanstack Query",
+        "proficiency": 2,
+        "icon": "simple-icons:tanstack"
+      },
+      {
+        "title": "Apollo Client",
+        "proficiency": 1,
+        "icon": "simple-icons:apollographql",
+        "color": "text-white"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Back-End Libraries",
+    "items": [
+      {
+        "title": "GraphQL",
+        "proficiency": 3,
+        "icon": "simple-icons:graphql",
+        "color": "text-pink-500"
+      },
+      {
+        "title": "Sequelize",
+        "proficiency": 3,
+        "icon": "simple-icons:sequelize",
+        "color": "text-blue-400"
+      },
+      {
+        "title": "DrizzleORM",
+        "proficiency": 2,
+        "icon": "simple-icons:drizzle",
+        "color": "text-lime-500"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Testing",
+    "items": [
+      {
+        "title": "Vitest",
+        "proficiency": 2,
+        "icon": "simple-icons:vitest",
+        "color": "text-green-500"
+      },
+      {
+        "title": "Nock",
+        "proficiency": 2
+      },
+      {
+        "title": "Supertest",
+        "proficiency": 2
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Deployment",
+    "items": [
+      {
+        "title": "NGINX",
+        "proficiency": 2,
+        "icon": "simple-icons:nginx",
+        "color": "text-green-600"
+      },
+      {
+        "title": "PM2",
+        "proficiency": 2,
+        "icon": "simple-icons:pm2"
+      },
+      {
+        "title": "Docker",
+        "proficiency": 2,
+        "icon": "simple-icons:docker",
+        "color": "text-blue-500"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Operating Systems",
+    "items": [
+      {
+        "title": "Linux (Arch/Debian/Fedora)",
+        "proficiency": 3,
+        "experience": 3,
+        "icon": "simple-icons:linux"
+      },
+      {
+        "title": "Windows",
+        "proficiency": 4,
+        "experience": 4,
+        "icon": "simple-icons:windows",
+        "color": "text-blue-500"
+      },
+      {
+        "title": "macOS",
+        "proficiency": 2,
+        "experience": 2,
+        "icon": "simple-icons:apple",
+        "color": "text-white"
+      }
+    ]
+  }
+]

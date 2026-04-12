@@ -1,0 +1,18 @@
+---
+type Props = {
+  href: string;
+};
+
+const { href } = Astro.props;
+const { pathname } = Astro.url;
+---
+
+<a
+  class:list={[
+    "hover:bg-primary hover:text-primary-foreground px-1 font-semibold transition-all duration-200 ease-out",
+    pathname === href ? "bg-secondary text-secondary-foreground" : "",
+  ]}
+  href={href}
+>
+  <slot />
+</a>

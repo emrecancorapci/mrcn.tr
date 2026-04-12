@@ -1,0 +1,20 @@
+---
+interface Props {
+  size?: "sm" | "md" | "lg";
+}
+
+const { size = "md" } = Astro.props;
+const sizeClass = (() => {
+    switch (size) {
+        case "sm":
+            return "text-xl py-2 md:px-2";
+        case "md":
+            return "text-2xl py-3 md:px-3";
+        case "lg":
+            return "text-3xl py-4 md:px-4";
+        default:
+            return "text-2xl py-3 md:px-3";
+    }
+})()
+---
+<h3 class:list={["border-border border-b px-0 font-bold", sizeClass]}><slot /></h3>

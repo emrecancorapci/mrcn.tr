@@ -1,0 +1,40 @@
+import type { APIRoute } from "astro";
+
+const getRobotsTxt = (sitemapURL: URL) => `\
+# Block AI training bots (prevents your code/content from being used in LLMs)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: AnthropicAI
+Disallow: /
+
+# Block generic "noisy" scrapers that offer no SEO value
+User-agent: Scrapy
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+# ALLOW Search Engines (Essential for recruiters finding you via Google/Bing/DuckDuckGo)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: ${sitemapURL.href}
+`;
+
+export const GET: APIRoute = ({ site }) => {
+  const sitemapURL = new URL("sitemap-index.xml", site);
+  return new Response(getRobotsTxt(sitemapURL));
+};

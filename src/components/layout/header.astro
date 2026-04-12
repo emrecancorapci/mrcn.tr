@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+
+import NavLink from "./nav-link.astro";
+import ExternNavLink from "./extern-nav-link.astro";
+
+interface Props {
+  hasBorder?: boolean;
+  forceCol?: boolean;
+  disableHomePageText?: boolean;
+  isHomePage?: boolean;
+}
+
+const {
+  hasBorder = false,
+  forceCol = false,
+  disableHomePageText = false,
+  isHomePage = false,
+} = Astro.props as Props;
+---
+
+<header
+  class:list={[
+    "flex flex-col items-center justify-between gap-4 p-6",
+    !forceCol ? "lg:flex-row" : "",
+    hasBorder ? "border-border border-b" : "",
+  ]}
+>
+  <a
+    class:list={[
+      "group relative block overflow-hidden font-black",
+      forceCol ? "text-center text-4xl" : "text-4xl lg:text-3xl",
+    ]}
+    href="/"
+  >
+    <span
+      class:list={[
+        "block text-center transition-all duration-200",
+        disableHomePageText ? "" : "group-hover:-translate-y-full group-hover:opacity-0",
+      ]}
+    >
+      EMRE CAN ÇORAPÇI
+    </span>
+
+    <span
+      class:list={[
+        "absolute inset-0 block translate-y-full text-center transition-all duration-200",
+        disableHomePageText ? "" : "group-hover:translate-y-0 group-hover:opacity-100",
+      ]}
+    >
+      HOME PAGE
+    </span>
+  </a>
+  
+  <nav class="flex justify-center gap-4">
+    <NavLink href="/projects">Projects</NavLink>
+    <NavLink href="/skills">Skills</NavLink>
+    <!-- <NavLink href="/me">Me</NavLink> -->
+    <!-- <NavLink href="/blog">Blog</NavLink> -->
+  </nav>
+  <div class:list={["h-px w-full bg-secondary/50", !isHomePage ? "hidden bg-border" : ""]}></div>
+  <div class="flex items-center justify-end gap-2">
+    <ExternNavLink href="https://linkedin.com/in/emrecancorapci">
+      <Icon name="simple-icons:linkedin" class="text-2xl" />
+    </ExternNavLink>
+    <ExternNavLink href="https://github.com/emrecancorapci">
+      <Icon name="simple-icons:github" class="text-2xl" />
+    </ExternNavLink>
+    <ExternNavLink href="mailto:emrecancorapci@gmail.com">
+      <Icon name="material-symbols:mail-rounded" class="-m-0.5 -mt-0.75 text-center text-3xl" />
+    </ExternNavLink>
+    <ExternNavLink href="/docs/emre_can_corapci_cv.pdf">
+      <p class="-mt-1 text-2xl font-black">CV</p>
+    </ExternNavLink>
+  </div>
+</header>

@@ -1,0 +1,39 @@
+---
+import Tag from "@/components/ui/tag.astro";
+
+interface Props {
+  title: string;
+  href: string;
+  description: string;
+  tags: string[];
+}
+
+const { title, href, description, tags } = Astro.props;
+---
+
+<div
+  class="group bg-primary hover:bg-secondary shadow-black/10 shadow-lg hover:shadow-secondary/20 grid cursor-pointer grid-rows-1 gap-2 rounded-xl pt-8 transition-all duration-300 ease-out hover:shadow-lg md:grid-rows-3 md:gap-0 md:py-8"
+  onclick={`location.href='${href}'`}
+>
+  <h3 class="text-primary-foreground px-6 text-center text-2xl font-black transition-all">
+    {title}
+  </h3>
+  <p
+    class="text-background row-span-2 flex items-center justify-center px-4 text-center transition-all pb-0 md:pb-2"
+  >
+    {description}
+  </p>
+  <div class="flex flex-wrap items-center justify-center gap-2 px-4 py-2 text-center md:py-0">
+    {
+      tags.map((tag) => (
+        <Tag variant="tertiary" href={`/tags/${tag}`}>
+          {tag}
+        </Tag>
+      ))
+    }
+  </div>
+  <a
+    class="border-background/60 text-background bg-secondary visible w-full rounded-b-xl border-t p-4 text-center font-semibold md:hidden"
+    href={href}>View Project</a
+  >
+</div>

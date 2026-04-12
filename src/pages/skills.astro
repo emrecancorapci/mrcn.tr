@@ -1,0 +1,61 @@
+---
+import Layout from "@/layouts/layout.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+const skills = await getCollection("skills");
+
+const getProficiency = (c: number) => {
+  switch (c) {
+    case 1:
+      return "Familiar";
+    case 2:
+      return "Comfortable";
+    case 3:
+      return "Proficient";
+    case 4:
+      return "Advanced";
+    case 5:
+      return "Expert";
+    default:
+      return "Unknown";
+  }
+};
+---
+
+<Layout>
+  <div class="grid size-full grid-cols-1 gap-20 lg:grid-cols-6">
+    <div class="col-span-1 flex flex-col gap-8 py-8 lg:col-span-2">
+      <h1 class="text-7xl font-thin">Skills</h1>
+      <p class="text-lg">
+        I’m a backend developer focused on performance-oriented web systems, mainly using TypeScript
+        and Rust. I've used a variety of frameworks and libraries, including .NET, Express and
+        Fastify on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++
+        and Python.
+      </p>
+    </div>
+    <div class="col-span-1 grid lg:col-span-4">
+      {
+        skills.map(({ data: { title, items } }) => (
+          <div class="grid grid-cols-1 gap-4 py-4">
+            <h2 class="text-3xl font-bold">{title}</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {items.sort((a,b) => b.proficiency - a.proficiency).map(({ title, proficiency, icon, color }) => (
+                <div class="bg-primary/20 flex gap-4 rounded-xl p-2">
+                  <div class="bg-primary-foreground size-16 aspect-square rounded-xl p-3">
+                    {icon && <Icon class:list={["size-full", color]} name={icon} />}
+                  </div>
+                  <div class="flex w-full items-center justify-between">
+                    <p class="text-xl sm:text-lg md:text-xl font-light">{title}</p>
+                    <p class="pe-2 text-secondary text-lg sm:text-base md:text-lg font-bold">{getProficiency(proficiency)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <hr class="border-primary/10 border-b" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

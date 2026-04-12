@@ -1,0 +1,122 @@
+---
+import { getCollection, render } from "astro:content";
+
+import Layout from "@/layouts/layout.astro";
+import ProjectBlock from "./_components/project-block.astro";
+import ProjectSection from "./_components/project-section.astro";
+import ProjectSectionTitle from "./_components/project-section-title.astro";
+import ProjectLinks from "./_components/project-links.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("project");
+
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { Content } = await render(Astro.props.project);
+const data = Astro.props.project.data;
+
+const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
+const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
+
+const getCategory = (c: string) => {
+  switch (c) {
+    case "oss":
+      return "Open Source";
+    case "published":
+      return "Published Package";
+    case "freelance":
+      return "Freelance Project";
+    default:
+      return "Unknown";
+  }
+};
+
+const getStatus = (c: string) => {
+  switch (c) {
+    case "ongoing":
+      return "Ongoing";
+    case "completed":
+      return "Completed";
+    case "prototype-completed":
+      return "Prototype Completed";
+    case "archived":
+      return "Archived";
+    default:
+      return "Unknown";
+  }
+};
+---
+
+<Layout title={data.title}>
+  <div class="grid gap-4 pt-4">
+    <div
+      class="bg-primary shadow-secondary/20 text-primary-foreground from-primary to-secondary flex flex-col items-center justify-center gap-16 rounded-xl bg-linear-65 from-0% to-80% px-4 pt-20 pb-10 text-center shadow-md transition-all duration-1000 ease-out hover:opacity-90"
+    >
+      <div class="flex flex-col items-center">
+        <h3 class="font-light">[PROJECT]</h3>
+        <div class="flex justify-center">
+          <h2 class="text-6xl font-black md:text-7xl">{data.title}</h2>
+          {
+            data.version && (
+              <p class="bg-secondary-foreground text-secondary h-min rounded-lg px-2 py-0.5 text-lg font-bold -me-14">
+                {data.version}
+              </p>
+            )
+          }
+        </div>
+        <p class="w-full max-w-4xl pt-5 font-semibold">{data.description}</p>
+      </div>
+      <div class="grid w-full grid-cols-3 gap-4">
+        <div class="flex flex-col gap-0.5">
+          <p class="leading-none font-light">[YEAR]</p>
+          <p class="text-lg leading-tight font-bold">{data.year}</p>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <p class="leading-none font-light">[TYPE]</p>
+          <p class="text-lg leading-tight font-bold">{getCategory(data.projectType)}</p>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <p class="leading-none font-light">[STATUS]</p>
+          <p class="text-lg leading-tight font-bold">{getStatus(data.status)}</p>
+        </div>
+      </div>
+    </div>
+    {data.links && <ProjectLinks links={data.links} />}
+    {
+      Astro.props.project.body && blocksOnTop.length > 0 && (
+        <div class="flex w-full flex-col gap-4 md:hidden">
+          {blocksOnTop.map((block) => (
+            <ProjectBlock block={block} />
+          ))}
+        </div>
+      )
+    }
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+      {
+        Astro.props.project.body && (
+          <ProjectSection class="col-span-1 shadow-lg md:col-span-3">
+            <ProjectSectionTitle size="lg">Summary</ProjectSectionTitle>
+            <div class="grid gap-4 px-0 py-4 leading-relaxed md:px-4">
+              <Content />
+            </div>
+          </ProjectSection>
+        )
+      }
+      {
+        blocksOnBottom.length > 0 && (
+          <div
+            class={`flex w-full gap-4 ${Astro.props.project.body ? "flex-col" : "col-span-4 flex-row justify-center"}`}
+          >
+            {data.blocks?.map((block) => (
+              <ProjectBlock block={block} class={block.onTop ? "hidden md:grid" : ""} />
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Layout>

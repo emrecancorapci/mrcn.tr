@@ -1,0 +1,31 @@
+---
+interface Props {
+  href?: string;
+  variant?: "primary" | "tertiary";
+}
+
+const { href, variant = "primary" } = Astro.props;
+
+const variantString = (() => {
+  switch (variant) {
+    case "primary":
+      return `bg-primary-foreground rounded text-secondary ${href && `hover:bg-secondary hover:text-primary-foreground`}`;
+    case "tertiary":
+      return `bg-tertiary text-primary-foreground rounded-lg border-2 border-tertiary font-light ${href && `hover:bg-secondary hover:text-background`}`;
+    default:
+      return "bg-background hover:bg-secondary rounded hover:text-background";
+  }
+})();
+
+const classString = `${variantString} py-1 text-sm px-2 transition-all duration-300 ease-out`;
+---
+
+{
+  href ?
+    <a class={classString}>
+      <slot />
+    </a>
+  : <p class={classString}>
+      <slot />
+    </p>
+}

@@ -1,0 +1,46 @@
+---
+import ProjectLink from "./project-link.astro";
+
+interface Props {
+  links: {
+    title: string;
+    url: string;
+    primary?: boolean | undefined;
+  }[];
+}
+const { links } = Astro.props;
+
+const linksClass = (() => {
+  switch (links.length) {
+    case 1:
+      return "md:grid-cols-1";
+    case 2:
+      return "md:grid-cols-2";
+    case 3:
+      return "md:grid-cols-3";
+    case 4:
+      return "md:grid-cols-4";
+    default:
+      return "md:grid-cols-1";
+  }
+})();
+---
+
+<div class:list={[`bg-card grid grid-cols-1 rounded-xl`, linksClass]}>
+  {
+    links.map((link) => (
+      <ProjectLink
+        href={link.url}
+        class:list={[
+          "shadow-secondary/10 hover:shadow-lg",
+          links.length > 1 ?
+            "first:rounded-t-xl first:border-t-0 first:border-l-0 last:rounded-b-xl last:border-e-0 last:border-b-0 first:md:rounded-l-xl first:md:rounded-r-none last:md:rounded-l-none last:md:rounded-r-xl"
+          : "rounded-xl",
+        ]}
+        primary={link.primary}
+      >
+        {link.title}
+      </ProjectLink>
+    ))
+  }
+</div>

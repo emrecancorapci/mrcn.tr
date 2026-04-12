@@ -1,14 +1,30 @@
 ---
-import Header from "@/components/layout/header/header.astro";
-import PackagesSection from "@/components/sections/packages/packages-section.astro";
-import TechSection from "@/components/sections/tech/tech-section.astro";
-import Layout from "@/layouts/layout.astro";
+import Header from "@/components/layout/header.astro";
+import Typewriter from "@/components/ui/typewriter.astro";
+import Base from "@/layouts/base.astro";
 ---
 
-<Layout>
-  <div class="flex size-full max-w-7xl flex-col gap-4 md:px-8">
-    <Header />
-    <PackagesSection title="Published Packages" />
-    <TechSection title="Technologies" />
-  </div>
-</Layout>
+<Base>
+  <main class="flex w-full h-dvh min-h-screen flex-col items-center justify-center px-4">
+    <div class="flex w-full max-w-3xl flex-col items-end justify-end pb-8 md:pb-0">
+      <img class="max-w-80" src="/images/me.png" />
+      <div
+        class="bg-card border-secondary flex h-54 min-h-40 w-full flex-col gap-2 border-2 px-8 py-6 transition-all md:h-40"
+      >
+        <h3 class="text-2xl font-bold">Emre Can:</h3>
+        <Typewriter
+          writeAll
+          noDelete
+          delta={30}
+          words={[
+            "I build backend systems, write music, read philosophy, play games, and think a lot ",
+            [["(and sometimes get paid to do it)."], "italic"],
+          ]}
+          class="text-secondary text-xl font-extralight"
+        />
+      </div>
+    </div>
+    <Header forceCol disableHomePageText isHomePage />
+    <div class="h-[10dvh]"></div>
+  </main>
+</Base>

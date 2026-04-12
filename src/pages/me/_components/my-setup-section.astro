@@ -1,0 +1,161 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+import MeCard from "./me-card.astro";
+import MeCardHeader from "./me-card-header.astro";
+import MeCardTitle from "./me-card-title.astro";
+import MySetupDetailButton from "./my-setup-detail-button.astro";
+import MeCardContent from "./me-card-content.astro";
+
+interface Props extends HTMLAttributes<"div"> {
+  class?: string;
+}
+
+const setupObject = [
+  {
+    title: "OS",
+    value: "EndeavourOS",
+    detailed: "EndeavourOS (Arch Linux)",
+    icon: "simple-icons:linux",
+    valueIcon: "simple-icons:endeavouros",
+  },
+  {
+    title: "Window Manager",
+    value: "Hyprland",
+    detailed: "illogical-impulse (Hyprland + Quickshell)",
+    icon: "material-symbols:select-window",
+    valueIcon: "simple-icons:hyprland",
+  },
+  {
+    title: "CPU",
+    value: "AMD Ryzen 9 7900X",
+    detailed: "AMD Ryzen 9 7900X 12-Core 4.7GHz",
+    icon: "material-symbols:memory-outline",
+    valueIcon: "simple-icons:amd",
+  },
+  {
+    title: "GPU",
+    value: "AMD Radeon RX 7800XT",
+    detailed: "AMD Radeon RX 7800XT 16GB GDDR6",
+    icon: "material-symbols:imagesmode",
+    valueIcon: "simple-icons:amd",
+  },
+  {
+    title: "Memory",
+    value: "32GB",
+    detailed: "Corsair Vengeance 32GB DDR5 6000MHz",
+    icon: "material-symbols:memory-alt",
+    valueIcon: "simple-icons:corsair",
+  },
+  {
+    title: "Storage",
+    value: "1TB SSD + 2TB HDD",
+    detailed: "Samsung 990 Evo+ 1 TB NVMe SSD + 2TB HDD",
+    icon: "material-symbols:hard-disk",
+    valueIcon: "simple-icons:samsung",
+  },
+  {
+    title: "Display",
+    value: "MSI Modern MD342CQP",
+    detailed: 'MSI Modern MD342CQP 34" 120Hz',
+    icon: "material-symbols:monitor-outline",
+    valueIcon: "simple-icons:msi",
+  },
+  {
+    title: "Motherboard",
+    value: undefined,
+    detailed: "MSI Pro B650-P WIFI",
+    icon: "material-symbols:memory",
+    valueIcon: "simple-icons:msi",
+  },
+  {
+    title: "PSU",
+    value: undefined,
+    detailed: "Corsair RM850E 850W - 80+ Gold",
+    icon: "material-symbols:power-settings-circle-rounded",
+    valueIcon: "simple-icons:corsair",
+  },
+  {
+    title: "Cooler",
+    value: undefined,
+    detailed: "Thermalright Peerless Assassin 120 SE",
+    icon: "material-symbols:mode-fan",
+  },
+  {
+    title: "Case",
+    value: undefined,
+    detailed: "NZXT H6 Flow Black",
+    icon: "material-symbols:settings-input-hdmi",
+    valueIcon: "simple-icons:nzxt",
+  },
+];
+
+const { class: className, ...props } = Astro.props;
+---
+
+<MeCard>
+  <MeCardHeader>
+    <MeCardTitle size="lg">My Setup</MeCardTitle>
+    <MySetupDetailButton />
+  </MeCardHeader>
+
+  <MeCardContent>
+    <div
+      id="setup-wrapper"
+      data-show-details="false"
+      class:list={["group/setup-wrapper grid grid-cols-2 gap-y-2", className]}
+      {...props}
+    >
+      {
+        setupObject.map(({ title, value, detailed, icon, valueIcon }) => (
+          <div
+            class={`flex flex-col ${!value ? 'group-data-[show-details="false"]/setup-wrapper:hidden' : ""}`}
+          >
+            <div class="flex items-center gap-1 text-lg font-bold">
+              <Icon name={icon} /> {title}
+            </div>
+            <div class="text-primary flex items-baseline gap-1 text-sm">
+              {value ?
+                <>
+                  <span class='group-data-[show-details="true"]/setup-wrapper:hidden'>{value}</span>
+                  <span class='hidden items-center gap-1 group-data-[show-details="true"]/setup-wrapper:flex'>
+                    {valueIcon && (
+                      <Icon
+                        class="bg-primary text-primary-foreground w-4.5 rounded-xl p-0.5 text-lg"
+                        name={valueIcon}
+                      />
+                    )}{" "}
+                    {detailed}
+                  </span>
+                </>
+              : <>
+                  {valueIcon && <Icon name={valueIcon} />}
+                  <span>{detailed}</span>
+                </>
+              }
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </MeCardContent>
+</MeCard>
+
+<script>
+  const SIMPLE_TEXT = "Hide Details";
+  const DETAILED_TEXT = "Show Details";
+
+  const WRAPPER_ID = "setup-wrapper";
+  const BTN_ID = "toggle-details";
+  const DATA_SHOW_DETAILS = "data-show-details";
+
+  const wrapper = document.getElementById(WRAPPER_ID);
+  const btn = document.getElementById(BTN_ID);
+
+  btn?.addEventListener("click", () => {
+    const isShowing = wrapper?.getAttribute(DATA_SHOW_DETAILS) === "true";
+
+    wrapper?.setAttribute(DATA_SHOW_DETAILS, (!isShowing).toString());
+    btn.textContent = !isShowing ? SIMPLE_TEXT : DETAILED_TEXT;
+  });
+</script>
