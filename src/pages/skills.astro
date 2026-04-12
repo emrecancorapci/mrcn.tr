@@ -40,7 +40,7 @@ const getProficiency = (c: number) => {
           <div class="grid grid-cols-1 gap-4 py-4">
             <h2 class="text-3xl font-bold">{title}</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {items.map(({ title, proficiency, icon, color }) => (
+              {items.sort((a,b) => a.proficiency - b.proficiency).map(({ title, proficiency, icon, color }) => (
                 <div class="bg-primary/20 flex gap-4 rounded-xl p-2">
                   <div class="bg-primary-foreground size-16 aspect-square rounded-xl p-3">
                     {icon && <Icon class:list={["size-full", color]} name={icon} />}
