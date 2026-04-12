@@ -1,12 +1,12 @@
 ---
 import "@/styles/global.css";
-import "@fontsource-variable/outfit";
 
 import PostHog from "@/components/post-hog.astro";
+import { Font } from "astro:assets";
 
 interface Props {
-  title?: string;
-  description?: string;
+  title?: string | undefined;
+  description?: string | undefined;
 }
 
 const isProd = import.meta.env.PROD;
@@ -21,6 +21,7 @@ const { title, description } = Astro.props as Props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <Font cssVariable="--font-outfit" />
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? "Emre Can Çorapçı"}</title>
     <meta name="description" content={description ?? "Emre Can Çorapçı's personal website"} />
