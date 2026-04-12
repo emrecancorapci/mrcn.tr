@@ -54,15 +54,15 @@ const getStatus = (c: string) => {
 <Layout title={data.title}>
   <div class="grid gap-4 pt-4">
     <div
-      class="bg-primary shadow-secondary/20 text-primary-foreground from-primary to-secondary flex flex-col items-center justify-center gap-16 rounded-xl bg-linear-65 from-20% to-80% px-4 pt-20 pb-10 text-center shadow-md transition-all duration-1000 ease-out hover:opacity-90"
+      class="bg-primary shadow-secondary/20 text-primary-foreground from-primary to-secondary flex flex-col items-center justify-center gap-16 rounded-xl bg-linear-65 from-0% to-80% px-4 pt-20 pb-10 text-center shadow-md transition-all duration-1000 ease-out hover:opacity-90"
     >
       <div class="flex flex-col items-center">
-        <h3 class="font-light">PROJECT</h3>
+        <h3 class="font-light">[PROJECT]</h3>
         <div class="flex justify-center">
           <h2 class="text-6xl font-black md:text-7xl">{data.title}</h2>
           {
             data.version && (
-              <p class="bg-secondary-foreground text-secondary h-min rounded-lg px-2 py-0.5 text-lg font-bold">
+              <p class="bg-secondary-foreground text-secondary h-min rounded-lg px-2 py-0.5 text-lg font-bold -me-14">
                 {data.version}
               </p>
             )
