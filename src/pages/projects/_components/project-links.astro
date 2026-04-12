@@ -5,7 +5,7 @@ interface Props {
   links: {
     title: string;
     url: string;
-    primary?: boolean;
+    primary?: boolean | undefined;
   }[];
 }
 const { links } = Astro.props;
