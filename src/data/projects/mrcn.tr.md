@@ -1,23 +1,15 @@
 ---
 title: "mrcn.tr"
-projectType: "oss"
 description: "Personal website built with Astro"
+projectType: "oss"
+year: 2026
+status: "ongoing"
+version: "2.0.0"
 mainTags: ["typescript", "web", "astro"]
 links:
   [{ title: "View on GitHub", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]
 blocks:
   [
-    {
-      title: "About",
-      type: "records",
-      content:
-        [
-          ["Year", "2026 - Current"],
-          ["Project Type", "Open Source"],
-          ["Status", "Ongoing"],
-          ["Latest Version", "2.0.0"],
-        ],
-    },
     {
       title: "Features",
       type: "tags",
@@ -37,5 +29,3 @@ blocks:
     },
   ]
 ---
-
-Test

@@ -35,6 +35,7 @@ const link = z.object({
 });
 
 const projectType = z.literal(["published", "oss", "freelance"]);
+const statusType = z.literal(["ongoing", "completed", "prototype-completed", "archived"]);
 
 export const projectTypeSchema = z.object({
   title: z.string(),
@@ -45,6 +46,9 @@ export const projectSchema = z.object({
   title: z.string(),
   projectType: projectType,
   description: z.string(),
+  year: z.number().optional(),
+  status: statusType,
+  version: z.string().optional(),
   mainTags: z.array(z.string()),
   tags: z.array(z.string()).optional(),
   links: z.array(link).optional(),

@@ -1,21 +1,12 @@
 ---
 title: "Koçbizz"
-projectType: "freelance"
 description: "A mentor-mentee matching platform."
+projectType: "freelance"
+year: 2025
+status: "completed"
 mainTags: ["typescript", "fastify", "graphql", "react"]
 blocks:
   [
-    {
-      title: "About",
-      type: "records",
-      content:
-        [
-          ["Year", "2025"],
-          ["Project Type", "Freelance"],
-          ["Status", "Finished"],
-          ["Role", "Full-Stack Developer"],
-        ],
-    },
     {
       title: "Technologies",
       type: "tags",

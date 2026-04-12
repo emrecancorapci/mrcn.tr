@@ -1,7 +1,10 @@
 ---
 title: "krustie"
+description: "An experimental backend HTTP framework built in Rust from the TCP layer up, with a custom parser, middleware pipeline, and an immutable request lifecycle."
 projectType: "published"
-description: "An experimental HTTP framework built from scratch in Rust to explore routing, middleware pipelines, and request object immutability."
+year: 2024
+status: "ongoing"
+version: "0.2.1"
 mainTags: ["rust", "web", "tcp"]
 links:
   [
@@ -11,18 +14,6 @@ links:
   ]
 blocks:
   [
-    {
-      title: "About",
-      type: "records",
-      onTop: true,
-      content:
-        [
-          ["Year", "2024 - Current"],
-          ["Project Type", "Open Source"],
-          ["Status", "Ongoing"],
-          ["Latest Version", "0.2.1"],
-        ],
-    },
     {
       title: "Key Capabilities",
       type: "list",
@@ -66,7 +57,7 @@ blocks:
   ]
 ---
 
-Krustie is an experimental HTTP framework built from scratch in Rust. It started as a minimal HTTP server implementation and gradually evolved into a structured backend framework as I explored routing, middleware design, and request lifecycle management.
+It started as a minimal HTTP server implementation that works at the TCP level, and gradually evolved into a structured backend framework with an immutable request lifecycle as I explored routing, middleware design, and request lifecycle management.
 
 ```rust
 use krustie::{ Router, Server, StatusCode };
@@ -85,21 +76,22 @@ fn main() {
 }
 ```
 
+At first my plan was a simple HTTP server with a few basic routes. While I was working on it I started to have some ideas about how it can be turned into an http framework.
 
-Started this project in 2024 when I was learning Rust. I've been following http server project guide on [Codecrafters](https://www.codecrafters.io/).
+First I created the foundation of the project, then I started to add more features such as routing with _queries_ `/user?sort=DESC` and _dynamic parameters_ `/user/:id`. I had to rewrite the whole routing logic because the first iteration had no room to grow — it was just comparing strings from the client against the routes.
 
-At first I followed the guide and it was a simple http server with a few basic routes. While I was working on it I started to have ideas about how it can be turned into a basic backend framework. When I finished the guide, I decided to give it a go.
+Next step was to add the _middleware support_. I had to rewrite the routing logic again, this time to create a clear separation between the router and the endpoint pipeline. Architecture-wise router, middleware and endpoint are all handlers. Router is a handler that routes the request to the correct part of the pipeline. Middleware is a handler that runs before or after the endpoint. And endpoint is the handler that actually handles what is going to happen.
 
-When it turned into a basic framework I started to add more features. I added routing with _queries_ `/user?sort=DESC` and _dynamic parameters_ `/user/:id`. I had to rewrite the whole routing logic because first iteration was dirty and had no space for improvements.
+While I was doing it I decided to make request object immutable. It was hard to persevere with this decision but I was aiming to create a safe and easy to use framework to decrease the possibility of bugs.
 
-And then I decided to add _middleware support_. It was kind of a nightmare because again I had to rewrite the whole routing logic with it. And when I started to write the framework I decided that request object must be immutable. It cost my mental health to be persevere with this decision. Because turning it into a mutable object would make so much things easier.
+```
+TCP Connection → HTTP Parser → Router → Middleware Pipeline → Handler → Response
+```
 
-After that I added some basic middlewares _such as static file serving, rate limiting, gzip compression and json parser/serializer_ to see how it works. While doing it I realize there were still some features missing to create these middlewares. I added the missing features but I believe that it still needs some improvements.
+After that I implemented some basic middlewares _such as static file serving, rate limiting, gzip compression and json parser/serializer_ to see how the middleware system works. While doing it I realized there were still some features missing to create these middlewares. I added the missing features but I believe that it still needs some improvements.
 
-I wrote some tests because while I was working on the project I had some issues with the http parser time to time. Tests helped me to fix them so much faster. And And for the final test, I decided to create a basic web server. And after I developed and run it, I found out that some of the parts don't work as expected. And then I added some basic _testing tools_ to test the app as well. It turned out great and helped me to analyze the issues better.
+I wrote some tests because while I was working on the project I had some issues with the http parser time to time. Tests helped me to fix them so much faster. And as a final test, I decided to create a basic web server. After I developed and ran it, I found out that some of the parts don't work as expected. So I added some basic _testing tools_ to test the app as well. It turned out great and helped me to analyze the issues better.
 
-The project helped me to learn how to use Rust and how a http server works under the hood. It also helped me to learn what is the optimal way for me to learn anything. I realized it is better for me to learn things while I'm doing something with them.
+Building this made one thing obvious: **all web infrastructure is just a bunch of parsers packed together.**
 
-And after all these work I realized that **all web infrastructure is just a bunch of parsers packed together**.
-
-I'm planning to add multithreading and asynchronous methods support in the future. But right now I'm focusing on learning concurrency and multithreading. There are still a lot of things I have to learn about low level stuff.
+The current architecture was kept synchronous to understand the fundamentals first. I'm planning to add multithreading and asynchronous methods support in the future.

@@ -1,8 +1,9 @@
 ---
 title: "Redis Clone"
-slug: "redis-clone"
-projectType: "oss"
 description: "A Redis-compatible server implementing RESP protocol over TCP. Focused on in-memory data structures and protocol parsing."
+projectType: "oss"
+year: 2024
+status: "prototype-completed"
 mainTags: ["typescript", "rust", "tcp"]
 links:
   [
@@ -18,16 +19,6 @@ links:
   ]
 blocks:
   [
-    {
-      title: "About",
-      type: "records",
-      content:
-        [
-          ["Year", "2024"],
-          ["Project Type", "Open Source"],
-          ["Status", "Prototype Completed"],
-        ],
-    },
     {
       title: "Features",
       type: "tags",
