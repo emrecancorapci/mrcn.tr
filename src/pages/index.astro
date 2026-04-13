@@ -2,12 +2,20 @@
 import Header from "@/components/layout/header.astro";
 import Typewriter from "@/components/ui/typewriter.astro";
 import Base from "@/layouts/base.astro";
+
+import { Picture } from "astro:assets";
+import MeImage from "@/images/me.png";
 ---
 
 <Base>
-  <main class="flex w-full h-dvh min-h-screen flex-col items-center justify-center px-4">
+  <main class="flex h-dvh min-h-screen w-full flex-col items-center justify-center px-4">
     <div class="flex w-full max-w-3xl flex-col items-end justify-end pb-8 md:pb-0">
-      <img fetchpriority="high" class="max-w-80" src="/images/me.png" />
+      <Picture
+        formats={["webp", "png"]}
+        class="max-w-80"
+        src={MeImage}
+        alt="An Illustration of Emre Can in ghibli style"
+      />
       <div
         class="bg-card border-secondary flex h-54 min-h-40 w-full flex-col gap-2 border-2 px-8 py-6 transition-all md:h-40"
       >
