@@ -10,9 +10,7 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://mrcn.tr",
   output: "static",
-  build: {
-    inlineStylesheets: "always"
-  },
+  integrations: [sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
   },
@@ -21,10 +19,10 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Outfit",
       cssVariable: "--font-outfit",
-      weights: [100,200,300,400, 500, 600, 700, 800, 900],
-    }
+      subsets: ["latin", "latin-ext"],
+      weights: ["100 900"],
+    },
   ],
-  integrations: [sitemap(), icon()],
   markdown: {
     shikiConfig: {
       theme: "everforest-dark",
