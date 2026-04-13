@@ -1,16 +1,16 @@
 ---
-interface Props {
-  href: string;
-}
+import type { HTMLAttributes } from "astro/types";
 
-const { href } = Astro.props;
+interface Props extends HTMLAttributes<"a"> {}
+
+const props = Astro.props;
 ---
 
 <a
-  href={href}
   class="hover:text-secondary/80 size-6 text-center"
   target="_blank"
   rel="noopener noreferrer"
+  {...props}
 >
   <slot />
 </a>
