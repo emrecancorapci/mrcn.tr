@@ -1,28 +1,37 @@
 ---
+import { cn } from "@/lib/utils";
+
 interface Props {
   href?: string;
-  variant?: "primary" | "tertiary";
+  variant?: "primary" | "secondary" | "tertiary";
+  class?: string;
 }
 
-const { href, variant = "primary" } = Astro.props;
+const { href, variant = "primary", class: className } = Astro.props;
 
 const variantString = (() => {
   switch (variant) {
     case "primary":
       return `bg-primary-foreground rounded text-secondary ${href && `hover:bg-secondary hover:text-primary-foreground`}`;
+    case "secondary":
+      return `bg-secondary text-primary-foreground rounded-lg font-light ${href && `hover:bg-tertiary hover:text-background`}`;
     case "tertiary":
-      return `bg-tertiary text-primary-foreground rounded-lg border-2 border-tertiary font-light ${href && `hover:bg-secondary hover:text-background`}`;
+      return `bg-tertiary text-primary-foreground rounded-lg font-light ${href && `hover:bg-secondary hover:text-background`}`;
     default:
       return "bg-background hover:bg-secondary rounded hover:text-background";
   }
 })();
 
-const classString = `${variantString} py-1 text-sm px-2 transition-all duration-300 ease-out`;
+const classString = cn([
+  "py-1 text-sm px-2 transition-all duration-300 ease-out",
+  variantString,
+  className,
+]);
 ---
 
 {
   href ?
-    <a class={classString}>
+    <a class={classString} {href}>
       <slot />
     </a>
   : <p class={classString}>

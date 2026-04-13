@@ -26,7 +26,7 @@ const { title, href, description, tags } = Astro.props;
   <div class="flex flex-wrap items-center justify-center gap-2 px-4 py-2 text-center md:py-0">
     {
       tags.map((tag) => (
-        <Tag variant="tertiary" href={`/tags/${tag}`}>
+        <Tag variant="secondary" class="group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow hover:bg-secondary-foreground hover:text-secondary">
           {tag}
         </Tag>
       ))
