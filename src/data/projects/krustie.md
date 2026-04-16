@@ -4,7 +4,7 @@ description: "An experimental backend HTTP framework built in Rust from the TCP 
 projectType: "published"
 year: 2024
 status: "ongoing"
-version: "0.2.1"
+version: "0.3.0"
 mainTags: ["rust", "web", "tcp"]
 links:
   [
