@@ -1,0 +1,92 @@
+---
+import Tag from "@/components/ui/tag.astro";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+
+interface Props {
+  experience: CollectionEntry<"experiences">;
+}
+
+const { Content } = await render(Astro.props.experience);
+const experience = Astro.props.experience.data;
+
+const getSkillsClass = (count: number) => {
+  switch (count) {
+    case 4:
+      return "flex-1/5";
+    case 5:
+      return "flex-1/6";
+    case 6:
+      return "flex-1/4";
+    case 7:
+      return "flex-1/5";
+    case 8:
+      return "flex-1/6 sm:flex-1/5 lg:flex-1/6 xl:flex-1/9";
+    case 9:
+      return "flex-1/5";
+    default:
+      return "flex-wrap";
+  }
+};
+---
+
+<div
+  class="bg-secondary-foreground border-secondary/50 hover:border-secondary hover:shadow-secondary/20 grid h-fit gap-6 rounded-xl border px-6 py-6 pb-8 shadow transition-all"
+>
+  <div class="grid gap-4 md:gap-4">
+    <div class="grid gap-2">
+      <div class="flex flex-col justify-center gap-2 md:flex-row md:justify-between">
+        <div>
+          <h2 class="text-center text-3xl font-bold md:text-start">
+            {experience.title} - {experience.contractType}
+          </h2>
+          <h3 class="text-secondary text-center text-lg font-extralight md:text-start">
+            {experience.company} - {experience.location}
+          </h3>
+        </div>
+        <div class="flex justify-center pt-0 md:pt-1">
+          <p class="text-secondary border-secondary/50 size-fit rounded-lg border px-2 text-center">
+            {experience.start} - {experience.end}
+          </p>
+        </div>
+      </div>
+
+      <ul class="flex flex-wrap gap-2">
+        {
+          experience.techs.map((t) => (
+            <Tag
+              class:list={["bg-secondary/80 text-center", getSkillsClass(experience.techs.length)]}
+              Element="li"
+              variant="secondary"
+            >
+              {t}
+            </Tag>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <hr class="border-secondary/50" />
+  <div
+    class="prose prose-li:text-secondary prose-ul:grid prose-ul:list-inside prose-ul:list-disc prose-strong:text-primary prose-strong:font-bold prose-strong:text-lg"
+  >
+    <Content />
+  </div>
+
+  <div class="grid gap-2">
+    <p class="text-2xl font-semibold">Areas of Expertise</p>
+    <ul class="grid list-inside gap-2 px-0 sm:flex sm:flex-wrap">
+      {
+        experience.skills.map((s) => (
+          <Tag
+            class="bg-background text-secondary border-secondary/50 flex items-center justify-center rounded-lg border text-center text-sm sm:flex-1/4 lg:flex-1/6 lg:text-xs"
+            variant="primary"
+          >
+            {s}
+          </Tag>
+        ))
+      }
+    </ul>
+  </div>
+</div>
