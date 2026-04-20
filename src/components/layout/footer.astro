@@ -6,6 +6,7 @@ const footerLinks = [
       { title: "Home", href: "/" },
       { title: "Projects", href: "/projects" },
       { title: "Skills", href: "/skills" },
+      { title: "Experiences", href: "/experiences" },
     ],
   },
   {
@@ -27,18 +28,15 @@ const socialLinks = [
 ---
 
 <footer class="px-4 py-8">
-  <div class="flex flex-col justify-between md:flex-row p-0">
+  <div class="flex flex-col justify-between p-0 md:flex-row">
     <div class="flex w-full flex-col gap-4">
       <div>
-        
         <h2 class="text-foreground w-full text-4xl leading-tight font-bold lg:text-5xl">
           Emre Can Çorapçı
         </h2>
-        <p>
-          Software Developer
-        </p>
+        <p>Software Developer</p>
       </div>
-      <div class="grid w-full grid-cols-1 gap-6 md:gap-4 md:grid-cols-2">
+      <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2 md:gap-4">
         {
           footerLinks.map(({ title, links }) => (
             <div>
@@ -61,14 +59,16 @@ const socialLinks = [
       </div>
     </div>
     <div class="pt-4 md:pt-0">
-      <div class="flex w-full md:w-fit h-full justify-center md:justify-end border-secondary md:pt-0 md:pe-2 items-end flex-row gap-2 md:flex-col">
+      <div
+        class="border-secondary flex h-full w-full flex-row items-end justify-center gap-2 md:w-fit md:flex-col md:justify-end md:pe-2 md:pt-0"
+      >
         {
           socialLinks.map(({ title, href }) => (
             <a
               href={href}
-              class="group text-foreground hover:text-foreground/80 flex items-center gap-0 md:gap-0.5 transition-colors"
+              class="group text-foreground hover:text-foreground/80 flex items-center gap-0 transition-colors md:gap-0.5"
             >
-              <span class="text-lg md:text-xl font-medium">{title}</span>
+              <span class="text-lg font-medium md:text-xl">{title}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
