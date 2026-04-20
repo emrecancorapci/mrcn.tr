@@ -26,6 +26,7 @@
     "@biomejs/biome": "^2.4.11",
     "@iconify-json/material-symbols": "^1.2.66",
     "@iconify-json/simple-icons": "^1.2.77",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
     "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1",
