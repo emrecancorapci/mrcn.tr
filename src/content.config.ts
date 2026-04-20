@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { file, glob } from "astro/loaders";
 
+import { experienceSchema } from "./schemas/experience.schema";
 import { projectSchema, projectTypeSchema } from "./schemas/project.schema";
 import { skillsSchema } from "./schemas/skills.schema";
 
@@ -19,4 +20,9 @@ const skills = defineCollection({
   schema: skillsSchema,
 });
 
-export const collections = { project, projectType, skills };
+const experiences = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/data/experiences" }),
+  schema: experienceSchema,
+});
+
+export const collections = { project, projectType, skills, experiences };
