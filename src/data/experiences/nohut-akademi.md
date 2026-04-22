@@ -1,4 +1,5 @@
 ---
+priority: 1
 title: "Back-End Developer"
 contractType: "Full-Time"
 company: "Nohut Akademi"
@@ -6,17 +7,9 @@ description: "E-Learning Providers"
 location: "Istanbul Turkey (Remote)"
 start: "February 2025"
 end: "March 2026"
-techs: [
-    "TypeScript",
-    "Node.js",
-    "Fastify",
-    "Sequelize",
-    "GraphQL",
-    "PostgreSQL",
-    "MongoDB",
-    "Redis"
-]
-skills: [
+techs: ["TypeScript", "Fastify (Node.js)", "Sequelize", "GraphQL", "PostgreSQL", "MongoDB", "Redis"]
+skills:
+  [
     "Back-End System Architecture",
     "Performance and Query Optimization",
     "GraphQL API Design & Resolver Architecture",
@@ -25,8 +18,8 @@ skills: [
     "Hybrid Database Modeling (PostgreSQL & MongoDB)",
     "Transactional Data Integrity",
     "Web Scraping and Data Extraction",
-    "Type-Safe Development (Advanced TypeScript)"
-]
+    "Type-Safe Development (Advanced TypeScript)",
+  ]
 ---
 
 - Re-engineered web scraping infrastructure to extract unstructured data from third-party sources, reducing processing time by **80%**.
