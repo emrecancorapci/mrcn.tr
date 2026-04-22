@@ -1,6 +1,7 @@
 import { z } from "astro/zod";
 
 export const experienceSchema = z.object({
+  priority: z.number(),
   title: z.string(),
   contractType: z.enum([
     "Full-Time",

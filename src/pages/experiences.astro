@@ -4,7 +4,9 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/layout.astro";
 import ExperienceCard from "./experiences/_components/experience-card.astro";
 
-const experiencesCollection = await getCollection("experiences");
+const experiencesCollection = (await getCollection("experiences")).sort(
+  (a, b) => a.data.priority - b.data.priority
+);
 ---
 
 <Layout>
@@ -19,7 +21,7 @@ const experiencesCollection = await getCollection("experiences");
         architecture, implementation, testing, and deployment.
       </p>
     </div>
-    <div class="col-span-1 grid py-8 lg:col-span-4">
+    <div class="col-span-1 grid gap-8 py-8 lg:col-span-4">
       {experiencesCollection.map((e) => <ExperienceCard experience={e} />)}
     </div>
   </div>
