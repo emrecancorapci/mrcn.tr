@@ -1,5 +1,5 @@
 ---
-priority: 2
+priority: 3
 title: "Full-Stack Developer"
 contractType: "Part-Time"
 company: "Kocbizz"
