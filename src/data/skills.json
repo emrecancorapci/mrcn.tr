@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "01",
     "title": "Languages",
     "items": [
       {
@@ -48,7 +48,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": "02",
     "title": "Back-End Frameworks",
     "items": [
       {
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": "03",
     "title": "Front-End Frameworks",
     "items": [
       {
@@ -96,7 +96,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": "04",
     "title": "Databases",
     "items": [
       {
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": "05",
     "title": "Front-End Libraries/Tools",
     "items": [
       {
@@ -148,7 +148,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": "06",
     "title": "Back-End Libraries",
     "items": [
       {
@@ -172,7 +172,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": "07",
     "title": "Testing",
     "items": [
       {
@@ -192,7 +192,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": "08",
     "title": "Deployment",
     "items": [
       {
@@ -215,28 +215,43 @@
     ]
   },
   {
-    "id": 9,
+    "id": "09",
     "title": "Operating Systems",
     "items": [
       {
         "title": "Linux (Arch/Debian/Fedora)",
         "proficiency": 3,
-        "experience": 3,
         "icon": "simple-icons:linux"
       },
       {
         "title": "Windows",
         "proficiency": 4,
-        "experience": 4,
         "icon": "simple-icons:windows",
         "color": "text-blue-500"
       },
       {
         "title": "macOS",
         "proficiency": 2,
-        "experience": 2,
         "icon": "simple-icons:apple",
         "color": "text-white"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "title": "Other Tools",
+    "items": [
+      {
+        "title": "Postman",
+        "proficiency": 3,
+        "icon": "simple-icons:postman",
+        "color": "text-orange-400"
+      },
+      {
+        "title": "Git",
+        "proficiency": 3,
+        "icon": "simple-icons:git",
+        "color": "text-orange-500"
       }
     ]
   }
