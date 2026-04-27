@@ -46,8 +46,8 @@ importers:
         specifier: ^1.2.69
         version: 1.2.69
       '@iconify-json/simple-icons':
-        specifier: ^1.2.79
-        version: 1.2.79
+        specifier: ^1.2.80
+        version: 1.2.80
       '@tailwindcss/typography':
         specifier: ^0.5.19
         version: 0.5.19(tailwindcss@4.2.4)
@@ -61,8 +61,8 @@ importers:
         specifier: ^0.14.1
         version: 0.14.1
       prettier-plugin-tailwindcss:
-        specifier: ^0.7.3
-        version: 0.7.3(prettier-plugin-astro@0.14.1)(prettier@3.8.3)
+        specifier: ^0.8.0
+        version: 0.8.0(prettier-plugin-astro@0.14.1)(prettier@3.8.3)
       tailwindcss:
         specifier: ^4.2.4
         version: 4.2.4
@@ -392,8 +392,8 @@ packages:
   '@iconify-json/material-symbols@1.2.69':
     resolution: {integrity: sha512-N5n1p1vXsSJag9RmorZAwN5f5rs0lJfYa5xKs1FGKNV9DerVlMqG4nCYOoCb7XjwWWT1o+1Dc9Uu/cmDtCnb8Q==}
 
-  '@iconify-json/simple-icons@1.2.79':
-    resolution: {integrity: sha512-aNyO7Fd1qej9oQfIyohYFRv0lhQLaZ+6UkK1c1qwax0MDPUOZOdq65MlU500kow97pD/W+b2u1And3e25eE24Q==}
+  '@iconify-json/simple-icons@1.2.80':
+    resolution: {integrity: sha512-iglncJJ6X/dVuzFDU32MrHwwo4RBwivGf108dgyYg+HKS78ifx0h7sTenpDZMVT+UhdS6CSgZcvY/SvRXlIEUg==}
 
   '@iconify/tools@4.2.0':
     resolution: {integrity: sha512-WRxPva/ipxYkqZd1+CkEAQmd86dQmrwH0vwK89gmp2Kh2WyyVw57XbPng0NehP3x4V1LzLsXUneP1uMfTMZmUA==}
@@ -1741,8 +1741,8 @@ packages:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
     engines: {node: ^14.15.0 || >=16.0.0}
 
-  prettier-plugin-tailwindcss@0.7.3:
-    resolution: {integrity: sha512-lckXaWWdo2ZVXoMoUO3WIBiz9hVY+YBEh1gYyMFfrWP9WZW/wpFXQKizHx7WrFQFMkcG0bGShdpp531X1n+qpg==}
+  prettier-plugin-tailwindcss@0.8.0:
+    resolution: {integrity: sha512-V8ITGH87yuBDF6JpEZTOVlUz/saAwqb8f3HRgUj8Lh+tGCcrmorhsLpYqzygwFwK0PE2Ib6Mv3M7T/uE2tZV1g==}
     engines: {node: '>=20.19'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -2644,7 +2644,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.79':
+  '@iconify-json/simple-icons@1.2.80':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -4194,7 +4194,7 @@ snapshots:
       prettier: 3.8.3
       sass-formatter: 0.7.9
 
-  prettier-plugin-tailwindcss@0.7.3(prettier-plugin-astro@0.14.1)(prettier@3.8.3):
+  prettier-plugin-tailwindcss@0.8.0(prettier-plugin-astro@0.14.1)(prettier@3.8.3):
     dependencies:
       prettier: 3.8.3
     optionalDependencies:
