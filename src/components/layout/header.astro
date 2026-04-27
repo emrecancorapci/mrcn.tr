@@ -11,6 +11,25 @@ interface Props {
   isHomePage?: boolean;
 }
 
+const links = [
+  {
+    order: 1,
+    href: "/projects",
+    title: "Projects",
+    prefetch: true,
+  },
+  {
+    order: 2,
+    href: "/experiences",
+    title: "Experiences",
+  },
+  {
+    order: 3,
+    href: "/skills",
+    title: "Skills",
+  },
+]
+
 const {
   hasBorder = false,
   forceCol = false,
@@ -53,10 +72,11 @@ const {
   </a>
   
   <nav class="flex justify-center gap-4">
-    <NavLink data-astro-prefetch="true" href="/projects">Projects</NavLink>
-    <NavLink href="/skills">Skills</NavLink>
-    <NavLink href="/experiences">Experiences</NavLink>
-    <!-- <NavLink href="/blog">Blog</NavLink> -->
+    {
+      links.sort((a, b) => a.order - b.order).map((link) => (
+        <NavLink href={link.href} {...(link.prefetch && {'data-astro-prefetch': "true"})}>{link.title}</NavLink>
+      ))
+    }
   </nav>
   <div class:list={["h-px w-full bg-secondary/50", !isHomePage ? "hidden bg-border" : ""]}></div>
   <div class="flex items-center justify-end gap-2">
