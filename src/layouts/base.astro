@@ -3,11 +3,9 @@ import "@/styles/global.css";
 
 import PostHog from "@/components/post-hog.astro";
 import { Font } from "astro:assets";
+import type { BaseProps } from "./base-types";
 
-interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
-}
+interface Props extends BaseProps {}
 
 const isProd = import.meta.env.PROD;
 

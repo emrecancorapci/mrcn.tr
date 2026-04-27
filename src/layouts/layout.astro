@@ -2,16 +2,14 @@
 import Header from "@/components/layout/header.astro";
 import BaseLayout from "./base.astro";
 import Footer from "@/components/layout/footer.astro";
+import type { BaseProps } from "./base-types";
 
-interface Props {
-  title?: string;
-  description?: string;
-}
+interface Props extends BaseProps {}
 
-const { title, description } = Astro.props as Props;
+const props = Astro.props as Props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout {...props}>
   <div class="mx-auto grid min-h-screen w-full max-w-7xl grid-rows-[auto_1fr_auto]">
     <Header />
 

@@ -1,0 +1,24 @@
+---
+import type { BaseProps } from "./base-types";
+import Layout from "./layout.astro";
+
+interface Props extends BaseProps {}
+
+const props = Astro.props as Props;
+---
+
+<Layout {...props}>
+  <div class="grid size-full grid-cols-1 gap-4 lg:grid-cols-6">
+    <div class="col-span-1 flex flex-col gap-4 py-8 lg:col-span-2">
+      <h1 class="text-6xl font-thin border-b border-secondary">
+        <slot name="title" />
+      </h1>
+      <p class="text-lg pe-12">
+        <slot name="description" />
+      </p>
+    </div>
+    <div class="col-span-1 grid gap-8 py-8 lg:col-span-4">
+      <slot />
+    </div>
+  </div>
+</Layout>
