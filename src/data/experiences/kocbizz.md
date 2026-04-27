@@ -11,15 +11,19 @@ techs:
   [
     "TypeScript",
     "React",
+    "Apollo Client",
     "TailwindCSS",
-    "Fastify (Node.js)",
+    "Fastify",
     "DrizzleOrm",
-    "GraphQL (Server & Apollo)",
+    "GraphQL",
     "PostgreSQL",
     "Redis",
-    "Ubuntu (Nginx, PM2)",
+    "Nginx",
+    "PM2",
+    "Ubuntu",
   ]
-skills: [
+skills:
+  [
     "Full-Stack Web Application Development",
     "Responsive UI & Component Architecture",
     "API Design & Resolver Architecture (GraphQL)",
@@ -29,8 +33,8 @@ skills: [
     "Type-Safe Development (TypeScript)",
     "Schema Design (PostgreSQL, Drizzle ORM)",
     "Linux Server Administration & Production Deployment",
-    "SSL/TLS, HTTP/2 & Reverse Proxy Configuration (Nginx)"
-]
+    "SSL/TLS, HTTP/2 & Reverse Proxy Configuration (Nginx)",
+  ]
 ---
 
 - Designed and built a full-stack mentoring e-commerce platform from scratch, implementing secure authentication (JWT, token revocation), RBAC, and Redis-based caching and rate limiting.

@@ -7,7 +7,7 @@ description: "E-Learning Providers"
 location: "Istanbul Turkey (Remote)"
 start: "Feb 2025"
 end: "Mar 2026"
-techs: ["TypeScript", "Fastify (Node.js)", "Sequelize", "GraphQL", "PostgreSQL", "MongoDB", "Redis"]
+techs: ["TypeScript", "Fastify", "Sequelize", "GraphQL", "PostgreSQL", "MongoDB", "Redis"]
 skills:
   [
     "Back-End System Architecture",
