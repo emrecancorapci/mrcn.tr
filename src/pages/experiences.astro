@@ -1,28 +1,22 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "@/layouts/layout.astro";
 import ExperienceCard from "./experiences/_components/experience-card.astro";
+import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 
 const experiencesCollection = (await getCollection("experiences")).sort(
   (a, b) => a.data.priority - b.data.priority
 );
 ---
 
-<Layout>
-  <div class="grid size-full grid-cols-1 gap-20 lg:grid-cols-6">
-    <div class="col-span-1 flex flex-col gap-8 py-8 lg:col-span-2">
-      <h1 class="text-7xl font-thin md:text-7xl lg:text-6xl xl:text-7xl">Experiences</h1>
-      <p class="text-lg">
-        I've worked across freelance and full-time roles, taking projects from initial design to
-        production deployment. My work tends to involve building backend systems and infrastructure
-        from scratch, improving the performance and reliability of existing ones, and occasionally
-        extending into frontend when needed. I'm comfortable owning a project end-to-end —
-        architecture, implementation, testing, and deployment.
-      </p>
-    </div>
-    <div class="col-span-1 grid gap-8 py-8 lg:col-span-4">
-      {experiencesCollection.map((e) => <ExperienceCard experience={e} />)}
-    </div>
-  </div>
-</Layout>
+<LeftColumnLayout title="Experiences - Emre Can Çorapçı">
+  <Fragment slot="title">Experiences</Fragment>
+  <Fragment slot="description">
+    I've worked across freelance and full-time roles, taking projects from initial design to
+    production deployment. My work tends to involve building backend systems and infrastructure from
+    scratch, improving the performance and reliability of existing ones, and occasionally extending
+    into frontend when needed. I'm comfortable owning a project end-to-end — architecture,
+    implementation, testing, and deployment.
+  </Fragment>
+  {experiencesCollection.map((e) => <ExperienceCard experience={e} />)}
+</LeftColumnLayout>
