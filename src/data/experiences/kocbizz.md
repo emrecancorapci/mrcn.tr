@@ -5,8 +5,8 @@ contractType: "Part-Time"
 company: "Kocbizz"
 description: "Coaching Platform"
 location: "Rize, Turkey (Remote)"
-start: "September 2025"
-end: "December 2025"
+start: "Sep 2025"
+end: "Dec 2025"
 techs:
   [
     "TypeScript",
@@ -17,8 +17,6 @@ techs:
     "GraphQL (Server & Apollo)",
     "PostgreSQL",
     "Redis",
-    "Nginx",
-    "PM2",
     "Ubuntu (Nginx, PM2)",
   ]
 skills: [

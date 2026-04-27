@@ -5,8 +5,8 @@ contractType: "Full-Time"
 company: "Nohut Akademi"
 description: "E-Learning Providers"
 location: "Istanbul Turkey (Remote)"
-start: "February 2025"
-end: "March 2026"
+start: "Feb 2025"
+end: "Mar 2026"
 techs: ["TypeScript", "Fastify (Node.js)", "Sequelize", "GraphQL", "PostgreSQL", "MongoDB", "Redis"]
 skills:
   [

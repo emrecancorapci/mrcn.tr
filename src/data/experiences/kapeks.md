@@ -5,8 +5,8 @@ contractType: "Part-Time"
 company: "Kapeks"
 description: "Engineering Solutions"
 location: "Turkey (Remote)"
-start: "December 2025"
-end: "February 2026"
+start: "Dec 2025"
+end: "Feb 2026"
 techs:
   [
     "C#",
