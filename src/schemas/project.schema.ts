@@ -56,4 +56,6 @@ export const projectSchema = z.object({
 });
 
 export type Project = z.infer<typeof projectSchema>;
-export type ProjectBlock = z.infer<typeof blockTags | typeof blockPlain | typeof blockRecords | typeof blockList>;
+export type ProjectBlock = z.infer<
+  typeof blockTags | typeof blockPlain | typeof blockRecords | typeof blockList
+>;

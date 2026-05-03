@@ -1,18 +1,20 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
   href: string;
-};
+}
 
 const { href, ...props } = Astro.props;
 const { pathname } = Astro.url;
+
+const isActive = pathname.startsWith(href);
 ---
 
 <a
   class:list={[
-    "hover:bg-primary hover:text-primary-foreground px-1 font-semibold transition-all duration-200 ease-out",
-    pathname === href ? "bg-secondary text-secondary-foreground" : "",
+    "border-primary-foreground hover:border-primary flex items-center border-b-2 px-4 py-2 pt-4 font-semibold transition-all duration-200 ease-out first:rounded-bl-3xl last:rounded-br-3xl",
+    isActive ? "border-secondary" : "",
   ]}
   href={href}
   {...props}

@@ -28,7 +28,7 @@ const links = [
     href: "/skills",
     title: "Skills",
   },
-]
+];
 
 const {
   hasBorder = false,
@@ -40,14 +40,14 @@ const {
 
 <header
   class:list={[
-    "flex flex-col items-center justify-between gap-4 p-6",
+    "flex flex-col items-center justify-between gap-4 p-4 px-6",
     !forceCol ? "lg:flex-row" : "",
     hasBorder ? "border-border border-b" : "",
   ]}
 >
   <a
     class:list={[
-      "group relative block overflow-hidden font-black",
+      "group relative overflow-y-hidden font-black",
       forceCol ? "text-center text-4xl" : "text-4xl lg:text-3xl",
     ]}
     href="/"
@@ -70,20 +70,32 @@ const {
       HOME PAGE
     </span>
   </a>
-  
-  <nav class="flex justify-center gap-4">
+
+  <nav class="flex justify-center">
     {
-      links.sort((a, b) => a.order - b.order).map((link) => (
-        <NavLink href={link.href} {...(link.prefetch && {'data-astro-prefetch': "true"})}>{link.title}</NavLink>
-      ))
+      links
+        .sort((a, b) => a.order - b.order)
+        .map((link) => (
+          <NavLink href={link.href} {...(link.prefetch && { "data-astro-prefetch": "true" })}>
+            {link.title}
+          </NavLink>
+        ))
     }
   </nav>
-  <div class:list={["h-px w-full bg-secondary/50", !isHomePage ? "hidden bg-border" : ""]}></div>
+
+  <hr class:list={["bg-secondary/50 h-px w-full", !isHomePage ? "bg-border" : ""]} />
+
   <div class="flex items-center justify-end gap-2">
-    <ExternNavLink href="https://linkedin.com/in/emrecancorapci" aria-label="Emre Can Çorapçı's LinkedIn Profile">
+    <ExternNavLink
+      href="https://linkedin.com/in/emrecancorapci"
+      aria-label="Emre Can Çorapçı's LinkedIn Profile"
+    >
       <Icon name="simple-icons:linkedin" class="text-2xl" />
     </ExternNavLink>
-    <ExternNavLink href="https://github.com/emrecancorapci" aria-label="Emre Can Çorapçı's GitHub Profile">
+    <ExternNavLink
+      href="https://github.com/emrecancorapci"
+      aria-label="Emre Can Çorapçı's GitHub Profile"
+    >
       <Icon name="simple-icons:github" class="text-2xl" />
     </ExternNavLink>
     <ExternNavLink href="mailto:emrecancorapci@gmail.com" aria-label="Emre Can Çorapçı's Email">
