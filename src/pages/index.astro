@@ -32,7 +32,22 @@ import MeImage from "@/images/me.png";
         />
       </div>
     </div>
-    <Header forceCol disableHomePageText isHomePage />
-    <div class="h-[10dvh]"></div>
+    <Header forceCol disableHomePageText isHomePage noBorder />
+    <div class="py-4">
+      <div
+        class="bg-secondary-foreground border-secondary/50 flex w-full max-w-140 flex-col items-center gap-2 rounded-3xl border p-4 px-4"
+      >
+        <p class="text-center text-xl font-medium">
+          Have you checked my backend framework project?
+        </p>
+        <a
+          class="hover:bg-primary bg-secondary text-secondary-foreground cursor-pointer rounded-3xl px-4 py-1 text-3xl font-semibold transition-all"
+          href="/projects/krustie"
+        >
+          krustie
+        </a>
+      </div>
+    </div>
+    <!-- <div class="h-[10dvh]"></div> -->
   </main>
 </Base>
