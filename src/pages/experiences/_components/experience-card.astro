@@ -44,13 +44,11 @@ const experience = Astro.props.experience.data;
     <Content />
   </div>
 
-  <!-- <hr class="border-secondary/50" /> -->
-
   <ul class="flex flex-wrap gap-2">
     {
       experience.techs.map((t) => (
         <Tag
-          class="bg-secondary-foreground border-secondary/50 text-secondary border text-center",
+          class="bg-secondary-foreground border-secondary/50 text-secondary border text-center"
           Element="li"
           variant="secondary"
         >
