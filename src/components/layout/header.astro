@@ -5,7 +5,7 @@ import NavLink from "@/components/ui/nav-link.astro";
 import ExternNavLink from "@/components/ui/extern-nav-link.astro";
 
 interface Props {
-  hasBorder?: boolean;
+  noBorder?: boolean;
   forceCol?: boolean;
   disableHomePageText?: boolean;
   isHomePage?: boolean;
@@ -31,7 +31,7 @@ const links = [
 ];
 
 const {
-  hasBorder = false,
+  noBorder = false,
   forceCol = false,
   disableHomePageText = false,
   isHomePage = false,
@@ -42,12 +42,11 @@ const {
   class:list={[
     "flex flex-col items-center justify-between gap-4 p-4 px-6",
     !forceCol ? "lg:flex-row" : "",
-    hasBorder ? "border-border border-b" : "",
   ]}
 >
   <a
     class:list={[
-      "group relative overflow-y-hidden min-w-80 font-black",
+      "group relative min-w-80 overflow-y-hidden font-black",
       forceCol ? "text-center text-4xl" : "text-4xl lg:text-3xl",
     ]}
     href="/"
@@ -83,7 +82,7 @@ const {
     }
   </nav>
 
-  <hr class:list={["bg-secondary/50 h-px w-full", !isHomePage ? "bg-border" : ""]} />
+  {!noBorder && <hr class:list={["bg-secondary/50 h-px w-full", !isHomePage ? "bg-border" : ""]} />}
 
   <div class="flex items-center justify-end gap-2">
     <ExternNavLink
