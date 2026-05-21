@@ -3,9 +3,10 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
   href: string;
+  roundingBase?: boolean;
 }
 
-const { href, ...props } = Astro.props;
+const { href, roundingBase, ...props } = Astro.props;
 const { pathname } = Astro.url;
 
 const isActive = pathname.startsWith(href);
@@ -13,7 +14,10 @@ const isActive = pathname.startsWith(href);
 
 <a
   class:list={[
-    "border-primary-foreground hover:border-primary flex items-center border-b-2 px-4 py-2 pt-4 font-semibold transition-all duration-200 ease-out first:rounded-bl-3xl last:rounded-br-3xl",
+    "flex items-center px-4 py-2 font-semibold transition-all duration-200 ease-out",
+    roundingBase ?
+      "border-primary-foreground hover:border-primary border-b-2 pt-4 first:rounded-bl-3xl last:rounded-br-3xl"
+    : "hover:bg-primary hover:text-primary-foreground first:rounded-l-3xl last:rounded-r-3xl",
     isActive ? "border-secondary" : "",
   ]}
   href={href}
