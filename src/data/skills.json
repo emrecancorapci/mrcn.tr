@@ -97,6 +97,20 @@
   },
   {
     "id": "04",
+    "title": "AI Tools",
+    "items": [
+      {
+        "title": "Opencode",
+        "proficiency": 2
+      },
+      {
+        "title": "Antigravity",
+        "proficiency": 2
+      }
+    ]
+  },
+  {
+    "id": "05",
     "title": "Databases",
     "items": [
       {
@@ -120,7 +134,7 @@
     ]
   },
   {
-    "id": "05",
+    "id": "06",
     "title": "Front-End Libraries/Tools",
     "items": [
       {
@@ -148,7 +162,7 @@
     ]
   },
   {
-    "id": "06",
+    "id": "07",
     "title": "Back-End Libraries",
     "items": [
       {
@@ -172,7 +186,7 @@
     ]
   },
   {
-    "id": "07",
+    "id": "08",
     "title": "Testing",
     "items": [
       {
@@ -192,7 +206,7 @@
     ]
   },
   {
-    "id": "08",
+    "id": "09",
     "title": "Deployment",
     "items": [
       {
@@ -215,7 +229,7 @@
     ]
   },
   {
-    "id": "09",
+    "id": "10",
     "title": "Operating Systems",
     "items": [
       {
@@ -238,7 +252,7 @@
     ]
   },
   {
-    "id": "10",
+    "id": "11",
     "title": "Other Tools",
     "items": [
       {
