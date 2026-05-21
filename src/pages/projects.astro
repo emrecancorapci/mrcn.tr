@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 
 import ProjectCard from "./projects/_components/project-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
+import Layout from "@/layouts/layout.astro";
 
 const projectCollection = await getCollection("project");
 const projectTypeCollection = await getCollection("projectType");
@@ -20,32 +21,36 @@ const projects = Object.entries(projectArray)
   .sort(([a], [b]) => a.order - b.order);
 ---
 
-<LeftColumnLayout title="Projects - Emre Can Çorapçı">
-  <Fragment slot="title">Projects</Fragment>
-  <Fragment slot="description">
-    I like to work on projects that are challenging, but also fun. I'm always looking for ways to
-    improve my skills and learn new things. Some are experiments, some are freelance work, one ended
-    up on crates.io. I build things to understand them better, and to learn from them.
-  </Fragment>
-  <div class="grid w-full gap-8">
-    {
-      projects.map(([type, p]) => (
-        <div class="grid gap-4">
-          <h2 class="text-secondary px-2 py-2 text-center text-3xl font-semibold">{type.title}</h2>
+<Layout title="Projects - Emre Can Çorapçı">
+  <LeftColumnLayout>
+    <Fragment slot="title">Projects</Fragment>
+    <Fragment slot="description">
+      I like to work on projects that are challenging, but also fun. I'm always looking for ways to
+      improve my skills and learn new things. Some are experiments, some are freelance work, one
+      ended up on crates.io. I build things to understand them better, and to learn from them.
+    </Fragment>
+    <div class="grid w-full gap-8">
+      {
+        projects.map(([type, p]) => (
+          <div class="grid gap-4">
+            <h2 class="text-secondary px-2 py-2 text-center text-3xl font-semibold">
+              {type.title}
+            </h2>
 
-          <div class={`grid grid-cols-1 gap-4 ${p.length > 1 ? "md:grid-cols-2" : ""}`}>
-            {p.map((project) => (
-              <ProjectCard
-                class="col-span-1 md:last:odd:col-span-2"
-                title={project.title}
-                href={`/projects/${project.id}`}
-                description={project.description}
-                tags={project.mainTags}
-              />
-            ))}
+            <div class={`grid grid-cols-1 gap-4 ${p.length > 1 ? "md:grid-cols-2" : ""}`}>
+              {p.map((project) => (
+                <ProjectCard
+                  class="col-span-1 md:last:odd:col-span-2"
+                  title={project.title}
+                  href={`/projects/${project.id}`}
+                  description={project.description}
+                  tags={project.mainTags}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      ))
-    }
-  </div>
-</LeftColumnLayout>
+        ))
+      }
+    </div>
+  </LeftColumnLayout>
+</Layout>
