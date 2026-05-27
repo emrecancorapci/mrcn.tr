@@ -16,11 +16,13 @@ export async function getStaticPaths() {
   }));
 }
 
-const { Content } = await render(Astro.props.project);
 const data = Astro.props.project.data;
 
+const { Content } = await render(Astro.props.project);
 const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
 const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
+
+const featuredProjects = await getCollection("project");
 
 const getCategory = (c: string) => {
   switch (c) {
@@ -54,7 +56,12 @@ const getStatus = (c: string) => {
 <Layout title={`Project: ${data.title} - Emre Can Çorapçı`}>
   <div class="grid gap-4 pt-4">
     <div
-      class="bg-primary shadow-secondary/20 text-primary-foreground from-primary to-secondary flex flex-col items-center justify-center gap-16 rounded-xl bg-linear-65 from-0% to-80% px-4 pt-20 pb-10 text-center shadow-md transition-all duration-1000 ease-out hover:opacity-90"
+      class:list={
+        [
+          "shadow-secondary/20 text-primary-foreground flex flex-col items-center justify-center gap-16 rounded-xl px-4 pt-20 pb-10 text-center shadow-md",
+          "bg-linear-65 from-primary to-secondary from-0% to-80%"
+        ]
+      }
     >
       <div class="flex flex-col items-center">
         <h3 class="font-light">[PROJECT]</h3>
@@ -99,8 +106,24 @@ const getStatus = (c: string) => {
       {
         Astro.props.project.body && (
           <ProjectSection class="col-span-1 shadow-lg md:col-span-3">
-            <ProjectSectionTitle size="lg">Summary</ProjectSectionTitle>
-            <div class="grid gap-4 px-0 py-4 leading-relaxed md:px-4">
+            <ProjectSectionTitle size="xl">Summary</ProjectSectionTitle>
+            <div class:list={
+              [
+                "prose px-0 py-4 w-full md:px-4",
+                "prose-h2:text-2xl prose-h2:font-bold prose-h2:text-secondary prose-h2:leading-relaxed prose-h2:mb-4 prose-h2:border-b prose-h2:border-primary",
+                "prose-p:leading-relaxed prose-p:text-secondary",
+                "prose-table:mb-0",
+                "prose-thead:border-secondary/80 prose-thead:border-b-2",
+                "prose-tr:border-secondary/80",
+                "prose-th:text-secondary",
+                "prose-td:text-secondary",
+                "prose-li:text-secondary",
+                "prose-code:text-secondary/90",
+                "prose-strong:font-semibold prose-strong:text-secondary",
+                "prose-pre:border-4 prose-pre:border-secondary/80 prose-pre:p-6!",
+                "prose-a:text-secondary"
+              ]
+            }>
               <Content />
             </div>
           </ProjectSection>
@@ -117,6 +140,23 @@ const getStatus = (c: string) => {
           </div>
         )
       }
+    </div>
+    <div class="space-y-4 pt-4">
+      <h2 class="text-4xl px-2 font-bold">Featured Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+          featuredProjects
+            .filter((p) => p.data.featured && p.data.title !== data.title)
+            .slice(0,3)
+            .map((p) => (
+              <ProjectSection class="shadow-md">
+                <ProjectSectionTitle size="sm">{p.data.title}</ProjectSectionTitle>
+                <p class="pt-2 px-2 h-full pe-12">{p.data.description}</p>
+                <a class="text-right pt-2 font-semibold hover:underline transition-all hover:text-shadow-sm text-shadow-secondary/10" href={`/projects/${p.id}`}>View Project >></a>
+              </ProjectSection>
+            ))
+        }
+      </div>
     </div>
   </div>
 </Layout>
