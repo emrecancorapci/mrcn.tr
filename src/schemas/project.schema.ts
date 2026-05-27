@@ -44,6 +44,7 @@ export const projectTypeSchema = z.object({
 
 export const projectSchema = z.object({
   title: z.string(),
+  featured: z.boolean().optional(),
   projectType: projectType,
   description: z.string(),
   year: z.number().optional(),
