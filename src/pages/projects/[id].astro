@@ -23,18 +23,12 @@ const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
 const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
 
 const featuredProjects = await getCollection("project");
+const projectTypesCollection = await getCollection("projectType");
+
+const projectTypesMap = new Map(projectTypesCollection.map((c) => [c.id, c.data.title]))
 
 const getCategory = (c: string) => {
-  switch (c) {
-    case "oss":
-      return "Open Source";
-    case "published":
-      return "Published Package";
-    case "freelance":
-      return "Freelance Project";
-    default:
-      return "Unknown";
-  }
+  return projectTypesMap.get(c) ?? "Unknown"
 };
 
 const getStatus = (c: string) => {
@@ -84,7 +78,7 @@ const getStatus = (c: string) => {
         </div>
         <div class="flex flex-col gap-0.5">
           <p class="leading-none font-light">[TYPE]</p>
-          <p class="text-lg leading-tight font-bold">{getCategory(data.projectType)}</p>
+          <p class="text-lg leading-tight font-bold">{getCategory(data.projectType.id)}</p>
         </div>
         <div class="flex flex-col gap-0.5">
           <p class="leading-none font-light">[STATUS]</p>
