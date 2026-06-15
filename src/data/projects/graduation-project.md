@@ -2,7 +2,7 @@
 featured: true
 title: "Graduation Project"
 description: "A greenhouse monitoring and control system that uses Visible Light Communication to transmit sensor data between Arduino nodes, with a React-based web dashboard for real-time monitoring."
-projectType: "freelance"
+projectType: freelance
 year: 2022
 status: "completed"
 mainTags: ["cpp", "typescript", "arduino", "web"]

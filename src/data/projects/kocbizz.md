@@ -1,7 +1,7 @@
 ---
 title: "Koçbizz"
 description: "A mentor-mentee matching platform."
-projectType: "freelance"
+projectType: freelance
 year: 2025
 status: "completed"
 mainTags: ["typescript", "fastify", "graphql", "react"]

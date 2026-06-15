@@ -2,7 +2,7 @@
 featured: true
 title: "krustie"
 description: "An experimental backend HTTP framework built in Rust from the TCP layer up, with a custom parser, middleware pipeline, and an immutable request lifecycle."
-projectType: "published"
+projectType: published
 year: 2024
 status: "ongoing"
 version: "0.3.0"

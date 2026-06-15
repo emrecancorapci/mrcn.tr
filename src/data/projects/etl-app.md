@@ -1,7 +1,7 @@
 ---
 title: "ETL Web Application"
 description: "Application that takes data from a server and transforms it into a desired format and then loads it into another server."
-projectType: "freelance"
+projectType: freelance
 year: 2024
 status: "completed"
 version: "1.2.1"
@@ -41,6 +41,7 @@ blocks:
 				"extract-transform-load",
 				"data-transformation",
 				"ui",
+        "deployment"
 				],
 		}
   ]

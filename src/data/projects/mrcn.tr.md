@@ -2,7 +2,7 @@
 featured: true
 title: "mrcn.tr"
 description: "Personal website built with Astro, Tailwind (and love). Used features such as Content Collections and Font Provider API."
-projectType: "oss"
+projectType: oss
 year: 2026
 status: "ongoing"
 version: "2.1.0"
