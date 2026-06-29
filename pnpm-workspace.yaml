@@ -1,3 +1,7 @@
 allowBuilds:
   esbuild: true
   sharp: true
+minimumReleaseAgeExclude:
+  - '@iconify-json/simple-icons@1.2.88'
+  - '@lucide/astro@1.22.0'
+  - prettier@3.9.3
