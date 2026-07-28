@@ -11,20 +11,17 @@ interface Props {
   class?: string;
 }
 
+// <Tag Element="a" href={`/tags/${t}`}>
+//   {t}
+// </Tag>
+
 const { block, class: className } = Astro.props;
 ---
 
 <ProjectSection class={cn(`gap-2 shadow-md rounded-xl`, className)}>
   <ProjectSectionTitle size="sm">{block.title}</ProjectSectionTitle>
   <div class="flex flex-wrap gap-2">
-    {
-      block.type === "tags" &&
-        block.content.map((t: string) => (
-          <Tag Element="a" href={`/tags/${t}`}>
-            {t}
-          </Tag>
-        ))
-    }
+    {block.type === "tags" && block.content.map((t: string) => <Tag>{t}</Tag>)}
     {block.type === "plain" && <p class="text-sm">{block.content}</p>}
     {
       block.type === "list" && (
