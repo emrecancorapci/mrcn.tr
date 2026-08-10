@@ -1,27 +1,10 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
-import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
+import SkillCard from "./_components/skill-card.astro";
 
 const skills = await getCollection("skills");
-
-const getProficiency = (c: number) => {
-  switch (c) {
-    case 1:
-      return "Familiar";
-    case 2:
-      return "Comfortable";
-    case 3:
-      return "Proficient";
-    case 4:
-      return "Advanced";
-    case 5:
-      return "Expert";
-    default:
-      return "Unknown";
-  }
-};
 ---
 
 <Layout title="Skills - Emre Can Çorapçı">
@@ -40,18 +23,8 @@ const getProficiency = (c: number) => {
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {items
               .sort((a, b) => b.proficiency - a.proficiency)
-              .map(({ title, proficiency, icon, color }) => (
-                <div class="bg-primary/20 flex gap-4 rounded-xl p-2">
-                  <div class="bg-primary-foreground aspect-square size-16 rounded-xl p-3">
-                    {icon && <Icon class:list={["size-full", color]} name={icon} />}
-                  </div>
-                  <div class="flex w-full items-center justify-between">
-                    <p class="text-xl font-light sm:text-lg md:text-xl">{title}</p>
-                    <p class="text-secondary pe-2 text-lg font-bold sm:text-base md:text-lg">
-                      {getProficiency(proficiency)}
-                    </p>
-                  </div>
-                </div>
+              .map((s) => (
+                <SkillCard skill={s} />
               ))}
           </div>
           <hr class="border-primary/10 border-b" />

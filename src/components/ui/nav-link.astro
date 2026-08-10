@@ -17,8 +17,8 @@ const isActive = pathname.startsWith(href);
     "flex items-center px-4 py-2 font-semibold transition-all duration-200 ease-out",
     roundingBase ?
       "border-primary-foreground hover:border-primary border-b-2 pt-4 first:rounded-bl-3xl last:rounded-br-3xl"
-    : "border border-secondary/50 hover:bg-secondary hover:text-secondary-foreground first:rounded-l-3xl last:rounded-r-3xl",
-    isActive ? "border-secondary" : "",
+    : "border-secondary/50 hover:bg-secondary hover:text-secondary-foreground shadow-secondary/15 border first:rounded-l-3xl last:rounded-r-3xl hover:shadow-lg",
+    isActive ? "bg-secondary text-secondary-foreground" : "",
   ]}
   href={href}
   {...props}

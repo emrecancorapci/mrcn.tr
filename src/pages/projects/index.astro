@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import ProjectCard from "./projects/_components/project-card.astro";
+import ProjectCard from "./_components/project-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
 
@@ -42,7 +42,7 @@ const typeCollections: { [key: string]: typeof projectCollection } = Object.grou
           .sort(([a], [b]) => (a?.typeOrder ?? 0) - (b?.typeOrder ?? 0))
           .map((collection) => (
             <div class="grid gap-4">
-              <h2 class="text-secondary px-2 py-2 text-center text-3xl font-semibold">
+              <h2 class="text-primary-foreground px-2 py-2 text-center text-3xl font-semibold">
                 {collection[0]?.typeTitle}
               </h2>
 
