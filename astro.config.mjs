@@ -6,11 +6,13 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import icon from "astro-icon";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://mrcn.tr",
   output: "static",
-  integrations: [sitemap(), icon()],
+  integrations: [sitemap(), icon(), react()],
   vite: {
     plugins: [tailwindcss()],
   },
