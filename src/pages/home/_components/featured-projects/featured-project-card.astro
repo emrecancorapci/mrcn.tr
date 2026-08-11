@@ -1,0 +1,28 @@
+---
+import { Button } from "@/components/ui/button";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { title, description, href } = Astro.props;
+---
+
+<div class="bg-card border-border grid h-40 grid-rows-5 rounded-xl border p-5">
+  <div class="row-span-4 flex flex-col gap-1">
+    <h2 class="text-card-foreground text-2xl font-semibold">{title}</h2>
+    <p class="text-card-foreground/70">
+      {description}
+    </p>
+  </div>
+  <div class="flex justify-end">
+    <a href={href}>
+      <Button variant="ghost" className="cursor-pointer text-lg">
+        View the project <Icon size={24} name="material-symbols:arrow-right-alt" />
+      </Button>
+    </a>
+  </div>
+</div>

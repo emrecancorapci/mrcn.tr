@@ -1,0 +1,22 @@
+---
+import { Button } from "@/components/ui/button";
+import H1 from "@/components/ui/h1.astro";
+---
+
+<div
+  class:list={[
+    "bg-card flex w-full flex-col gap-8 px-20 py-40",
+    "from-primary/10 to-primary/30 bg-linear-65 from-0% to-80%",
+  ]}
+>
+  <div class="flex w-full flex-col items-center gap-2">
+    <h2 class="bg-primary text-primary-foreground w-fit px-2">full stack software developer</h2>
+    <H1 class="max-w-5xl text-center text-balance">
+      i read the source code so you don't have to
+    </H1>
+  </div>
+  <div class="flex justify-center gap-2">
+    <Button size="xl" variant="default">see my work</Button>
+    <Button size="xl" variant="outline">get in touch</Button>
+  </div>
+</div>
