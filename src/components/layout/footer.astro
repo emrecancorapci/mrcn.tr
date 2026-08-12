@@ -1,4 +1,7 @@
 ---
+import { Icon } from "astro-icon/components";
+import ExternNavLink from "../ui/extern-nav-link.astro";
+
 const footerLinks = [
   {
     title: "Portfolio",
@@ -31,10 +34,49 @@ const socialLinks = [
   <div class="flex w-full max-w-7xl flex-col justify-between p-0 md:flex-row">
     <div class="flex w-full flex-col gap-4">
       <div>
-        <h2 class="text-foreground w-full text-4xl leading-tight font-bold lg:text-5xl">
-          Emre Can Çorapçı
-        </h2>
-        <p class="text-foreground/70">full-stack software developer | open source contributor | arch btw </p>
+        <div
+          class="flex w-full flex-col items-center justify-start gap-2 lg:flex-row lg:items-end lg:gap-8"
+        >
+          <h2 class="text-foreground text-4xl leading-tight font-bold lg:text-5xl">
+            Emre Can Çorapçı
+          </h2>
+          <div class="text-primary flex items-center justify-center gap-2 pb-2 lg:pb-3">
+            <ExternNavLink
+              class="hover:text-secondary-foreground"
+              href="https://linkedin.com/in/emrecancorapci"
+              aria-label="Emre Can Çorapçı's LinkedIn Profile"
+            >
+              <Icon name="simple-icons:linkedin" class="text-2xl" />
+            </ExternNavLink>
+            <ExternNavLink
+              class="hover:text-secondary-foreground"
+              href="https://github.com/emrecancorapci"
+              aria-label="Emre Can Çorapçı's GitHub Profile"
+            >
+              <Icon name="simple-icons:github" class="text-2xl" />
+            </ExternNavLink>
+            <ExternNavLink
+              class="hover:text-secondary-foreground"
+              href="mailto:emrecancorapci@gmail.com"
+              aria-label="Emre Can Çorapçı's Email"
+            >
+              <Icon
+                name="material-symbols:mail-rounded"
+                class="-m-0.5 -mt-0.75 text-center text-3xl"
+              />
+            </ExternNavLink>
+            <ExternNavLink
+              class="hover:text-secondary-foreground"
+              href="https://static.mrcn.tr/emre_can_corapci_cv.pdf"
+              aria-label="Emre Can Çorapçı's CV"
+            >
+              <p class="-mt-1 text-2xl font-black">CV</p>
+            </ExternNavLink>
+          </div>
+        </div>
+        <p class="text-foreground/70 text-center lg:text-start">
+          full-stack software developer | open source contributor | i use arch btw
+        </p>
       </div>
       <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2 md:gap-4">
         {
@@ -60,7 +102,7 @@ const socialLinks = [
     </div>
     <div class="pt-4 md:pt-0">
       <div
-        class="border-secondary flex h-full w-full flex-row items-end justify-center gap-2 md:w-fit md:flex-col md:justify-end md:pe-2 md:pt-0"
+        class="border-secondary flex h-full w-full flex-col items-start lg:border-0 border-t lg:pt-0 pt-4 lg:items-end justify-center gap-2 md:w-fit md:flex-col md:justify-end md:pe-2 md:pt-0"
       >
         {
           socialLinks.map(({ title, href }) => (

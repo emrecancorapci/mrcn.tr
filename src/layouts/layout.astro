@@ -15,7 +15,7 @@ const { full, ...props } = Astro.props as Props;
   <div class="mx-auto flex min-h-screen w-full flex-col items-center">
     <Header />
 
-    <main class:list={["py-4 w-full", !full && "max-w-7xl"]}>
+    <main class:list={["w-full", !full && "max-w-7xl"]}>
       <slot />
     </main>
 
