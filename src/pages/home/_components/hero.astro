@@ -11,12 +11,16 @@ import H1 from "@/components/ui/h1.astro";
 >
   <div class="flex w-full flex-col items-center gap-2">
     <h2 class="bg-primary text-primary-foreground w-fit px-2">full stack software developer</h2>
-    <H1 class="max-w-5xl text-center text-balance">
+    <H1 class="text-shadow-foreground/5 max-w-5xl text-center text-balance text-shadow-lg">
       i read the source code so you don't have to
     </H1>
   </div>
   <div class="flex justify-center gap-2">
-    <Button size="xl" variant="default">see my work</Button>
-    <Button size="xl" variant="outline">get in touch</Button>
+    <a href="/projects">
+      <Button size="xl" variant="default">see my work</Button>
+    </a>
+    <a href="mailto:emrecancorapci@gmail.com">
+      <Button size="xl" variant="outline">get in touch</Button>
+    </a>
   </div>
 </div>
