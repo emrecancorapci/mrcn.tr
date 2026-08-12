@@ -1,30 +1,38 @@
 ---
+import { Picture } from "astro:assets";
+
 import H1 from "@/components/ui/h1.astro";
 import H2 from "@/components/ui/h2.astro";
-import MeImage from "@/images/me.png";
-import { Picture } from "astro:assets";
+
+import imgMe from "@/images/me-with-bg.png";
+import imgAboutMeCat from "@/images/about-me-cat.jpeg";
+import imgAboutMeBicycle from "@/images/about-me-bicycle.jpeg";
+import imgAboutMeConcert from "@/images/about-me-concert.jpeg";
 ---
 
 <div class="flex w-full flex-col items-center">
   <div class="grid max-w-7xl gap-20 px-30 py-20">
-    <H1 class="w-full">about me</H1>
+    <H1 class="text-shadow-foreground/5 w-full text-shadow-lg">about me</H1>
     <div class="space-y-20">
       <!-- Introduction -->
       <div class="grid grid-cols-2 gap-16">
         <!-- Image -->
-        <Picture
-          formats={["webp", "png"]}
-          src={MeImage}
-          class="bg-zinc-500 rounded-xl h-80 object-cover"
-          alt="An Illustration of Emre Can in ghibli style"
-        />
+        <div class="flex flex-col gap-1">
+          <Picture
+            formats={["webp", "png"]}
+            src={imgMe}
+            class="border-foreground shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg"
+            alt="An Illustration of Emre Can in ghibli style"
+          />
+          <p class="text-foreground/30 px-2 text-end">Made by my sister, Nisa</p>
+        </div>
         <!-- introduction text -->
         <div class="space-y-6 py-4">
-          <H2>introduction</H2>
+          <H2 class="text-shadow-foreground/5 text-shadow-lg">introduction</H2>
           <div class="space-y-4">
             <p class="text-pretty">
-              Hey! I'm Emre, a curious software developer mainly focused on web, but also
-              worked on desktop apps and have experience in system programming.
+              Hey! I'm Emre, a curious software developer mainly focused on web, but also worked on
+              desktop apps and have experience in system programming.
             </p>
             <p class="text-pretty">
               I like to poke around things and ask "why" until my curiosity is tamed enough. Bending
@@ -35,7 +43,7 @@ import { Picture } from "astro:assets";
       </div>
       <!-- Interests -->
       <div class="space-y-6 px-30 py-10">
-        <H2>interests and hobbies</H2>
+        <H2 class="text-shadow-foreground/5 text-shadow-lg">interests and hobbies</H2>
         <p class="text-pretty">
           I <i class="text-chart-3 dark:text-chart-1 font-serif font-semibold">listen</i> Gojira, Parcels,
           and Angine de Poitrine. I <i
@@ -44,17 +52,32 @@ import { Picture } from "astro:assets";
             class="text-chart-3 dark:text-chart-1 font-serif font-semibold">play</i
           > Hades, Disco Elysium, and Baldurs Gate 3. I <i
             class="text-chart-3 dark:text-chart-1 font-serif font-semibold">think</i
-          > about privacy, open source, and tech. I <i
+          > about privacy, open source, and tech. I like to <i
             class="text-chart-3 dark:text-chart-1 font-serif font-semibold">ride</i
-          > bicycle,
-          <i class="text-chart-3 dark:text-chart-1 font-serif font-semibold"> play</i> electric guitar,
-          and <i class="text-chart-3 dark:text-chart-1 font-serif font-semibold">run</i> everything on
-          Linux.
+          > my bicycle, <i class="text-chart-3 dark:text-chart-1 font-serif font-semibold">take </i>
+          some cat photos, <i class="text-chart-3 dark:text-chart-1 font-serif font-semibold"
+            >play
+          </i>
+          my electric guitar, and <i class="text-chart-3 dark:text-chart-1 font-serif font-semibold"
+            >run</i
+          > everything on Linux.
         </p>
         <div class="grid grid-cols-3 gap-10">
-          <div class="bg-primary h-40 rounded-xl"></div>
-          <div class="bg-primary h-40 rounded-xl"></div>
-          <div class="bg-primary h-40 rounded-xl"></div>
+          <Picture
+            src={imgAboutMeCat}
+            class="border-foreground shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg"
+            alt="A black cat sitting on a stack of books, looking at the camera with one paw stretched out in front"
+          />
+          <Picture
+            src={imgAboutMeBicycle}
+            class="border-foreground shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg"
+            alt="A dark blue bicycle parked beside a river, with a low concrete wall crossing over it and a dense forest in the background"
+          />
+          <Picture
+            src={imgAboutMeConcert}
+            class="border-foreground shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg"
+            alt="Two members of the YinYin band facing each other, playing guitar at a concert filled with fog under purple light"
+          />
         </div>
       </div>
     </div>
