@@ -9,13 +9,16 @@ interface Props {
 const { company, title, start, last } = Astro.props;
 ---
 
-<div class:list={["flex items-baseline justify-between px-4 py-5", !last && "border-b"]}>
-  <a
-    href=`/experiences#${company.toLocaleLowerCase().replaceAll(" ", "-")}`
-    class="flex items-baseline gap-4"
-  >
-    <h2 class="text-primary-foreground text-4xl font-semibold">{company}</h2>
-    <p class="text-primary-foreground/70 -translate-y-1">{title}</p>
-  </a>
-  <p class="text-primary-foreground/80">{start}</p>
-</div>
+<a
+  href=`/experiences#${company.toLocaleLowerCase().replaceAll(" ", "-")}`
+  class:list={[
+    "bg-foreground/1 hover:bg-foreground/20 border-primary-foreground/10 flex items-center justify-between px-0 py-5 lg:px-4 transition-all duration-300",
+    !last && "border-b",
+  ]}
+>
+  <div class="flex items-center gap-4">
+    <h2 class="text-primary-foreground text-2xl leading-none font-semibold lg:text-4xl">{company}</h2>
+    <p class="text-primary-foreground/70 translate-0 leading-none lg:translate-y-0.5">{title}</p>
+  </div>
+  <p class="text-primary-foreground/80 leading-none">{start}</p>
+</a>

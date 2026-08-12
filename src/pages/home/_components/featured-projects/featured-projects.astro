@@ -5,32 +5,34 @@ import FeaturedProjectCard from "./featured-project-card.astro";
 ---
 
 <div class="flex w-full flex-col items-center py-20">
-  <div class="grid w-full max-w-7xl gap-20 px-30">
-    <H1 class="text-shadow-foreground/5 w-full text-shadow-lg">featured projects</H1>
-    <div class="grid grid-cols-2 gap-8">
-      <FeaturedProjectCard
-        title="krustie"
-        description="An experimental Rust HTTP framework written from scratch — TCP layer up. 16k+ downloads on creates.io."
-        href="/projects/krustie"
-      />
-      <FeaturedProjectCard
-        title="Graduation Project"
-        description="A greenhouse monitoring and control system that uses Visible Light Communication to transmit sensor data."
-        href="/projects/graduation-project"
-      />
-      <FeaturedProjectCard
-        title="mrcn.tr"
-        description="A full-stack personal site built with Actix Web, Diesel.rs, PostgreSQL, Astro, React, and TailwindCSS."
-        href="/projects/mrcntr"
-      />
-      <FeaturedProjectCard
-        title="Redis Clone"
-        description="Redis-compatible server implementing RESP protocol over TCP. Focused on in-memory data structures and protocol parsing."
-        href="/projects/redis-clone"
-      />
+  <div class="grid w-full max-w-7xl gap-10 px-4 lg:gap-20 lg:px-30">
+    <div class="grid w-full gap-20">
+      <H1 class="text-shadow-foreground/5 w-full text-shadow-lg">featured projects</H1>
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <FeaturedProjectCard
+          title="krustie"
+          description="An experimental Rust HTTP framework written from scratch — TCP layer up. 16k+ downloads on creates.io."
+          href="/projects/krustie"
+        />
+        <FeaturedProjectCard
+          title="Graduation Project"
+          description="A greenhouse monitoring and control system that uses Visible Light Communication to transmit sensor data."
+          href="/projects/graduation-project"
+        />
+        <FeaturedProjectCard
+          title="mrcn.tr"
+          description="A full-stack personal site built with Actix Web, Diesel.rs, PostgreSQL, Astro, React, and TailwindCSS."
+          href="/projects/mrcntr"
+        />
+        <FeaturedProjectCard
+          title="Redis Clone"
+          description="Redis-compatible server implementing RESP protocol over TCP. Focused on in-memory data structures and protocol parsing."
+          href="/projects/redis-clone"
+        />
+      </div>
     </div>
-    <div class="flex justify-end">
-      <Button size="xl">View More</Button>
-    </div>
+    <a href="/projects" class="flex justify-end">
+      <Button className="cursor-pointer" size="xl">View More</Button>
+    </a>
   </div>
 </div>
