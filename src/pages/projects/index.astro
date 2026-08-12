@@ -42,13 +42,11 @@ const typeCollections: { [key: string]: typeof projectCollection } = Object.grou
           .sort(([a], [b]) => (a?.typeOrder ?? 0) - (b?.typeOrder ?? 0))
           .map((collection) => (
             <div class="grid gap-4">
-              <h2 class="text-primary-foreground px-2 py-2 text-center text-3xl font-semibold">
+              <h2 class="text-foreground px-2 py-2 text-center text-3xl font-semibold">
                 {collection[0]?.typeTitle}
               </h2>
 
-              <div
-                class={`grid grid-cols-1 gap-4 ${collection.length > 1 ? "md:grid-cols-2" : ""}`}
-              >
+              <div class={`grid gap-4 ${collection.length > 1 ? "md:grid-cols-2" : ""}`}>
                 {collection.map(({ data: project, id }) => (
                   <ProjectCard
                     class="col-span-1 md:last:odd:col-span-2"

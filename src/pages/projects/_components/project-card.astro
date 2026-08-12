@@ -14,29 +14,31 @@ const { title, href, description, tags, class: className } = Astro.props;
 
 <div
   class:list={[
-    "group bg-primary grid cursor-pointer rounded-xl shadow-lg shadow-black/10",
-    "hover:bg-secondary hover:shadow-secondary/20",
+    "group bg-primary cursor-pointer overflow-hidden rounded-xl shadow-lg shadow-black/10",
+    "hover:bg-card hover:shadow-secondary/20",
     "transition-all duration-300 ease-out",
-    "grid-rows-1 gap-2 pt-8 pb-0",
-    "md:grid-rows-3 md:gap-0 md:pb-8",
+    "flex flex-1 flex-col justify-between gap-4 pt-8 pb-0",
+    "md:gap-0 md:pb-8",
     className,
   ]}
   onclick={`location.href='${href}'`}
 >
-  <h3 class="text-primary-foreground px-6 text-center text-2xl font-black transition-all">
+  <h3
+    class="text-primary-foreground group-hover:text-card-foreground px-6 text-center text-2xl font-black transition-all"
+  >
     {title}
   </h3>
   <p
-    class="text-primary-foreground row-span-2 flex items-center justify-center px-4 pb-0 text-center transition-all md:pb-2"
+    class="text-primary-foreground group-hover:text-card-foreground row-span-2 flex items-center justify-center px-6 pb-0 text-center transition-all md:pb-2"
   >
     {description}
   </p>
-  <div class="flex flex-wrap items-center justify-center gap-2 px-4 py-2 text-center md:py-0">
+  <div class="flex flex-wrap items-center justify-center gap-2 px-6 py-2 text-center md:py-0">
     {
       tags.map((tag) => (
         <Tag
           variant="secondary"
-          class="group-hover:bg-primary group-hover:text-primary-foreground hover:bg-secondary-foreground hover:text-secondary group-hover:shadow"
+          class="group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow"
         >
           {tag}
         </Tag>
@@ -44,7 +46,7 @@ const { title, href, description, tags, class: className } = Astro.props;
     }
   </div>
   <a
-    class="border-background/60 text-background bg-secondary visible w-full rounded-b-xl border-t p-4 text-center font-semibold md:hidden"
+    class="border-background/60 text-primary bg-primary-foreground visible w-full border-t p-4 text-center font-semibold md:hidden"
     href={href}>View Project</a
   >
 </div>
