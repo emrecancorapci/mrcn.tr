@@ -1,0 +1,52 @@
+---
+import Header from "@/components/layout/header.astro";
+import Typewriter from "@/components/ui/typewriter.astro";
+import Base from "@/layouts/base.astro";
+
+import { Picture } from "astro:assets";
+import MeImage from "@/images/me.png";
+---
+
+<Base>
+  <main class="flex h-dvh min-h-screen w-full flex-col items-center justify-center px-4">
+    <div class="flex w-full max-w-3xl flex-col items-end justify-end pb-8 md:pb-0">
+      <Picture
+        formats={["webp", "png"]}
+        class="max-w-80"
+        src={MeImage}
+        alt="An Illustration of Emre Can in ghibli style"
+      />
+      <div
+        class="bg-primary border-secondary flex h-54 min-h-40 w-full flex-col gap-2 border-2 px-8 py-6 transition-all md:h-40"
+      >
+        <h3 class="text-2xl font-bold">Emre Can:</h3>
+        <Typewriter
+          writeAll
+          noDelete
+          delta={30}
+          words={[
+            "I build backend systems, write music, read philosophy, play games, and think a lot ",
+            [["(and sometimes get paid to do it)."], "italic"],
+          ]}
+          class="text-primary-foreground text-xl font-extralight"
+        />
+      </div>
+    </div>
+    <Header forceCol disableHomePageText isHomePage noBorder />
+    <div class="py-4">
+      <div
+        class="bg-secondary border-secondary/50 flex w-full max-w-140 flex-col items-center gap-2 rounded-3xl border p-4 px-4"
+      >
+        <p class="text-center text-xl font-medium">
+          Have you seen my backend framework project?
+        </p>
+        <a
+          class="hover:bg-primary bg-secondary text-secondary-foreground cursor-pointer rounded-3xl px-4 py-1 text-3xl font-semibold transition-all"
+          href="/projects/krustie"
+        >
+          krustie
+        </a>
+      </div>
+    </div>
+  </main>
+</Base>
