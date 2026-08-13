@@ -10,12 +10,6 @@ interface Props {
 
 const links = [
   {
-    order: 1,
-    href: "/home",
-    title: "home",
-    prefetch: true,
-  },
-  {
     order: 2,
     href: "/projects",
     title: "projects",
@@ -44,7 +38,7 @@ const { forceCol = false } = Astro.props as Props;
 >
   <a
     class:list={[
-      "leading-none font-black",
+      "leading-none font-black hover:text-primary transition-all duration-300 hover:text-shadow-md text-shadow-primary/10",
       forceCol ? "text-center text-4xl" : "text-center text-4xl lg:text-left lg:text-3xl",
     ]}
     href="/"
