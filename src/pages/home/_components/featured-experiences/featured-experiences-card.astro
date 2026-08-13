@@ -12,7 +12,7 @@ const { company, title, start, last } = Astro.props;
 <a
   href=`/experiences#${company.toLocaleLowerCase().replaceAll(" ", "-")}`
   class:list={[
-    "bg-foreground/1 hover:bg-foreground/20 border-primary-foreground/10 flex items-center justify-between px-0 py-5 lg:px-4 transition-all duration-300",
+    "bg-foreground/0 hover:bg-chart-1 hover:border-0 dark:hover:bg-foreground/20 border-primary-foreground/10 flex items-center justify-between px-0 py-5 lg:px-4 hover:scale-105 transition-all duration-300 ease-out",
     !last && "border-b",
   ]}
 >

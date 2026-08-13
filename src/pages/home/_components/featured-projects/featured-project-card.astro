@@ -11,7 +11,9 @@ interface Props {
 const { title, description, href } = Astro.props;
 ---
 
-<div class="bg-card border-border flex flex-col flex-1 grid-rows-5 rounded-xl border p-6 shadow-lg shadow-foreground/5">
+<div
+  class="group bg-card border-border shadow-foreground/5 hover:bg-primary hover:text-primary-foreground flex flex-1 grid-rows-5 flex-col rounded-xl border p-6 shadow-lg transition-all duration-300 ease-out hover:-translate-y-1"
+>
   <div class="row-span-4 flex flex-col gap-1">
     <h2 class="text-card-foreground text-2xl font-semibold">{title}</h2>
     <p class="text-card-foreground/70">
@@ -20,7 +22,7 @@ const { title, description, href } = Astro.props;
   </div>
   <div class="flex justify-end">
     <a class="translate-x-3" href={href}>
-      <Button variant="ghost" className="cursor-pointer text-lg">
+      <Button variant="link" className="text-primary-foreground group-hover:text-primary-foreground cursor-pointer text-lg">
         View the project <Icon size={24} name="material-symbols:arrow-right-alt" />
       </Button>
     </a>
