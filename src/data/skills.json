@@ -146,12 +146,14 @@
       {
         "title": "Figma",
         "proficiency": 3,
-        "icon": "simple-icons:figma"
+        "icon": "simple-icons:figma",
+        "color": "text-white"
       },
       {
         "title": "Tanstack Query",
         "proficiency": 2,
-        "icon": "simple-icons:tanstack"
+        "icon": "simple-icons:tanstack",
+        "color": "text-white"
       },
       {
         "title": "Apollo Client",
@@ -218,7 +220,8 @@
       {
         "title": "PM2",
         "proficiency": 2,
-        "icon": "simple-icons:pm2"
+        "icon": "simple-icons:pm2",
+        "color": "text-white"
       },
       {
         "title": "Docker",
@@ -235,7 +238,8 @@
       {
         "title": "Linux (Arch/Debian/Fedora)",
         "proficiency": 3,
-        "icon": "simple-icons:linux"
+        "icon": "simple-icons:linux",
+        "color": "text-white"
       },
       {
         "title": "Windows",

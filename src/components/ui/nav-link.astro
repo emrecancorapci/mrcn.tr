@@ -31,7 +31,7 @@ const isActive = pathname.startsWith(href);
         "border-primary/50 shadow-secondary/15 border not-first:border-l-0 first:rounded-l-3xl last:rounded-r-3xl hover:shadow-lg",
         isActive ?
           "bg-primary text-primary-foreground"
-        : "text-foreground hover:text-primary-foreground hover:bg-foreground",
+        : "text-foreground bg-background hover:text-foreground dark:hover:text-background hover:bg-chart-1",
       ]}
       href={href}
       {...props}
