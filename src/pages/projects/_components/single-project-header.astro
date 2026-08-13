@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"project">["data"];
+}
+const projectTypesCollection = await getCollection("projectType");
+const projectTypesMap = new Map(projectTypesCollection.map((c) => [c.id, c.data.title]));
+
+const getCategory = (c: string) => {
+  return projectTypesMap.get(c) ?? "Unknown";
+};
+
+const getStatus = (c: string) => {
+  switch (c) {
+    case "ongoing":
+      return "Ongoing";
+    case "completed":
+      return "Completed";
+    case "prototype-completed":
+      return "Prototype Completed";
+    case "archived":
+      return "Archived";
+    default:
+      return "Unknown";
+  }
+};
+
+const { project } = Astro.props;
+---
+
+<div
+  class:list={[
+    "shadow-foreground/10 text-primary-foreground flex flex-col items-center justify-center gap-16 rounded-xl px-4 pt-20 pb-10 text-center shadow-md",
+    "from-chart-1 via-chart-2 to-chart-3 dark:to-chart-5 bg-linear-65 from-0% via-50% to-100%",
+  ]}
+>
+  <div class="flex flex-col items-center">
+    <h3 class="font-light">[PROJECT]</h3>
+    <div class="flex justify-center">
+      <h2 class="text-6xl font-black md:text-7xl">{project.title}</h2>
+      {
+        project.version && (
+          <p class="bg-primary-foreground text-primary dark:bg-primary-foreground dark:text-primary -me-14 h-min rounded-lg px-2 py-0.5 text-lg font-bold">
+            {project.version}
+          </p>
+        )
+      }
+    </div>
+    <p class="w-full max-w-4xl pt-5 font-semibold">{project.description}</p>
+  </div>
+  <div class="grid w-full grid-cols-3 gap-4">
+    <div class="flex flex-col gap-0.5">
+      <p class="leading-none font-light">[YEAR]</p>
+      <p class="text-lg leading-tight font-bold">{project.year}</p>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <p class="leading-none font-light">[TYPE]</p>
+      <p class="text-lg leading-tight font-bold">{getCategory(project.projectType.id)}</p>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <p class="leading-none font-light">[STATUS]</p>
+      <p class="text-lg leading-tight font-bold">{getStatus(project.status)}</p>
+    </div>
+  </div>
+</div>

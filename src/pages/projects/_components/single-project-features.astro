@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import SingleProjectSection from "./single-project-section.astro";
+import SingleProjectSectionTitle from "./single-project-section-title.astro";
+
+interface Props {
+    title: string;
+}
+
+const featuredProjects = await getCollection("project");
+
+const {title} = Astro.props;
+---
+    <div class="space-y-4 pt-4">
+      <h2 class="text-4xl px-2 font-bold">Featured Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+          featuredProjects
+            .filter((p) => p.data.featured && p.data.title !== title)
+            .slice(0,3)
+            .map((p) => (
+              <SingleProjectSection class="shadow-md">
+                <SingleProjectSectionTitle size="sm">{p.data.title}</SingleProjectSectionTitle>
+                <p class="pt-2 px-2 h-full pe-12">{p.data.description}</p>
+                <a class="text-right pt-2 font-semibold hover:underline transition-all hover:text-shadow-sm text-shadow-secondary/10" href={`/projects/${p.id}`}>View Project >></a>
+              </SingleProjectSection>
+            ))
+        }
+      </div>
+    </div>

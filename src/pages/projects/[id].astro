@@ -2,10 +2,12 @@
 import { getCollection, render } from "astro:content";
 
 import Layout from "@/layouts/layout.astro";
-import ProjectBlock from "./_components/project-block.astro";
-import ProjectSection from "./_components/project-section.astro";
-import ProjectSectionTitle from "./_components/project-section-title.astro";
-import ProjectLinks from "./_components/project-links.astro";
+import SingleProjectBlock from "./_components/single-project-block.astro";
+import SingleProjectSection from "./_components/single-project-section.astro";
+import SingleProjectSectionTitle from "./_components/single-project-section-title.astro";
+import SingleProjectLinks from "./_components/single-project-links.astro";
+import SingleProjectHeader from "./_components/single-project-header.astro";
+import SingleProjectFeatures from "./_components/single-project-features.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("project");
@@ -21,77 +23,17 @@ const data = Astro.props.project.data;
 const { Content } = await render(Astro.props.project);
 const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
 const blocksOnBottom = data.blocks?.filter((b) => !b.onTop) ?? [];
-
-const featuredProjects = await getCollection("project");
-const projectTypesCollection = await getCollection("projectType");
-
-const projectTypesMap = new Map(projectTypesCollection.map((c) => [c.id, c.data.title]))
-
-const getCategory = (c: string) => {
-  return projectTypesMap.get(c) ?? "Unknown"
-};
-
-const getStatus = (c: string) => {
-  switch (c) {
-    case "ongoing":
-      return "Ongoing";
-    case "completed":
-      return "Completed";
-    case "prototype-completed":
-      return "Prototype Completed";
-    case "archived":
-      return "Archived";
-    default:
-      return "Unknown";
-  }
-};
 ---
 
 <Layout title={`Project: ${data.title} - Emre Can Çorapçı`}>
   <div class="grid gap-4 pt-4">
-    <div
-      class:list={
-        [
-          "shadow-secondary/20 text-primary-foreground flex flex-col items-center justify-center gap-16 rounded-xl px-4 pt-20 pb-10 text-center shadow-md",
-          "bg-linear-65 from-chart-1 via-chart-2 to-chart-3 from-0% via-50% to-100%"
-        ]
-      }
-    >
-      <div class="flex flex-col items-center">
-        <h3 class="font-light">[PROJECT]</h3>
-        <div class="flex justify-center">
-          <h2 class="text-6xl font-black md:text-7xl">{data.title}</h2>
-          {
-            data.version && (
-              <p class="bg-secondary text-secondary-foreground dark:bg-secondary-foreground dark:text-secondary -me-14 h-min rounded-lg px-2 py-0.5 text-lg font-bold">
-                {data.version}
-              </p>
-            )
-          }
-        </div>
-        <p class="w-full max-w-4xl pt-5 font-semibold">{data.description}</p>
-      </div>
-      <div class="grid w-full grid-cols-3 gap-4">
-        <div class="flex flex-col gap-0.5">
-          <p class="leading-none font-light">[YEAR]</p>
-          <p class="text-lg leading-tight font-bold">{data.year}</p>
-        </div>
-        <div class="flex flex-col gap-0.5">
-          <p class="leading-none font-light">[TYPE]</p>
-          <p class="text-lg leading-tight font-bold">{getCategory(data.projectType.id)}</p>
-        </div>
-        <div class="flex flex-col gap-0.5">
-          <p class="leading-none font-light">[STATUS]</p>
-          <p class="text-lg leading-tight font-bold">{getStatus(data.status)}</p>
-        </div>
-      </div>
-    </div>
-    {data.links && <ProjectLinks links={data.links} />}
+    <SingleProjectHeader project={data} />
+    {data.links && <SingleProjectLinks links={data.links} />}
     {
       Astro.props.project.body && blocksOnTop.length > 0 && (
         <div class="flex w-full flex-col gap-4 md:hidden">
           {blocksOnTop.map((block) => (
-            <ProjectBlock block={block} />
+            <SingleProjectBlock block={block} />
           ))}
         </div>
       )
@@ -99,11 +41,11 @@ const getStatus = (c: string) => {
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
       {
         Astro.props.project.body && (
-          <ProjectSection class="col-span-1 shadow-lg md:col-span-3">
-            <ProjectSectionTitle size="xl">Summary</ProjectSectionTitle>
-            <div class:list={
-              [
-                "prose px-0 py-4 w-full md:px-4",
+          <SingleProjectSection class="col-span-1 shadow-lg md:col-span-3">
+            <SingleProjectSectionTitle size="xl">Summary</SingleProjectSectionTitle>
+            <div
+              class:list={[
+                "prose w-full px-0 py-4 md:px-4",
                 "prose-h2:text-2xl prose-h2:font-bold prose-h2:text-secondary prose-h2:leading-relaxed prose-h2:mb-4 prose-h2:border-b prose-h2:border-primary",
                 "prose-p:leading-relaxed prose-p:text-secondary-foreground",
                 "prose-table:mb-0",
@@ -112,15 +54,15 @@ const getStatus = (c: string) => {
                 "prose-th:text-secondary",
                 "prose-td:text-secondary",
                 "prose-li:text-secondary",
-                "prose-code:text-zinc-300",
+                "dark:prose-code:text-zinc-300 [&_p_code]:prose-code:text-primary-foreground",
                 "prose-strong:font-semibold prose-strong:text-secondary-foreground",
                 "prose-pre:border-4 prose-pre:border-secondary/80 prose-pre:p-6!",
-                "prose-a:text-secondary-foreground"
-              ]
-            }>
+                "prose-a:text-secondary-foreground",
+              ]}
+            >
               <Content />
             </div>
-          </ProjectSection>
+          </SingleProjectSection>
         )
       }
       {
@@ -129,28 +71,12 @@ const getStatus = (c: string) => {
             class={`flex w-full gap-4 ${Astro.props.project.body ? "flex-col" : "col-span-4 flex-row justify-center"}`}
           >
             {data.blocks?.map((block) => (
-              <ProjectBlock block={block} class={block.onTop ? "hidden md:grid" : ""} />
+              <SingleProjectBlock block={block} class={block.onTop ? "hidden md:grid" : ""} />
             ))}
           </div>
         )
       }
     </div>
-    <div class="space-y-4 pt-4">
-      <h2 class="text-4xl px-2 font-bold">Featured Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {
-          featuredProjects
-            .filter((p) => p.data.featured && p.data.title !== data.title)
-            .slice(0,3)
-            .map((p) => (
-              <ProjectSection class="shadow-md">
-                <ProjectSectionTitle size="sm">{p.data.title}</ProjectSectionTitle>
-                <p class="pt-2 px-2 h-full pe-12">{p.data.description}</p>
-                <a class="text-right pt-2 font-semibold hover:underline transition-all hover:text-shadow-sm text-shadow-secondary/10" href={`/projects/${p.id}`}>View Project >></a>
-              </ProjectSection>
-            ))
-        }
-      </div>
-    </div>
+    <SingleProjectFeatures title={data.title} />
   </div>
 </Layout>
