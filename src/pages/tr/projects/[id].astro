@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@/layouts/layout.astro";
+import { currentLocale, t } from "@/i18n";
+import { baseId, entryLocale } from "@/lib/i18n-content";
+import ProjectPageBody from "../../projects/_components/project-page-body.astro";
+
+const locale = currentLocale(Astro.currentLocale);
+
+export async function getStaticPaths() {
+  const projects = (await getCollection("project")).filter((p) => entryLocale(p.id) === "tr");
+
+  return projects.map((project) => ({
+    params: { id: baseId(project.id) },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={t(locale, "single.pageTitle", { title: project.data.title })}>
+  <ProjectPageBody project={project} />
+</Layout>
