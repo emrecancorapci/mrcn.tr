@@ -13,4 +13,11 @@ const SIZES = {
 } as const;
 ---
 
-<h3 class:list={["border-primary-foreground/50 dark:border-primary/70 border-b px-0 font-bold", SIZES[size]]}><slot /></h3>
+<h3
+  class:list={[
+    "border-primary-foreground/50 dark:border-primary/70 border-b px-0 font-bold",
+    SIZES[size],
+  ]}
+>
+  <slot />
+</h3>

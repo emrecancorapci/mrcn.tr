@@ -8,21 +8,28 @@ const locale = currentLocale(Astro.currentLocale);
 <Layout title={t(locale, "notFound.pageTitle")}>
   <div class="flex flex-col gap-4 px-12 py-8">
     <div class="relative -z-40 size-0 w-full overflow-visible">
-      <p class="text-center w-full text-secondary/5 text-[8rem] sm:text-[14rem] md:text-[20rem] lg:text-[32rem] font-black select-none">404</p>
+      <p
+        class="text-secondary/5 w-full text-center text-[8rem] font-black select-none sm:text-[14rem] md:text-[20rem] lg:text-[32rem]"
+      >
+        404
+      </p>
     </div>
     <h1 class="text-7xl font-black">{t(locale, "notFound.heading")}</h1>
     <div class="grid gap-2">
       <p class="text-xl font-light">{t(locale, "notFound.line1")}</p>
       <p class="pt-6 text-xl font-light">
-        {markedSegments(t(locale, "notFound.line2")).map((segment) =>
-          segment.marked ? <em>{segment.text}</em> : segment.text
-        )}
+        {
+          markedSegments(t(locale, "notFound.line2")).map((segment) =>
+            segment.marked ? <em>{segment.text}</em> : segment.text
+          )
+        }
       </p>
       <p class="text-xl font-light">
         {t(locale, "notFound.line3Prefix")}
         <a
           class="font-light underline underline-offset-8 transition-all duration-300 hover:font-bold"
-          href="https://github.com/emrecancorapci/mrcn.tr/issues/new">{t(locale, "notFound.line3Link")}</a
+          href="https://github.com/emrecancorapci/mrcn.tr/issues/new"
+          >{t(locale, "notFound.line3Link")}</a
         >{t(locale, "notFound.line3Suffix")}
       </p>
       <p class="text-xl font-light">

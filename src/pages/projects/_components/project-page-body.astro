@@ -39,7 +39,9 @@ const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
     {
       body && (
         <SingleProjectSection class="col-span-1 shadow-lg md:col-span-3">
-          <SingleProjectSectionTitle size="xl">{t(locale, "single.summary")}</SingleProjectSectionTitle>
+          <SingleProjectSectionTitle size="xl">
+            {t(locale, "single.summary")}
+          </SingleProjectSectionTitle>
           <div class="prose-project">
             <Content />
           </div>
@@ -48,7 +50,9 @@ const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
     }
     {
       (data.blocks?.length ?? 0) > 0 && (
-        <div class={`flex w-full gap-4 ${body ? "flex-col" : "col-span-4 flex-row justify-center"}`}>
+        <div
+          class={`flex w-full gap-4 ${body ? "flex-col" : "col-span-4 flex-row justify-center"}`}
+        >
           {data.blocks?.map((block) => (
             <SingleProjectBlock block={block} class={block.onTop && body ? "hidden md:grid" : ""} />
           ))}

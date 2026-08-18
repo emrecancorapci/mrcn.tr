@@ -7,7 +7,7 @@ const { pathname } = Astro.url;
 // Counterpart URL of the current page in the other locale.
 const counterpartPath =
   locale === "tr"
-    ? (pathname.replace(/^\/tr(?=\/|$)/, "") || "/")
+    ? pathname.replace(/^\/tr(?=\/|$)/, "") || "/"
     : pathname === "/"
       ? "/tr/"
       : `/tr${pathname}`;

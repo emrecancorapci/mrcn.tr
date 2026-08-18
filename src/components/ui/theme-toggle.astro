@@ -12,8 +12,8 @@ const locale = currentLocale(Astro.currentLocale);
   class="text-muted-foreground hover:text-foreground flex cursor-pointer items-center p-2 transition-colors"
   aria-label={t(locale, "a11y.toggleTheme")}
 >
-  <Icon name="material-symbols:dark-mode-rounded" class="dark:hidden size-6" />
-  <Icon name="material-symbols:light-mode-rounded" class="hidden dark:inline size-6" />
+  <Icon name="material-symbols:dark-mode-rounded" class="size-6 dark:hidden" />
+  <Icon name="material-symbols:light-mode-rounded" class="hidden size-6 dark:inline" />
 </button>
 
 <script>

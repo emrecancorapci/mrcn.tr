@@ -33,10 +33,11 @@ const { title, description, href } = Astro.props;
       class={cn(
         "translate-x-3",
         buttonVariants({ variant: "link" }),
-        "text-primary-foreground dark:text-card-foreground group-hover:text-primary-foreground dark:group-hover:text-primary-foreground text-lg",
+        "text-primary-foreground dark:text-card-foreground group-hover:text-primary-foreground dark:group-hover:text-primary-foreground text-lg"
       )}
     >
-      {t(locale, "featured.viewProject")} <Icon size={24} name="material-symbols:arrow-right-alt" />
+      {t(locale, "featured.viewProject")}
+      <Icon size={24} name="material-symbols:arrow-right-alt" />
     </a>
   </div>
 </div>

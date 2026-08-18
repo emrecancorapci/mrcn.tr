@@ -33,9 +33,9 @@ const linksClass = (() => {
         href={link.url}
         class:list={[
           "shadow-primary/30 hover:text-primary-foreground hover:shadow-md",
-          links.length > 1 ?
-            "first:rounded-t-xl first:border-t-0 first:border-l-0 last:rounded-b-xl last:border-e-0 last:border-b-0 first:md:rounded-l-xl first:md:rounded-r-none last:md:rounded-l-none last:md:rounded-r-xl"
-          : "rounded-xl",
+          links.length > 1
+            ? "first:rounded-t-xl first:border-t-0 first:border-l-0 last:rounded-b-xl last:border-e-0 last:border-b-0 first:md:rounded-l-xl first:md:rounded-r-none last:md:rounded-l-none last:md:rounded-r-xl"
+            : "rounded-xl",
         ]}
         primary={link.primary}
       >

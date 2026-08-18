@@ -15,9 +15,9 @@ const isActive = pathname.startsWith(href);
   class:list={[
     "flex items-center px-4 py-2 font-semibold transition-all duration-200 ease-out",
     "border-primary/50 shadow-secondary/15 border not-first:border-l-0 first:rounded-l-3xl last:rounded-r-3xl hover:shadow-lg",
-    isActive ?
-      "bg-primary text-primary-foreground"
-    : "text-foreground bg-background hover:text-foreground dark:hover:text-background hover:bg-chart-1",
+    isActive
+      ? "bg-primary text-primary-foreground"
+      : "text-foreground bg-background hover:text-foreground dark:hover:text-background hover:bg-chart-1",
   ]}
   href={href}
   {...props}

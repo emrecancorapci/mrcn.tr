@@ -35,7 +35,10 @@ const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
         }
       </div>
       <div class="flex justify-end">
-        <a href={localePath(locale, "/experiences")} class={buttonVariants({ size: "xl", variant: "secondary" })}>
+        <a
+          href={localePath(locale, "/experiences")}
+          class={buttonVariants({ size: "xl", variant: "secondary" })}
+        >
           {t(locale, "featured.viewMore")}
         </a>
       </div>

@@ -12,8 +12,7 @@ const locale = currentLocale(Astro.currentLocale);
 const featuredProjects = forLocale(await getCollection("project"), locale)
   .filter((project) => project.data.featured)
   .sort(
-    (a, b) =>
-      (b.data.year ?? 0) - (a.data.year ?? 0) || a.data.title.localeCompare(b.data.title),
+    (a, b) => (b.data.year ?? 0) - (a.data.year ?? 0) || a.data.title.localeCompare(b.data.title)
   );
 ---
 

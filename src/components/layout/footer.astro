@@ -105,7 +105,7 @@ const socialLinks = [
     </div>
     <div class="pt-4 md:pt-0">
       <div
-        class="border-secondary flex h-full w-full flex-col items-start lg:border-0 border-t lg:pt-0 pt-4 lg:items-end justify-center gap-2 md:w-fit md:flex-col md:justify-end md:pe-2 md:pt-0"
+        class="border-secondary flex h-full w-full flex-col items-start justify-center gap-2 border-t pt-4 md:w-fit md:flex-col md:justify-end md:pe-2 md:pt-0 lg:items-end lg:border-0 lg:pt-0"
       >
         {
           socialLinks.map(({ title, href }) => (
@@ -146,6 +146,8 @@ const socialLinks = [
     </div>
   </div>
   <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-    <p class="text-muted-foreground text-sm">{t(locale, "footer.copyright", { year: new Date().getFullYear() })}</p>
+    <p class="text-muted-foreground text-sm">
+      {t(locale, "footer.copyright", { year: new Date().getFullYear() })}
+    </p>
   </div>
 </footer>

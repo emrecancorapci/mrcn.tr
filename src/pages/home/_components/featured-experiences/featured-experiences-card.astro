@@ -17,12 +17,14 @@ const { company, title, start, last } = Astro.props;
 <a
   href={localePath(locale, `/experiences#${companyAnchor(company)}`)}
   class:list={[
-    "bg-foreground/0 hover:bg-chart-1 hover:border-0 dark:hover:bg-foreground/20 border-primary-foreground/10 flex items-center justify-between px-0 py-5 lg:px-4 hover:scale-105 transition-all duration-300 ease-out",
+    "bg-foreground/0 hover:bg-chart-1 dark:hover:bg-foreground/20 border-primary-foreground/10 flex items-center justify-between px-0 py-5 transition-all duration-300 ease-out hover:scale-105 hover:border-0 lg:px-4",
     !last && "border-b",
   ]}
 >
   <div class="flex items-center gap-4">
-    <h2 class="text-primary-foreground text-2xl leading-none font-semibold lg:text-4xl">{company}</h2>
+    <h2 class="text-primary-foreground text-2xl leading-none font-semibold lg:text-4xl">
+      {company}
+    </h2>
     <p class="text-primary-foreground/70 leading-none lg:translate-y-0.5">{title}</p>
   </div>
   <p class="text-primary-foreground/80 leading-none">{start}</p>
