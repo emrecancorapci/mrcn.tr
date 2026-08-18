@@ -35,7 +35,7 @@ const link = z.object({
   primary: z.boolean().optional(),
 });
 
-const statusType = z.literal(["ongoing", "completed", "prototype-completed", "archived"]);
+const statusType = z.enum(["ongoing", "completed", "prototype-completed", "archived"]);
 
 export const projectTypeSchema = z.object({
   title: z.string(),
@@ -44,6 +44,7 @@ export const projectTypeSchema = z.object({
 
 export const projectSchema = z.object({
   title: z.string(),
+  /** Marks the project to show in the home page and single project featured sections. */
   featured: z.boolean().optional(),
   projectType: reference("projectType"),
   description: z.string(),
