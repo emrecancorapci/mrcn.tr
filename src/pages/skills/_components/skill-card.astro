@@ -6,21 +6,13 @@ interface Props {
   skill: CollectionEntry<"skills">["data"]["items"][0];
 }
 
-const getProficiency = (c: number) => {
-  switch (c) {
-    case 1:
-      return "Familiar";
-    case 2:
-      return "Comfortable";
-    case 3:
-      return "Proficient";
-    case 4:
-      return "Advanced";
-    case 5:
-      return "Expert";
-    default:
-      return "Unknown";
-  }
+/** Proficiency scale (1-5) mapped to display labels. */
+const PROFICIENCY_LABELS: Record<number, string> = {
+  1: "Familiar",
+  2: "Comfortable",
+  3: "Proficient",
+  4: "Advanced",
+  5: "Expert",
 };
 
 const {
@@ -35,7 +27,7 @@ const {
   <div class="flex w-full items-center justify-between">
     <p class="text-primary-foreground text-xl font-light sm:text-lg md:text-xl">{title}</p>
     <p class="text-primary-foreground/80 pe-2 text-lg font-bold sm:text-base md:text-lg">
-      {getProficiency(proficiency)}
+      {PROFICIENCY_LABELS[proficiency] ?? "Unknown"}
     </p>
   </div>
 </div>

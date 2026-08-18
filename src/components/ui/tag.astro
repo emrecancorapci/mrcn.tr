@@ -9,22 +9,15 @@ interface Props {
 
 const { Element = "p", variant = "primary", class: className } = Astro.props;
 
-const variantString = (() => {
-  switch (variant) {
-    case "primary":
-      return "bg-primary text-primary-foreground rounded";
-    case "secondary":
-      return "bg-secondary text-secondary-foreground rounded-lg font-light";
-    case "tertiary":
-      return "bg-background text-foreground rounded-lg font-light";
-    default:
-      return "bg-background text-foreground hover:bg-secondary rounded hover:text-background";
-  }
-})();
+const VARIANTS = {
+  primary: "bg-primary text-primary-foreground rounded",
+  secondary: "bg-secondary text-secondary-foreground rounded-lg font-light",
+  tertiary: "bg-background text-foreground rounded-lg font-light",
+} as const;
 
 const classString = cn([
   "py-1 text-sm px-2 transition-all duration-300 ease-out",
-  variantString,
+  VARIANTS[variant],
   className,
 ]);
 ---

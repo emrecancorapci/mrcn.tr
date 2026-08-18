@@ -4,20 +4,13 @@ interface Props {
 }
 
 const { size = "md" } = Astro.props;
-const sizeClass = (() => {
-  switch (size) {
-    case "sm":
-      return "text-xl py-2 md:px-2";
-    case "md":
-      return "text-2xl py-3 md:px-3";
-    case "lg":
-      return "text-3xl py-4 md:px-4";
-    case "xl":
-      return "text-4xl py-4 md:px-4";
-    default:
-      return "text-2xl py-3 md:px-3";
-  }
-})();
+
+const SIZES = {
+  sm: "text-xl py-2 md:px-2",
+  md: "text-2xl py-3 md:px-3",
+  lg: "text-3xl py-4 md:px-4",
+  xl: "text-4xl py-4 md:px-4",
+} as const;
 ---
 
-<h3 class:list={["border-primary-foreground/50 dark:border-primary/70 border-b px-0 font-bold", sizeClass]}><slot /></h3>
+<h3 class:list={["border-primary-foreground/50 dark:border-primary/70 border-b px-0 font-bold", SIZES[size]]}><slot /></h3>
