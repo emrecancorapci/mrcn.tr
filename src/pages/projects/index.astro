@@ -19,7 +19,16 @@ const projectCollection = (await getCollection("project")).map((p) => {
   };
 });
 
-const typeCollections = Object.groupBy(projectCollection, (p) => p.typeId);
+const typeCollections = new Map<string, typeof projectCollection>();
+for (const project of projectCollection) {
+  const group = typeCollections.get(project.typeId) ?? [];
+  group.push(project);
+  typeCollections.set(project.typeId, group);
+}
+
+const projectGroups = [...typeCollections.values()].sort(
+  (a, b) => (a[0]?.typeOrder ?? 0) - (b[0]?.typeOrder ?? 0)
+);
 ---
 
 <Layout title="Projects - Emre Can Çorapçı">
@@ -32,9 +41,7 @@ const typeCollections = Object.groupBy(projectCollection, (p) => p.typeId);
     </Fragment>
     <div class="grid w-full gap-8">
       {
-        Object.values(typeCollections)
-          .sort(([a], [b]) => (a?.typeOrder ?? 0) - (b?.typeOrder ?? 0))
-          .map((collection) => (
+        projectGroups.map((collection) => (
             <div class="grid gap-4">
               <h2 class="text-foreground px-2 py-2 text-center text-3xl font-semibold">
                 {collection[0]?.typeTitle}
