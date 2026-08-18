@@ -5,6 +5,6 @@ minimumReleaseAgeExclude:
   - '@iconify-json/simple-icons@1.2.88'
   - '@lucide/astro@1.31.0'
   - prettier@3.9.3
-  - '@astrojs/markdown-satteri@0.3.4'
+  - '@astrojs/markdown-satteri@0.3.5'
   - astro@7.2.1
   - '@astrojs/check@0.9.10'
