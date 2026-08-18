@@ -1,6 +1,5 @@
 [
   {
-    "id": "01",
     "title": "Languages",
     "items": [
       {
@@ -48,7 +47,6 @@
     ]
   },
   {
-    "id": "02",
     "title": "Back-End Frameworks",
     "items": [
       {
@@ -72,7 +70,6 @@
     ]
   },
   {
-    "id": "03",
     "title": "Front-End Frameworks",
     "items": [
       {
@@ -96,7 +93,6 @@
     ]
   },
   {
-    "id": "04",
     "title": "AI Tools",
     "items": [
       {
@@ -110,7 +106,6 @@
     ]
   },
   {
-    "id": "05",
     "title": "Databases",
     "items": [
       {
@@ -134,7 +129,6 @@
     ]
   },
   {
-    "id": "06",
     "title": "Front-End Libraries/Tools",
     "items": [
       {
@@ -164,7 +158,6 @@
     ]
   },
   {
-    "id": "07",
     "title": "Back-End Libraries",
     "items": [
       {
@@ -188,7 +181,6 @@
     ]
   },
   {
-    "id": "08",
     "title": "Testing",
     "items": [
       {
@@ -208,7 +200,6 @@
     ]
   },
   {
-    "id": "09",
     "title": "Deployment",
     "items": [
       {
@@ -232,7 +223,6 @@
     ]
   },
   {
-    "id": "10",
     "title": "Operating Systems",
     "items": [
       {
@@ -256,7 +246,6 @@
     ]
   },
   {
-    "id": "11",
     "title": "Other Tools",
     "items": [
       {
