@@ -1,12 +1,10 @@
 // @ts-check
 
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig, fontProviders } from "astro/config";
-
 import icon from "astro-icon";
-
-import react from "@astrojs/react";
+import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +13,10 @@ export default defineConfig({
   integrations: [sitemap(), icon(), react()],
   vite: {
     plugins: [tailwindcss()],
+  },
+  i18n: {
+    locales: ["tr", "en"],
+    defaultLocale: "en",
   },
   fonts: [
     {
