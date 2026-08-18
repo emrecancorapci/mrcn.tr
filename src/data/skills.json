@@ -1,6 +1,9 @@
 [
   {
-    "title": "Languages",
+    "title": {
+      "en": "Languages",
+      "tr": "Diller"
+    },
     "items": [
       {
         "title": "TypeScript",
@@ -48,7 +51,10 @@
     "id": "01"
   },
   {
-    "title": "Back-End Frameworks",
+    "title": {
+      "en": "Back-End Frameworks",
+      "tr": "Back-End Framework'leri"
+    },
     "items": [
       {
         "title": "Fastify",
@@ -72,7 +78,10 @@
     "id": "02"
   },
   {
-    "title": "Front-End Frameworks",
+    "title": {
+      "en": "Front-End Frameworks",
+      "tr": "Front-End Framework'leri"
+    },
     "items": [
       {
         "title": "React",
@@ -96,7 +105,10 @@
     "id": "03"
   },
   {
-    "title": "AI Tools",
+    "title": {
+      "en": "AI Tools",
+      "tr": "AI Araçları"
+    },
     "items": [
       {
         "title": "Opencode",
@@ -110,7 +122,10 @@
     "id": "04"
   },
   {
-    "title": "Databases",
+    "title": {
+      "en": "Databases",
+      "tr": "Veritabanları"
+    },
     "items": [
       {
         "title": "PostgreSQL",
@@ -134,7 +149,10 @@
     "id": "05"
   },
   {
-    "title": "Front-End Libraries/Tools",
+    "title": {
+      "en": "Front-End Libraries/Tools",
+      "tr": "Front-End Kütüphaneleri/Araçları"
+    },
     "items": [
       {
         "title": "TailwindCSS",
@@ -164,7 +182,10 @@
     "id": "06"
   },
   {
-    "title": "Back-End Libraries",
+    "title": {
+      "en": "Back-End Libraries",
+      "tr": "Back-End Kütüphaneleri"
+    },
     "items": [
       {
         "title": "GraphQL",
@@ -188,7 +209,10 @@
     "id": "07"
   },
   {
-    "title": "Testing",
+    "title": {
+      "en": "Testing",
+      "tr": "Test"
+    },
     "items": [
       {
         "title": "Vitest",
@@ -208,7 +232,10 @@
     "id": "08"
   },
   {
-    "title": "Deployment",
+    "title": {
+      "en": "Deployment",
+      "tr": "Deployment"
+    },
     "items": [
       {
         "title": "NGINX",
@@ -232,7 +259,10 @@
     "id": "09"
   },
   {
-    "title": "Operating Systems",
+    "title": {
+      "en": "Operating Systems",
+      "tr": "İşletim Sistemleri"
+    },
     "items": [
       {
         "title": "Linux (Arch/Debian/Fedora)",
@@ -256,7 +286,10 @@
     "id": "10"
   },
   {
-    "title": "Other Tools",
+    "title": {
+      "en": "Other Tools",
+      "tr": "Diğer Araçlar"
+    },
     "items": [
       {
         "title": "Postman",

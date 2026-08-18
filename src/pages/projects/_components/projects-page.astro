@@ -10,7 +10,7 @@ import { baseId, forLocale } from "@/lib/i18n-content";
 
 const locale = currentLocale(Astro.currentLocale);
 
-const projectTypesMap = await getProjectTypesMap();
+const projectTypesMap = await getProjectTypesMap(locale);
 
 const projectCollection = forLocale(await getCollection("project"), locale).map((p) => {
   const { order: typeOrder, title: typeTitle } = projectTypesMap.get(p.data.projectType.id)!;

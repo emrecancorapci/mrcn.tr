@@ -5,6 +5,7 @@ import SkillCard from "./skill-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
 import { currentLocale, t } from "@/i18n";
+import { localizedText } from "@/schemas/localized.schema";
 
 const locale = currentLocale(Astro.currentLocale);
 
@@ -18,7 +19,7 @@ const skills = await getCollection("skills");
     {
       skills.map(({ data: { title, items } }, index) => (
         <div class="grid grid-cols-1 gap-4 py-4">
-          <h2 class="text-3xl font-bold">{title}</h2>
+          <h2 class="text-3xl font-bold">{localizedText(title, locale)}</h2>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {items
               .toSorted((a, b) => b.proficiency - a.proficiency)

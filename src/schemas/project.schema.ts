@@ -1,6 +1,8 @@
 import { reference } from "astro:content";
 import { z } from "astro/zod";
 
+import { localizedStringSchema } from "./localized.schema";
+
 const blockTags = z.object({
   title: z.string(),
   onTop: z.boolean().optional(),
@@ -38,7 +40,7 @@ const link = z.object({
 const statusType = z.enum(["ongoing", "completed", "prototype-completed", "archived"]);
 
 export const projectTypeSchema = z.object({
-  title: z.string(),
+  title: localizedStringSchema,
   order: z.number(),
 });
 

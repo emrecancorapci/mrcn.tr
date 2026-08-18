@@ -1,7 +1,9 @@
 import { z } from "astro/zod";
 
+import { localizedStringSchema } from "./localized.schema";
+
 export const skillsSchema = z.object({
-  title: z.string(),
+  title: localizedStringSchema,
   items: z.array(
     z.object({
       title: z.string(),

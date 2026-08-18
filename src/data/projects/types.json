@@ -1,14 +1,14 @@
 {
   "published": {
-    "title": "Published Packages",
+    "title": { "en": "Published Packages", "tr": "Yayımlanmış Paketler" },
     "order": 1
   },
   "oss": {
-    "title": "Open Source Projects",
+    "title": { "en": "Open Source Projects", "tr": "Açık Kaynak Projeleri" },
     "order": 2
   },
   "freelance": {
-    "title": "Freelance Projects",
+    "title": { "en": "Freelance Projects", "tr": "Freelance Projeleri" },
     "order": 3
   }
 }

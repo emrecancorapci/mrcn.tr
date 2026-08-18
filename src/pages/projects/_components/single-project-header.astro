@@ -9,7 +9,7 @@ interface Props {
 }
 
 const locale = currentLocale(Astro.currentLocale);
-const projectTypesMap = await getProjectTypesMap();
+const projectTypesMap = await getProjectTypesMap(locale);
 
 const statusKeys: Record<Props["project"]["status"], UIKeys> = {
   ongoing: "project.status.ongoing",
