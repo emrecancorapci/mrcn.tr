@@ -8,3 +8,4 @@ minimumReleaseAgeExclude:
   - '@astrojs/markdown-satteri@0.3.5'
   - astro@7.2.1
   - '@astrojs/check@0.9.10'
+  - astro-icon@1.2.0
