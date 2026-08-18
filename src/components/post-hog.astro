@@ -1,4 +1,10 @@
-<script is:inline>
+---
+// PostHog write-keys are public by design; env vars allow per-environment overrides.
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY ?? "phc_vvVjicJoKRqy8l1G4XGF63KtIOFRYvzVSdPZkhBilyI";
+const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? "https://ph.mrcn.tr";
+---
+
+<script is:inline define:vars={{ posthogKey, posthogHost }}>
   !(function (t, e) {
     var o, n, p, r;
     e.__SV ||
@@ -41,8 +47,8 @@
       }),
       (e.__SV = 1));
   })(document, window.posthog || []);
-  posthog.init("phc_vvVjicJoKRqy8l1G4XGF63KtIOFRYvzVSdPZkhBilyI", {
-    api_host: "https://ph.mrcn.tr",
+  posthog.init(posthogKey, {
+    api_host: posthogHost,
     ui_host: "https://eu.posthog.com",
     defaults: "2025-11-30",
     person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
