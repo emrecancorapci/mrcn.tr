@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
 import FeaturedExperiencesCard from "./featured-experiences-card.astro";
 
@@ -30,9 +30,11 @@ const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
           ))
         }
       </div>
-      <a href="/experiences" class="flex justify-end">
-        <Button className="cursor-pointer" size="xl" variant="secondary">View More</Button>
-      </a>
+      <div class="flex justify-end">
+        <a href="/experiences" class={buttonVariants({ size: "xl", variant: "secondary" })}>
+          View More
+        </a>
+      </div>
     </div>
   </div>
 </div>

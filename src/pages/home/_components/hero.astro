@@ -1,5 +1,5 @@
 ---
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
 ---
 
@@ -16,11 +16,12 @@ import H1 from "@/components/ui/h1.astro";
     </H1>
   </div>
   <div class="flex justify-center gap-2">
-    <a href="/projects">
-      <Button size="xl" variant="default">see my work</Button>
-    </a>
-    <a href="mailto:emrecancorapci@gmail.com">
-      <Button size="xl" variant="outline">get in touch</Button>
+    <a href="/projects" class={buttonVariants({ size: "xl" })}>see my work</a>
+    <a
+      href="mailto:emrecancorapci@gmail.com"
+      class={buttonVariants({ size: "xl", variant: "outline" })}
+    >
+      get in touch
     </a>
   </div>
 </div>

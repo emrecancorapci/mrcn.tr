@@ -1,6 +1,8 @@
 ---
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Icon } from "astro-icon/components";
+
+import { cn } from "@/lib/utils";
 
 interface Props {
   title: string;
@@ -23,13 +25,15 @@ const { title, description, href } = Astro.props;
     </p>
   </div>
   <div class="flex justify-end">
-    <a class="translate-x-3" href={href}>
-      <Button
-        variant="link"
-        className="text-primary-foreground dark:text-card-foreground group-hover:text-primary-foreground dark:group-hover:text-primary-foreground cursor-pointer text-lg"
-      >
-        View the project <Icon size={24} name="material-symbols:arrow-right-alt" />
-      </Button>
+    <a
+      href={href}
+      class={cn(
+        "translate-x-3",
+        buttonVariants({ variant: "link" }),
+        "text-primary-foreground dark:text-card-foreground group-hover:text-primary-foreground dark:group-hover:text-primary-foreground text-lg",
+      )}
+    >
+      View the project <Icon size={24} name="material-symbols:arrow-right-alt" />
     </a>
   </div>
 </div>

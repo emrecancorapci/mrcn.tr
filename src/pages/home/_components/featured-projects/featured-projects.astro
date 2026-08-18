@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
 import FeaturedProjectCard from "./featured-project-card.astro";
 
@@ -29,8 +29,8 @@ const featuredProjects = (await getCollection("project"))
         }
       </div>
     </div>
-    <a href="/projects" class="flex justify-end">
-      <Button className="cursor-pointer" size="xl">View More</Button>
-    </a>
+    <div class="flex justify-end">
+      <a href="/projects" class={buttonVariants({ size: "xl" })}>View More</a>
+    </div>
   </div>
 </div>
