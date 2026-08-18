@@ -10,7 +10,6 @@ const config: Config = {
   trailingComma: "es5",
   tabWidth: 2,
   printWidth: 100,
-  experimentalTernaries: true,
   plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   overrides: [
     {

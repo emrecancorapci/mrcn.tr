@@ -1,5 +1,5 @@
-import { z } from "astro/zod";
 import { reference } from "astro:content";
+import { z } from "astro/zod";
 
 const blockTags = z.object({
   title: z.string(),

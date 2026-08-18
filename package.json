@@ -13,6 +13,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "astro check",
+    "lint": "biome check",
     "format": "prettier \"src/**/*.{astro}\" --write && biome format --write"
   },
   "dependencies": {

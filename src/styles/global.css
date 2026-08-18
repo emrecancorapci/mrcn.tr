@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "shadcn/tailwind.css";
-@plugin '@tailwindcss/typography';
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 

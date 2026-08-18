@@ -21,7 +21,5 @@ export async function getProjectTypesMap() {
 }
 
 /** Display title for a project type id, with a fallback. */
-export const projectTypeTitle = (
-  map: Map<string, { title: string; order: number }>,
-  id: string
-) => map.get(id)?.title ?? "Unknown";
+export const projectTypeTitle = (map: Map<string, { title: string; order: number }>, id: string) =>
+  map.get(id)?.title ?? "Unknown";
