@@ -1,7 +1,5 @@
 import type { UIKeys } from "./en";
 
-// Turkish translations. Keys must match en.ts exactly; a missing key is a build-time type error.
-// The site's brand voice uses lowercase headings — kept here too.
 export const tr: Record<UIKeys, string> = {
   // Navigation
   "nav.projects": "projeler",
@@ -20,7 +18,7 @@ export const tr: Record<UIKeys, string> = {
   "home.pageTitle": "Ana Sayfa - Emre Can Çorapçı",
   "hero.badge": "full stack yazılım geliştirici",
   "hero.title": "kaynak kodunu ben okurum, sen zahmet etme",
-  "hero.seeWork": "işlerime bak",
+  "hero.seeWork": "işlerimi gözden geçir",
   "hero.getInTouch": "bana ulaş",
 
   // About me
@@ -29,10 +27,10 @@ export const tr: Record<UIKeys, string> = {
   "about.p1":
     "Merhaba! Ben Emre, esas olarak web odaklı ama masaüstü uygulamaları ve sistem programlama alanında da deneyimi olan meraklı bir yazılım geliştiriciyim.",
   "about.p2":
-    "Sadece endpoint yazmıyorum. Projeleri sıfırdan üretime kadar taşıdım; bu yolculukta UI/UX, veritabanı tasarımı, mimari, güvenlik ve performansla da ilgilendim. Yeterince zaman verildiğinde her şeyi yapabilecek kadar kendimden emin olduğuma inanıyorum.",
+    "Sadece endpoint yazmıyorum. Projeleri sıfırdan production'a kadar taşıdım; bu süreçte UI/UX, veritabanı tasarımı, yazılım mimarisi, güvenlik ve performans üzerine de çalışma fırsatım oldu. Yeterince vakit verildiğinde istenilen çoğu şeyi yazabilecek seviyeye geldiğimi düşünüyorum.",
   "about.p3":
-    'Hoşuma giden şeyleri kurcalamayı ve merakım dinlene kadar "neden" diye sormayı severim. Kuralları esnetmek, varsayımları sorgulamak, daha iyisi var diye eski yöntemleri reddetmek.',
-  "about.illustrationCredit": "Kız kardeşim Nisa yaptı",
+    'Hoşuma giden şeyleri kurcalamayı ve merakım dinene kadar "neden" diye sormayı severim. Kuralları esnetmek, varsayımları sorgulamak, daha iyisi var diye eski yöntemleri reddetmek.',
+  "about.illustrationCredit": "Kız kardeşim yaptı",
   "about.interestsHeading": "ilgi alanları ve hobiler",
   "about.interests.s1": "Gojira, Parcels ve Angine de Poitrine *dinlerim*, ",
   "about.interests.s2": "Asimov, Rollo May ve Slavoj Žižek *okurum*, ",
@@ -60,7 +58,7 @@ export const tr: Record<UIKeys, string> = {
   "projects.pageTitle": "Projeler - Emre Can Çorapçı",
   "projects.heading": "Projeler",
   "projects.description":
-    "Zorlu ama aynı zamanda eğlenceli projelerde çalışmayı severim. Yeteneklerimi geliştirmenin ve yeni şeyler öğrenmenin yollarını hep ararım. Kimisi deneme, kimisi freelance iş, biri crates.io'ya kadar gitti. Şeyleri daha iyi anlamak ve onlardan öğrenmek için yapıyorum.",
+    "Zorlu fakat keyifli projelerde çalışmayı seviyorum. Kendimi geliştirmenin ve yeni şeyler öğrenmenin yollarını arıyorum. Kimi deneysel olarak kaldı, bazıları freelance projesi oldu, biri de crates.io'ya kadar gitti. Şeyleri daha iyi anlamak ve onlardan yeni şeyler öğrenmek için bir şeyler inşa etmeye çalışıyorum.",
   "single.pageTitle": "Proje: {title} - Emre Can Çorapçı",
   "single.summary": "Özet",
   "single.labelProject": "[PROJE]",
@@ -78,7 +76,7 @@ export const tr: Record<UIKeys, string> = {
   "experiences.pageTitle": "Deneyimler - Emre Can Çorapçı",
   "experiences.heading": "Deneyimler",
   "experiences.description":
-    "Freelance ve tam zamanlı rollerde çalıştım; projeleri ilk tasarımından üretim dağıtımına kadar taşıdım. İşlerim genelde sıfırdan backend sistemleri ve altyapı kurmak, mevcut olanların performansını ve güvenilirliğini iyileştirmek ve gerektiğinde frontend'e uzanmak etrafında döner. Bir projeyi uçtan uca sahiplenme — mimari, implementasyon, test ve dağıtım — konusunda rahatım.",
+    "Freelance ve tam zamanlı rollerde çalıştım. Projeleri tasarım aşamasından başlayarak development ve deployment'a kadar taşıdım. İşlerim genelde sıfırdan backend sistemleri ve altyapı kurmak, mevcut olanların performansını ve güvenilirliğini iyileştirmek ve gerektiğinde frontend'e uzanmak etrafında döner. Bir projeyi uçtan uca sahiplenmekte — mimari, implementasyon, test ve dağıtım gibi konularda — rahatım.",
   "experience.contract.Full-Time": "Tam Zamanlı",
   "experience.contract.Part-Time": "Yarı Zamanlı",
   "experience.contract.Freelance (Part-Time)": "Serbest (Yarı Zamanlı)",
@@ -91,11 +89,11 @@ export const tr: Record<UIKeys, string> = {
   "skills.pageTitle": "Yetenekler - Emre Can Çorapçı",
   "skills.heading": "Yetenekler",
   "skills.description":
-    "Performans odaklı web sistemlerine odaklanmış, esas olarak TypeScript ve Rust kullanan bir backend geliştiriciyim. Backend'de .NET, Express ve Fastify; frontend'de React ve Astro dahil çeşitli framework ve kütüphane kullandım. C#, C++ ve Python'a da aşinayım.",
-  "skill.proficiency.1": "Aşina",
-  "skill.proficiency.2": "Rahat",
+    "Performans odaklı web sistemlerine yoğunlaşmış, çoğunlukla TypeScript ve Rust kullanan bir backend geliştiriciyim. Backend'de .NET, Actix Web, Express ve Fastify; frontend'de React ve Astro dahil çeşitli framework ve kütüphaneler kullandım. Bunlar dışında C#, C++ ve Python'a da aşinayım.",
+  "skill.proficiency.1": "Tanıdık",
+  "skill.proficiency.2": "Deneyimli",
   "skill.proficiency.3": "Yetkin",
-  "skill.proficiency.4": "İleri",
+  "skill.proficiency.4": "Gelişmiş",
   "skill.proficiency.5": "Uzman",
 
   // Footer
@@ -125,5 +123,5 @@ export const tr: Record<UIKeys, string> = {
   "notFound.line4Suffix": " çok severim.",
   "notFound.line5": "Benim değilse, tamam affettik.",
   "notFound.line6":
-    "Yukarıdaki menüyü kullanarak bu tamamen el yapımı sitede muhteşem sörf deneyimine kaldığın yerden devam edebilirsin.",
+    "Yukarıdaki menüyü kullanarak bu özenle hazırlanmış olan bu sitede muhteşem sörf deneyimine kaldığın yerden devam edebilirsin.",
 };

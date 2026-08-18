@@ -1,4 +1,5 @@
 ---
+featured: true
 title: "Mezuniyet Projesi"
 description: "Arduino düğümleri arasında sensör verilerini iletmek için Görünür Işık İletişimi kullanan, gerçek zamanlı izleme için React tabanlı web paneli olan bir sera izleme ve kontrol sistemi."
 projectType: freelance
@@ -91,16 +92,16 @@ Bu sistem, Arduino tabanlı sensör düğümleri kullanarak bir seradan ortam ve
 
 ## Özellikler
 
-- **VLC tabanlı iletişim** — sensör verileri, donanım birimleri arasında RF veya Wi-Fi gerektirmeden Arduino düğümleri arasında modüle edilmiş ışık sinyalleriyle iletilir
+- **Işık tabanlı iletişim** — sensör verileri, donanım birimleri arasında RF veya Wi-Fi gerektirmeden Arduino düğümleri arasında modüle edilmiş ışık sinyalleriyle iletilir
 - **Gerçek zamanlı izleme** — canlı panel, mevcut sera koşullarını gösterir
 - **Çoklu sensör desteği** — sıcaklık, nem, ışık şiddeti ve toprak nemi takip edilir
 - **Aktüatör kontrolü** — fanlar, büyüme ışıkları ve su pompası web arayüzünden uzaktan açılıp kapatılabilir
-- **Kalıcı depolama** — geçmiş sensör verileri PostgreSQL'de saklanır
+- **Kalıcı depolama** — sensör verileri PostgreSQL'de saklanır
 
-## Teknoloji Yığını
+## Tech Stack
 
 - **Donanım:** Arduino (C / C++)
 - **İletişim:** Görünür Işık İletişimi (VLC), Seri port
 - **Yerel Sunucu:** Node.js, TypeScript, SerialPort
 - **Backend:** Node.js, Express, TypeScript, DrizzleORM, PostgreSQL
-- **Ön Yüz:** React, TypeScript, Vite, TailwindCSS, RechartJS
+- **Frontend:** React, TypeScript, Vite, TailwindCSS, RechartJS

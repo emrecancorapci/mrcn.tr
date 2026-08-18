@@ -1,7 +1,7 @@
 ---
 featured: true
 title: "mrcn.tr"
-description: "Astro ve Tailwind ile yapılmış kişisel web sitesi (ve sevgiyle). Content Collections ve Font Provider API gibi özellikler kullanıldı."
+description: "Actix Web, Diesel.rs, PostgreSQL, Astro, React ve TailwindCSS ile geliştirilmiş tam kişisel full-stack web sitesi."
 projectType: oss
 year: 2026
 status: "ongoing"

@@ -1,7 +1,7 @@
 ---
 featured: true
 title: "mrcn.tr"
-description: "Personal website built with Astro, Tailwind (and love). Used features such as Content Collections and Font Provider API."
+description: "A full-stack personal site built with Actix Web, Diesel.rs, PostgreSQL, Astro, React, and TailwindCSS."
 projectType: oss
 year: 2026
 status: "ongoing"

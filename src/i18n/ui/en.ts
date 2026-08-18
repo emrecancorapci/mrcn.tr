@@ -28,7 +28,7 @@ export const en = {
     "I don't just build endpoints. I've taken projects from ground to production, handling UI/UX, database design, architecture, security, and performance along the way. I believe I have reached the point where I am confident enough to do anything given enough time.",
   "about.p3":
     'I like to poke around things and ask "why" until my curiosity is tamed enough. Bending rules, questioning assumptions, rejecting old ways for the sake of something better.',
-  "about.illustrationCredit": "Made by my sister, Nisa",
+  "about.illustrationCredit": "Made by my sister",
   "about.interestsHeading": "interests and hobbies",
   // Sentences use *asterisks* around the emphasized (fancy italic) words.
   "about.interests.s1": "I *listen to* Gojira, Parcels, and Angine de Poitrine, ",
@@ -88,7 +88,7 @@ export const en = {
   "skills.pageTitle": "Skills - Emre Can Çorapçı",
   "skills.heading": "Skills",
   "skills.description":
-    "I'm a backend developer focused on performance-oriented web systems, mainly using TypeScript and Rust. I've used a variety of frameworks and libraries, including .NET, Express and Fastify on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++ and Python.",
+    "I'm a backend developer focused on performance-oriented web systems, mainly using TypeScript and Rust. I've used a variety of frameworks and libraries, including .NET, actix-web, Express and Fastify on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++ and Python.",
   "skill.proficiency.1": "Familiar",
   "skill.proficiency.2": "Comfortable",
   "skill.proficiency.3": "Proficient",

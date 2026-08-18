@@ -73,6 +73,12 @@
         "proficiency": 2,
         "icon": "simple-icons:dotnet",
         "color": "text-purple-500"
+      },
+      {
+        "title": "Actix Web",
+        "proficiency": 2,
+        "icon": "simple-icons:actix",
+        "color": "text-white"
       }
     ],
     "id": "02"
@@ -112,7 +118,9 @@
     "items": [
       {
         "title": "Opencode",
-        "proficiency": 2
+        "icon": "simple-icons:opencode",
+        "proficiency": 2,
+        "color": "text-white"
       },
       {
         "title": "Antigravity",
