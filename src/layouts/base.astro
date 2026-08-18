@@ -2,6 +2,7 @@
 import "@/styles/global.css";
 
 import PostHog from "@/components/post-hog.astro";
+import { currentLocale, t } from "@/i18n";
 import { Font } from "astro:assets";
 import type { BaseProps } from "./base-types";
 
@@ -9,15 +10,22 @@ interface Props extends BaseProps {}
 
 const isProd = import.meta.env.PROD;
 
+const locale = currentLocale(Astro.currentLocale);
 const { title, description } = Astro.props as Props;
 
 const pageTitle = title ?? "Emre Can Çorapçı";
-const pageDescription = description ?? "Emre Can Çorapçı's personal website";
+const pageDescription = description ?? t(locale, "base.defaultDescription");
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Counterpart path for hreflang: "en" is unprefixed, "tr" lives under /tr.
+const enPath = locale === "tr" ? Astro.url.pathname.replace(/^\/tr(?=\/|$)/, "") || "/" : Astro.url.pathname;
+const trPath = enPath === "/" ? "/tr/" : `/tr${enPath}`;
+const enAlternate = new URL(enPath, Astro.site);
+const trAlternate = new URL(trPath, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,11 +43,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={enAlternate} />
+    <link rel="alternate" hreflang="tr" href={trAlternate} />
+    <link rel="alternate" hreflang="x-default" href={enAlternate} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
+    <meta property="og:locale" content={locale === "tr" ? "tr_TR" : "en_US"} />
+    <meta
+      property="og:locale:alternate"
+      content={locale === "tr" ? "en_US" : "tr_TR"}
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
