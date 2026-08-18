@@ -4,19 +4,17 @@ import { getCollection } from "astro:content";
 import SkillCard from "./skill-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
+import { currentLocale, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 
 const skills = await getCollection("skills");
 ---
 
-<Layout title="Skills - Emre Can Çorapçı">
+<Layout title={t(locale, "skills.pageTitle")}>
   <LeftColumnLayout>
-    <Fragment slot="title">Skills</Fragment>
-    <Fragment slot="description">
-      I’m a backend developer focused on performance-oriented web systems, mainly using TypeScript
-      and Rust. I've used a variety of frameworks and libraries, including .NET, Express and Fastify
-      on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++ and
-      Python.
-    </Fragment>
+    <Fragment slot="title">{t(locale, "skills.heading")}</Fragment>
+    <Fragment slot="description">{t(locale, "skills.description")}</Fragment>
     {
       skills.map(({ data: { title, items } }, index) => (
         <div class="grid grid-cols-1 gap-4 py-4">

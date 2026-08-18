@@ -2,17 +2,21 @@
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
 
+import { currentLocale, t, type UIKeys } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
+
 interface Props {
   skill: CollectionEntry<"skills">["data"]["items"][0];
 }
 
-/** Proficiency scale (1-5) mapped to display labels. */
-const PROFICIENCY_LABELS: Record<number, string> = {
-  1: "Familiar",
-  2: "Comfortable",
-  3: "Proficient",
-  4: "Advanced",
-  5: "Expert",
+/** Proficiency scale (1-5) mapped to translation keys. */
+const PROFICIENCY_KEYS: Record<number, UIKeys> = {
+  1: "skill.proficiency.1",
+  2: "skill.proficiency.2",
+  3: "skill.proficiency.3",
+  4: "skill.proficiency.4",
+  5: "skill.proficiency.5",
 };
 
 const {
@@ -27,7 +31,7 @@ const {
   <div class="flex w-full items-center justify-between">
     <p class="text-primary-foreground text-xl font-light sm:text-lg md:text-xl">{title}</p>
     <p class="text-primary-foreground/80 pe-2 text-lg font-bold sm:text-base md:text-lg">
-      {PROFICIENCY_LABELS[proficiency] ?? "Unknown"}
+      {PROFICIENCY_KEYS[proficiency] ? t(locale, PROFICIENCY_KEYS[proficiency]) : "Unknown"}
     </p>
   </div>
 </div>
