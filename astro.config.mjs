@@ -29,11 +29,11 @@ export default defineConfig({
     defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false,
+      fallbackType: "redirect",
     },
     fallback: {
       tr: "en",
     },
-    fallbackType: "redirect",
   },
   fonts: [
     {

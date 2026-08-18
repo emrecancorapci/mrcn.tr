@@ -44,7 +44,8 @@
         "icon": "simple-icons:gnubash",
         "color": "text-white"
       }
-    ]
+    ],
+    "id": "01"
   },
   {
     "title": "Back-End Frameworks",
@@ -67,7 +68,8 @@
         "icon": "simple-icons:dotnet",
         "color": "text-purple-500"
       }
-    ]
+    ],
+    "id": "02"
   },
   {
     "title": "Front-End Frameworks",
@@ -90,7 +92,8 @@
         "icon": "simple-icons:svelte",
         "color": "text-orange-500"
       }
-    ]
+    ],
+    "id": "03"
   },
   {
     "title": "AI Tools",
@@ -103,7 +106,8 @@
         "title": "Antigravity",
         "proficiency": 2
       }
-    ]
+    ],
+    "id": "04"
   },
   {
     "title": "Databases",
@@ -126,7 +130,8 @@
         "icon": "simple-icons:redis",
         "color": "text-red-400"
       }
-    ]
+    ],
+    "id": "05"
   },
   {
     "title": "Front-End Libraries/Tools",
@@ -155,7 +160,8 @@
         "icon": "simple-icons:apollographql",
         "color": "text-white"
       }
-    ]
+    ],
+    "id": "06"
   },
   {
     "title": "Back-End Libraries",
@@ -178,7 +184,8 @@
         "icon": "simple-icons:drizzle",
         "color": "text-lime-500"
       }
-    ]
+    ],
+    "id": "07"
   },
   {
     "title": "Testing",
@@ -197,7 +204,8 @@
         "title": "Supertest",
         "proficiency": 2
       }
-    ]
+    ],
+    "id": "08"
   },
   {
     "title": "Deployment",
@@ -220,7 +228,8 @@
         "icon": "simple-icons:docker",
         "color": "text-blue-500"
       }
-    ]
+    ],
+    "id": "09"
   },
   {
     "title": "Operating Systems",
@@ -243,7 +252,8 @@
         "icon": "simple-icons:apple",
         "color": "text-white"
       }
-    ]
+    ],
+    "id": "10"
   },
   {
     "title": "Other Tools",
@@ -260,6 +270,7 @@
         "icon": "simple-icons:git",
         "color": "text-orange-500"
       }
-    ]
+    ],
+    "id": "11"
   }
 ]
