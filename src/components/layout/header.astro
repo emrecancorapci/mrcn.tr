@@ -1,5 +1,6 @@
 ---
 import NavLink from "@/components/ui/nav-link.astro";
+import ThemeToggle from "@/components/ui/theme-toggle.astro";
 
 const links = [
   {
@@ -26,13 +27,16 @@ const links = [
     emre can
   </a>
 
-  <nav class="flex justify-center">
-    {
-      links.map((link) => (
-        <NavLink href={link.href} {...(link.prefetch && { "data-astro-prefetch": "true" })}>
-          {link.title}
-        </NavLink>
-      ))
-    }
-  </nav>
+  <div class="flex items-center gap-2">
+    <nav class="flex justify-center">
+      {
+        links.map((link) => (
+          <NavLink href={link.href} {...(link.prefetch && { "data-astro-prefetch": "true" })}>
+            {link.title}
+          </NavLink>
+        ))
+      }
+    </nav>
+    <ThemeToggle />
+  </div>
 </header>
