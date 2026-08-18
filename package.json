@@ -1,9 +1,9 @@
 {
   "name": "mrcn.tr",
   "private": true,
-  "version": "2.2.1",
+  "version": "3.0.0",
   "type": "module",
-  "packageManager": "pnpm@11.21.0",
+  "packageManager": "pnpm@11.22.0",
   "engines": {
     "node": ">=24",
     "pnpm": ">=11"
