@@ -1,5 +1,6 @@
 ---
 priority: 4
+featured: true
 title: "Full-Stack Developer"
 contractType: "Contract (Full-Time)"
 company: "Tetra"

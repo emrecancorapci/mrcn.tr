@@ -2,6 +2,7 @@ import { z } from "astro/zod";
 
 export const experienceSchema = z.object({
   priority: z.number(),
+  featured: z.boolean().optional(),
   title: z.string(),
   contractType: z.enum([
     "Full-Time",

@@ -1,7 +1,15 @@
 ---
+import { getCollection } from "astro:content";
+
 import { Button } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
 import FeaturedExperiencesCard from "./featured-experiences-card.astro";
+
+const featuredExperiences = (await getCollection("experiences"))
+  .filter((experience) => experience.data.featured)
+  .sort((a, b) => a.data.priority - b.data.priority);
+
+const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
 ---
 
 <div class="bg-primary flex w-full flex-col items-center py-20">
@@ -11,14 +19,16 @@ import FeaturedExperiencesCard from "./featured-experiences-card.astro";
     >
     <div class="grid w-full gap-10">
       <div class="grid">
-        <FeaturedExperiencesCard company="Nohut Akademi" title="Back-End Developer" start="2025" />
-        <FeaturedExperiencesCard company="Kapeks" title="Software Developer" start="2025" />
-        <FeaturedExperiencesCard
-          company="Tetra"
-          title="Full-Stack Web Developer"
-          start="2024"
-          last
-        />
+        {
+          featuredExperiences.map(({ data }, index) => (
+            <FeaturedExperiencesCard
+              company={data.company}
+              title={data.title}
+              start={startYear(data.start)}
+              last={index === featuredExperiences.length - 1}
+            />
+          ))
+        }
       </div>
       <a href="/experiences" class="flex justify-end">
         <Button className="cursor-pointer" size="xl" variant="secondary">View More</Button>

@@ -1,5 +1,6 @@
 ---
 priority: 2
+featured: true
 title: "Software Developer"
 contractType: "Part-Time"
 company: "Kapeks"

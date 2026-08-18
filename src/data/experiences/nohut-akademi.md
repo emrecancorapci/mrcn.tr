@@ -1,5 +1,6 @@
 ---
 priority: 1
+featured: true
 title: "Back-End Developer"
 contractType: "Full-Time"
 company: "Nohut Akademi"
