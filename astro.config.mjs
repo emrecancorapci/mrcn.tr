@@ -11,13 +11,29 @@ export default defineConfig({
   site: "https://mrcn.tr",
   output: "static",
   prefetch: { prefetchAll: true },
-  integrations: [sitemap(), icon(), react()],
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: { en: "en", tr: "tr" },
+      },
+    }),
+    icon(),
+    react(),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
   i18n: {
     locales: ["tr", "en"],
     defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: false,
+    },
+    fallback: {
+      tr: "en",
+    },
+    fallbackType: "redirect",
   },
   fonts: [
     {
