@@ -1,0 +1,66 @@
+---
+import { getCollection } from "astro:content";
+
+import ProjectCard from "./project-card.astro";
+import LeftColumnLayout from "@/layouts/left-column-layout.astro";
+import Layout from "@/layouts/layout.astro";
+import { getProjectTypesMap } from "@/lib/content";
+
+const projectTypesMap = await getProjectTypesMap();
+
+const projectCollection = (await getCollection("project")).map((p) => {
+  const { order: typeOrder, title: typeTitle } = projectTypesMap.get(p.data.projectType.id)!;
+
+  return {
+    ...p,
+    typeId: p.data.projectType.id,
+    typeOrder,
+    typeTitle,
+  };
+});
+
+const typeCollections = new Map<string, typeof projectCollection>();
+for (const project of projectCollection) {
+  const group = typeCollections.get(project.typeId) ?? [];
+  group.push(project);
+  typeCollections.set(project.typeId, group);
+}
+
+const projectGroups = [...typeCollections.values()].sort(
+  (a, b) => (a[0]?.typeOrder ?? 0) - (b[0]?.typeOrder ?? 0)
+);
+---
+
+<Layout title="Projects - Emre Can Çorapçı">
+  <LeftColumnLayout>
+    <Fragment slot="title">Projects</Fragment>
+    <Fragment slot="description">
+      I like to work on projects that are challenging, but also fun. I'm always looking for ways to
+      improve my skills and learn new things. Some are experiments, some are freelance work, one
+      ended up on crates.io. I build things to understand them better, and to learn from them.
+    </Fragment>
+    <div class="grid w-full gap-8">
+      {
+        projectGroups.map((collection) => (
+          <div class="grid gap-4">
+            <h2 class="text-foreground px-2 py-2 text-center text-3xl font-semibold">
+              {collection[0]?.typeTitle}
+            </h2>
+
+            <div class={`grid gap-4 ${collection.length > 1 ? "md:grid-cols-2" : ""}`}>
+              {collection.map(({ data: project, id }) => (
+                <ProjectCard
+                  class="col-span-1 md:last:odd:col-span-2"
+                  title={project.title}
+                  href={`/projects/${id}`}
+                  description={project.description}
+                  tags={project.mainTags}
+                />
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </LeftColumnLayout>
+</Layout>

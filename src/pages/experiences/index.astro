@@ -1,25 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-
-import ExperienceCard from "./_components/experience-card.astro";
-import LeftColumnLayout from "@/layouts/left-column-layout.astro";
-import Layout from "@/layouts/layout.astro";
-
-const experiencesCollection = (await getCollection("experiences")).sort(
-  (a, b) => a.data.priority - b.data.priority
-);
+import ExperiencesPage from "./_components/experiences-page.astro";
 ---
 
-<Layout title="Experiences - Emre Can Çorapçı">
-  <LeftColumnLayout>
-    <Fragment slot="title">Experiences</Fragment>
-    <Fragment slot="description">
-      I've worked across freelance and full-time roles, taking projects from initial design to
-      production deployment. My work tends to involve building backend systems and infrastructure
-      from scratch, improving the performance and reliability of existing ones, and occasionally
-      extending into frontend when needed. I'm comfortable owning a project end-to-end —
-      architecture, implementation, testing, and deployment.
-    </Fragment>
-    {experiencesCollection.map((e) => <ExperienceCard experience={e} />)}
-  </LeftColumnLayout>
-</Layout>
+<ExperiencesPage />

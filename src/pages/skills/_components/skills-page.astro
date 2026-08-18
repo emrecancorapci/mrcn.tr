@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+
+import SkillCard from "./skill-card.astro";
+import LeftColumnLayout from "@/layouts/left-column-layout.astro";
+import Layout from "@/layouts/layout.astro";
+
+const skills = await getCollection("skills");
+---
+
+<Layout title="Skills - Emre Can Çorapçı">
+  <LeftColumnLayout>
+    <Fragment slot="title">Skills</Fragment>
+    <Fragment slot="description">
+      I’m a backend developer focused on performance-oriented web systems, mainly using TypeScript
+      and Rust. I've used a variety of frameworks and libraries, including .NET, Express and Fastify
+      on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++ and
+      Python.
+    </Fragment>
+    {
+      skills.map(({ data: { title, items } }, index) => (
+        <div class="grid grid-cols-1 gap-4 py-4">
+          <h2 class="text-3xl font-bold">{title}</h2>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {items
+              .toSorted((a, b) => b.proficiency - a.proficiency)
+              .map((s) => (
+                <SkillCard skill={s} />
+              ))}
+          </div>
+          {index < skills.length - 1 && <hr class="border-primary/10 border-b" />}
+        </div>
+      ))
+    }
+  </LeftColumnLayout>
+</Layout>

@@ -1,0 +1,58 @@
+---
+import { render } from "astro:content";
+
+import SingleProjectBlock from "./single-project-block.astro";
+import SingleProjectFeatures from "./single-project-features.astro";
+import SingleProjectHeader from "./single-project-header.astro";
+import SingleProjectLinks from "./single-project-links.astro";
+import SingleProjectSection from "./single-project-section.astro";
+import SingleProjectSectionTitle from "./single-project-section-title.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"project">;
+}
+
+const { project } = Astro.props;
+const data = project.data;
+const body = project.body;
+
+const { Content } = await render(project);
+const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
+---
+
+<div class="grid gap-4 pt-4">
+  <SingleProjectHeader project={data} />
+  {data.links && <SingleProjectLinks links={data.links} />}
+  {
+    body && blocksOnTop.length > 0 && (
+      <div class="flex w-full flex-col gap-4 md:hidden">
+        {blocksOnTop.map((block) => (
+          <SingleProjectBlock block={block} />
+        ))}
+      </div>
+    )
+  }
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
+    {
+      body && (
+        <SingleProjectSection class="col-span-1 shadow-lg md:col-span-3">
+          <SingleProjectSectionTitle size="xl">Summary</SingleProjectSectionTitle>
+          <div class="prose-project">
+            <Content />
+          </div>
+        </SingleProjectSection>
+      )
+    }
+    {
+      (data.blocks?.length ?? 0) > 0 && (
+        <div class={`flex w-full gap-4 ${body ? "flex-col" : "col-span-4 flex-row justify-center"}`}>
+          {data.blocks?.map((block) => (
+            <SingleProjectBlock block={block} class={block.onTop && body ? "hidden md:grid" : ""} />
+          ))}
+        </div>
+      )
+    }
+  </div>
+  <SingleProjectFeatures title={data.title} />
+</div>
