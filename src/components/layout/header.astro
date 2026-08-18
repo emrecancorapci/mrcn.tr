@@ -1,46 +1,26 @@
 ---
 import NavLink from "@/components/ui/nav-link.astro";
 
-interface Props {
-  noBorder?: boolean;
-  forceCol?: boolean;
-  disableHomePageText?: boolean;
-  isHomePage?: boolean;
-}
-
 const links = [
   {
-    order: 2,
     href: "/projects",
     title: "projects",
     prefetch: true,
   },
   {
-    order: 3,
     href: "/experiences",
     title: "experiences",
   },
   {
-    order: 4,
     href: "/skills",
     title: "skills",
   },
 ];
-
-const { forceCol = false } = Astro.props as Props;
 ---
 
-<header
-  class:list={[
-    "flex w-full max-w-7xl flex-col items-center justify-between gap-4 p-6",
-    !forceCol ? "sm:flex-row" : "",
-  ]}
->
+<header class="flex w-full max-w-7xl flex-col items-center justify-between gap-4 p-6 sm:flex-row">
   <a
-    class:list={[
-      "leading-none font-black hover:text-primary transition-all duration-300 hover:text-shadow-md text-shadow-primary/10",
-      forceCol ? "text-center text-4xl" : "text-center text-4xl lg:text-left lg:text-3xl",
-    ]}
+    class="text-shadow-primary/10 leading-none font-black transition-all duration-300 hover:text-shadow-md hover:text-primary text-center text-4xl lg:text-left lg:text-3xl"
     href="/"
   >
     emre can
@@ -48,13 +28,11 @@ const { forceCol = false } = Astro.props as Props;
 
   <nav class="flex justify-center">
     {
-      links
-        .sort((a, b) => a.order - b.order)
-        .map((link) => (
-          <NavLink href={link.href} {...(link.prefetch && { "data-astro-prefetch": "true" })}>
-            {link.title}
-          </NavLink>
-        ))
+      links.map((link) => (
+        <NavLink href={link.href} {...(link.prefetch && { "data-astro-prefetch": "true" })}>
+          {link.title}
+        </NavLink>
+      ))
     }
   </nav>
 </header>
