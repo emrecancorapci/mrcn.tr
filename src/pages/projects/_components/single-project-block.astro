@@ -14,10 +14,10 @@ interface Props {
 const { block, class: className } = Astro.props;
 ---
 
-<SingleProjectSection class={cn(`gap-2 shadow-md rounded-xl`, className)}>
+<SingleProjectSection class={cn("rounded-xl shadow-md gap-2", className)}>
   <SingleProjectSectionTitle size="sm">{block.title}</SingleProjectSectionTitle>
   <div class="flex flex-wrap gap-2">
-    {block.type === "tags" && block.content.map((t: string) => <Tag>{t}</Tag>)}
+    {block.type === "tags" && block.content.map((t) => <Tag>{t}</Tag>)}
     {block.type === "plain" && <p class="text-sm">{block.content}</p>}
     {
       block.type === "list" && (
@@ -28,6 +28,6 @@ const { block, class: className } = Astro.props;
         </ul>
       )
     }
-    {block.type === "records" && block.content.map((r) => <RecordItem key={r[0]} value={r[1]} />)}
+    {block.type === "records" && block.content.map((r) => <RecordItem label={r[0]} value={r[1]} />)}
   </div>
 </SingleProjectSection>

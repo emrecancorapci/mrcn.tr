@@ -17,17 +17,17 @@ const skills = await getCollection("skills");
       Python.
     </Fragment>
     {
-      skills.map(({ data: { title, items } }) => (
+      skills.map(({ data: { title, items } }, index) => (
         <div class="grid grid-cols-1 gap-4 py-4">
           <h2 class="text-3xl font-bold">{title}</h2>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {items
-              .sort((a, b) => b.proficiency - a.proficiency)
+              .toSorted((a, b) => b.proficiency - a.proficiency)
               .map((s) => (
                 <SkillCard skill={s} />
               ))}
           </div>
-          <hr class="border-primary/10 border-b" />
+          {index < skills.length - 1 && <hr class="border-primary/10 border-b" />}
         </div>
       ))
     }
