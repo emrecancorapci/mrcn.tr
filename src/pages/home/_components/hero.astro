@@ -1,6 +1,9 @@
 ---
 import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
+import { currentLocale, localePath, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 ---
 
 <div
@@ -10,18 +13,20 @@ import H1 from "@/components/ui/h1.astro";
   ]}
 >
   <div class="flex w-full flex-col items-center gap-2">
-    <h2 class="bg-primary text-primary-foreground w-fit px-2">full stack software developer</h2>
+    <h2 class="bg-primary text-primary-foreground w-fit px-2">{t(locale, "hero.badge")}</h2>
     <H1 class="text-shadow-foreground/5 max-w-5xl text-center text-balance text-shadow-lg">
-      i read the source code so you don't have to
+      {t(locale, "hero.title")}
     </H1>
   </div>
   <div class="flex justify-center gap-2">
-    <a href="/projects" class={buttonVariants({ size: "xl" })}>see my work</a>
+    <a href={localePath(locale, "/projects")} class={buttonVariants({ size: "xl" })}>
+      {t(locale, "hero.seeWork")}
+    </a>
     <a
       href="mailto:emrecancorapci@gmail.com"
       class={buttonVariants({ size: "xl", variant: "outline" })}
     >
-      get in touch
+      {t(locale, "hero.getInTouch")}
     </a>
   </div>
 </div>

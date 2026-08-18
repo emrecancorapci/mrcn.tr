@@ -2,6 +2,7 @@ import { en, type UIKeys } from "./ui/en";
 import { tr } from "./ui/tr";
 
 export type Locale = "en" | "tr";
+export type { UIKeys };
 
 const dictionaries: Record<Locale, Record<UIKeys, string>> = { en, tr };
 

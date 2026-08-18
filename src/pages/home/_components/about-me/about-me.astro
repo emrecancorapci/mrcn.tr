@@ -1,14 +1,17 @@
 ---
 import H1 from "@/components/ui/h1.astro";
+import { currentLocale, t } from "@/i18n";
 
 import AboutMeInterests from "./about-me-interests.astro";
 import AboutMeIntroduction from "./about-me-introduction.astro";
 import AboutMeImages from "./about-me-images.astro";
+
+const locale = currentLocale(Astro.currentLocale);
 ---
 
 <div class="flex w-full flex-col items-center">
   <div class="grid max-w-7xl gap-20 px-10 sm:px-20 md:px-20 lg:px-30 py-20">
-    <H1 class="text-shadow-foreground/5 w-full text-shadow-lg">about me</H1>
+    <H1 class="text-shadow-foreground/5 w-full text-shadow-lg">{t(locale, "about.heading")}</H1>
     <div class="space-y-20">
       <AboutMeIntroduction />
       <AboutMeInterests />

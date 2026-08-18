@@ -1,13 +1,16 @@
 ---
 import Layout from "@/layouts/layout.astro";
+import { currentLocale, t } from "@/i18n";
 
 import Hero from "./hero.astro";
 import AboutMe from "./about-me/about-me.astro";
 import FeaturedExperiences from "./featured-experiences/featured-experiences.astro";
 import FeaturedProjects from "./featured-projects/featured-projects.astro";
+
+const locale = currentLocale(Astro.currentLocale);
 ---
 
-<Layout full title="Home - Emre Can Çorapçı">
+<Layout full title={t(locale, "home.pageTitle")}>
   <Hero />
   <AboutMe />
   <FeaturedExperiences />

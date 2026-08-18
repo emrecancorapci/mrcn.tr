@@ -3,6 +3,9 @@ import { Picture } from "astro:assets";
 
 import imgMe from "@/images/me-with-bg.png";
 import H2 from "@/components/ui/h2.astro";
+import { currentLocale, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 ---
 
 <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
@@ -11,26 +14,18 @@ import H2 from "@/components/ui/h2.astro";
       formats={["webp", "png"]}
       src={imgMe}
       class="border-foreground shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg"
-      alt="An Illustration of Emre Can in ghibli style"
+      alt={t(locale, "about.alt.illustration")}
     />
-    <p class="text-foreground/30 px-2 text-end">Made by my sister, Nisa</p>
+    <p class="text-foreground/30 px-2 text-end">{t(locale, "about.illustrationCredit")}</p>
   </div>
   <div class="space-y-6 py-4">
-    <H2 class="text-shadow-foreground/5 text-shadow-lg">introduction</H2>
+    <H2 class="text-shadow-foreground/5 text-shadow-lg">
+      {t(locale, "about.introductionHeading")}
+    </H2>
     <div class="space-y-4">
-      <p class="text-pretty">
-        Hey! I'm Emre, a curious software developer mainly focused on web, but I have also worked on
-        desktop apps and have experience in system programming.
-      </p>
-      <p class="text-pretty">
-        I don't just build endpoints. I've taken projects from ground to production, handling UI/UX,
-        database design, architecture, security, and performance along the way. I believe I have
-        reached the point where I am confident enough to do anything given enough time.
-      </p>
-      <p class="text-pretty">
-        I like to poke around things and ask "why" until my curiosity is tamed enough. Bending
-        rules, questioning assumptions, rejecting old ways for the sake of something better.
-      </p>
+      <p class="text-pretty">{t(locale, "about.p1")}</p>
+      <p class="text-pretty">{t(locale, "about.p2")}</p>
+      <p class="text-pretty">{t(locale, "about.p3")}</p>
     </div>
   </div>
 </div>

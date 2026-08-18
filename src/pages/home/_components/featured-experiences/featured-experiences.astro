@@ -3,7 +3,10 @@ import { getCollection } from "astro:content";
 
 import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
+import { currentLocale, localePath, t } from "@/i18n";
 import FeaturedExperiencesCard from "./featured-experiences-card.astro";
+
+const locale = currentLocale(Astro.currentLocale);
 
 const featuredExperiences = (await getCollection("experiences"))
   .filter((experience) => experience.data.featured)
@@ -14,9 +17,9 @@ const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
 
 <div class="bg-primary flex w-full flex-col items-center py-20">
   <div class="grid w-full max-w-7xl gap-20 px-4 lg:px-30">
-    <H1 class="text-primary-foreground text-shadow-foreground/5 w-full text-shadow-lg"
-      >featured experiences</H1
-    >
+    <H1 class="text-primary-foreground text-shadow-foreground/5 w-full text-shadow-lg">
+      {t(locale, "featured.experiencesHeading")}
+    </H1>
     <div class="grid w-full gap-10">
       <div class="grid">
         {
@@ -31,8 +34,8 @@ const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
         }
       </div>
       <div class="flex justify-end">
-        <a href="/experiences" class={buttonVariants({ size: "xl", variant: "secondary" })}>
-          View More
+        <a href={localePath(locale, "/experiences")} class={buttonVariants({ size: "xl", variant: "secondary" })}>
+          {t(locale, "featured.viewMore")}
         </a>
       </div>
     </div>

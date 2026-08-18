@@ -6,6 +6,9 @@ import imgAboutMeCat2 from "@/images/about-me-cat-2.jpeg";
 import imgAboutMeBicycle from "@/images/about-me-bicycle.jpeg";
 import imgAboutMeConcert from "@/images/about-me-concert.jpeg";
 import imgAboutMeMe from "@/images/about-me-me.jpeg";
+import { currentLocale, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 
 const frameClass =
   "border-foreground min-h-[70dvw] lg:min-h-[30dvw] shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg";
@@ -16,30 +19,30 @@ const frameClass =
     src={imgAboutMeCat}
     formats={["webp", "jpeg"]}
     class={frameClass}
-    alt="A black cat sitting on a stack of books, looking at the camera with one paw stretched out in front"
+    alt={t(locale, "about.alt.cat")}
   />
   <Picture
     src={imgAboutMeBicycle}
     formats={["webp", "jpeg"]}
     class={frameClass}
-    alt="A dark blue bicycle parked beside a river, with a low concrete wall crossing over it and a dense forest in the background"
+    alt={t(locale, "about.alt.bicycle")}
   />
   <Picture
     src={imgAboutMeConcert}
     formats={["webp", "jpeg"]}
     class={frameClass}
-    alt="Two members of the YinYin band facing each other, playing guitar at a concert filled with fog under purple light"
+    alt={t(locale, "about.alt.concert")}
   />
   <Picture
     src={imgAboutMeCat2}
     formats={["webp", "jpeg"]}
     class={frameClass}
-    alt="A cat with its tongue out"
+    alt={t(locale, "about.alt.cat2")}
   />
   <Picture
     src={imgAboutMeMe}
     formats={["webp", "jpeg"]}
     class={frameClass}
-    alt="A photo of Emre Can, the owner of this website"
+    alt={t(locale, "about.alt.me")}
   />
 </div>

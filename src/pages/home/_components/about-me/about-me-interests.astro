@@ -1,19 +1,31 @@
 ---
 import H2 from "@/components/ui/h2.astro";
+import { currentLocale, markedSegments, t, type UIKeys } from "@/i18n";
+
 import FancyItalic from "./fancy-italic.astro";
+
+const locale = currentLocale(Astro.currentLocale);
+
+const sentences: UIKeys[] = [
+  "about.interests.s1",
+  "about.interests.s2",
+  "about.interests.s3",
+  "about.interests.s4",
+  "about.interests.s5",
+];
 ---
 
 <div class="space-y-6 px-0 py-10 lg:px-30">
-  <H2 class="text-shadow-foreground/5 text-shadow-lg">interests and hobbies</H2>
+  <H2 class="text-shadow-foreground/5 text-shadow-lg">{t(locale, "about.interestsHeading")}</H2>
   <p class="text-pretty">
-    <span>I <FancyItalic>listen to</FancyItalic> Gojira, Parcels, and Angine de Poitrine, </span>
-    <span><FancyItalic>read</FancyItalic> Asimov, Rollo May, and Slavoj Žižek, </span>
-    <span><FancyItalic>play</FancyItalic> Hades, Disco Elysium, and Baldur's Gate 3, </span>
-    <span><FancyItalic>think</FancyItalic> about privacy, open source, and tech, </span>
-    <span>
-      I like to <FancyItalic>ride</FancyItalic> my bicycle, <FancyItalic>take</FancyItalic> some cat photos,
-      <FancyItalic> play</FancyItalic> my electric guitar, and <FancyItalic>run</FancyItalic> everything
-      on Linux.
-    </span>
+    {
+      sentences.map((key) => (
+        <span>
+          {markedSegments(t(locale, key)).map((segment) =>
+            segment.marked ? <FancyItalic>{segment.text}</FancyItalic> : segment.text
+          )}
+        </span>
+      ))
+    }
   </p>
 </div>

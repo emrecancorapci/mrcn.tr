@@ -3,7 +3,10 @@ import { getCollection } from "astro:content";
 
 import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
+import { currentLocale, localePath, t } from "@/i18n";
 import FeaturedProjectCard from "./featured-project-card.astro";
+
+const locale = currentLocale(Astro.currentLocale);
 
 const featuredProjects = (await getCollection("project"))
   .filter((project) => project.data.featured)
@@ -16,7 +19,9 @@ const featuredProjects = (await getCollection("project"))
 <div class="flex w-full flex-col items-center py-20">
   <div class="grid w-full max-w-7xl gap-10 px-4 lg:gap-20 lg:px-30">
     <div class="grid w-full gap-20">
-      <H1 class="text-shadow-foreground/5 w-full text-shadow-lg">featured projects</H1>
+      <H1 class="text-shadow-foreground/5 w-full text-shadow-lg">
+        {t(locale, "featured.projectsHeading")}
+      </H1>
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {
           featuredProjects.map((project) => (
@@ -30,7 +35,9 @@ const featuredProjects = (await getCollection("project"))
       </div>
     </div>
     <div class="flex justify-end">
-      <a href="/projects" class={buttonVariants({ size: "xl" })}>View More</a>
+      <a href={localePath(locale, "/projects")} class={buttonVariants({ size: "xl" })}>
+        {t(locale, "featured.viewMore")}
+      </a>
     </div>
   </div>
 </div>
