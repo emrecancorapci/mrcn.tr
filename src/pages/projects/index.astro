@@ -4,28 +4,22 @@ import { getCollection } from "astro:content";
 import ProjectCard from "./_components/project-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
+import { getProjectTypesMap } from "@/lib/content";
 
-const projectTypesMap = new Map(
-  await getCollection("projectType").then((c) => c.map((t) => [t.id, t.data]))
-);
+const projectTypesMap = await getProjectTypesMap();
 
-const projectCollection = await getCollection("project").then((c) =>
-  c.map((p) => {
-    const { order: typeOrder, title: typeTitle } = projectTypesMap.get(p.data.projectType.id)!;
+const projectCollection = (await getCollection("project")).map((p) => {
+  const { order: typeOrder, title: typeTitle } = projectTypesMap.get(p.data.projectType.id)!;
 
-    return {
-      ...p,
-      typeId: p.data.projectType.id,
-      typeOrder,
-      typeTitle,
-    };
-  })
-);
+  return {
+    ...p,
+    typeId: p.data.projectType.id,
+    typeOrder,
+    typeTitle,
+  };
+});
 
-const typeCollections: { [key: string]: typeof projectCollection } = Object.groupBy(
-  projectCollection,
-  (p) => p.typeId
-) as Record<string, typeof projectCollection>;
+const typeCollections = Object.groupBy(projectCollection, (p) => p.typeId);
 ---
 
 <Layout title="Projects - Emre Can Çorapçı">

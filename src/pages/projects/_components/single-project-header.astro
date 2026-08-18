@@ -1,31 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+
+import { PROJECT_STATUS_LABELS, getProjectTypesMap, projectTypeTitle } from "@/lib/content";
 
 interface Props {
   project: CollectionEntry<"project">["data"];
 }
-const projectTypesCollection = await getCollection("projectType");
-const projectTypesMap = new Map(projectTypesCollection.map((c) => [c.id, c.data.title]));
-
-const getCategory = (c: string) => {
-  return projectTypesMap.get(c) ?? "Unknown";
-};
-
-const getStatus = (c: string) => {
-  switch (c) {
-    case "ongoing":
-      return "Ongoing";
-    case "completed":
-      return "Completed";
-    case "prototype-completed":
-      return "Prototype Completed";
-    case "archived":
-      return "Archived";
-    default:
-      return "Unknown";
-  }
-};
+const projectTypesMap = await getProjectTypesMap();
 
 const { project } = Astro.props;
 ---
@@ -57,11 +38,13 @@ const { project } = Astro.props;
     </div>
     <div class="flex flex-col gap-0.5">
       <p class="leading-none font-light">[TYPE]</p>
-      <p class="text-lg leading-tight font-bold">{getCategory(project.projectType.id)}</p>
+      <p class="text-lg leading-tight font-bold">
+        {projectTypeTitle(projectTypesMap, project.projectType.id)}
+      </p>
     </div>
     <div class="flex flex-col gap-0.5">
       <p class="leading-none font-light">[STATUS]</p>
-      <p class="text-lg leading-tight font-bold">{getStatus(project.status)}</p>
+      <p class="text-lg leading-tight font-bold">{PROJECT_STATUS_LABELS[project.status]}</p>
     </div>
   </div>
 </div>

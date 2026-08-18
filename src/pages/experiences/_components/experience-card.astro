@@ -3,6 +3,8 @@ import Tag from "@/components/ui/tag.astro";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 
+import { companyAnchor } from "@/lib/content";
+
 interface Props {
   experience: CollectionEntry<"experiences">;
 }
@@ -12,7 +14,7 @@ const experience = Astro.props.experience.data;
 ---
 
 <div
-  id={experience.company.toLocaleLowerCase("tr").replaceAll(" ", "-")}
+  id={companyAnchor(experience.company)}
   class="bg-primary grid h-fit gap-4 rounded-xl border p-8 shadow transition-all"
 >
   <div class="grid gap-2">
