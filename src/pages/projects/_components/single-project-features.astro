@@ -2,6 +2,9 @@
 import { getCollection } from "astro:content";
 import SingleProjectSection from "./single-project-section.astro";
 import SingleProjectSectionTitle from "./single-project-section-title.astro";
+import { currentLocale, localePath, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 
 interface Props {
   /** Title of the current project, excluded from the featured strip. */
@@ -16,7 +19,7 @@ const otherProjects = (await getCollection("project")).filter(
 ---
 
 <div class="space-y-4 pt-4">
-  <h2 class="text-4xl px-2 font-bold">Featured Projects</h2>
+  <h2 class="text-4xl px-2 font-bold">{t(locale, "single.featuredHeading")}</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     {
       otherProjects.slice(0, OTHER_FEATURED_COUNT).map((p) => (
@@ -25,9 +28,9 @@ const otherProjects = (await getCollection("project")).filter(
           <p class="pt-2 px-2 h-full pe-12">{p.data.description}</p>
           <a
             class="text-right pt-2 font-semibold hover:underline transition-all hover:text-shadow-sm text-shadow-secondary/10"
-            href={`/projects/${p.id}`}
+            href={localePath(locale, `/projects/${p.id}`)}
           >
-            View Project &gt;&gt;
+            {t(locale, "single.viewProject")} &gt;&gt;
           </a>
         </SingleProjectSection>
       ))

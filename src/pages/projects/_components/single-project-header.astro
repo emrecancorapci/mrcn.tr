@@ -1,12 +1,22 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import { PROJECT_STATUS_LABELS, getProjectTypesMap, projectTypeTitle } from "@/lib/content";
+import { currentLocale, t, type UIKeys } from "@/i18n";
+import { getProjectTypesMap, projectTypeTitle } from "@/lib/content";
 
 interface Props {
   project: CollectionEntry<"project">["data"];
 }
+
+const locale = currentLocale(Astro.currentLocale);
 const projectTypesMap = await getProjectTypesMap();
+
+const statusKeys: Record<Props["project"]["status"], UIKeys> = {
+  ongoing: "project.status.ongoing",
+  completed: "project.status.completed",
+  "prototype-completed": "project.status.prototype-completed",
+  archived: "project.status.archived",
+};
 
 const { project } = Astro.props;
 ---
@@ -18,7 +28,7 @@ const { project } = Astro.props;
   ]}
 >
   <div class="flex flex-col items-center">
-    <h3 class="font-light">[PROJECT]</h3>
+    <h3 class="font-light">{t(locale, "single.labelProject")}</h3>
     <div class="flex justify-center">
       <h2 class="text-6xl font-black md:text-7xl">{project.title}</h2>
       {
@@ -33,18 +43,18 @@ const { project } = Astro.props;
   </div>
   <div class="grid w-full grid-cols-3 gap-4">
     <div class="flex flex-col gap-0.5">
-      <p class="leading-none font-light">[YEAR]</p>
+      <p class="leading-none font-light">{t(locale, "single.labelYear")}</p>
       <p class="text-lg leading-tight font-bold">{project.year}</p>
     </div>
     <div class="flex flex-col gap-0.5">
-      <p class="leading-none font-light">[TYPE]</p>
+      <p class="leading-none font-light">{t(locale, "single.labelType")}</p>
       <p class="text-lg leading-tight font-bold">
         {projectTypeTitle(projectTypesMap, project.projectType.id)}
       </p>
     </div>
     <div class="flex flex-col gap-0.5">
-      <p class="leading-none font-light">[STATUS]</p>
-      <p class="text-lg leading-tight font-bold">{PROJECT_STATUS_LABELS[project.status]}</p>
+      <p class="leading-none font-light">{t(locale, "single.labelStatus")}</p>
+      <p class="text-lg leading-tight font-bold">{t(locale, statusKeys[project.status])}</p>
     </div>
   </div>
 </div>

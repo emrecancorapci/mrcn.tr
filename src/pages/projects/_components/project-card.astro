@@ -1,5 +1,8 @@
 ---
 import Tag from "@/components/ui/tag.astro";
+import { currentLocale, localePath } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 
 interface Props {
   class?: string;
@@ -22,7 +25,7 @@ const { title, href, description, tags, class: className } = Astro.props;
     className,
   ]}
 >
-  <a href={href} class="after:absolute after:inset-0">
+  <a href={localePath(locale, href)} class="after:absolute after:inset-0">
     <h3
       class="text-primary-foreground group-hover:text-card-foreground px-6 text-center text-2xl font-black transition-all"
     >

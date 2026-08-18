@@ -5,6 +5,9 @@ import ProjectCard from "./project-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
 import { getProjectTypesMap } from "@/lib/content";
+import { currentLocale, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 
 const projectTypesMap = await getProjectTypesMap();
 
@@ -31,14 +34,10 @@ const projectGroups = [...typeCollections.values()].sort(
 );
 ---
 
-<Layout title="Projects - Emre Can Çorapçı">
+<Layout title={t(locale, "projects.pageTitle")}>
   <LeftColumnLayout>
-    <Fragment slot="title">Projects</Fragment>
-    <Fragment slot="description">
-      I like to work on projects that are challenging, but also fun. I'm always looking for ways to
-      improve my skills and learn new things. Some are experiments, some are freelance work, one
-      ended up on crates.io. I build things to understand them better, and to learn from them.
-    </Fragment>
+    <Fragment slot="title">{t(locale, "projects.heading")}</Fragment>
+    <Fragment slot="description">{t(locale, "projects.description")}</Fragment>
     <div class="grid w-full gap-8">
       {
         projectGroups.map((collection) => (

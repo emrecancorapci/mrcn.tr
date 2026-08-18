@@ -8,11 +8,13 @@ import SingleProjectLinks from "./single-project-links.astro";
 import SingleProjectSection from "./single-project-section.astro";
 import SingleProjectSectionTitle from "./single-project-section-title.astro";
 import type { CollectionEntry } from "astro:content";
+import { currentLocale, t } from "@/i18n";
 
 interface Props {
   project: CollectionEntry<"project">;
 }
 
+const locale = currentLocale(Astro.currentLocale);
 const { project } = Astro.props;
 const data = project.data;
 const body = project.body;
@@ -37,7 +39,7 @@ const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
     {
       body && (
         <SingleProjectSection class="col-span-1 shadow-lg md:col-span-3">
-          <SingleProjectSectionTitle size="xl">Summary</SingleProjectSectionTitle>
+          <SingleProjectSectionTitle size="xl">{t(locale, "single.summary")}</SingleProjectSectionTitle>
           <div class="prose-project">
             <Content />
           </div>
