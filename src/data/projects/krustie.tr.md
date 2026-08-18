@@ -1,7 +1,7 @@
 ---
 featured: true
 title: "krustie"
-description: "TCP katmanından yukarıya, Rust ile yazılmış deneysel bir backend HTTP framework'ü; özel parser'ı, middleware hattı ve değişmez (immutable) request yaşam döngüsü var."
+description: "TCP katmanından başlanarak, Rust ile yazılmış, deneysel bir backend HTTP framework'ü. Özel parser'ı, middleware pipeline'ı ve immutable request desteği var."
 projectType: published
 year: 2024
 status: "ongoing"
@@ -24,8 +24,8 @@ blocks:
           "Özel HTTP parser",
           "Parametreli dinamik yönlendirme",
           "Query ayrıştırma",
-          "Middleware hattı çalıştırma",
-          "Değişmez request yaşam döngüsü",
+          "Middleware pipeline'ı çalıştırma",
+          "Immutable request yaşam döngüsü",
           "Dahili rate limiting ve gzip sıkıştırma",
           "Statik dosya sunumu",
           "Entegrasyon testi araçları",

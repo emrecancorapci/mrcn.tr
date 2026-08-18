@@ -1,11 +1,11 @@
 ---
 featured: true
 title: "mrcn.tr"
-description: "Actix Web, Diesel.rs, PostgreSQL, Astro, React ve TailwindCSS ile geliştirilmiş tam kişisel full-stack web sitesi."
+description: "Actix Web, Diesel.rs, PostgreSQL, Astro, React ve TailwindCSS ile geliştirilmiş kişisel full-stack web sitesi."
 projectType: oss
 year: 2026
 status: "ongoing"
-version: "2.1.2"
+version: "3.0.0"
 mainTags: ["typescript", "web", "astro"]
 links:
   [{ title: "GitHub'da Gör", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]
