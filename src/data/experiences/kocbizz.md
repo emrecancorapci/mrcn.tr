@@ -22,19 +22,6 @@ techs:
     "PM2",
     "Ubuntu",
   ]
-skills:
-  [
-    "Full-Stack Web Application Development",
-    "Responsive UI & Component Architecture",
-    "API Design & Resolver Architecture (GraphQL)",
-    "Role-Based Access Control",
-    "Token & Session Management (JWT, Redis)",
-    "Payment Gateway Integration",
-    "Type-Safe Development (TypeScript)",
-    "Schema Design (PostgreSQL, Drizzle ORM)",
-    "Linux Server Administration & Production Deployment",
-    "SSL/TLS, HTTP/2 & Reverse Proxy Configuration (Nginx)",
-  ]
 ---
 
 - Designed and built a full-stack mentoring e-commerce platform from scratch, implementing secure authentication (JWT, token revocation), RBAC, and Redis-based caching and rate limiting.

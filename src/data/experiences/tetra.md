@@ -21,16 +21,6 @@ techs:
     "PM2",
     "Ubuntu",
   ]
-skills:
-  [
-    "Full-Stack Web Application Development",
-    "Responsive UI & Component Architecture",
-    "Token & Session Management (JWT, Redis)",
-    "Type-Safe Development (TypeScript)",
-    "Cron Jobs & Webhooks",
-    "Data Synchronization",
-    "Linux Server Administration & Production Deployment",
-  ]
 ---
 
 - Built fault-tolerant data synchronization system between two servers using cron jobs and webhooks to extract, reformat and transfer data at scheduled intervals.

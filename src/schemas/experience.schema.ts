@@ -19,5 +19,4 @@ export const experienceSchema = z.object({
   start: z.string(),
   end: z.string(),
   techs: z.array(z.string()),
-  skills: z.array(z.string()),
 });

@@ -9,18 +9,6 @@ location: "Istanbul Turkey (Remote)"
 start: "Feb 2025"
 end: "Mar 2026"
 techs: ["TypeScript", "Fastify", "Sequelize", "GraphQL", "PostgreSQL", "MongoDB", "Redis"]
-skills:
-  [
-    "Back-End System Architecture",
-    "Performance and Query Optimization",
-    "GraphQL API Design & Resolver Architecture",
-    "Redis-Based Caching Systems",
-    "Authorization and Permission Systems",
-    "Hybrid Database Modeling (PostgreSQL & MongoDB)",
-    "Transactional Data Integrity",
-    "Web Scraping and Data Extraction",
-    "Type-Safe Development (Advanced TypeScript)",
-  ]
 ---
 
 - Re-engineered web scraping infrastructure to extract unstructured data from third-party sources, reducing processing time by **80%**.
