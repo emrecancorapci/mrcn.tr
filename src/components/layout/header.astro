@@ -2,20 +2,23 @@
 import LanguageToggle from "@/components/ui/language-toggle.astro";
 import NavLink from "@/components/ui/nav-link.astro";
 import ThemeToggle from "@/components/ui/theme-toggle.astro";
+import { currentLocale, localePath, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 
 const links = [
   {
     href: "/projects",
-    title: "projects",
+    title: t(locale, "nav.projects"),
     prefetch: true,
   },
   {
     href: "/experiences",
-    title: "experiences",
+    title: t(locale, "nav.experiences"),
   },
   {
     href: "/skills",
-    title: "skills",
+    title: t(locale, "nav.skills"),
   },
 ];
 ---
@@ -23,7 +26,7 @@ const links = [
 <header class="flex w-full max-w-7xl flex-col items-center justify-between gap-4 p-6 sm:flex-row">
   <a
     class="text-shadow-primary/10 leading-none font-black transition-all duration-300 hover:text-shadow-md hover:text-primary text-center text-4xl lg:text-left lg:text-3xl"
-    href="/"
+    href={localePath(locale, "/")}
   >
     emre can
   </a>
@@ -32,7 +35,10 @@ const links = [
     <nav class="flex justify-center">
       {
         links.map((link) => (
-          <NavLink href={link.href} {...(link.prefetch && { "data-astro-prefetch": "true" })}>
+          <NavLink
+            href={localePath(locale, link.href)}
+            {...(link.prefetch && { "data-astro-prefetch": "true" })}
+          >
             {link.title}
           </NavLink>
         ))

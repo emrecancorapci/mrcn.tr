@@ -1,32 +1,37 @@
 ---
 import Layout from "@/layouts/layout.astro";
+import { currentLocale, markedSegments, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
 ---
 
-<Layout title="404 - Emre Can Çorapçı">
+<Layout title={t(locale, "notFound.pageTitle")}>
   <div class="flex flex-col gap-4 px-12 py-8">
     <div class="relative -z-40 size-0 w-full overflow-visible">
       <p class="text-center w-full text-secondary/5 text-[8rem] sm:text-[14rem] md:text-[20rem] lg:text-[32rem] font-black select-none">404</p>
     </div>
-    <h1 class="text-7xl font-black">Are You Lost???</h1>
+    <h1 class="text-7xl font-black">{t(locale, "notFound.heading")}</h1>
     <div class="grid gap-2">
-      <p class="text-xl font-light">I couldn't find any page like that but it's OK.</p>
-      <p class="pt-6 text-xl font-light">Don't worry, <em>even the best ones make mistakes.</em></p>
+      <p class="text-xl font-light">{t(locale, "notFound.line1")}</p>
+      <p class="pt-6 text-xl font-light">
+        {markedSegments(t(locale, "notFound.line2")).map((segment) =>
+          segment.marked ? <em>{segment.text}</em> : segment.text
+        )}
+      </p>
       <p class="text-xl font-light">
-        If you believe it's one of my mistakes you can freely complain about it on my{" "}
+        {t(locale, "notFound.line3Prefix")}
         <a
           class="font-light underline underline-offset-8 transition-all duration-300 hover:font-bold"
-          href="https://github.com/emrecancorapci/mrcn.tr/issues/new">github repo</a
-        >.
+          href="https://github.com/emrecancorapci/mrcn.tr/issues/new">{t(locale, "notFound.line3Link")}</a
+        >{t(locale, "notFound.line3Suffix")}
       </p>
       <p class="text-xl font-light">
-        Please do! I love it when people{" "}
-        <strong class="font-bold">point out my msitakes to my face</strong>.
+        {t(locale, "notFound.line4Prefix")}
+        <strong class="font-bold">{t(locale, "notFound.line4Strong")}</strong>
+        {t(locale, "notFound.line4Suffix")}
       </p>
-      <p class="text-xl font-light">If it's not mine, it's all forgiven.</p>
-      <p class="pt-12 text-xl font-light">
-        You can continue on the great experience of surfing on this perfectly hand crafted website
-        by using the menu above.
-      </p>
+      <p class="text-xl font-light">{t(locale, "notFound.line5")}</p>
+      <p class="pt-12 text-xl font-light">{t(locale, "notFound.line6")}</p>
     </div>
   </div>
 </Layout>
