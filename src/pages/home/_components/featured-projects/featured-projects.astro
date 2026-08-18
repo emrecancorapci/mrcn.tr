@@ -4,11 +4,12 @@ import { getCollection } from "astro:content";
 import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
 import { currentLocale, localePath, t } from "@/i18n";
+import { baseId, forLocale } from "@/lib/i18n-content";
 import FeaturedProjectCard from "./featured-project-card.astro";
 
 const locale = currentLocale(Astro.currentLocale);
 
-const featuredProjects = (await getCollection("project"))
+const featuredProjects = forLocale(await getCollection("project"), locale)
   .filter((project) => project.data.featured)
   .sort(
     (a, b) =>
@@ -28,7 +29,7 @@ const featuredProjects = (await getCollection("project"))
             <FeaturedProjectCard
               title={project.data.title}
               description={project.data.description}
-              href={`/projects/${project.id}`}
+              href={`/projects/${baseId(project.id)}`}
             />
           ))
         }

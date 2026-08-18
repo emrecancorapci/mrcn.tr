@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import SingleProjectSection from "./single-project-section.astro";
 import SingleProjectSectionTitle from "./single-project-section-title.astro";
 import { currentLocale, localePath, t } from "@/i18n";
+import { baseId, forLocale } from "@/lib/i18n-content";
 
 const locale = currentLocale(Astro.currentLocale);
 
@@ -13,7 +14,7 @@ interface Props {
 
 const OTHER_FEATURED_COUNT = 3;
 
-const otherProjects = (await getCollection("project")).filter(
+const otherProjects = forLocale(await getCollection("project"), locale).filter(
   (p) => p.data.featured && p.data.title !== Astro.props.title
 );
 ---
@@ -28,7 +29,7 @@ const otherProjects = (await getCollection("project")).filter(
           <p class="pt-2 px-2 h-full pe-12">{p.data.description}</p>
           <a
             class="text-right pt-2 font-semibold hover:underline transition-all hover:text-shadow-sm text-shadow-secondary/10"
-            href={localePath(locale, `/projects/${p.id}`)}
+            href={localePath(locale, `/projects/${baseId(p.id)}`)}
           >
             {t(locale, "single.viewProject")} &gt;&gt;
           </a>

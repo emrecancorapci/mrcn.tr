@@ -6,12 +6,13 @@ import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
 import { getProjectTypesMap } from "@/lib/content";
 import { currentLocale, t } from "@/i18n";
+import { baseId, forLocale } from "@/lib/i18n-content";
 
 const locale = currentLocale(Astro.currentLocale);
 
 const projectTypesMap = await getProjectTypesMap();
 
-const projectCollection = (await getCollection("project")).map((p) => {
+const projectCollection = forLocale(await getCollection("project"), locale).map((p) => {
   const { order: typeOrder, title: typeTitle } = projectTypesMap.get(p.data.projectType.id)!;
 
   return {
@@ -51,7 +52,7 @@ const projectGroups = [...typeCollections.values()].sort(
                 <ProjectCard
                   class="col-span-1 md:last:odd:col-span-2"
                   title={project.title}
-                  href={`/projects/${id}`}
+                  href={`/projects/${baseId(id)}`}
                   description={project.description}
                   tags={project.mainTags}
                 />

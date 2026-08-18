@@ -5,10 +5,11 @@ import ExperienceCard from "./experience-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
 import { currentLocale, t } from "@/i18n";
+import { forLocale } from "@/lib/i18n-content";
 
 const locale = currentLocale(Astro.currentLocale);
 
-const experiencesCollection = (await getCollection("experiences")).sort(
+const experiencesCollection = forLocale(await getCollection("experiences"), locale).sort(
   (a, b) => a.data.priority - b.data.priority
 );
 ---

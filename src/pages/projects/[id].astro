@@ -1,13 +1,14 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import ProjectPageBody from "./_components/project-page-body.astro";
+import { forLocale } from "@/lib/i18n-content";
 import { currentLocale, t } from "@/i18n";
 import { getCollection } from "astro:content";
 
 const locale = currentLocale(Astro.currentLocale);
 
 export async function getStaticPaths() {
-  const projects = await getCollection("project");
+  const projects = forLocale(await getCollection("project"), "en");
 
   return projects.map((project) => ({
     params: { id: project.id },

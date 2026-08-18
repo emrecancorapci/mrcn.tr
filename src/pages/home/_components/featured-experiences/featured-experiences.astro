@@ -4,11 +4,12 @@ import { getCollection } from "astro:content";
 import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
 import { currentLocale, localePath, t } from "@/i18n";
+import { forLocale } from "@/lib/i18n-content";
 import FeaturedExperiencesCard from "./featured-experiences-card.astro";
 
 const locale = currentLocale(Astro.currentLocale);
 
-const featuredExperiences = (await getCollection("experiences"))
+const featuredExperiences = forLocale(await getCollection("experiences"), locale)
   .filter((experience) => experience.data.featured)
   .sort((a, b) => a.data.priority - b.data.priority);
 
