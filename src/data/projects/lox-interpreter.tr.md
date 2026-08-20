@@ -1,6 +1,6 @@
 ---
 title: "Lox Interpreter"
-description: "Rust ile yazılmış bir Lox dil tokenizer'ı ve parser'ı — lexing ve token sınıflandırma"
+description: "Rust ile yazılmış bir Lox dil tokenizer'ı ve parser'ı. Sadece lexing ve token sınıflandırma özelliklerine sahip."
 projectType: oss
 year: 2024
 status: "ongoing"

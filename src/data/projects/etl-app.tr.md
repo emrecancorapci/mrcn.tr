@@ -52,6 +52,8 @@ Uygulama kısaca iki farklı sunucu arasında farklı periyotlarda gerçekleşen
 
 Uygulama, birbirinden bağımsız kendi kimlik doğrulama (authentication) mekanizmaları olan kaynak ve hedef sunuculara bağlı. İki sunucuya da farklı periyotlarla giriş yapılarak authentication sürekliliği sağlanıyor. Verilerin yüklenme ve alınma periyotları farklı olduğu için veriler 5 dakikada bir kaynak sunucudan alınarak bir saat boyunca tutuluyor.
 
+![App Schema](/src/images/etl-app-schema.png)
+
 Bir saatin sonunda toplanan veriler, ortalamaları alınarak hedef sunucuya gönderiliyor. Gönderimde herhangi bir sorun çıkması durumunda ise işlem tekrar deneniyor. Gün sonunda hedef sunucudan eksik verilerin zaman aralığı talep ediliyor. Bu zaman aralıkları arasındaki veriler kaynak sunucudan alınarak hedef sunucuya gönderiliyor. Bu sayede tüm veriler gün içerisinde eksiksiz şekilde iletilmiş oluyor.
 
 Geçmiş verilerin senkronize edilmesi işlemi aynı zamanda arayüz üzerinden de tetiklenebiliyor. Tüm bu işlemler her cihaz için ayrı olarak yapılmakta. Bu yüzden senkronizasyon işlemi özellikle günlerce süren sorunlarda gönderilmesi gereken veriler biriktiği için uzun sürebiliyor.

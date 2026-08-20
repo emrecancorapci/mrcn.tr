@@ -1,6 +1,6 @@
 ---
 title: "Lox Interpreter"
-description: "A Lox language tokenizer and parser built in Rust — lexing and token classification"
+description: "A Lox language tokenizer and parser built in Rust. Only has lexing and token classification"
 projectType: oss
 year: 2024
 status: "ongoing"

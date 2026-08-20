@@ -1,7 +1,7 @@
 ---
 featured: true
 title: "Redis Clone"
-description: "TCP üzerinden RESP protokolünü uygulayan Redis uyumlu sunucu. Bellek içi veri yapıları ve protokol ayrıştırmaya odaklanır."
+description: "TCP üzerinden RESP protokolünü uygulayan Redis uyumlu sunucu projesi. In-memory veri yapıları ve protokol parsing'e sahip."
 projectType: oss
 year: 2024
 status: "prototype-completed"

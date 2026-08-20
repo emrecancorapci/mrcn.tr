@@ -51,6 +51,8 @@ In short, the application enables data flow between two different servers occurr
 
 The application connects to source and destination servers, each having its own independent authentication mechanism. Authentication continuity is maintained by logging into both servers at distinct intervals. Since the data retrieval and upload frequencies differ, data is fetched from the source server every 5 minutes and retained for one hour.
 
+![App Schema](/src/images/etl-app-schema.png)
+
 At the end of the hour, the collected data is averaged and transmitted to the destination server. If an issue occurs during transmission, the process automatically retries. At the end of the day, the time intervals for any missing data are requested from the destination server. The data corresponding to these missing intervals is fetched from the source server and pushed to the destination server, ensuring all data is completely delivered within the day.
 
 Historical data synchronization can also be manually triggered via the user interface. All these operations run independently for each device; therefore, synchronization may take longer—especially following multi-day disruptions due to accumulated data backlog.
