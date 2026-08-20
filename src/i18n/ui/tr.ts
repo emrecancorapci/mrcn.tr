@@ -29,15 +29,15 @@ export const tr: Record<UIKeys, string> = {
   "about.p2":
     "Sadece endpoint yazmıyorum. Projeleri sıfırdan production'a kadar taşıdım; bu süreçte UI/UX, veritabanı tasarımı, yazılım mimarisi, güvenlik ve performans üzerine de çalışma fırsatım oldu. Yeterince vakit verildiğinde istenilen çoğu şeyi yazabilecek seviyeye geldiğimi düşünüyorum.",
   "about.p3":
-    'Hoşuma giden şeyleri kurcalamayı ve merakım dinene kadar "neden" diye sormayı severim. Kuralları esnetmek, varsayımları sorgulamak, daha iyisi var diye eski yöntemleri reddetmek.',
+    'Hoşuma giden şeyleri kurcalamayı ve merakım dinene kadar "neden" diye sormayı seviyorum. Kuralları esnetmek, varsayımları sorgulamak, daha iyisi var diye eski yöntemleri reddetmek.',
   "about.illustrationCredit": "Kız kardeşim yaptı",
   "about.interestsHeading": "ilgi alanları ve hobiler",
-  "about.interests.s1": "Gojira, Parcels ve Angine de Poitrine *dinlerim*, ",
-  "about.interests.s2": "Asimov, Rollo May ve Slavoj Žižek *okurum*, ",
-  "about.interests.s3": "Hades, Disco Elysium ve Baldur's Gate 3 *oynarım*, ",
-  "about.interests.s4": "gizlilik, açık kaynak ve teknoloji hakkında *düşünürüm*, ",
+  "about.interests.s1": "Gojira, Parcels ve Angine de Poitrine *dinliyorum*, ",
+  "about.interests.s2": "Asimov, Rollo May ve Slavoj Žižek *okuyorum*, ",
+  "about.interests.s3": "Hades, Disco Elysium ve Baldur's Gate 3 *oynuyorum*, ",
+  "about.interests.s4": "gizlilik, açık kaynak ve teknoloji hakkında *düşünüyorum*, ",
   "about.interests.s5":
-    "Bisikletimi *sürmeyi*, kedi fotoğrafları *çekmeyi*, elektro gitarımı *çalmayı* ve her şeyi Linux'ta *çalıştırmayı* severim.",
+    "Bisiklet *sürmeyi*, kedi fotoğrafları *çekmeyi*, elektro gitarı *çalmayı* ve düzenli aralıklarla Linux'u *bozmayı* seviyorum.",
   "about.alt.cat":
     "Kitap yığınının üstünde oturan, kameraya bakan ve bir patisini öne uzatan siyah bir kedi",
   "about.alt.bicycle":
