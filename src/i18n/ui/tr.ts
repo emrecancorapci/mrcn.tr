@@ -17,9 +17,9 @@ export const tr: Record<UIKeys, string> = {
   // Home
   "home.pageTitle": "Ana Sayfa - Emre Can Çorapçı",
   "hero.badge": "full stack yazılım geliştirici",
-  "hero.title": "kaynak kodunu ben okurum, sen zahmet etme",
-  "hero.seeWork": "işlerimi gözden geçir",
-  "hero.getInTouch": "bana ulaş",
+  "hero.title": "hızlı, sürdürülebilir ve performans odaklı web uygulamaları geliştiriyorum",
+  "hero.seeWork": "projelerimi gözden geçir",
+  "hero.getInTouch": "iletişime geç",
 
   // About me
   "about.heading": "hakkımda",
@@ -90,7 +90,7 @@ export const tr: Record<UIKeys, string> = {
   "skills.heading": "Yetenekler",
   "skills.description":
     "Performans odaklı web sistemlerine yoğunlaşmış, çoğunlukla TypeScript ve Rust kullanan bir backend geliştiriciyim. Backend'de .NET, Actix Web, Express ve Fastify; frontend'de React ve Astro dahil çeşitli framework ve kütüphaneler kullandım. Bunlar dışında C#, C++ ve Python'a da aşinayım.",
-  "skill.proficiency.1": "Tanıdık",
+  "skill.proficiency.1": "Başlangıç",
   "skill.proficiency.2": "Deneyimli",
   "skill.proficiency.3": "Yetkin",
   "skill.proficiency.4": "Gelişmiş",
