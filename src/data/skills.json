@@ -30,18 +30,6 @@
         "color": "text-purple-500"
       },
       {
-        "title": "Python",
-        "proficiency": 1,
-        "icon": "simple-icons:python",
-        "color": "text-yellow-300"
-      },
-      {
-        "title": "OCaml",
-        "proficiency": 1,
-        "icon": "simple-icons:ocaml",
-        "color": "text-orange-400"
-      },
-      {
         "title": "Bash",
         "proficiency": 1,
         "icon": "simple-icons:gnubash",
@@ -53,7 +41,7 @@
   {
     "title": {
       "en": "Back-End Frameworks",
-      "tr": "Back-End Framework'leri"
+      "tr": "Back-End Framework"
     },
     "items": [
       {
@@ -86,7 +74,7 @@
   {
     "title": {
       "en": "Front-End Frameworks",
-      "tr": "Front-End Framework'leri"
+      "tr": "Front-End Framework"
     },
     "items": [
       {
@@ -100,12 +88,6 @@
         "proficiency": 3,
         "icon": "simple-icons:astro",
         "color": "text-white"
-      },
-      {
-        "title": "Svelte",
-        "proficiency": 1,
-        "icon": "simple-icons:svelte",
-        "color": "text-orange-500"
       }
     ],
     "id": "03"
@@ -158,8 +140,8 @@
   },
   {
     "title": {
-      "en": "Front-End Libraries/Tools",
-      "tr": "Front-End Kütüphaneleri/Araçları"
+      "en": "Front-End Tools",
+      "tr": "Front-End Araçları"
     },
     "items": [
       {
@@ -206,6 +188,11 @@
         "proficiency": 3,
         "icon": "simple-icons:sequelize",
         "color": "text-blue-400"
+      },
+      {
+        "title": "Diesel",
+        "proficiency": 2,
+        "color": "text-red-500"
       },
       {
         "title": "DrizzleORM",
@@ -292,26 +279,5 @@
       }
     ],
     "id": "10"
-  },
-  {
-    "title": {
-      "en": "Other Tools",
-      "tr": "Diğer Araçlar"
-    },
-    "items": [
-      {
-        "title": "Postman",
-        "proficiency": 3,
-        "icon": "simple-icons:postman",
-        "color": "text-orange-400"
-      },
-      {
-        "title": "Git",
-        "proficiency": 3,
-        "icon": "simple-icons:git",
-        "color": "text-orange-500"
-      }
-    ],
-    "id": "11"
   }
 ]
