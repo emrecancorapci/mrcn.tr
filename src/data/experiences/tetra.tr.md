@@ -23,5 +23,5 @@ techs:
   ]
 ---
 
-- İki sunucu arasındaki veriyi planlı aralıklarla çıkarmak, yeniden biçimlendirmek ve aktarmak için cron job'lar ve webhook'lar kullanarak hataya dayanıklı bir veri senkronizasyon sistemi kurdum.
-- Supertest ve Nock ile kapsamlı test uyguladım ve Ubuntu üzerinde PM2 ile dağıttım.
+- İki sunucu arasında, verileri belirli aralıklarla çekmek, yeniden biçimlendirmek ve aktarmak için cron job'lar ve webhook'lar kullanan hataya dayanıklı (fault-tolerant) bir veri senkronizasyon sistemi kurdu.
+- Supertest ve Nock ile kapsamlı testler uyguladı ve Ubuntu üzerinde PM2 ile deployment gerçekleştirdi.

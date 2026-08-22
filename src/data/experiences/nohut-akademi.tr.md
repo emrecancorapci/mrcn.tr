@@ -11,7 +11,7 @@ end: "Mart 2026"
 techs: ["TypeScript", "Fastify", "Sequelize", "GraphQL", "PostgreSQL", "MongoDB", "Redis"]
 ---
 
-- Üçüncü taraf kaynaklardan yapılandırılmamış veri çıkaran web kazıma (scraping) altyapısını yeniden tasarladım; işleme süresini **%80** azalttım.
-- Veritabanı sorgularını yeniden yapılandırarak, sık erişilen veriler için Redis önbellekleme uygulayarak ve tip-güvenli ilişkisel bütünlük kısıtlamaları zorunlu kılarak sistem güvenilirliğini artırdım.
-- Öğrenci ve veli istemcilerine hizmet veren modüler bir GraphQL API'sini tasarlayıp ölçeklendirdim; merkezi yetkilendirme ve erişim servisleriyle resolver karmaşıklığını azalttım.
-- Birden fazla kitap türünü, sayfalama ve puan toplamayı destekleyen, gerçek zamanlı sınav denemesi takibi için hibrit PostgreSQL + MongoDB veri hattı kurdum.
+- Üçüncü taraf kaynaklardan yapılandırılmamış (unstructured) veri çekmek için web scraping altyapısını yeniden tasarladı, işlem süresini %80 azalttı.
+- Veritabanı sorgularını yeniden yapılandırarak, sık erişilen veriler için Redis caching uygulayarak ve type-safe ilişkisel bütünlük kısıtlamaları (relational integrity constraints) getirerek sistem güvenilirliğini artırdı.
+- Öğrenci ve veli client'larına hizmet veren modüler bir GraphQL API'yi tasarladı ve ölçeklendirdi; merkezi izin (permission) ve erişim servisleri ile resolver karmaşıklığını azalttı.
+- Gerçek zamanlı sınav denemesi takibi için PostgreSQL + MongoDB tabanlı hibrit bir veri pipeline'ı kurdu; birden fazla kitap türünü, pagination'ı ve puan (score) toplamasını (aggregation) destekledi.

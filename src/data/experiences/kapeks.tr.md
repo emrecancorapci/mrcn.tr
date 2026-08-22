@@ -11,5 +11,5 @@ end: "Şubat 2026"
 techs: ["C#", ".NET", "XAML", "WPF"]
 ---
 
-- .NET ile, düşük seviyeli sistem kancalarını (system hooks) kullanarak fare ve klavye makrolarını kaydedip tekrar oynatabilen bir Windows masaüstü uygulaması geliştirdim.
-- WPF/XAML ile tablo ve görsel desteği olan, yerel .docx dışa aktarımı için özel bir OpenXML çeviri katmanı içeren tam özellikli bir Zengin Metin ve Rapor Editörü yaptım.
+- .NET ile Windows masaüstü uygulaması geliştirdi; low-level sistem hook'ları kullanarak mouse ve klavye makrolarının kaydedilmesini ve tekrar oynatılmasını sağladı.
+- WPF/XAML kullanarak tablo ve görsel desteğine sahip, kapsamlı özellikli bir Rich Text ve Rapor Editörü geliştirdi; native .docx export için özel bir OpenXML çeviri katmanı (translation layer) oluşturdu.
