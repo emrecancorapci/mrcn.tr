@@ -147,6 +147,6 @@ html {
 
   /* Prose customization for experience cards. */
   .prose-experience {
-    @apply prose pe-8 md:pe-20 prose-li:text-primary-foreground prose-ul:grid prose-ul:list-disc marker:text-primary-foreground prose-strong:text-primary-foreground/80 prose-strong:font-bold prose-strong:text-lg;
+    @apply prose pe-2 md:pe-20 prose-li:text-primary-foreground prose-ul:grid prose-ul:list-disc marker:text-primary-foreground prose-strong:text-primary-foreground/80 prose-strong:font-bold prose-strong:text-lg;
   }
 }
