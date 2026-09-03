@@ -28,16 +28,19 @@ const { project } = Astro.props;
   ]}
 >
   <div class="flex flex-col items-center">
-    <h3 class="font-light">{t(locale, "single.labelProject")}</h3>
-    <div class="flex justify-center">
-      <h2 class="text-6xl font-black md:text-7xl">{project.title}</h2>
-      {
-        project.version && (
-          <p class="bg-primary-foreground text-primary dark:bg-primary-foreground dark:text-primary -me-14 h-min rounded-lg px-2 py-0.5 text-lg font-bold">
-            {project.version}
-          </p>
-        )
-      }
+    <div class="flex w-full flex-col">
+      <div class="flex w-full justify-center">
+        {
+          project.version && (
+            <div class="flex w-full justify-end">
+              <p class="bg-primary-foreground text-primary dark:bg-primary-foreground dark:text-primary h-min rounded-lg px-2 py-0.5 text-lg font-bold">
+                {project.version}
+              </p>
+            </div>
+          )
+        }
+      </div>
+      <h2 class="w-full text-5xl font-black md:text-7xl">{project.title}</h2>
     </div>
     <p class="w-full max-w-4xl pt-5 font-semibold">{project.description}</p>
   </div>

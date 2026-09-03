@@ -142,7 +142,7 @@ html {
 /* Prose customization for project summary sections (single project page). */
 @layer components {
   .prose-project {
-    @apply prose w-full px-0 py-4 md:px-4 prose-img:bg-secondary prose-img:rounded-md prose-img:border prose-img:border-secondary-foreground prose-h2:text-2xl prose-h2:font-bold prose-h2:text-secondary prose-h2:leading-relaxed prose-h2:mb-4 prose-h2:border-b prose-h2:border-primary prose-p:leading-relaxed prose-p:text-secondary-foreground prose-table:mb-0 prose-thead:border-secondary/80 prose-thead:border-b-2 prose-tr:border-secondary/80 prose-th:text-secondary prose-td:text-secondary prose-li:text-secondary dark:prose-code:text-zinc-300 [&_p_code]:prose-code:text-primary-foreground prose-strong:font-semibold prose-strong:text-secondary-foreground prose-pre:border-4 prose-pre:border-secondary/80 prose-pre:p-6! prose-a:text-secondary-foreground;
+    @apply prose w-full px-0 py-4 md:px-4 prose-img:p-0 prose-img:bg-secondary prose-img:rounded-md prose-img:border prose-img:border-secondary-foreground prose-h2:text-2xl prose-h2:font-bold prose-h2:text-secondary prose-h2:leading-relaxed prose-h2:mb-4 prose-h2:border-b prose-h2:border-primary prose-p:leading-relaxed prose-p:text-secondary-foreground prose-table:mb-0 prose-thead:border-secondary/80 prose-thead:border-b-2 prose-tr:border-secondary/80 prose-th:text-secondary prose-td:text-secondary prose-li:text-secondary dark:prose-code:text-zinc-300 [&_p_code]:prose-code:text-primary-foreground prose-strong:font-semibold prose-strong:text-secondary-foreground prose-pre:border-4 prose-pre:border-secondary/80 prose-pre:p-6! prose-a:text-secondary-foreground;
   }
 
   /* Prose customization for experience cards. */
