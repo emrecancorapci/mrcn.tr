@@ -23,7 +23,7 @@ const { Content } = await render(project);
 const blocksOnTop = data.blocks?.filter((b) => b.onTop) ?? [];
 ---
 
-<div class="grid gap-4 pt-4">
+<div class="grid gap-4 px-6 pt-4">
   <SingleProjectHeader project={data} />
   {data.links && <SingleProjectLinks links={data.links} />}
   {
