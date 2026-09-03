@@ -10,6 +10,9 @@ import { defineConfig, fontProviders } from "astro/config";
 export default defineConfig({
   site: "https://mrcn.tr",
   output: "static",
+  build: {
+    assets: "assets"
+  },
   prefetch: { prefetchAll: true },
   integrations: [
     sitemap({
