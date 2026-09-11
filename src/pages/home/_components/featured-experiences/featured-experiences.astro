@@ -12,8 +12,6 @@ const locale = currentLocale(Astro.currentLocale);
 const featuredExperiences = forLocale(await getCollection("experiences"), locale)
   .filter((experience) => experience.data.featured)
   .sort((a, b) => a.data.priority - b.data.priority);
-
-const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
 ---
 
 <div class="bg-primary flex w-full flex-col items-center py-20">
@@ -23,16 +21,7 @@ const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
     </H1>
     <div class="grid w-full gap-10">
       <div class="grid">
-        {
-          featuredExperiences.map(({ data }, index) => (
-            <FeaturedExperiencesCard
-              company={data.company}
-              title={data.title}
-              start={startYear(data.start)}
-              last={index === featuredExperiences.length - 1}
-            />
-          ))
-        }
+        {featuredExperiences.map(({ data }) => <FeaturedExperiencesCard experience={data} />)}
       </div>
       <div class="flex justify-end">
         <a

@@ -1,24 +1,25 @@
 ---
 import { companyAnchor } from "@/lib/content";
 import { currentLocale, localePath } from "@/i18n";
+import type { CollectionEntry } from "astro:content";
 
 const locale = currentLocale(Astro.currentLocale);
 
 interface Props {
-  company: string;
-  title: string;
-  start: string;
-  last?: boolean;
+  experience: CollectionEntry<"experiences">["data"];
 }
 
-const { company, title, start, last } = Astro.props;
+const {
+  experience: { company, title, start },
+} = Astro.props;
+
+const startYear = (start: string) => start.match(/\d{4}/)?.[0] ?? start;
 ---
 
 <a
   href={localePath(locale, `/experiences#${companyAnchor(company)}`)}
   class:list={[
-    "bg-foreground/0 hover:bg-chart-1 dark:hover:bg-foreground/20 border-primary-foreground/10 flex items-center justify-between px-0 py-5 transition-all duration-300 ease-out hover:scale-x-102 hover:border-0 lg:px-4",
-    !last && "border-b",
+    "bg-foreground/0 hover:bg-chart-1 dark:hover:bg-foreground/20 border-primary-foreground/10 flex items-center justify-between px-0 py-5 transition-all duration-300 ease-out not-last:border-b hover:scale-x-102 hover:border-0 lg:px-4",
   ]}
 >
   <div class="flex items-center gap-4">
@@ -27,5 +28,5 @@ const { company, title, start, last } = Astro.props;
     </h2>
     <p class="text-primary-foreground/70 leading-none lg:translate-y-0.5">{title}</p>
   </div>
-  <p class="text-primary-foreground/80 leading-none">{start}</p>
+  <p class="text-primary-foreground/80 leading-none">{startYear(start)}</p>
 </a>
