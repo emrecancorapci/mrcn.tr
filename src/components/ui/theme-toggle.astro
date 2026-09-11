@@ -1,24 +1,24 @@
 ---
 import { Icon } from "astro-icon/components";
-
 import { currentLocale, t } from "@/i18n";
-
 const locale = currentLocale(Astro.currentLocale);
 ---
 
-<button
-  id="theme-toggle"
-  type="button"
-  class="text-muted-foreground hover:text-foreground flex cursor-pointer items-center p-2 transition-colors"
-  aria-label={t(locale, "a11y.toggleTheme")}
->
-  <Icon name="material-symbols:dark-mode-rounded" class="size-6 dark:hidden" />
-  <Icon name="material-symbols:light-mode-rounded" class="hidden size-6 dark:inline" />
-</button>
+<theme-toggle>
+  <button type="button" class="text-muted-foreground hover:text-foreground flex cursor-pointer items-center p-2 transition-colors" aria-label={t(locale, "a11y.toggleTheme")}>
+    <Icon name="material-symbols:dark-mode-rounded" class="inline size-6 dark:hidden" />
+    <Icon name="material-symbols:light-mode-rounded" class="hidden size-6 dark:inline" />
+  </button>
+</theme-toggle>
 
 <script>
-  document.getElementById("theme-toggle")?.addEventListener("click", () => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
+  class ThemeToggleElement extends HTMLElement {
+    #onClick = () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
+    connectedCallback() { this.addEventListener("click", this.#onClick); }
+    disconnectedCallback() { this.removeEventListener("click", this.#onClick); }
+  }
+  customElements.define("theme-toggle", ThemeToggleElement);
 </script>
