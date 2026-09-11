@@ -24,15 +24,21 @@ const links = [
 ---
 
 <header class="flex w-full max-w-7xl flex-col items-center justify-between gap-4 p-6 md:flex-row">
-  <a
-    class="text-shadow-primary/10 hover:text-primary text-center text-4xl leading-none font-black transition-all duration-300 hover:text-shadow-md lg:text-left lg:text-3xl"
-    href={localePath(locale, "/")}
-  >
-    emre can
-  </a>
+  <div class="flex justify-between w-full ps-4 lg:ps-0">
+    <a
+      class="text-shadow-primary/10 hover:text-primary text-center text-4xl leading-none font-black transition-all duration-300 hover:text-shadow-md lg:text-left lg:text-3xl"
+      href={localePath(locale, "/")}
+    >
+      emre can
+    </a>
+    <div class="flex items-center lg:hidden">
+      <LanguageToggle />
+      <ThemeToggle />
+    </div>
+  </div>
 
-  <div class="flex flex-wrap items-center justify-center gap-2">
-    <nav class="flex justify-center">
+  <div class="flex items-center justify-center gap-2">
+    <nav class="flex w-full justify-center lg:w-fit">
       {
         links.map((link) => (
           <NavLink
@@ -44,9 +50,9 @@ const links = [
         ))
       }
     </nav>
-    <div class="flex items-center">
-      <ThemeToggle />
+    <div class="hidden items-center lg:flex">
       <LanguageToggle />
+      <ThemeToggle />
     </div>
   </div>
 </header>
