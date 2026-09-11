@@ -76,7 +76,7 @@ export const tr: Record<UIKeys, string> = {
   "experiences.pageTitle": "Deneyimler - Emre Can Çorapçı",
   "experiences.heading": "Deneyimler",
   "experiences.description":
-    "Freelance ve tam zamanlı rollerde çalıştım. Projeleri tasarım aşamasından başlayarak development ve deployment'a kadar taşıdım. İşlerim genelde sıfırdan backend sistemleri ve altyapı kurmak, mevcut olanların performansını ve güvenilirliğini iyileştirmek ve gerektiğinde frontend'e uzanmak etrafında döner. Bir projeyi uçtan uca sahiplenmekte — mimari, implementasyon, test ve dağıtım gibi konularda — rahatım.",
+    "Freelance ve tam zamanlı rollerde çalıştım. Projeleri tasarım aşamasından başlayarak development ve deployment'a kadar taşıdım. İşlerim genelde sıfırdan backend sistemleri ve altyapı kurmak, mevcut olanların performansını ve güvenilirliğini iyileştirmek ve gerektiğinde frontend'e uzanmak etrafında döner. Bir projeyi uçtan uca sahiplenmekte mimari, implementasyon, test ve dağıtım gibi konularda rahatım.",
   "experience.contract.Full-Time": "Tam Zamanlı",
   "experience.contract.Part-Time": "Yarı Zamanlı",
   "experience.contract.Freelance (Part-Time)": "Serbest (Yarı Zamanlı)",
@@ -104,13 +104,46 @@ export const tr: Record<UIKeys, string> = {
   "footer.projects": "Projeler",
   "footer.experiences": "Deneyimler",
   "footer.skills": "Yetenekler",
+  "footer.privacy": "Gizlilik",
   "footer.copyright": "© Telif Hakkı {year}. Tüm Hakları Saklıdır.",
+
+  // Privacy
+  "privacy.pageTitle": "Gizlilik - Emre Can Çorapçı",
+  "privacy.heading": "Gizlilik",
+  "privacy.description":
+    "Kısaca bu web sitesi takip için cihazınızda hiçbir şey saklamıyor ve profilinizi oluşturmuyor.",
+  "privacy.intro":
+    "Bu sayfa, mrcn.tr'nin hangi kişisel verileri neden işlediğini ve GDPR ile KVKK kapsamındaki haklarınızı açıklar.",
+  "privacy.controller.title": "Veri Sorumlusu",
+  "privacy.controller.body":
+    "Bu web sitesinin veri sorumlusu Emre Can Çorapçı'dır. Kişisel verilerinizle ilgili her konuda bana emrecancorapci@gmail.com adresinden ulaşabilirsiniz.",
+  "privacy.data.title": "Toplanan Veriler",
+  "privacy.data.p1":
+    "Bu web sitesi, sayfa görüntülemelerini saymak için sitenin kendi alan adı (ph.mrcn.tr) üzerinden erişilen, AB'de barındırılan gizlilik dostu bir analitik hizmeti olan PostHog'u kullanır.",
+  "privacy.data.p2":
+    "Analitik için çerez, local storage veya session storage kullanılmaz. Anonim ziyaretçiler için kişi profili oluşturulmaz. IP adresiniz yalnızca sunucu tarafında anonim ve dönemsel bir tanımlayıcı türetmek için geçici olarak işlenir, asla saklanmaz. Sitede reklam, siteler arası takip veya başka bir üçüncü taraf izleyici yoktur.",
+  "privacy.storage.title": "İşlevsel Depolama",
+  "privacy.storage.body":
+    'Tema tercihiniz (açık/koyu) tarayıcınızın localStorage\'ında "theme" anahtarıyla saklanır. Bu tamamen işlevseldir: yalnızca tercihinizi hatırlamak için vardır ve hiçbir yere gönderilmez.',
+  "privacy.legalBasis.title": "Hukuki Sebep",
+  "privacy.legalBasis.body":
+    "Veri işleme meşru menfaate dayanır (KVKK m. 5/2-f; GDPR m. 6/1-f): siteyi geliştirmek için hangi sayfaların toplu olarak okunduğunu anlamak bunun için gereken asgari düzeyde veri toplanarak.",
+  "privacy.dataLocation.title": "Verilerin Konumu",
+  "privacy.dataLocation.body":
+    "Analitik verileri, PostHog'un AB bulutunda Avrupa Birliği'nde işlenir. Türkiye'den ziyaretçiler için bu, KVKK m. 9 kapsamında yurt dışına aktarım oluşturur; Avrupa Birliği, bu asgari ve anonim veri seti için yeterli koruma sağlayan ülkeler arasında kabul edilir.",
+  "privacy.rights.title": "Haklarınız",
+  "privacy.rights.body":
+    "KVKK (m. 11) ve GDPR (m. 15-22) kapsamında kişisel verilerinize erişme, düzeltme, silme veya işlemeyi kısıtlama talep edebilir, işlenmeye itiraz edebilir ve bir denetim otoritesine şikayette bulunabilirsiniz Türkiye için Kişisel Verileri Koruma Kurulu. Cihazınızda hiçbir tanımlayıcı saklanmadığı için bu hakları kullanmanın en hızlı yolu bana e-posta göndermektir; talep halinde teknik olarak mümkün olan toplu verileri de silebilirim.",
+  "privacy.verbis.title": "VERBİS Kaydı",
+  "privacy.verbis.body":
+    "Bu, gerçek kişi tarafından işletilen kişisel ve ticari olmayan bir web sitesidir ve ilgili gelir eşiğinin altında kaldığından Veri Sorumluları Sicili Yönetmeliği uyarınca VERBİS kayıt yükümlülüğünden muaftır.",
+  "privacy.lastUpdated": "Son güncelleme: 2026-09-04",
   "footer.linkedInLabel": "Emre Can Çorapçı'nın LinkedIn Profili",
   "footer.githubLabel": "Emre Can Çorapçı'nın GitHub Profili",
   "footer.emailLabel": "Emre Can Çorapçı'nın E-postası",
   "footer.cvLabel": "Emre Can Çorapçı'nın CV'si",
 
-  // 404 — "haatalarımı" typo is intentional, TR counterpart of EN's "msitakes"
+  // 404 "haatalarımı" typo is intentional, TR counterpart of EN's "msitakes"
   "notFound.pageTitle": "404 - Emre Can Çorapçı",
   "notFound.heading": "Kaybolmuş Olabilir misin???",
   "notFound.line1": "Böyle bir sayfa bulamadım ama sorun değil.",

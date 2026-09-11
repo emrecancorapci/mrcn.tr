@@ -1,0 +1,59 @@
+---
+import LeftColumnLayout from "@/layouts/left-column-layout.astro";
+import Layout from "@/layouts/layout.astro";
+import { currentLocale, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
+
+const sections = [
+  {
+    title: t(locale, "privacy.controller.title"),
+    paragraphs: [t(locale, "privacy.controller.body")],
+  },
+  {
+    title: t(locale, "privacy.data.title"),
+    paragraphs: [t(locale, "privacy.data.p1"), t(locale, "privacy.data.p2")],
+  },
+  {
+    title: t(locale, "privacy.storage.title"),
+    paragraphs: [t(locale, "privacy.storage.body")],
+  },
+  {
+    title: t(locale, "privacy.legalBasis.title"),
+    paragraphs: [t(locale, "privacy.legalBasis.body")],
+  },
+  {
+    title: t(locale, "privacy.dataLocation.title"),
+    paragraphs: [t(locale, "privacy.dataLocation.body")],
+  },
+  {
+    title: t(locale, "privacy.rights.title"),
+    paragraphs: [t(locale, "privacy.rights.body")],
+  },
+  {
+    title: t(locale, "privacy.verbis.title"),
+    paragraphs: [t(locale, "privacy.verbis.body")],
+  },
+];
+---
+
+<Layout title={t(locale, "privacy.pageTitle")}>
+  <LeftColumnLayout>
+    <Fragment slot="title">{t(locale, "privacy.heading")}</Fragment>
+    <Fragment slot="description">{t(locale, "privacy.description")}</Fragment>
+    <div class="grid content-start gap-8 ps-0 md:ps-8">
+      <p class="text-foreground/80">{t(locale, "privacy.intro")}</p>
+      {
+        sections.map(({ title, paragraphs }) => (
+          <section class="grid gap-2">
+            <h2 class="text-2xl font-bold">{title}</h2>
+            {paragraphs.map((paragraph) => (
+              <p class="text-foreground/80">{paragraph}</p>
+            ))}
+          </section>
+        ))
+      }
+      <p class="text-muted-foreground text-sm">{t(locale, "privacy.lastUpdated")}</p>
+    </div>
+  </LeftColumnLayout>
+</Layout>

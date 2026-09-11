@@ -45,6 +45,7 @@ File-based routing under `src/pages/`. Files/dirs prefixed with `_` are excluded
 | `/projects/[id]` | `pages/projects/[id].astro` | Static from `project` collection; `id` = slug of the md filename |
 | `/experiences` | `pages/experiences/index.astro` | Sorted ascending by `priority` (1 first) |
 | `/skills` | `pages/skills/index.astro` | Grouped by category; items sorted by proficiency desc |
+| `/privacy` | `pages/privacy/index.astro` | GDPR/KVKK privacy notice; all copy lives in `privacy.*` i18n keys |
 | `/tr/*` | `pages/tr/**` | Turkish mirrors of every route above; thin wrappers over the shared `*-page.astro` / `project-page-body.astro` components |
 | `/404` | `pages/404.astro` | The "msitakes" typo is intentional — do not fix |
 | `/robots.txt` | `pages/robots.txt.ts` | The only robots source; `public/robots.txt` was removed because public files silently override generated endpoints |

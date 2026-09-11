@@ -75,7 +75,7 @@ export const en = {
   "experiences.pageTitle": "Experiences - Emre Can Çorapçı",
   "experiences.heading": "Experiences",
   "experiences.description":
-    "I've worked across freelance and full-time roles, taking projects from initial design to production deployment. My work tends to involve building backend systems and infrastructure from scratch, improving the performance and reliability of existing ones, and occasionally extending into frontend when needed. I'm comfortable owning a project end-to-end — architecture, implementation, testing, and deployment.",
+    "I've worked across freelance and full-time roles, taking projects from initial design to production deployment. My work tends to involve building backend systems and infrastructure from scratch, improving the performance and reliability of existing ones, and occasionally extending into frontend when needed. I'm comfortable owning a project end-to-end architecture, implementation, testing, and deployment.",
   "experience.contract.Full-Time": "Full-Time",
   "experience.contract.Part-Time": "Part-Time",
   "experience.contract.Freelance (Part-Time)": "Freelance (Part-Time)",
@@ -102,13 +102,46 @@ export const en = {
   "footer.projects": "Projects",
   "footer.experiences": "Experiences",
   "footer.skills": "Skills",
+  "footer.privacy": "Privacy",
   "footer.copyright": "© Copyright {year}. All rights Reserved.",
+
+  // Privacy
+  "privacy.pageTitle": "Privacy - Emre Can Çorapçı",
+  "privacy.heading": "Privacy",
+  "privacy.description":
+    "How this website handles your data. Short version: it stores nothing on your device for tracking and it doesn't profile you.",
+  "privacy.intro":
+    "This page explains what personal data mrcn.tr processes, why, and what your rights are under the GDPR and KVKK (Turkey's law on the protection of personal data).",
+  "privacy.controller.title": "Data Controller",
+  "privacy.controller.body":
+    "The data controller for this website is Emre Can Çorapçı. You can reach me at emrecancorapci@gmail.com for anything related to your personal data.",
+  "privacy.data.title": "What is Collected",
+  "privacy.data.p1":
+    "This website uses PostHog, a privacy-friendly, EU-hosted analytics service reachable through this site's own domain (ph.mrcn.tr), to count pageviews.",
+  "privacy.data.p2":
+    "No cookies, local storage, or session storage are used for analytics. No person profiles are created for anonymous visitors. Your IP address is only processed transiently on the server to derive an anonymous, rotating identifier and is never stored. There is no advertising, no cross-site tracking, and no other third-party tracker on this site.",
+  "privacy.storage.title": "Functional Storage",
+  "privacy.storage.body":
+    'Your theme preference (light/dark) is stored in your browser\'s localStorage under the key "theme". This is strictly functional: it exists only to remember your preference and is never sent anywhere.',
+  "privacy.legalBasis.title": "Legal Basis",
+  "privacy.legalBasis.body":
+    "Processing is based on legitimate interest (GDPR Art. 6(1)(f); KVKK Art. 5(2)(f)): understanding, in aggregate, which pages are read in order to improve the site while keeping collection to the minimum needed for that purpose.",
+  "privacy.dataLocation.title": "Where Data Lives",
+  "privacy.dataLocation.body":
+    "Analytics events are processed in the European Union by PostHog's EU cloud. For visitors from Turkey this constitutes a transfer abroad under KVKK Art. 9; the EU is considered to provide adequate protection for this minimal, anonymous data set.",
+  "privacy.rights.title": "Your Rights",
+  "privacy.rights.body":
+    "Under the GDPR (Art. 15-22) and KVKK (Art. 11), you can request access, correction, deletion, or restriction of your personal data, object to processing, and lodge a complaint with a supervisory authority for Turkey, the Personal Data Protection Board (Kişisel Verileri Koruma Kurulu). Since no identifiers are stored on your device, the fastest way to exercise these rights is to email me; I can also delete the aggregated data on request where technically possible.",
+  "privacy.verbis.title": "VERBİS Registration",
+  "privacy.verbis.body":
+    "This is a personal, non-commercial website operated by a natural person below the applicable revenue threshold, and is therefore exempt from VERBİS registration under the Regulation on the Registry of Data Controllers.",
+  "privacy.lastUpdated": "last updated: 2026-09-04",
   "footer.linkedInLabel": "Emre Can Çorapçı's LinkedIn Profile",
   "footer.githubLabel": "Emre Can Çorapçı's GitHub Profile",
   "footer.emailLabel": "Emre Can Çorapçı's Email",
   "footer.cvLabel": "Emre Can Çorapçı's CV",
 
-  // 404 — the "msitakes" typo is intentional (TR uses its own "haatalarımı")
+  // 404 the "msitakes" typo is intentional (TR uses its own "haatalarımı")
   "notFound.pageTitle": "404 - Emre Can Çorapçı",
   "notFound.heading": "Are You Lost???",
   "notFound.line1": "I couldn't find any page like that but it's OK.",
