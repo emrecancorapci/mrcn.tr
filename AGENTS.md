@@ -115,11 +115,18 @@ Four collections, all Zod-validated in `src/schemas/`:
   nesting) and never use `onclick` on a `<div>`; use the stretched-link pattern
   (`after:absolute after:inset-0`) for clickable cards (see `project-card.astro`).
 - `components/ui/theme-toggle.astro` and `components/ui/language-toggle.astro` — header
-  controls; the theme toggle is the only component with a `<script>`. The language toggle is a
-  plain link that swaps the `/tr` prefix (zero JS).
+  controls. The theme toggle is a thin wrapper over the `<theme-toggle>` web component
+  defined in `components/ui/theme-toggle.ts` (the only client-side script besides
+  PostHog): it renders its own button + SVGs (light DOM, Tailwind classes apply), takes the
+  localized a11y label via a `label` attribute, and each instance toggles `.dark` on
+  `<html>` + persists `localStorage.theme`. The language toggle is a plain link that swaps
+  the `/tr` prefix (zero JS).
 - `components/post-hog.astro` — analytics, rendered only in production. Key/host come from
   `PUBLIC_POSTHOG_KEY` / `PUBLIC_POSTHOG_HOST` (see `.env.example`); write-keys are public
-  by design.
+  by design. Runs **cookieless** (`cookieless_mode: "always"`, no cookies/localStorage,
+  pageviews only, init deferred to `requestIdleCallback`) — cookieless tracking must stay
+  enabled in the PostHog EU project settings or events are silently ignored. The GDPR/KVKK
+  posture is documented on `/privacy`.
 
 ## Images
 
@@ -173,8 +180,6 @@ How it fits together:
   ever hydrated, so React exists only to statically render buttons. Keep the CVA variants
   (`class-variance-authority` is framework-agnostic); move `buttonVariants` usages to
   `class={buttonVariants(...)}` on elements in `.astro` files.
-- **Consent-gate or lazy-init PostHog** (first-interaction/`requestIdleCallback`); disable
-  `autocapture` if unused — GDPR posture for an EU-facing site.
 - **Add CI** (GitHub Actions): `pnpm build && pnpm check && pnpm lint` on push. No `.github/` exists yet.
 - **Skills ordering**: category order relies on JSON key order; consider an explicit `order`
   field per category (like `types.json`) for consistency.
