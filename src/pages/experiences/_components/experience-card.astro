@@ -26,9 +26,9 @@ const { Content } = await render(Astro.props.experience);
 const experience = Astro.props.experience.data;
 ---
 
-<div
+<experience-card
   id={companyAnchor(experience.company)}
-  class="bg-primary grid h-fit gap-4 rounded-xl border p-8 shadow transition-all"
+  class="bg-primary data-at-center:bg-chart-2 dark:data-at-center:bg-chart-1 data-at-center:shadow-primary/50 grid h-fit gap-4 rounded-xl border p-8 shadow transition-all duration-1000 data-at-center:shadow-lg"
 >
   <div class="grid gap-2">
     <div class="flex flex-col justify-center gap-2 md:flex-row md:justify-between">
@@ -42,7 +42,9 @@ const experience = Astro.props.experience.data;
             >{t(locale, contractKeys[experience.contractType])}</span
           >
         </h2>
-        <h3 class="flex flex-col md:flex-row text-primary-foreground text-center text-lg font-extralight md:text-start">
+        <h3
+          class="text-primary-foreground flex flex-col text-center text-lg font-extralight md:flex-row md:text-start"
+        >
           <span class="text-xl font-normal">{experience.company}</span>
           <span class="hidden md:flex">-</span>
           <span>{experience.location}</span>
@@ -76,4 +78,26 @@ const experience = Astro.props.experience.data;
       ))
     }
   </ul>
-</div>
+</experience-card>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        entry.target.toggleAttribute("data-at-center", entry.isIntersecting);
+      }
+    },
+    { rootMargin: "-48% 0px -48% 0px" }
+  );
+
+  class ExperienceCard extends HTMLElement {
+    connectedCallback() {
+      observer.observe(this);
+    }
+    disconnectedCallback() {
+      observer.unobserve(this);
+    }
+  }
+
+  customElements.define("experience-card", ExperienceCard);
+</script>
