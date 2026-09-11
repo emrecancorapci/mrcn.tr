@@ -1,0 +1,15 @@
+---
+import { currentLocale, localePath, t } from "@/i18n";
+
+const locale = currentLocale(Astro.currentLocale);
+---
+
+<a
+  href={localePath(locale, "/projects/krustie")}
+  class="group bg-primary/10 text-primary hover:bg-primary/20 flex w-full items-center justify-center gap-1.5 px-4 py-2 font-semibold text-center text-sm transition-colors"
+>
+  <span>{t(locale, "promo.krustie.text")}</span>
+  <span class="text-foreground font-bold decoration-foreground/40 underline underline-offset-2 group-hover:decoration-current">
+    {t(locale, "promo.krustie.cta")}
+  </span>
+</a>

@@ -7,6 +7,11 @@ export const tr: Record<UIKeys, string> = {
   "nav.skills": "yetenekler",
   "nav.home": "Ana Sayfa",
 
+  // Promo bar
+  "promo.krustie.text":
+    "krustie, tcp katmanı üzerine rust ile geliştirdiğim http kütüphanesi crates.io'da!",
+  "promo.krustie.cta": "incele",
+
   // Accessibility labels
   "a11y.toggleTheme": "Temayı değiştir",
   "a11y.toggleLanguage": "Switch to English",
@@ -98,7 +103,7 @@ export const tr: Record<UIKeys, string> = {
 
   // Footer
   "footer.tagline":
-    "full-stack yazılım geliştirici | açık kaynak katkıcısı | bu arada arch kullanıyorum",
+    "full-stack yazılım geliştirici | açık kaynak destekçisi | i use arch btw",
   "footer.portfolioTitle": "Portföy",
   "footer.featuredTitle": "Öne Çıkan Projeler",
   "footer.projects": "Projeler",
@@ -152,9 +157,9 @@ export const tr: Record<UIKeys, string> = {
   "notFound.line3Link": "github repomda",
   "notFound.line3Suffix": " rahatça şikayet edebilirsin.",
   "notFound.line4Prefix": "Lütfen yap! İnsanların ",
-  "notFound.line4Strong": "haatalarımı yüzüme söylemelerini",
+  "notFound.line4Strong": "haatalarımı yüzüme vurmalarını",
   "notFound.line4Suffix": " çok severim.",
-  "notFound.line5": "Benim değilse, tamam affettik.",
+  "notFound.line5": "Benim değilse de sorun değil.",
   "notFound.line6":
-    "Yukarıdaki menüyü kullanarak bu özenle hazırlanmış olan bu sitede muhteşem sörf deneyimine kaldığın yerden devam edebilirsin.",
+    "Yukarıdaki menüyü kullanarak bu özenle hazırlanmış olan bu sitede muhteşem sörf deneyiminize kaldığın yerden devam edebilirsin.",
 };

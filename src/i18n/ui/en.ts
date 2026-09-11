@@ -5,6 +5,11 @@ export const en = {
   "nav.skills": "skills",
   "nav.home": "Home",
 
+  // Promo bar
+  "promo.krustie.text":
+    "krustie, the http framework i built in rust from the tcp layer up is now on crates.io",
+  "promo.krustie.cta": "check it out",
+
   // Accessibility labels
   "a11y.toggleTheme": "Toggle theme",
   "a11y.toggleLanguage": "Dili değiştir",
