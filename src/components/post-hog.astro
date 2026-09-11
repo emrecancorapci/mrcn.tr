@@ -1,19 +1,20 @@
----
-// PostHog write-keys are public by design; env vars allow per-environment overrides.
-const posthogKey =
-  import.meta.env.PUBLIC_POSTHOG_KEY ?? "phc_vvVjicJoKRqy8l1G4XGF63KtIOFRYvzVSdPZkhBilyI";
-const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? "https://ph.mrcn.tr";
----
+<script>
+  // PostHog write-keys are public by design; env vars allow per-environment overrides.
+  const posthogKey =
+    import.meta.env.PUBLIC_POSTHOG_KEY ?? "phc_vvVjicJoKRqy8l1G4XGF63KtIOFRYvzVSdPZkhBilyI";
+  const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? "https://ph.mrcn.tr";
 
-<script is:inline define:vars={{ posthogKey, posthogHost }}>
-  !(function (t, e) {
-    var o, n, p, r;
+  const w = window as any;
+
+  // Official PostHog snippet: installs the stub API only, no network yet.
+  void (function (t: any, e: any) {
+    var o: any, n: any, p: any, r: any;
     e.__SV ||
-      ((window.posthog = e),
+      ((w.posthog = e),
       (e._i = []),
-      (e.init = function (i, s, a) {
-        function g(t, e) {
-          var o = e.split(".");
+      (e.init = function (i: string, s: any, a?: string) {
+        function g(t: any, e: any) {
+          var o: any = e.split(".");
           (2 == o.length && ((t = t[o[0]]), (e = o[1])),
             (t[e] = function () {
               t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
@@ -28,7 +29,7 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? "https://ph.mrcn.tr";
         for (
           void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
             u.people = u.people || [],
-            u.toString = function (t) {
+            u.toString = function (t?: any) {
               var e = "posthog";
               return ("posthog" !== a && (e += "." + a), t || (e += " (stub)"), e);
             },
@@ -47,11 +48,24 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? "https://ph.mrcn.tr";
         e._i.push([i, s, a]);
       }),
       (e.__SV = 1));
-  })(document, window.posthog || []);
-  posthog.init(posthogKey, {
-    api_host: posthogHost,
-    ui_host: "https://eu.posthog.com",
-    defaults: "2025-11-30",
-    person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-  });
+  })(document, w.posthog || []);
+
+  // Lazy-init: defer loading array.js (and any tracking) until the browser is idle.
+  const init = () =>
+    w.posthog.init(posthogKey, {
+      api_host: posthogHost,
+      ui_host: "https://eu.posthog.com",
+      defaults: "2025-11-30",
+      person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+      cookieless_mode: "always", // no cookies, no local/session storage — must also be enabled in PostHog project settings
+      autocapture: false, // pageviews only
+      capture_dead_clicks: false,
+      disable_session_recording: true,
+    });
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(init, { timeout: 2000 });
+  } else {
+    setTimeout(init, 1);
+  }
 </script>

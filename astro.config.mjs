@@ -26,6 +26,14 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Astro inlines component <script> bundles into every page when they are
+      // under Vite's assetsInlineLimit (4096B default). Keep scripts worth
+      // caching (e.g. PostHog) as separate hash-named files; only micro
+      // scripts (e.g. theme toggle) stay inline to save a request.
+      assetsInlineLimit: (filePath, content) =>
+        filePath.endsWith(".js") ? content.byteLength < 512 : content.byteLength < 4096,
+    },
   },
   i18n: {
     locales: ["tr", "en"],
