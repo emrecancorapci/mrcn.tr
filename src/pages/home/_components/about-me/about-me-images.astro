@@ -11,10 +11,10 @@ import { currentLocale, t } from "@/i18n";
 const locale = currentLocale(Astro.currentLocale);
 
 const frameClass =
-  "border-foreground min-h-[70dvw] lg:min-h-[30dvw] shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg";
+  "border-foreground min-h-[70dvw] lg:min-h-[30dvw] xl:min-h-[15dvw] shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg";
 ---
 
-<div class="grid grid-cols-2 gap-4 px-4 pb-20 lg:grid-cols-5 lg:gap-10 lg:px-40">
+<div class="grid max-w-7xl grid-cols-2 gap-4 px-4 pb-20 sm:px-20 lg:grid-cols-5 lg:gap-10 lg:px-40 xl:px-0">
   <Picture
     src={imgAboutMeCat}
     formats={["webp", "jpeg"]}
