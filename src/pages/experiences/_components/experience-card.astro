@@ -61,7 +61,13 @@ const experience = Astro.props.experience.data;
   </div>
   <hr class="border-primary-foreground" />
 
-  <div class="prose-experience">
+  <div
+    class:list={[
+      "prose pe-2 md:pe-20 marker:text-primary-foreground",
+      "prose-li:text-primary-foreground prose-ul:grid prose-ul:list-disc",
+      "prose-strong:text-primary-foreground/80 prose-strong:font-bold prose-strong:text-lg",
+    ]}
+  >
     <Content />
   </div>
 
