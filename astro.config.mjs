@@ -11,7 +11,7 @@ export default defineConfig({
   site: "https://mrcn.tr",
   output: "static",
   build: {
-    assets: "assets"
+    assets: "assets",
   },
   prefetch: { prefetchAll: true },
   integrations: [
@@ -33,6 +33,7 @@ export default defineConfig({
       // scripts (e.g. theme toggle) stay inline to save a request.
       assetsInlineLimit: (filePath, content) =>
         filePath.endsWith(".js") ? content.byteLength < 512 : content.byteLength < 4096,
+      cssMinify: "esbuild",
     },
   },
   i18n: {
