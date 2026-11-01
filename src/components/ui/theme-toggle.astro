@@ -22,7 +22,7 @@ const locale = currentLocale(Astro.currentLocale);
       localStorage.setItem("theme", isDark ? "dark" : "light");
       document
         .querySelector('meta[name="theme-color"]')
-        ?.setAttribute("content", isDark ? "#09090b" : "#ffffff");
+        ?.setAttribute("content", isDark ? "#09090b" : "#f3f7f0");
     };
     connectedCallback() {
       this.addEventListener("click", this.#onClick);

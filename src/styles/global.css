@@ -10,7 +10,8 @@ html {
 
 :root {
   color-scheme: light;
-  --background: oklch(1 0 0);
+  /* Sage-tinted base so white cards read as elevated surfaces. */
+  --background: oklch(0.972 0.01 130);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
@@ -20,15 +21,15 @@ html {
   --primary-foreground: oklch(23.905% 0.05657 129.737);
   /* Accent green that passes contrast as text on light surfaces (>= 4.5:1). */
   --primary-ink: oklch(0.48 0.15 130.5);
-  --secondary: oklch(0.967 0.001 286.375);
+  --secondary: oklch(0.945 0.014 130);
   --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
+  --muted: oklch(0.945 0.014 130);
+  --muted-foreground: oklch(0.52 0.016 285.938);
+  --accent: oklch(0.945 0.014 130);
   --accent-foreground: oklch(0.21 0.006 285.885);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
+  --border: oklch(0.9 0.013 130);
+  --input: oklch(0.9 0.013 130);
   --ring: oklch(0.705 0.015 286.067);
   --chart-1: oklch(0.897 0.196 126.665);
   --chart-2: oklch(0.768 0.233 130.85);
