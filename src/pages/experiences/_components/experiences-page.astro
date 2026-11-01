@@ -19,7 +19,9 @@ const experiencesCollection = forLocale(await getCollection("experiences"), loca
     <Fragment slot="title">{t(locale, "experiences.heading")}</Fragment>
     <Fragment slot="description">{t(locale, "experiences.description")}</Fragment>
     <div class="grid gap-8 ps-0 md:ps-8">
-      {experiencesCollection.map((e) => <ExperienceCard experience={e} />)}
+      {experiencesCollection.map((e) => (
+        <ExperienceCard experience={e} />
+      ))}
     </div>
   </LeftColumnLayout>
 </Layout>
