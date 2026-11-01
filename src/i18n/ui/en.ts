@@ -3,7 +3,7 @@ export const en = {
   "nav.projects": "projects",
   "nav.experiences": "experiences",
   "nav.skills": "skills",
-  "nav.home": "Home",
+  "nav.home": "home",
 
   // Promo bar
   "promo.krustie.text":
@@ -56,89 +56,89 @@ export const en = {
   // Featured sections
   "featured.projectsHeading": "featured projects",
   "featured.experiencesHeading": "featured experiences",
-  "featured.viewMore": "View More",
-  "featured.viewProject": "View the project",
+  "featured.viewMore": "view more",
+  "featured.viewProject": "view the project",
 
   // Projects
   "projects.pageTitle": "Projects - Emre Can Çorapçı",
-  "projects.heading": "Projects",
+  "projects.heading": "projects",
   "projects.description":
     "I like to work on projects that are challenging, but also fun. I'm always looking for ways to improve my skills and learn new things. Some are experiments, some are freelance work, one ended up on crates.io. I build things to understand them better, and to learn from them.",
   "single.pageTitle": "Project: {title} - Emre Can Çorapçı",
-  "single.summary": "Summary",
+  "single.summary": "summary",
   "single.labelProject": "[PROJECT]",
   "single.labelYear": "[YEAR]",
   "single.labelType": "[TYPE]",
   "single.labelStatus": "[STATUS]",
-  "single.featuredHeading": "Featured Projects",
-  "single.viewProject": "View Project",
-  "project.status.ongoing": "Ongoing",
-  "project.status.completed": "Completed",
-  "project.status.prototype-completed": "Prototype Completed",
-  "project.status.archived": "Archived",
+  "single.featuredHeading": "featured projects",
+  "single.viewProject": "view project",
+  "project.status.ongoing": "ongoing",
+  "project.status.completed": "completed",
+  "project.status.prototype-completed": "prototype completed",
+  "project.status.archived": "archived",
 
   // Experiences
   "experiences.pageTitle": "Experiences - Emre Can Çorapçı",
-  "experiences.heading": "Experiences",
+  "experiences.heading": "experiences",
   "experiences.description":
     "I've worked across freelance and full-time roles, taking projects from initial design to production deployment. My work tends to involve building backend systems and infrastructure from scratch, improving the performance and reliability of existing ones, and occasionally extending into frontend when needed. I'm comfortable owning a project end-to-end architecture, implementation, testing, and deployment.",
-  "experience.contract.Full-Time": "Full-Time",
-  "experience.contract.Part-Time": "Part-Time",
-  "experience.contract.Freelance (Part-Time)": "Freelance (Part-Time)",
-  "experience.contract.Freelance (Full-Time)": "Freelance (Full-Time)",
-  "experience.contract.Contract (Part-Time)": "Contract (Part-Time)",
-  "experience.contract.Contract (Full-Time)": "Contract (Full-Time)",
+  "experience.contract.Full-Time": "full-time",
+  "experience.contract.Part-Time": "part-time",
+  "experience.contract.Freelance (Part-Time)": "freelance (part-time)",
+  "experience.contract.Freelance (Full-Time)": "freelance (full-time)",
+  "experience.contract.Contract (Part-Time)": "contract (part-time)",
+  "experience.contract.Contract (Full-Time)": "contract (full-time)",
   "experience.contract.Internship": "Internship",
 
   // Skills
   "skills.pageTitle": "Skills - Emre Can Çorapçı",
-  "skills.heading": "Skills",
+  "skills.heading": "skills",
   "skills.description":
     "I'm a backend developer focused on performance-oriented web systems, mainly using TypeScript and Rust. I've used a variety of frameworks and libraries, including .NET, actix-web, Express and Fastify on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++ and Python.",
-  "skill.proficiency.1": "Familiar",
-  "skill.proficiency.2": "Comfortable",
-  "skill.proficiency.3": "Proficient",
-  "skill.proficiency.4": "Advanced",
-  "skill.proficiency.5": "Expert",
+  "skill.proficiency.1": "familiar",
+  "skill.proficiency.2": "comfortable",
+  "skill.proficiency.3": "proficient",
+  "skill.proficiency.4": "advanced",
+  "skill.proficiency.5": "expert",
 
   // Footer
   "footer.tagline": "full-stack software developer | open source contributor | i use arch btw",
-  "footer.portfolioTitle": "Portfolio",
-  "footer.featuredTitle": "Featured Projects",
-  "footer.projects": "Projects",
-  "footer.experiences": "Experiences",
-  "footer.skills": "Skills",
-  "footer.privacy": "Privacy",
-  "footer.copyright": "© Copyright {year}. All rights Reserved.",
+  "footer.portfolioTitle": "portfolio",
+  "footer.featuredTitle": "featured projects",
+  "footer.projects": "projects",
+  "footer.experiences": "experiences",
+  "footer.skills": "skills",
+  "footer.privacy": "privacy",
+  "footer.copyright": "© {year}. all rights reserved.",
 
   // Privacy
   "privacy.pageTitle": "Privacy - Emre Can Çorapçı",
-  "privacy.heading": "Privacy",
+  "privacy.heading": "privacy",
   "privacy.description":
     "How this website handles your data. Short version: it stores nothing on your device for tracking and it doesn't profile you.",
   "privacy.intro":
     "This page explains what personal data mrcn.tr processes, why, and what your rights are under the GDPR and KVKK (Turkey's law on the protection of personal data).",
-  "privacy.controller.title": "Data Controller",
+  "privacy.controller.title": "data controller",
   "privacy.controller.body":
     "The data controller for this website is Emre Can Çorapçı. You can reach me at emrecancorapci@gmail.com for anything related to your personal data.",
-  "privacy.data.title": "What is Collected",
+  "privacy.data.title": "what is collected",
   "privacy.data.p1":
     "This website uses PostHog, a privacy-friendly, EU-hosted analytics service reachable through this site's own domain (ph.mrcn.tr), to count pageviews.",
   "privacy.data.p2":
     "No cookies, local storage, or session storage are used for analytics. No person profiles are created for anonymous visitors. Your IP address is only processed transiently on the server to derive an anonymous, rotating identifier and is never stored. There is no advertising, no cross-site tracking, and no other third-party tracker on this site.",
-  "privacy.storage.title": "Functional Storage",
+  "privacy.storage.title": "functional storage",
   "privacy.storage.body":
     'Your theme preference (light/dark) is stored in your browser\'s localStorage under the key "theme". This is strictly functional: it exists only to remember your preference and is never sent anywhere.',
-  "privacy.legalBasis.title": "Legal Basis",
+  "privacy.legalBasis.title": "legal basis",
   "privacy.legalBasis.body":
     "Processing is based on legitimate interest (GDPR Art. 6(1)(f); KVKK Art. 5(2)(f)): understanding, in aggregate, which pages are read in order to improve the site while keeping collection to the minimum needed for that purpose.",
-  "privacy.dataLocation.title": "Where Data Lives",
+  "privacy.dataLocation.title": "where data lives",
   "privacy.dataLocation.body":
     "Analytics events are processed in the European Union by PostHog's EU cloud. For visitors from Turkey this constitutes a transfer abroad under KVKK Art. 9; the EU is considered to provide adequate protection for this minimal, anonymous data set.",
-  "privacy.rights.title": "Your Rights",
+  "privacy.rights.title": "your rights",
   "privacy.rights.body":
     "Under the GDPR (Art. 15-22) and KVKK (Art. 11), you can request access, correction, deletion, or restriction of your personal data, object to processing, and lodge a complaint with a supervisory authority for Turkey, the Personal Data Protection Board (Kişisel Verileri Koruma Kurulu). Since no identifiers are stored on your device, the fastest way to exercise these rights is to email me; I can also delete the aggregated data on request where technically possible.",
-  "privacy.verbis.title": "VERBİS Registration",
+  "privacy.verbis.title": "verbis registration",
   "privacy.verbis.body":
     "This is a personal, non-commercial website operated by a natural person below the applicable revenue threshold, and is therefore exempt from VERBİS registration under the Regulation on the Registry of Data Controllers.",
   "privacy.lastUpdated": "last updated: 2026-09-04",
@@ -149,7 +149,7 @@ export const en = {
 
   // 404 the "msitakes" typo is intentional (TR uses its own "haatalarımı")
   "notFound.pageTitle": "404 - Emre Can Çorapçı",
-  "notFound.heading": "Are You Lost???",
+  "notFound.heading": "are you lost???",
   "notFound.line1": "I couldn't find any page like that but it's OK.",
   "notFound.line2": "Don't worry, *even the best ones make mistakes.*",
   "notFound.line3Prefix":
