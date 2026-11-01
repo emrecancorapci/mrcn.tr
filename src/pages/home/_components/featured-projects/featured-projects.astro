@@ -20,9 +20,7 @@ const featuredProjects = forLocale(await getCollection("project"), locale)
 <div class="flex w-full flex-col items-center py-20">
   <Section class="grid gap-10 lg:gap-20">
     <div class="grid w-full gap-20">
-      <H2 class="text-shadow-foreground/5 scroll-reveal w-full text-shadow-lg">
-        {t(locale, "featured.projectsHeading")}
-      </H2>
+      <H2 class="scroll-reveal w-full">{t(locale, "featured.projectsHeading")}</H2>
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {featuredProjects.map((project) => (
           <FeaturedProjectCard

@@ -21,18 +21,13 @@ const statusKeys: Record<Props["project"]["status"], UIKeys> = {
 const { project } = Astro.props;
 ---
 
-<div
-  class:list={[
-    "shadow-foreground/10 text-primary-foreground flex flex-col items-center justify-center gap-16 rounded-xl px-4 pt-20 pb-10 text-center shadow-md",
-    "from-chart-1 via-chart-2 to-chart-3 dark:to-chart-5 bg-linear-65 from-0% via-50% to-100%",
-  ]}
->
+<div class="border-border bg-card text-foreground shadow-foreground/5 flex flex-col items-center justify-center gap-16 rounded-xl border px-4 pt-16 pb-10 text-center shadow-sm md:pt-20">
   <div class="flex flex-col items-center">
     <div class="flex w-full flex-col">
       <div class="flex w-full justify-center">
         {project.version && (
           <div class="flex w-full justify-end">
-            <p class="bg-primary-foreground text-primary dark:bg-primary-foreground dark:text-primary h-min rounded-lg px-2 py-0.5 text-lg font-bold">
+            <p class="bg-primary text-primary-foreground h-min rounded-full px-3 py-0.5 text-sm font-semibold">
               {project.version}
             </p>
           </div>
@@ -40,22 +35,24 @@ const { project } = Astro.props;
       </div>
       <h1 class="w-full text-4xl font-bold text-balance md:text-6xl">{project.title}</h1>
     </div>
-    <p class="w-full max-w-4xl pt-5 font-semibold">{project.description}</p>
+    <p class="text-muted-foreground w-full max-w-4xl pt-5 font-medium">{project.description}</p>
   </div>
   <div class="grid w-full grid-cols-3 gap-4">
     <div class="flex flex-col gap-0.5">
-      <p class="leading-none font-light">{t(locale, "single.labelYear")}</p>
-      <p class="text-lg leading-tight font-bold">{project.year}</p>
+      <p class="text-muted-foreground leading-none font-medium">{t(locale, "single.labelYear")}</p>
+      <p class="text-lg leading-tight font-semibold">{project.year}</p>
     </div>
     <div class="flex flex-col gap-0.5">
-      <p class="leading-none font-light">{t(locale, "single.labelType")}</p>
-      <p class="text-lg leading-tight font-bold">
+      <p class="text-muted-foreground leading-none font-medium">{t(locale, "single.labelType")}</p>
+      <p class="text-lg leading-tight font-semibold">
         {projectTypeTitle(projectTypesMap, project.projectType.id)}
       </p>
     </div>
     <div class="flex flex-col gap-0.5">
-      <p class="leading-none font-light">{t(locale, "single.labelStatus")}</p>
-      <p class="text-lg leading-tight font-bold">{t(locale, statusKeys[project.status])}</p>
+      <p class="text-muted-foreground leading-none font-medium">
+        {t(locale, "single.labelStatus")}
+      </p>
+      <p class="text-lg leading-tight font-semibold">{t(locale, statusKeys[project.status])}</p>
     </div>
   </div>
 </div>

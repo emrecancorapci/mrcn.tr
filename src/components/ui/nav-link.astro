@@ -14,10 +14,10 @@ const isActive = pathname.startsWith(href);
 <a
   class:list={[
     "flex w-full justify-center items-center px-3 py-2 font-semibold transition-colors duration-200 ease-out sm:px-4",
-    "border-primary/50 shadow-secondary/15 border not-first:border-l-0 first:rounded-l-full last:rounded-r-full hover:shadow-lg",
+    "border-border border not-first:border-l-0 first:rounded-l-full last:rounded-r-full",
     isActive
       ? "bg-primary text-primary-foreground"
-      : "text-foreground bg-background hover:text-foreground dark:hover:text-background hover:bg-chart-1",
+      : "text-foreground bg-background hover:bg-secondary",
   ]}
   href={href}
   {...props}

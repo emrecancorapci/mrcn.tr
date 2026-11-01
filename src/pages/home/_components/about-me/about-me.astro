@@ -12,9 +12,7 @@ const locale = currentLocale(Astro.currentLocale);
 
 <div class="flex w-full flex-col items-center">
   <Section class="grid gap-20 py-20">
-    <H2 class="scroll-reveal text-shadow-foreground/5 w-full text-shadow-lg">
-      {t(locale, "about.heading")}
-    </H2>
+    <H2 class="scroll-reveal w-full">{t(locale, "about.heading")}</H2>
     <div class="space-y-20">
       <AboutMeIntroduction />
       <AboutMeInterests />

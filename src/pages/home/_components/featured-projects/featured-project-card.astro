@@ -16,15 +16,15 @@ const { title, description, href } = Astro.props;
 
 <a
   href={localePath(locale, href)}
-  class="group bg-card border-border shadow-foreground/5 hover:bg-primary hover:text-primary-foreground scroll-reveal flex flex-1 flex-col justify-between gap-6 rounded-xl border p-6 shadow-lg transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1"
+  class="group bg-card border-border scroll-reveal flex flex-1 flex-col justify-between gap-6 rounded-xl border p-6 shadow-sm transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg"
 >
   <span class="flex flex-col gap-1">
-    <h3 class="text-card-foreground group-hover:text-primary-foreground text-2xl font-semibold">
+    <h3 class="text-foreground group-hover:text-primary-ink text-2xl font-semibold transition-colors">
       {title}
     </h3>
-    <p class="text-card-foreground/70 group-hover:text-primary-foreground">{description}</p>
+    <p class="text-muted-foreground">{description}</p>
   </span>
-  <span class="text-foreground group-hover:text-primary-foreground flex items-center justify-end gap-1 text-lg font-medium">
+  <span class="text-primary-ink flex items-center justify-end gap-1 text-lg font-medium">
     {t(locale, "featured.viewProject")}
     <Icon size={24} name="material-symbols:arrow-right-alt" />
   </span>

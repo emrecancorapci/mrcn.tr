@@ -16,9 +16,7 @@ const locale = currentLocale(Astro.currentLocale);
     <p class="bg-primary text-primary-foreground scroll-reveal w-fit rounded-full px-3 py-1 text-sm font-medium">
       {t(locale, "hero.badge")}
     </p>
-    <H1 class="text-shadow-foreground/5 scroll-reveal max-w-5xl text-center text-shadow-lg">
-      {t(locale, "hero.title")}
-    </H1>
+    <H1 class="scroll-reveal max-w-5xl text-center">{t(locale, "hero.title")}</H1>
   </div>
   <div class="flex scroll-reveal justify-center gap-2">
     <a href={localePath(locale, "/projects")} class={buttonVariants({ size: "xl" })}>
