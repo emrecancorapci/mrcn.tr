@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 
 import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
+import Section from "@/components/ui/section.astro";
 import { currentLocale, localePath, t } from "@/i18n";
 import { baseId, forLocale } from "@/lib/i18n-content";
 import FeaturedProjectCard from "./featured-project-card.astro";
@@ -17,21 +18,19 @@ const featuredProjects = forLocale(await getCollection("project"), locale)
 ---
 
 <div class="flex w-full flex-col items-center py-20">
-  <div class="grid w-full max-w-7xl gap-10 px-6 lg:gap-20 sm:px-20 lg:px-30">
+  <Section class="grid gap-10 lg:gap-20">
     <div class="grid w-full gap-20">
       <H1 class="text-shadow-foreground/5 scroll-reveal w-full text-shadow-lg">
         {t(locale, "featured.projectsHeading")}
       </H1>
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        {
-          featuredProjects.map((project) => (
-            <FeaturedProjectCard
-              title={project.data.title}
-              description={project.data.description}
-              href={`/projects/${baseId(project.id)}`}
-            />
-          ))
-        }
+        {featuredProjects.map((project) => (
+          <FeaturedProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            href={`/projects/${baseId(project.id)}`}
+          />
+        ))}
       </div>
     </div>
     <div class="flex scroll-reveal justify-end">
@@ -39,5 +38,5 @@ const featuredProjects = forLocale(await getCollection("project"), locale)
         {t(locale, "featured.viewMore")}
       </a>
     </div>
-  </div>
+  </Section>
 </div>

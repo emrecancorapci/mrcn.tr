@@ -104,6 +104,8 @@ Four collections, all Zod-validated in `src/schemas/`:
 - Prose customizations are CSS component classes in `global.css`:
   `.prose-project` (single project summary) and `.prose-experience` (experience cards).
   Reuse them instead of long `prose-*` utility chains.
+- `components/ui/section.astro` is the shared page-section container (owns `max-w-7xl` and
+  horizontal padding). Reuse it for sections instead of re-declaring `max-w-*`/`px-*`.
 - Repeated long class strings should be extracted to a const in frontmatter (see
   `about-me-images.astro` `frameClass`).
 

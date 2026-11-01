@@ -7,6 +7,7 @@ import imgAboutMeBicycle from "@/images/about-me-bicycle.jpeg";
 import imgAboutMeConcert from "@/images/about-me-concert.jpeg";
 import imgAboutMeMe from "@/images/about-me-me.jpeg";
 import { currentLocale, t } from "@/i18n";
+import Section from "@/components/ui/section.astro";
 
 const locale = currentLocale(Astro.currentLocale);
 
@@ -14,7 +15,7 @@ const frameClass =
   "border-foreground scroll-reveal min-h-[70dvw] lg:min-h-[30dvw] xl:min-h-[15dvw] shadow-foreground/5 h-80 rounded-xl border-2 object-cover shadow-lg";
 ---
 
-<div class="grid max-w-7xl grid-cols-2 gap-4 px-4 pb-20 sm:px-20 lg:grid-cols-5 lg:gap-10 lg:px-40 xl:px-0">
+<Section class="grid grid-cols-2 gap-4 pb-20 lg:grid-cols-5 lg:gap-10">
   <Picture
     src={imgAboutMeCat}
     formats={["webp", "jpeg"]}
@@ -45,4 +46,4 @@ const frameClass =
     class={frameClass}
     alt={t(locale, "about.alt.me")}
   />
-</div>
+</Section>

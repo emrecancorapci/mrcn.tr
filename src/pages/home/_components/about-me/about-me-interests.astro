@@ -15,17 +15,17 @@ const sentences: UIKeys[] = [
 ];
 ---
 
-<div class="space-y-6 px-0 py-10 lg:px-30">
-  <H2 class="text-shadow-foreground/5 scroll-reveal text-shadow-lg">{t(locale, "about.interestsHeading")}</H2>
+<div class="space-y-6 py-10">
+  <H2 class="text-shadow-foreground/5 scroll-reveal text-shadow-lg">
+    {t(locale, "about.interestsHeading")}
+  </H2>
   <p class="text-pretty scroll-reveal">
-    {
-      sentences.map((key) => (
-        <span>
-          {markedSegments(t(locale, key)).map((segment) =>
-            segment.marked ? <FancyItalic>{segment.text}</FancyItalic> : segment.text
-          )}
-        </span>
-      ))
-    }
+    {sentences.map((key) => (
+      <span>
+        {markedSegments(t(locale, key)).map((segment) =>
+          segment.marked ? <FancyItalic>{segment.text}</FancyItalic> : segment.text
+        )}
+      </span>
+    ))}
   </p>
 </div>

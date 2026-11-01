@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 
 import { buttonVariants } from "@/components/ui/button";
 import H1 from "@/components/ui/h1.astro";
+import Section from "@/components/ui/section.astro";
 import { currentLocale, localePath, t } from "@/i18n";
 import { forLocale } from "@/lib/i18n-content";
 import FeaturedExperiencesCard from "./featured-experiences-card.astro";
@@ -15,13 +16,15 @@ const featuredExperiences = forLocale(await getCollection("experiences"), locale
 ---
 
 <div class="bg-primary flex w-full flex-col items-center py-20">
-  <div class="grid w-full max-w-7xl gap-20 px-6 sm:px-20 lg:px-30">
+  <Section class="grid gap-20">
     <H1 class="text-primary-foreground scroll-reveal text-shadow-foreground/5 w-full text-shadow-lg">
       {t(locale, "featured.experiencesHeading")}
     </H1>
     <div class="grid w-full gap-10">
       <div class="grid">
-        {featuredExperiences.map(({ data }) => <FeaturedExperiencesCard experience={data} />)}
+        {featuredExperiences.map(({ data }) => (
+          <FeaturedExperiencesCard experience={data} />
+        ))}
       </div>
       <div class="flex scroll-reveal justify-end">
         <a
@@ -32,5 +35,5 @@ const featuredExperiences = forLocale(await getCollection("experiences"), locale
         </a>
       </div>
     </div>
-  </div>
+  </Section>
 </div>
