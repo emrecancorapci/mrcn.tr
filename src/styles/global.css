@@ -17,6 +17,8 @@ html {
   --popover-foreground: oklch(0.141 0.005 285.823);
   --primary: oklch(0.841 0.238 128.85);
   --primary-foreground: oklch(23.905% 0.05657 129.737);
+  /* Accent green that passes contrast as text on light surfaces (>= 4.5:1). */
+  --primary-ink: oklch(0.48 0.15 130.5);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
@@ -52,6 +54,8 @@ html {
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.768 0.233 130.85);
   --primary-foreground: oklch(17.834% 0.0363 126.573);
+  /* Surface green is already text-safe in dark mode. */
+  --primary-ink: oklch(0.768 0.233 130.85);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);
@@ -104,6 +108,7 @@ html {
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-ink: var(--primary-ink);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
