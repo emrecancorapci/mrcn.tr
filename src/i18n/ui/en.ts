@@ -12,7 +12,8 @@ export const en = {
 
   // Accessibility labels
   "a11y.toggleTheme": "Toggle theme",
-  "a11y.toggleLanguage": "Dili değiştir",
+  "a11y.toggleLanguage": "Switch to Turkish",
+  "a11y.skipToContent": "Skip to content",
 
   // Base meta
   "base.defaultDescription": "Emre Can Çorapçı's personal website",

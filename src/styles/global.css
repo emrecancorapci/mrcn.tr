@@ -9,6 +9,7 @@ html {
 }
 
 :root {
+  color-scheme: light;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -46,6 +47,7 @@ html {
 }
 
 .dark {
+  color-scheme: dark;
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
@@ -133,6 +135,12 @@ html {
   }
   html {
     @apply font-sans;
+  }
+  /* Single focus treatment for every interactive element; buttons keep their
+     utility-layer rings (utilities win over this base rule). */
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
   }
 }
 

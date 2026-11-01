@@ -3,21 +3,29 @@ import Header from "@/components/layout/header.astro";
 import PromoBar from "@/components/layout/promo-bar.astro";
 import BaseLayout from "./base.astro";
 import Footer from "@/components/layout/footer.astro";
+import { currentLocale, t } from "@/i18n";
 import type { BaseProps } from "./base-types";
 
 interface Props extends BaseProps {
   full?: boolean;
 }
 
+const locale = currentLocale(Astro.currentLocale);
 const { full, ...props } = Astro.props as Props;
 ---
 
 <BaseLayout {...props}>
+  <a
+    href="#main-content"
+    class="bg-primary text-primary-foreground focus:not-sr-only sr-only focus:absolute focus:top-4 focus:start-4 focus:z-50 rounded-full px-4 py-2 text-sm font-semibold"
+  >
+    {t(locale, "a11y.skipToContent")}
+  </a>
   <div class="mx-auto flex min-h-screen w-full flex-col items-center">
     <PromoBar />
     <Header />
 
-    <main class:list={["w-full", !full && "max-w-7xl"]}>
+    <main id="main-content" class:list={["w-full outline-none", !full && "max-w-7xl"]}>
       <slot />
     </main>
 

@@ -14,7 +14,8 @@ export const tr: Record<UIKeys, string> = {
 
   // Accessibility labels
   "a11y.toggleTheme": "Temayı değiştir",
-  "a11y.toggleLanguage": "Switch to English",
+  "a11y.toggleLanguage": "İngilizce sürümüne geç",
+  "a11y.skipToContent": "İçeriğe geç",
 
   // Base meta
   "base.defaultDescription": "Emre Can Çorapçı'nın kişisel web sitesi",
@@ -102,8 +103,7 @@ export const tr: Record<UIKeys, string> = {
   "skill.proficiency.5": "Uzman",
 
   // Footer
-  "footer.tagline":
-    "full-stack yazılım geliştirici | açık kaynak destekçisi | i use arch btw",
+  "footer.tagline": "full-stack yazılım geliştirici | açık kaynak destekçisi | i use arch btw",
   "footer.portfolioTitle": "Portföy",
   "footer.featuredTitle": "Öne Çıkan Projeler",
   "footer.projects": "Projeler",
