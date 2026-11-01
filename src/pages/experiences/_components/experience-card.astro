@@ -34,26 +34,22 @@ const experience = Astro.props.experience.data;
     <div class="flex flex-col justify-center gap-2 md:flex-row md:justify-between">
       <div>
         <h2 class="text-primary-foreground flex flex-col items-baseline gap-x-2 md:flex-row">
-          <span class="w-full text-center text-3xl font-bold md:w-fit md:text-start"
-            >{experience.title}</span
-          >
+          <span class="w-full text-center text-3xl font-bold md:w-fit md:text-start">
+            {experience.title}
+          </span>
           <span class="hidden text-3xl md:flex">-</span>
-          <span class="w-full text-center text-2xl font-bold md:w-fit md:text-start"
-            >{t(locale, contractKeys[experience.contractType])}</span
-          >
+          <span class="w-full text-center text-2xl font-bold md:w-fit md:text-start">
+            {t(locale, contractKeys[experience.contractType])}
+          </span>
         </h2>
-        <h3
-          class="text-primary-foreground flex flex-col text-center text-lg font-extralight md:flex-row md:text-start"
-        >
+        <h3 class="text-primary-foreground flex flex-col text-center text-lg font-extralight md:flex-row md:text-start">
           <span class="text-xl font-normal">{experience.company}</span>
           <span class="hidden md:flex">-</span>
           <span>{experience.location}</span>
         </h3>
       </div>
       <div class="flex justify-center pt-0 md:pt-1">
-        <p
-          class="text-primary-foreground border-primary-foreground size-fit rounded-lg border px-2 text-center"
-        >
+        <p class="text-primary-foreground border-primary-foreground size-fit rounded-lg border px-2 text-center">
           {experience.start} - {experience.end}
         </p>
       </div>
@@ -61,28 +57,20 @@ const experience = Astro.props.experience.data;
   </div>
   <hr class="border-primary-foreground" />
 
-  <div
-    class:list={[
-      "prose pe-2 md:pe-20 marker:text-primary-foreground",
-      "prose-li:text-primary-foreground prose-ul:grid prose-ul:list-disc",
-      "prose-strong:text-primary-foreground/80 prose-strong:font-bold prose-strong:text-lg",
-    ]}
-  >
+  <div class="prose-experience">
     <Content />
   </div>
 
   <ul class="flex flex-wrap gap-2">
-    {
-      experience.techs.map((t) => (
-        <Tag
-          class="bg-background text-foreground border text-center"
-          Element="li"
-          variant="secondary"
-        >
-          {t}
-        </Tag>
-      ))
-    }
+    {experience.techs.map((t) => (
+      <Tag
+        class="bg-background text-foreground border text-center"
+        Element="li"
+        variant="secondary"
+      >
+        {t}
+      </Tag>
+    ))}
   </ul>
 </experience-card>
 
