@@ -2,7 +2,6 @@
 import { Picture } from "astro:assets";
 
 import imgMe from "@/images/me-with-bg.png";
-import H2 from "@/components/ui/h2.astro";
 import { currentLocale, t } from "@/i18n";
 
 const locale = currentLocale(Astro.currentLocale);
@@ -19,9 +18,9 @@ const locale = currentLocale(Astro.currentLocale);
     <p class="text-foreground/30 px-2 text-end">{t(locale, "about.illustrationCredit")}</p>
   </div>
   <div class="space-y-6 py-4">
-    <H2 class="text-shadow-foreground/5 scroll-reveal text-shadow-lg">
+    <h3 class="text-shadow-foreground/5 scroll-reveal text-balance text-2xl font-semibold text-shadow-lg">
       {t(locale, "about.introductionHeading")}
-    </H2>
+    </h3>
     <div class="space-y-4">
       <p class="text-pretty scroll-reveal">{t(locale, "about.p1")}</p>
       <p class="text-pretty scroll-reveal">{t(locale, "about.p2")}</p>

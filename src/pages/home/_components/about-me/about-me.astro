@@ -1,5 +1,5 @@
 ---
-import H1 from "@/components/ui/h1.astro";
+import H2 from "@/components/ui/h2.astro";
 import Section from "@/components/ui/section.astro";
 import { currentLocale, t } from "@/i18n";
 
@@ -12,9 +12,9 @@ const locale = currentLocale(Astro.currentLocale);
 
 <div class="flex w-full flex-col items-center">
   <Section class="grid gap-20 py-20">
-    <H1 class="scroll-reveal text-shadow-foreground/5 w-full text-shadow-lg">
+    <H2 class="scroll-reveal text-shadow-foreground/5 w-full text-shadow-lg">
       {t(locale, "about.heading")}
-    </H1>
+    </H2>
     <div class="space-y-20">
       <AboutMeIntroduction />
       <AboutMeInterests />

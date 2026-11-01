@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
+import H2 from "@/components/ui/h2.astro";
 import SkillCard from "./skill-card.astro";
 import LeftColumnLayout from "@/layouts/left-column-layout.astro";
 import Layout from "@/layouts/layout.astro";
@@ -16,20 +17,18 @@ const skills = await getCollection("skills");
   <LeftColumnLayout>
     <Fragment slot="title">{t(locale, "skills.heading")}</Fragment>
     <Fragment slot="description">{t(locale, "skills.description")}</Fragment>
-    {
-      skills.map(({ data: { title, items } }, index) => (
-        <div class="grid grid-cols-1 gap-4 py-4">
-          <h2 class="text-3xl font-bold">{localizedText(title, locale)}</h2>
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {items
-              .toSorted((a, b) => b.proficiency - a.proficiency)
-              .map((s) => (
-                <SkillCard skill={s} />
-              ))}
-          </div>
-          {index < skills.length - 1 && <hr class="border-primary/10 border-b" />}
+    {skills.map(({ data: { title, items } }, index) => (
+      <div class="grid grid-cols-1 gap-4 py-4">
+        <H2>{localizedText(title, locale)}</H2>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {items
+            .toSorted((a, b) => b.proficiency - a.proficiency)
+            .map((s) => (
+              <SkillCard skill={s} />
+            ))}
         </div>
-      ))
-    }
+        {index < skills.length - 1 && <hr class="border-primary/10 border-b" />}
+      </div>
+    ))}
   </LeftColumnLayout>
 </Layout>

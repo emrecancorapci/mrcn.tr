@@ -1,5 +1,4 @@
 ---
-import H2 from "@/components/ui/h2.astro";
 import { currentLocale, markedSegments, t, type UIKeys } from "@/i18n";
 
 import FancyItalic from "./fancy-italic.astro";
@@ -16,9 +15,9 @@ const sentences: UIKeys[] = [
 ---
 
 <div class="space-y-6 py-10">
-  <H2 class="text-shadow-foreground/5 scroll-reveal text-shadow-lg">
+  <h3 class="text-shadow-foreground/5 scroll-reveal text-balance text-2xl font-semibold text-shadow-lg">
     {t(locale, "about.interestsHeading")}
-  </H2>
+  </h3>
   <p class="text-pretty scroll-reveal">
     {sentences.map((key) => (
       <span>

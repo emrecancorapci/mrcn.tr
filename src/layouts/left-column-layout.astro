@@ -1,9 +1,13 @@
+---
+import H1 from "@/components/ui/h1.astro";
+---
+
 <div class="grid size-full grid-cols-1 gap-4 px-6 lg:grid-cols-4">
   <div class="col-span-1 flex flex-col gap-4 py-8 lg:col-span-1">
-    <h1 class="border-foreground/50 border-b text-6xl font-thin">
+    <H1 class="w-full border-b border-foreground/20 pb-4 lg:text-5xl">
       <slot name="title" />
-    </h1>
-    <p class="pe-12 text-lg">
+    </H1>
+    <p class="text-muted-foreground pe-12 text-lg">
       <slot name="description" />
     </p>
   </div>

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import H2 from "@/components/ui/h2.astro";
 import SingleProjectSection from "./single-project-section.astro";
 import SingleProjectSectionTitle from "./single-project-section-title.astro";
 import { currentLocale, localePath, t } from "@/i18n";
@@ -20,21 +21,19 @@ const otherProjects = forLocale(await getCollection("project"), locale).filter(
 ---
 
 <div class="space-y-4 pt-4">
-  <h2 class="px-2 text-4xl font-bold">{t(locale, "single.featuredHeading")}</h2>
+  <H2>{t(locale, "single.featuredHeading")}</H2>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-    {
-      otherProjects.slice(0, OTHER_FEATURED_COUNT).map((p) => (
-        <SingleProjectSection class="shadow-md">
-          <SingleProjectSectionTitle size="sm">{p.data.title}</SingleProjectSectionTitle>
-          <p class="h-full px-2 pe-12 pt-2">{p.data.description}</p>
-          <a
-            class="text-shadow-secondary/10 pt-2 text-right font-semibold transition-all hover:underline hover:text-shadow-sm"
-            href={localePath(locale, `/projects/${baseId(p.id)}`)}
-          >
-            {t(locale, "single.viewProject")} &gt;&gt;
-          </a>
-        </SingleProjectSection>
-      ))
-    }
+    {otherProjects.slice(0, OTHER_FEATURED_COUNT).map((p) => (
+      <SingleProjectSection class="shadow-md">
+        <SingleProjectSectionTitle size="sm">{p.data.title}</SingleProjectSectionTitle>
+        <p class="h-full px-2 pe-12 pt-2">{p.data.description}</p>
+        <a
+          class="text-shadow-secondary/10 pt-2 text-right font-semibold transition-all hover:underline hover:text-shadow-sm"
+          href={localePath(locale, `/projects/${baseId(p.id)}`)}
+        >
+          {t(locale, "single.viewProject")} &gt;&gt;
+        </a>
+      </SingleProjectSection>
+    ))}
   </div>
 </div>
