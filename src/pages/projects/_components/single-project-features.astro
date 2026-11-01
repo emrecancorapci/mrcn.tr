@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
 import H2 from "@/components/ui/h2.astro";
 import SingleProjectSection from "./single-project-section.astro";
 import SingleProjectSectionTitle from "./single-project-section-title.astro";
@@ -28,10 +29,15 @@ const otherProjects = forLocale(await getCollection("project"), locale).filter(
         <SingleProjectSectionTitle size="sm">{p.data.title}</SingleProjectSectionTitle>
         <p class="h-full px-2 pe-12 pt-2">{p.data.description}</p>
         <a
-          class="text-shadow-secondary/10 pt-2 text-right font-semibold transition-all hover:underline hover:text-shadow-sm"
+          class="pt-2 font-semibold transition-colors duration-200 hover:underline"
           href={localePath(locale, `/projects/${baseId(p.id)}`)}
         >
-          {t(locale, "single.viewProject")} &gt;&gt;
+          {t(locale, "single.viewProject")}
+          <Icon
+            size={20}
+            name="material-symbols:arrow-right-alt"
+            class="inline-block align-middle"
+          />
         </a>
       </SingleProjectSection>
     ))}

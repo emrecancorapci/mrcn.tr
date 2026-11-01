@@ -19,18 +19,18 @@ const { title, href, description, tags, class: className } = Astro.props;
   class:list={[
     "group bg-primary relative overflow-hidden rounded-xl shadow-lg shadow-black/10",
     "hover:bg-card hover:shadow-secondary/20",
-    "transition-all duration-300 ease-out",
+    "transition-[background-color,border-color,box-shadow] duration-300 ease-out",
     "flex flex-1 flex-col justify-between gap-4 pt-8 pb-4",
     "md:gap-0 md:pb-8",
     className,
   ]}
 >
   <a href={localePath(locale, href)} class="after:absolute after:inset-0">
-    <h3 class="text-primary-foreground group-hover:text-card-foreground px-6 text-center text-2xl font-black transition-all">
+    <h3 class="text-primary-foreground group-hover:text-card-foreground px-6 text-center text-2xl font-black transition-colors">
       {title}
     </h3>
   </a>
-  <p class="text-primary-foreground group-hover:text-card-foreground row-span-2 flex items-center justify-center px-6 pb-0 text-center transition-all md:pb-2">
+  <p class="text-primary-foreground group-hover:text-card-foreground row-span-2 flex items-center justify-center px-6 pb-0 text-center transition-colors md:pb-2">
     {description}
   </p>
   <div class="flex flex-wrap items-center justify-center gap-2 px-6 py-2 text-center md:py-0">
