@@ -1,8 +1,8 @@
 [
   {
     "title": {
-      "en": "Languages",
-      "tr": "Diller"
+      "en": "languages",
+      "tr": "diller"
     },
     "items": [
       {
@@ -40,8 +40,8 @@
   },
   {
     "title": {
-      "en": "Back-End Frameworks",
-      "tr": "Back-End Framework"
+      "en": "back-end frameworks",
+      "tr": "back-end framework"
     },
     "items": [
       {
@@ -73,8 +73,8 @@
   },
   {
     "title": {
-      "en": "Front-End Frameworks",
-      "tr": "Front-End Framework"
+      "en": "front-end frameworks",
+      "tr": "front-end framework"
     },
     "items": [
       {
@@ -94,8 +94,8 @@
   },
   {
     "title": {
-      "en": "AI Tools",
-      "tr": "AI Araçları"
+      "en": "AI tools",
+      "tr": "AI araçları"
     },
     "items": [
       {
@@ -113,8 +113,8 @@
   },
   {
     "title": {
-      "en": "Databases",
-      "tr": "Veritabanları"
+      "en": "databases",
+      "tr": "veritabanları"
     },
     "items": [
       {
@@ -140,8 +140,8 @@
   },
   {
     "title": {
-      "en": "Front-End Tools",
-      "tr": "Front-End Araçları"
+      "en": "front-end tools",
+      "tr": "front-end araçları"
     },
     "items": [
       {
@@ -173,8 +173,8 @@
   },
   {
     "title": {
-      "en": "Back-End Libraries",
-      "tr": "Back-End Kütüphaneleri"
+      "en": "back-end libraries",
+      "tr": "back-end kütüphaneleri"
     },
     "items": [
       {
@@ -205,8 +205,8 @@
   },
   {
     "title": {
-      "en": "Testing",
-      "tr": "Test"
+      "en": "testing",
+      "tr": "test"
     },
     "items": [
       {
@@ -228,8 +228,8 @@
   },
   {
     "title": {
-      "en": "Deployment",
-      "tr": "Deployment"
+      "en": "deployment",
+      "tr": "deployment"
     },
     "items": [
       {
@@ -255,8 +255,8 @@
   },
   {
     "title": {
-      "en": "Operating Systems",
-      "tr": "İşletim Sistemleri"
+      "en": "operating systems",
+      "tr": "işletim sistemleri"
     },
     "items": [
       {
