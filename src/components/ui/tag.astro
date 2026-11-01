@@ -10,22 +10,20 @@ interface Props {
 const { Element = "p", variant = "primary", class: className } = Astro.props;
 
 const VARIANTS = {
-  primary: "bg-primary text-primary-foreground rounded",
-  secondary: "bg-secondary text-secondary-foreground rounded-lg font-light",
-  tertiary: "bg-background text-foreground rounded-lg font-light",
+  primary: "bg-primary text-primary-foreground",
+  secondary: "bg-secondary text-secondary-foreground",
+  tertiary: "bg-background text-foreground border border-border",
 } as const;
 
 const classString = cn([
-  "py-1 text-sm px-2 transition-all duration-300 ease-out",
+  "rounded-md py-1 text-sm px-2 transition-colors duration-200",
   VARIANTS[variant],
   className,
 ]);
 ---
 
 {
-  (
-    <Element class={classString}>
-      <slot />
-    </Element>
-  )
+  <Element class={classString}>
+    <slot />
+  </Element>
 }
