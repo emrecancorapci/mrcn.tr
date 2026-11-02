@@ -16,34 +16,35 @@ blocks:
           "typescript",
           "express",
           "react",
-					"shadcn-ui",
-			    "tailwindcss",
+          "shadcn-ui",
+          "tailwindcss",
           "vite",
           "vitest",
           "supertest",
           "nock",
           "esbuild",
-					"pm2",
-					"nginx",
+          "pm2",
+          "nginx",
           "ubuntu",
           "linux",
         ],
     },
-		{
-			title: "Features",
-			type: "tags",
-			content: [
-				"backend",
-				"frontend",
-				"auth",
-				"testing",
-				"cron-jobs",
-				"extract-transform-load",
-				"data-transformation",
-				"ui",
-        "deployment"
-				],
-		}
+    {
+      title: "Features",
+      type: "tags",
+      content:
+        [
+          "backend",
+          "frontend",
+          "auth",
+          "testing",
+          "cron-jobs",
+          "extract-transform-load",
+          "data-transformation",
+          "ui",
+          "deployment",
+        ],
+    },
   ]
 ---
 
