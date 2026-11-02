@@ -1,12 +1,14 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.5/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.4/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["src/**/*.{ts,tsx,md,json,css}"]
+    "includes": [
+      "src/**/*.{ts,tsx,md,json,css}"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -18,9 +20,7 @@
     "enabled": true,
     "rules": {
       "preset": "recommended",
-      "nursery": {
-        "useSortedClasses": "warn"
-      }
+      "nursery": "warn"
     }
   },
   "css": {
@@ -40,5 +40,21 @@
         "organizeImports": "on"
       }
     }
+  },
+  "tailwind": {
+    "stylesheet": "src/styles/global.css",
+    "mergeFunctions": [
+      "clsx",
+      "cn",
+      "twMerge"
+    ],
+    "variantFunctions": [
+      "cva",
+      "tv"
+    ],
+    "attributes": [
+      "class",
+      "className"
+    ]
   }
 }
