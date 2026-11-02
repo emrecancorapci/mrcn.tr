@@ -150,7 +150,7 @@ html {
     .scroll-reveal {
       animation: scroll-reveal linear both;
       animation-timeline: view();
-      animation-range: entry 10% cover 30%;
+      animation-range: entry 5% cover 20%;
     }
     @keyframes scroll-reveal {
       from {
