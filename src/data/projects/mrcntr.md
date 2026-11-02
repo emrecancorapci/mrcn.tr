@@ -5,7 +5,7 @@ description: "A full-stack personal site built with Actix Web, Diesel.rs, Postgr
 projectType: oss
 year: 2026
 status: "ongoing"
-version: "3.0.0"
+version: "3.1.0"
 mainTags: ["typescript", "web", "astro"]
 links:
   [{ title: "View on GitHub", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]

@@ -5,7 +5,7 @@ description: "Actix Web, Diesel.rs, PostgreSQL, Astro, React ve TailwindCSS ile 
 projectType: oss
 year: 2026
 status: "ongoing"
-version: "3.0.0"
+version: "3.1.0"
 mainTags: ["typescript", "web", "astro"]
 links:
   [{ title: "GitHub'da Gör", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]
