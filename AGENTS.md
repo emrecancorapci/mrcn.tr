@@ -22,7 +22,7 @@ pnpm format     # prettier (.astro files) + biome format (everything else in sco
 There is no test framework; `pnpm build && pnpm check` is the verification layer.
 Run both before committing.
 
-Requires Node >= 24 and pnpm >= 11.
+Requires Node >= 26 and pnpm >= 12.
 
 ## Tooling layout
 
