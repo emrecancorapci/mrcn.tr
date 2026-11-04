@@ -1,7 +1,7 @@
 ---
 featured: true
 title: "Graduation Project"
-description: "A greenhouse monitoring and control system that uses Visible Light Communication to transmit sensor data between Arduino nodes, with a React-based web dashboard for real-time monitoring."
+description: "A greenhouse control system uses Visible Light Communication to transmit sensor data between Arduino nodes, with a dashboard for real-time monitoring."
 projectType: freelance
 year: 2022
 status: "completed"
@@ -60,7 +60,7 @@ This system collects environmental data from a greenhouse using Arduino-based se
 
 ## Architecture
 
-```
+```text
 [Transmitter (Arduino)]
         │
         │  Visible Light Communication
