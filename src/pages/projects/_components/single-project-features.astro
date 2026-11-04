@@ -28,17 +28,19 @@ const otherProjects = forLocale(await getCollection("project"), locale).filter(
       <SingleProjectSection class="shadow-md">
         <SingleProjectSectionTitle size="sm">{p.data.title}</SingleProjectSectionTitle>
         <p class="h-full px-2 pe-12 pt-2">{p.data.description}</p>
-        <a
-          class="pt-2 font-semibold transition-colors duration-200 hover:underline"
-          href={localePath(locale, `/projects/${baseId(p.id)}`)}
-        >
-          {t(locale, "single.viewProject")}
-          <Icon
-            size={20}
-            name="material-symbols:arrow-right-alt"
-            class="inline-block align-middle"
-          />
-        </a>
+        <div class="flex justify-end">
+          <a
+            class="pt-2 font-semibold transition-colors duration-200 hover:underline"
+            href={localePath(locale, `/projects/${baseId(p.id)}`)}
+          >
+            {t(locale, "single.viewProject")}
+            <Icon
+              size={20}
+              name="material-symbols:arrow-right-alt"
+              class="inline-block align-middle"
+            />
+          </a>
+        </div>
       </SingleProjectSection>
     ))}
   </div>
