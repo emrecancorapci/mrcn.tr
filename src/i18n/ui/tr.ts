@@ -5,6 +5,7 @@ export const tr: Record<UIKeys, string> = {
   "nav.projects": "projeler",
   "nav.experiences": "deneyimler",
   "nav.skills": "yetenekler",
+  "nav.blog": "blog",
   "nav.home": "ana sayfa",
 
   // Promo bar
@@ -91,6 +92,14 @@ export const tr: Record<UIKeys, string> = {
   "experience.contract.Contract (Full-Time)": "sözleşmeli (tam zamanlı)",
   "experience.contract.Internship": "Staj",
 
+  // Blog
+  "blog.pageTitle": "Yazılar - Emre Can Çorapçı",
+  "blog.heading": "yazılar",
+  "blog.description":
+    "İnşa ettiğim, bozduğum ve tamir ettiğim şeylerden notlar — ağırlıkla backend, Rust ve web. Anlamak için yazıyorum; bir şey çalışıyorsa neden çalıştığını hatırlamak için de.",
+  "blog.postPageTitle": "Yazı: {title} - Emre Can Çorapçı",
+  "blog.minRead": "{minutes} dk okuma",
+
   // Skills
   "skills.pageTitle": "Yetenekler - Emre Can Çorapçı",
   "skills.heading": "yetenekler",
@@ -109,6 +118,7 @@ export const tr: Record<UIKeys, string> = {
   "footer.projects": "projeler",
   "footer.experiences": "deneyimler",
   "footer.skills": "yetenekler",
+  "footer.blog": "yazılar",
   "footer.privacy": "gizlilik",
   "footer.copyright": "© {year}. tüm hakları saklıdır.",
 

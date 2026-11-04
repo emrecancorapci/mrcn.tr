@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@/layouts/layout.astro";
+import { currentLocale, t } from "@/i18n";
+import { baseId, entryLocale } from "@/lib/i18n-content";
+import PostPageBody from "../../blog/_components/post-page-body.astro";
+
+const locale = currentLocale(Astro.currentLocale);
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog")).filter((post) => entryLocale(post.id) === "tr");
+
+  return posts.map((post) => ({
+    params: { slug: baseId(post.id) },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={t(locale, "blog.postPageTitle", { title: post.data.title })}>
+  <PostPageBody post={post} />
+</Layout>

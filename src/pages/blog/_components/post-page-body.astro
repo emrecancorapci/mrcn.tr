@@ -1,0 +1,43 @@
+---
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+import Tag from "@/components/ui/tag.astro";
+import { currentLocale, t } from "@/i18n";
+import { formatPostDate, postReadingTime } from "@/lib/blog";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const locale = currentLocale(Astro.currentLocale);
+const { post } = Astro.props;
+const { title, description, pubDate, tags } = post.data;
+const minutes = postReadingTime(post.body ?? "");
+
+const { Content } = await render(post);
+---
+
+<div class="grid gap-4 px-6 pt-4 pb-8">
+  <header class="bg-card border-border flex w-full flex-col items-center gap-4 rounded-xl border px-4 py-12 text-center shadow-sm md:py-16">
+    <h1 class="text-4xl font-bold text-balance md:text-6xl">{title}</h1>
+    <p class="text-muted-foreground w-full max-w-3xl font-medium">{description}</p>
+    <p class="text-muted-foreground flex items-center gap-2 text-sm">
+      <time datetime={pubDate.toISOString()}>{formatPostDate(pubDate, locale)}</time>
+      <span aria-hidden="true">-</span>
+      <span>{t(locale, "blog.minRead", { minutes })}</span>
+    </p>
+    {tags && tags.length > 0 && (
+      <ul class="flex flex-wrap justify-center gap-2">
+        {tags.map((tag) => (
+          <Tag Element="li" variant="secondary">
+            {tag}
+          </Tag>
+        ))}
+      </ul>
+    )}
+  </header>
+  <div class="prose-post bg-card border-border mx-auto w-full max-w-3xl rounded-xl border p-6 shadow-sm md:p-10">
+    <Content />
+  </div>
+</div>

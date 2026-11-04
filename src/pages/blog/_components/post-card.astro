@@ -1,0 +1,44 @@
+---
+import Tag from "@/components/ui/tag.astro";
+import type { CollectionEntry } from "astro:content";
+
+import { currentLocale, localePath, t } from "@/i18n";
+import { formatPostDate, postReadingTime } from "@/lib/blog";
+import { baseId, entryLocale } from "@/lib/i18n-content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const locale = currentLocale(Astro.currentLocale);
+const { post } = Astro.props;
+const { title, description, pubDate, tags } = post.data;
+const minutes = postReadingTime(post.body ?? "");
+
+// Detail pages are generated per locale (EN from "id", TR from "id.tr"), so a post
+// without a translation in the current locale links to the locale it does exist in.
+const href = localePath(entryLocale(post.id), `/blog/${baseId(post.id)}`);
+---
+
+<article class="group bg-card border-border relative flex h-fit flex-col gap-3 rounded-xl border p-6 shadow-sm transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-primary/60 hover:shadow-lg md:p-8">
+  <p class="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">
+    <time datetime={pubDate.toISOString()}>{formatPostDate(pubDate, locale)}</time>
+    <span aria-hidden="true">-</span>
+    <span>{t(locale, "blog.minRead", { minutes })}</span>
+  </p>
+  <a href={href} class="after:absolute after:inset-0">
+    <h2 class="text-foreground group-hover:text-primary-ink text-2xl font-semibold transition-colors">
+      {title}
+    </h2>
+  </a>
+  <p class="text-muted-foreground leading-relaxed">{description}</p>
+  {tags && tags.length > 0 && (
+    <ul class="flex flex-wrap gap-2 pt-1">
+      {tags.map((tag) => (
+        <Tag Element="li" variant="secondary">
+          {tag}
+        </Tag>
+      ))}
+    </ul>
+  )}
+</article>

@@ -3,6 +3,7 @@ export const en = {
   "nav.projects": "projects",
   "nav.experiences": "experiences",
   "nav.skills": "skills",
+  "nav.blog": "blog",
   "nav.home": "home",
 
   // Promo bar
@@ -90,6 +91,14 @@ export const en = {
   "experience.contract.Contract (Full-Time)": "contract (full-time)",
   "experience.contract.Internship": "Internship",
 
+  // Blog
+  "blog.pageTitle": "Blog - Emre Can Çorapçı",
+  "blog.heading": "blog",
+  "blog.description":
+    "Notes from things I build, break and fix — mostly backend engineering, Rust, and the web. I write to understand things better, and to remember why the things that work actually work.",
+  "blog.postPageTitle": "Post: {title} - Emre Can Çorapçı",
+  "blog.minRead": "{minutes} min read",
+
   // Skills
   "skills.pageTitle": "Skills - Emre Can Çorapçı",
   "skills.heading": "skills",
@@ -108,6 +117,7 @@ export const en = {
   "footer.projects": "projects",
   "footer.experiences": "experiences",
   "footer.skills": "skills",
+  "footer.blog": "blog",
   "footer.privacy": "privacy",
   "footer.copyright": "© {year}. all rights reserved.",
 

@@ -175,4 +175,18 @@ html {
   .prose-experience {
     @apply prose pe-2 md:pe-20 marker:text-primary-ink prose-li:text-foreground prose-ul:grid prose-ul:list-disc prose-strong:text-foreground/90 prose-strong:font-bold prose-strong:text-lg;
   }
+
+  /* Prose for full blog post bodies. Headings and inline code are pinned to theme
+     tokens: the plugin defaults are light-only (near-black headings/code in dark mode). */
+  .prose-post {
+    @apply prose max-w-none prose-headings:text-balance prose-headings:text-foreground prose-h2:border-b prose-h2:border-border prose-h2:pb-2 prose-p:text-foreground/90 prose-p:leading-relaxed prose-a:text-primary-ink prose-a:decoration-primary-ink/50 prose-a:font-medium prose-a:underline-offset-4 prose-strong:text-foreground prose-strong:font-semibold prose-li:text-foreground/90 prose-li:leading-relaxed marker:text-primary-ink prose-blockquote:border-primary-ink prose-blockquote:text-muted-foreground prose-hr:border-border dark:prose-code:text-zinc-300;
+  }
+
+  /* The plugin draws ` backticks around inline code via pseudo-elements; v4 element
+     modifiers don't compose with ::before/::after, so reset them in plain CSS.
+     Scoped to inline code only — pre blocks (shiki) are untouched. */
+  .prose-post :where(code):not(:where(pre, pre *))::before,
+  .prose-post :where(code):not(:where(pre, pre *))::after {
+    content: none;
+  }
 }

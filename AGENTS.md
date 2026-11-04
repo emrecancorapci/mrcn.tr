@@ -45,6 +45,8 @@ File-based routing under `src/pages/`. Files/dirs prefixed with `_` are excluded
 | `/projects/[id]` | `pages/projects/[id].astro` | Static from `project` collection; `id` = slug of the md filename |
 | `/experiences` | `pages/experiences/index.astro` | Sorted ascending by `priority` (1 first) |
 | `/skills` | `pages/skills/index.astro` | Grouped by category; items sorted by proficiency desc |
+| `/blog` | `pages/blog/index.astro` | Posts sorted descending by `pubDate` (newest first) |
+| `/blog/[slug]` | `pages/blog/[slug].astro` | Static from `blog` collection; generated per locale (EN from `id`, TR from `id.tr`); cards link to a post's own locale |
 | `/privacy` | `pages/privacy/index.astro` | GDPR/KVKK privacy notice; all copy lives in `privacy.*` i18n keys |
 | `/tr/*` | `pages/tr/**` | Turkish mirrors of every route above; thin wrappers over the shared `*-page.astro` / `project-page-body.astro` components |
 | `/404` | `pages/404.astro` | The "msitakes" typo is intentional — do not fix |
@@ -73,6 +75,8 @@ Four collections, all Zod-validated in `src/schemas/`:
   marks entries shown on the home page.
 - `skills` — file `src/data/skills.json` (array; each item needs a string `id` field for the
   `file()` loader). `proficiency` is a 1–5 int (`Familiar`…`Expert`).
+- `blog` — glob `src/data/posts/*.md`. Frontmatter: `pubDate` (coerced to `Date`, sorts
+  descending), `title`, `description` (list-card summary), `tags?`.
 
 ### Content conventions
 
