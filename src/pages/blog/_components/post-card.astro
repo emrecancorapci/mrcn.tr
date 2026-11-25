@@ -10,13 +10,11 @@ interface Props {
   post: CollectionEntry<"blog">;
 }
 
-const locale = currentLocale(Astro.currentLocale);
 const { post } = Astro.props;
 const { title, description, pubDate, tags } = post.data;
 const minutes = postReadingTime(post.body ?? "");
 
-// Detail pages are generated per locale (EN from "id", TR from "id.tr"), so a post
-// without a translation in the current locale links to the locale it does exist in.
+const locale = currentLocale(Astro.currentLocale);
 const href = localePath(entryLocale(post.id), `/blog/${baseId(post.id)}`);
 ---
 

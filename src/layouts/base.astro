@@ -17,7 +17,6 @@ const pageTitle = title ?? "Emre Can Çorapçı";
 const pageDescription = description ?? t(locale, "base.defaultDescription");
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// Counterpart path for hreflang: "en" is unprefixed, "tr" lives under /tr.
 const enPath =
   locale === "tr" ? Astro.url.pathname.replace(/^\/tr(?=\/|$)/, "") || "/" : Astro.url.pathname;
 const trPath = enPath === "/" ? "/tr/" : `/tr${enPath}`;
@@ -31,7 +30,6 @@ const trAlternate = new URL(trPath, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script is:inline>
-      // Applies the persisted or system theme before first paint to avoid a flash.
       const theme =
         localStorage.getItem("theme") ??
         (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
