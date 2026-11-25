@@ -2,7 +2,7 @@ allowBuilds:
   esbuild: true
   sharp: true
 minimumReleaseAgeExclude:
-  - '@iconify-json/simple-icons@1.2.88'
+  - '@iconify-json/simple-icons@1.2.104'
   - '@lucide/astro@1.31.0'
   - prettier@3.9.3
   - '@astrojs/markdown-satteri@0.3.5'
@@ -25,3 +25,4 @@ minimumReleaseAgeExclude:
   - '@tailwindcss/oxide@4.3.4'
   - '@tailwindcss/vite@4.3.4'
   - tailwindcss@4.3.4
+  - '@types/react@19.3.2'
