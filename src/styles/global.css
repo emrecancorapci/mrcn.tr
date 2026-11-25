@@ -190,3 +190,7 @@ html {
     content: none;
   }
 }
+
+@view-transition {
+  navigation: auto;
+}
