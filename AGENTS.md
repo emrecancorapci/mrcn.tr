@@ -30,7 +30,7 @@ Requires Node >= 26 and pnpm >= 12.
 - **Prettier** (`.prettierrc.ts`) — formatter for `.astro` files only (via `prettier-plugin-astro`
   and `prettier-plugin-tailwindcss` for class sorting in templates).
 - Do not reintroduce ESLint; it was removed as redundant with Biome.
-- Commits follow Conventional Commits (`feat:`, `fix:`, `chore:`, `perf:`, `refactor:`, `docs:`),
+- Commits follow Atomical Commits and Conventional Commits (`feat:`, `fix:`, `chore:`, `perf:`, `refactor:`, `docs:`),
   lowercase, imperative. Every logical change gets its own commit.
 
 ## Routing & pages
@@ -172,12 +172,6 @@ How it fits together:
   the dictionaries if it ever gets its own page.
 - Keep the lowercase-heading brand voice in Turkish translations; the TR 404 typo
   ("haatalarımı") mirrors the EN "msitakes" joke.
-
-## Known quirks
-
-- The `404.astro` "msitakes" misspelling is a joke — intentional.
-- Shiki code blocks use `everforest-dark` and stay dark in both themes (intentional).
-- `me-with-bg.png` illustration was made by the owner's sister (credited in the about section).
 
 ## Improvement backlog (not yet implemented)
 
