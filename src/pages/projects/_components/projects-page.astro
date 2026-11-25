@@ -40,10 +40,10 @@ const projectGroups = [...typeCollections.values()].sort(
   <LeftColumnLayout>
     <Fragment slot="title">{t(locale, "projects.heading")}</Fragment>
     <Fragment slot="description">{t(locale, "projects.description")}</Fragment>
-    <div class="grid w-full gap-8">
+    <div class="grid w-full gap-8 ps-0 md:ps-8">
       {projectGroups.map((collection) => (
         <div class="grid gap-4">
-          <H2 class="py-2 text-center">{collection[0]?.typeTitle}</H2>
+          <H2 class="py-2">{collection[0]?.typeTitle}</H2>
 
           <div class={`grid gap-4 ${collection.length > 1 ? "md:grid-cols-2" : ""}`}>
             {collection.map(({ data: project, id }) => (
