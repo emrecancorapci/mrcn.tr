@@ -34,7 +34,6 @@ blocks:
           ["Frontend", "React + TypeScript + Tailwind CSS v4 + shadcn/ui"],
           ["Domain logic", "crates/core (zero Tauri dependencies, shared with the CLI)"],
           ["Local state", "SQLite (rusqlite)"],
-          ["Change propagation", "notify crate + debouncing → Tauri events → UI"],
         ],
     },
     {
@@ -82,5 +81,3 @@ pub trait ManifestAdapter {
 That trait grew into the part I am proudest of: the project health model. Every check produces findings at three severities (info, warning, error) that roll up into per-repo badges. Hygiene runs fully offline: does `.gitignore` actually cover the `.env` variants? Is an env file _tracked right now_? Are README and LICENSE present? A deeper history walk asks whether an `.env`-style file was ever committed and whether the committed content contains real `KEY=value` assignments, because a leaked credential calls for a rotation suggestion, not only a history-rewrite hint. Security advisories map installed versions against OSV. That check is opt-in and clearly labeled, since it is the only one that touches the network.
 
 For git itself I ended up with a hybrid: `git2` for local reads (status, branches, ahead/behind) and the system `git` for network operations (fetch, pull, push). The user's existing SSH config and credential helpers keep working, which is the hard part to get right, and local reads stay fast without subprocess spam.
-
-v1.0 shipped in November 2026 as deb, AppImage, and rpm bundles behind a fully green gate. Building it reinforced a belief I already had after krustie: the value of a tool is mostly in what it refuses to do. Polling asks "anything new?" every few seconds. Watching lets the answer arrive on its own.

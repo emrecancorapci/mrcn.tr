@@ -1,5 +1,5 @@
 ---
-featured: true
+featured: false
 title: "mrcn.tr"
 description: "A full-stack personal site built with Actix Web, Diesel.rs, PostgreSQL, Astro, React, and TailwindCSS."
 projectType: oss

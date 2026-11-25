@@ -15,13 +15,13 @@ blocks:
       onTop: true,
       content:
         [
-          "Tüm depolar için canlı git durumu, polling yerine dosya sistemi olaylarıyla güncellenir",
+          "Tüm repolar için canlı git durumu, polling yerine dosya sistemi eventleriyle güncellenir",
           "Git işlemleri tek yerde: pull, push, sync, branch değiştirme",
-          "Manifest dosyalarından doğrudan okunan bağımlılık tazeliği (npm, Cargo)",
-          "Sağlık bulguları (hijyen, sızan sırlar, güvenlik uyarıları) info, warning ve error seviyelerinde",
-          "Renkli etiketler, katmanlı notlar ve proje klasörü yeniden yapılandırma",
+          "Manifest dosyalarından doğrudan okunan bağımlılık güncelleme (npm, Cargo)",
+          "Sağlık bulguları (hijyen, sızan secret'lar, güvenlik uyarıları) info, warning ve error seviyelerinde",
+          "Renkli etiketler, katmanlı notlar ve proje klasörü yeniden yapılandırabilme",
           "Ortam kontrolleri: kurulu runtime'lar ile projelerin sabitlediği sürümlerin karşılaştırması",
-          "Hem masaüstü uygulamasını hem CLI'ı besleyen tek paylaşılan Rust çekirdeği",
+          "Hem masaüstü uygulaması hem de CLI'ın paylaştığı Rust çekirdeği",
         ],
     },
     {
@@ -30,11 +30,10 @@ blocks:
       onTop: false,
       content:
         [
-          ["Uygulama kabuğu", "Tauri 2 (Rust backend + sistem webview)"],
+          ["Uygulama çekirdeği", "Tauri 2 (Rust backend + system webview)"],
           ["Frontend", "React + TypeScript + Tailwind CSS v4 + shadcn/ui"],
-          ["Alan mantığı", "crates/core (Tauri bağımlılığı sıfır, CLI ile paylaşımlı)"],
-          ["Yerel durum", "SQLite (rusqlite)"],
-          ["Değişim yayılımı", "notify crate + debouncing → Tauri olayları → UI"],
+          ["Domain mantığı", "crates/core (Tauri bağımlılığı sıfır, CLI ile paylaşımlı)"],
+          ["Yerel veritabani", "SQLite (rusqlite)"],
         ],
     },
     {
@@ -82,5 +81,3 @@ pub trait ManifestAdapter {
 Bu trait, en gurur duyduğum bölüme dönüştü: proje sağlık modeli. Her kontrol info, warning ve error olmak üzere üç şiddet seviyesinde bulgular üretiyor ve bunlar depo başına rozetlere dönüşüyor. Hijyen tamamen çevrimdışı çalışıyor: `.gitignore` gerçekten `.env` varyantlarını kapsıyor mu? Bir env dosyası _şu anda takip ediliyor mu_? README ve LICENSE mevcut mu? Daha derin bir geçmiş taraması, `.env` tarzı bir dosyanın hiç commit edilip edilmediğine ve commit edilen içeriğin gerçek `KEY=value` atamaları içerip içermediğine bakıyor, çünkü sızan bir kimlik bilgisi yalnızca geçmiş temizleme ipucu değil, rotasyon önerisi gerektiriyor. Güvenlik uyarıları kurulu sürümleri OSV ile eşleştiriyor. Bu kontrol opt-in ve açıkça etiketli, çünkü ağa çıkan tek kontrol o.
 
 Git tarafında hibrit bir çözüme vardım: yerel okumalar için `git2` (durum, branch'ler, ahead/behind), ağ işlemleri için sistem `git` (fetch, pull, push). Kullanıcının mevcut SSH yapılandırması ve credential helper'ları çalışmaya devam ediyor. En zor kısım zaten budur. Yerel okumalar da subprocess spam'i olmadan hızlı kalıyor.
-
-v1.0, Kasım 2026'da tamamen yeşil bir kalite kapısından geçerek deb, AppImage ve rpm paketleri olarak çıktı. Bunu geliştirmek, krustie'den sonra zaten sahip olduğum bir inancı pekiştirdi: bir aracın değeri çoğunlukla yapmayı reddettiği iştedir. Polling her birkaç saniyede "yeni bir şey var mı?" diye sorar. İzleme ise cevabın kendiliğinden gelmesini sağlar.

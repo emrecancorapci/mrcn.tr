@@ -1,5 +1,5 @@
 ---
-featured: true
+featured: false
 title: "mrcn.tr"
 description: "Actix Web, Diesel.rs, PostgreSQL, Astro, React ve TailwindCSS ile geliştirilmiş kişisel full-stack web sitesi."
 projectType: oss
