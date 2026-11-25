@@ -24,8 +24,8 @@ techs:
   ]
 ---
 
-- Designed and built a full-stack mentoring e-commerce platform from scratch, implementing secure authentication, role-based access control, and Redis-based caching and rate limiting.
-- Architected a GraphQL API and modular backend system, ensuring scalable data access patterns and consistent business logic across services.
-- Developed a performant React front-end with Apollo Client, Zustand, and code-splitting, enabling clean separation of student, mentor, and package workflows.
-- Integrated PayTR payment flows, including secure token handling and backend validation.
-- Deployed and maintained production infrastructure on Ubuntu (Nginx, PM2) with automated deployment processes.
+- Built a full-stack mentoring e-commerce platform from scratch, with secure authentication, role-based access control, and Redis-backed caching and rate limiting.
+- Designed the GraphQL API and a modular backend, keeping data access scalable and business logic consistent across services.
+- Developed the React front-end with Apollo Client, Zustand, and code-splitting, keeping the student, mentor, and package workflows cleanly separated.
+- Integrated PayTR payment flows with secure token handling and backend validation.
+- Deployed and maintained the production infrastructure on Ubuntu (Nginx, PM2) with an automated deployment process.

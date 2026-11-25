@@ -1,6 +1,6 @@
 ---
 title: "ETL Web Application"
-description: "Application that takes data from a server and transforms it into a desired format and then loads it into another server."
+description: "An application that pulls data from a remote server at regular intervals, transforms it into the desired format, and loads it into another server."
 projectType: freelance
 year: 2024
 status: "completed"
@@ -48,14 +48,14 @@ blocks:
   ]
 ---
 
-In short, the application enables data flow between two different servers occurring at varying intervals. The server is equipped with various measures and capabilities to handle potential disruptions in the data stream. The application also offers an interface to add new devices for tracking and to monitor existing ones.
+The app moves data between two servers that run on different schedules. It is built to ride out the disruptions that show up in this kind of data stream, and it ships with an interface for adding devices to track and monitoring the ones already there.
 
-The application connects to source and destination servers, each having its own independent authentication mechanism. Authentication continuity is maintained by logging into both servers at distinct intervals. Since the data retrieval and upload frequencies differ, data is fetched from the source server every 5 minutes and retained for one hour.
+It connects to a source and a destination server, each with its own authentication mechanism. Logging into both at separate intervals keeps the sessions alive. Retrieval and upload frequencies differ: data is fetched from the source server every 5 minutes and kept for one hour.
 
 ![App Schema](/images/etl-app-schema.png)
 
-At the end of the hour, the collected data is averaged and transmitted to the destination server. If an issue occurs during transmission, the process automatically retries. At the end of the day, the time intervals for any missing data are requested from the destination server. The data corresponding to these missing intervals is fetched from the source server and pushed to the destination server, ensuring all data is completely delivered within the day.
+At the end of the hour, the collected data is averaged and sent to the destination server. If transmission fails, it retries automatically. At the end of the day, the destination server reports the intervals where data is missing, the app refetches those intervals from the source, and pushes them over. Everything lands within the day.
 
-Historical data synchronization can also be manually triggered via the user interface. All these operations run independently for each device; therefore, synchronization may take longer—especially following multi-day disruptions due to accumulated data backlog.
+Historical sync can also be triggered manually from the UI. Each device runs these operations independently, so synchronization can take a while after multi-day disruptions, when the backlog has piled up.
 
-Despite limitations and incomplete documentation on the destination server, a stable architecture was delivered through a flexible design capable of successfully handling all edge cases.
+The destination server had its limitations and incomplete documentation, but I kept the design flexible, and it handled every edge case that came up.

@@ -5,7 +5,7 @@ description: "An experimental backend HTTP framework built in Rust from the TCP 
 projectType: published
 year: 2024
 status: "ongoing"
-version: "0.3.0"
+version: "0.3.1"
 mainTags: ["rust", "web", "tcp"]
 links:
   [
@@ -45,7 +45,6 @@ blocks:
           "serialization-deserialization",
           "error-handling",
           "fluent-api",
-          "testing",
           "middleware",
         ],
     },
@@ -77,22 +76,22 @@ fn main() {
 }
 ```
 
-At first my plan was a simple HTTP server with a few basic routes. While I was working on it I started to have some ideas about how it can be turned into an http framework.
+At first my plan was a simple HTTP server with a few basic routes. While I was working on it, I started having ideas about how it could grow into an HTTP framework.
 
-First I created the foundation of the project, then I started to add more features such as routing with _queries_ `/user?sort=DESC` and _dynamic parameters_ `/user/:id`. I had to rewrite the whole routing logic because the first iteration had no room to grow — it was just comparing strings from the client against the routes.
+First I laid the foundation of the project, then I added features such as routing with _queries_ (`/user?sort=DESC`) and _dynamic parameters_ (`/user/:id`). I had to rewrite the whole routing logic because the first iteration had no room to grow: it compared strings from the client against the routes.
 
-Next step was to add the _middleware support_. I had to rewrite the routing logic again, this time to create a clear separation between the router and the endpoint pipeline. Architecture-wise router, middleware and endpoint are all handlers. Router is a handler that routes the request to the correct part of the pipeline. Middleware is a handler that runs before or after the endpoint. And endpoint is the handler that actually handles what is going to happen.
+The next step was _middleware support_. I rewrote the routing logic again, this time to separate the router from the endpoint pipeline. Architecture-wise, router, middleware, and endpoint are all handlers. The router routes the request to the correct part of the pipeline, middleware runs before or after the endpoint, and the endpoint handles the request itself.
 
-While I was doing it I decided to make request object immutable. It was hard to persevere with this decision but I was aiming to create a safe and easy to use framework to decrease the possibility of bugs.
+While I was at it, I decided to make the request object immutable. Sticking to that decision was hard at times, but I was aiming for a safe, easy-to-use framework that leaves less room for bugs.
 
 ```
 TCP Connection → HTTP Parser → Router → Middleware Pipeline → Handler → Response
 ```
 
-After that I implemented some basic middlewares _such as static file serving, rate limiting, gzip compression and json parser/serializer_ to see how the middleware system works. While doing it I realized there were still some features missing to create these middlewares. I added the missing features but I believe that it still needs some improvements.
+After that I implemented some basic middlewares _such as static file serving, rate limiting, gzip compression and json parser/serializer_ to see how the middleware system works. While doing it I realized some features were still missing to build these middlewares. I added them, but I still believe the framework needs some improvements.
 
-I wrote some tests because while I was working on the project I had some issues with the http parser time to time. Tests helped me to fix them so much faster. And as a final test, I decided to create a basic web server. After I developed and ran it, I found out that some of the parts don't work as expected. So I added some basic _testing tools_ to test the app as well. It turned out great and helped me to analyze the issues better.
+I wrote some tests because I kept running into issues with the http parser while working on the project. Tests helped me fix them much faster. As a final test, I decided to build a basic web server on top of it. After developing and running it, I found parts that did not work as expected, so I added basic _testing tools_ for testing the app as well. They turned out great and made analyzing the issues much easier.
 
 Building this made one thing obvious: **all web infrastructure is just a bunch of parsers packed together.**
 
-The current architecture was kept synchronous to understand the fundamentals first. I'm planning to add multithreading and asynchronous methods support in the future.
+I kept the current architecture synchronous to understand the fundamentals first. I'm planning to add multithreading and asynchronous method support in the future.

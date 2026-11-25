@@ -7,8 +7,7 @@ year: 2026
 status: "ongoing"
 version: "3.1.0"
 mainTags: ["typescript", "web", "astro"]
-links:
-  [{ title: "GitHub'da Gör", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]
+links: [{ title: "GitHub'da Gör", url: "https://github.com/emrecancorapci/mrcn.tr", primary: true }]
 blocks:
   [
     {

@@ -1,11 +1,11 @@
 ---
 featured: true
 title: "krustie"
-description: "TCP katmanından başlanarak, Rust ile yazılmış, deneysel bir backend HTTP framework'ü. Özel parser'a, middleware pipeline'ına ve immutable request desteğine sahip."
+description: "TCP katmanından itibaren Rust ile yazılmış deneysel bir backend HTTP framework'ü. Özel parser, middleware pipeline'ı ve immutable request yaşam döngüsü üzerine kurulu."
 projectType: published
 year: 2024
 status: "ongoing"
-version: "0.3.0"
+version: "0.3.1"
 mainTags: ["rust", "web", "tcp"]
 links:
   [
@@ -45,7 +45,6 @@ blocks:
           "serialization-deserialization",
           "error-handling",
           "fluent-api",
-          "testing",
           "middleware",
         ],
     },
@@ -58,7 +57,7 @@ blocks:
   ]
 ---
 
-TCP seviyesinde çalışan minimal bir HTTP sunucu uygulaması olarak başladı; routing, middleware tasarımı ve request yaşam döngüsü yönetimini keşfettikçe yavaş yavaş immutable request yaşam döngüsüne sahip bir backend framework'üne dönüştü.
+Proje, TCP seviyesinde çalışan minimal bir HTTP sunucu uygulaması olarak başladı. Routing, middleware tasarımı ve request yaşam döngüsü yönetimini keşfettikçe immutable request yaşam döngüsüne sahip yapılandırılmış bir backend framework'üne dönüştü.
 
 ```rust
 use krustie::{ Router, Server, StatusCode };
@@ -77,22 +76,22 @@ fn main() {
 }
 ```
 
-Başlangıçta planım birkaç temel route'u olan basit bir HTTP sunucusuydu. Üzerinde çalışırken bunun nasıl bir http framework'üne dönüştürülebileceğine dair fikirler edinmeye başladım.
+İlk planım, birkaç temel rotası olan basit bir HTTP sunucusuydu. Üzerinde çalışırken bunun bir HTTP framework'üne dönüşebileceği konusunda aklımda fikirler belirmeye başladı.
 
-Önce projenin temellerini oluşturdum, sonra _query_'li routing `/user?sort=DESC` ve _dinamik parametre_'li `/user/:id` gibi özellikler eklemeye başladım. Routing mantığının tamamını yeniden yazmak zorunda kaldım çünkü ilk iterasyonun büyüme alanı yoktu — sadece istemciden gelen string'leri rotalarla karşılaştırıyordu.
+Önce projenin temellerini attım, ardından _query_ (`/user?sort=DESC`) ve _dinamik parametre_ (`/user/:id`) destekli routing gibi özellikler eklemeye başladım. Tüm routing mantığını yeniden yazmam gerekti, çünkü ilk iterasyonda büyüyecek yer yoktu: istemciden gelen metni rotalarla düz metin olarak karşılaştırıyordu.
 
-Sonraki adım _middleware desteğini_ eklemekti. Routing mantığını bu kez router ile endpoint hattı arasında net bir ayrım oluşturmak için tekrar yeniden yazdım. Mimari açıdan router, middleware ve endpoint'in hepsi handler'dır. Router, isteği hattın doğru bölümüne yönlendiren bir handler'dır. Middleware, endpoint'ten önce veya sonra çalışan bir handler'dır. Endpoint ise ne olacağını gerçekten ele alan handler'dır.
+Sıradaki adım _middleware desteğiydi_. Routing mantığını bu kez de yeniden yazdım. Amacım router ile endpoint hattının arasını netleştirmekti. Mimari olarak router, middleware ve endpoint'in hepsi birer handler'dır. Router isteği hattın doğru bölümüne yönlendirir, middleware endpoint'ten önce ya da sonra çalışır, endpoint ise isteğin kendisini ele alır.
 
-Bunu yaparken request nesnesini immutable yapmaya karar verdim. Bu karara bağlı kalmak zordu ama amacım, hata olasılığını azaltan güvenli ve kullanımı kolay bir framework oluşturmaktı.
+Bu sırada request nesnesini immutable yapmaya karar verdim. Bu karara bağlı kalmak zaman zaman zorladı ama amacım, hatalara daha az alan bırakan güvenli ve kullanımı kolay bir framework oluşturmaktı.
 
 ```
 TCP Bağlantısı → HTTP Parser → Router → Middleware Hattı → Handler → Response
 ```
 
-Sonrasında middleware sisteminin nasıl çalıştığını görmek için _statik dosya sunumu, rate limiting, gzip sıkıştırma ve json parser/serializer_ gibi bazı temel middleware'ler yazdım. Bunu yaparken bu middleware'leri oluşturmak için hâlâ eksik olan özellikler olduğunu fark ettim. Eksik özellikleri ekledim fakat yine de hala bazı iyileştirmelere ihtiyacı olduğuna inanıyorum.
+Sonrasında middleware sisteminin nasıl çalıştığını görmek için _statik dosya sunumu, rate limiting, gzip sıkıştırma ve json parser/serializer_ gibi temel middleware'ler yazdım. Bunları yaparken bu middleware'leri kurmak için hâlâ eksik özellikler olduğunu fark ettim. Eksikleri ekledim ama framework'ün hâlâ iyileştirmeye ihtiyacı olduğunu düşünüyorum.
 
-Projede çalışırken http parser ile zaman zaman sorunlar yaşadığım için bazı testler yazdım. Testler, bu sorunları çok daha hızlı düzeltmemi sağladı. Son olarak test için da basit bir web sunucusu oluşturmaya karar verdim. Geliştirip çalıştırdıktan sonra bazı kısımların beklendiği gibi çalışmadığını gördüm. Bu yüzden uygulamayı test etmek için yeni temel _test araçları_ da ekledim. Sorunları çok daha kolay analiz etmemi sağladı.
+Projede çalışırken http parser ile zaman zaman sorunlar yaşadığım için bazı testler yazdım. Testler bu sorunları çok daha hızlı düzeltmemi sağladı. Son bir test olarak, üstüne basit bir web sunucusu yazmaya karar verdim. Geliştirip çalıştırdıktan sonra beklendiği gibi çalışmayan kısımlar buldum, bu yüzden uygulamayı da test etmek için temel _test araçları_ ekledim. Gayet iyi sonuç verdi ve sorunları çok daha rahat analiz etmemi sağladı.
 
-Tüm bunları inşa etmek bir şeyi açıkça gösterdi: **tüm web altyapısı sadece bir araya getirilmiş bir yığın parser'dan ibaret.**
+Bunları inşa etmek bir şeyi açıkça gösterdi: **tüm web altyapısı, bir araya paketlenmiş parser yığınından ibaret.**
 
-Temelleri önce anlamak için mevcut mimariyi senkron tuttum. Gelecekte multithreading ve asenkron fonksiyon desteği eklemeyi de planlıyorum.
+Önce temelleri anlamak için mevcut mimariyi senkron tuttum. Gelecekte multithreading ve asenkron metod desteği eklemeyi planlıyorum.

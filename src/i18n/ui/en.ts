@@ -32,7 +32,7 @@ export const en = {
   "about.p1":
     "Hey! I'm Emre, a curious software developer mainly focused on web, but I have also worked on desktop apps and have experience in system programming.",
   "about.p2":
-    "I don't just build endpoints. I've taken projects from ground to production, handling UI/UX, database design, architecture, security, and performance along the way. I believe I have reached the point where I am confident enough to do anything given enough time.",
+    "I don't just build endpoints. I've taken projects from the ground to production, handling UI/UX, database design, architecture, security, and performance along the way. I believe I have reached the point where I am confident enough to do anything given enough time.",
   "about.p3":
     'I like to poke around things and ask "why" until my curiosity is tamed enough. Bending rules, questioning assumptions, rejecting old ways for the sake of something better.',
   "about.illustrationCredit": "Made by my sister",
@@ -82,20 +82,20 @@ export const en = {
   "experiences.pageTitle": "Experiences - Emre Can Çorapçı",
   "experiences.heading": "experiences",
   "experiences.description":
-    "I've worked across freelance and full-time roles, taking projects from initial design to production deployment. My work tends to involve building backend systems and infrastructure from scratch, improving the performance and reliability of existing ones, and occasionally extending into frontend when needed. I'm comfortable owning a project end-to-end architecture, implementation, testing, and deployment.",
+    "I've worked across freelance and full-time roles, taking projects from initial design to production deployment. My work tends to involve building backend systems and infrastructure from scratch, improving the performance and reliability of existing ones, and occasionally extending into frontend when needed. I'm comfortable owning a project end-to-end, covering architecture, implementation, testing, and deployment.",
   "experience.contract.Full-Time": "full-time",
   "experience.contract.Part-Time": "part-time",
   "experience.contract.Freelance (Part-Time)": "freelance (part-time)",
   "experience.contract.Freelance (Full-Time)": "freelance (full-time)",
   "experience.contract.Contract (Part-Time)": "contract (part-time)",
   "experience.contract.Contract (Full-Time)": "contract (full-time)",
-  "experience.contract.Internship": "Internship",
+  "experience.contract.Internship": "internship",
 
   // Blog
   "blog.pageTitle": "Blog - Emre Can Çorapçı",
   "blog.heading": "blog",
   "blog.description":
-    "Notes from things I build, break and fix — mostly backend engineering, Rust, and the web. I write to understand things better, and to remember why the things that work actually work.",
+    "Notes from things I build, break, and fix. Mostly backend engineering, Rust, and the web. I write to understand things better, and to remember why the things that work actually work.",
   "blog.postPageTitle": "Post: {title} - Emre Can Çorapçı",
   "blog.minRead": "{minutes} min read",
 
@@ -103,7 +103,7 @@ export const en = {
   "skills.pageTitle": "Skills - Emre Can Çorapçı",
   "skills.heading": "skills",
   "skills.description":
-    "I'm a backend developer focused on performance-oriented web systems, mainly using TypeScript and Rust. I've used a variety of frameworks and libraries, including .NET, actix-web, Express and Fastify on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++ and Python.",
+    "I'm a backend developer focused on performance-oriented web systems, mainly using TypeScript and Rust. I've used a variety of frameworks and libraries, including .NET, Actix Web, Express and Fastify on the backend, and React and Astro on the frontend. I'm also familiar with C#, C++ and Python.",
   "skill.proficiency.1": "familiar",
   "skill.proficiency.2": "comfortable",
   "skill.proficiency.3": "proficient",

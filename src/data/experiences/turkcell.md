@@ -4,7 +4,7 @@ title: "Full-Stack Developer"
 contractType: "Internship"
 company: "Turkcell"
 description: "Telecommunications Services"
-location: "İstanbul, Turkey (Remote)"
+location: "Istanbul, Turkey (Remote)"
 start: "June 2022"
 end: "Sep 2022"
 techs: [".NET", "Entity Framework", "TypeScript", "React", "Bootstrap", "MSSQL", "PostgreSQL"]

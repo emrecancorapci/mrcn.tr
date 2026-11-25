@@ -48,15 +48,14 @@ blocks:
   ]
 ---
 
-Uygulama kısaca iki farklı sunucu arasında farklı periyotlarda gerçekleşen veri akışını sağlıyor. Sunucu, veri akışında oluşabilecek aksaklıkları yönetebilecek çeşitli önlem ve yeteneklere sahip. Uygulama farklı cihazların takip için eklenebilmesi ve mevcut cihazların gözlemlenebilmesi için bir arayüz de sunuyor.
+Uygulama, iki farklı sunucu arasında farklı periyotlarda gerçekleşen veri akışını sağlıyor. Bu tür bir veri akışında baş gösteren aksaklıklara dayanacak şekilde tasarlandı. Cihaz takibi için yeni cihaz eklemeye ve mevcut cihazları izlemeye yarayan bir arayüzü de var.
 
-Uygulama, birbirinden bağımsız kendi kimlik doğrulama (authentication) mekanizmaları olan kaynak ve hedef sunuculara bağlı. İki sunucuya da farklı periyotlarla giriş yapılarak authentication sürekliliği sağlanıyor. Verilerin yüklenme ve alınma periyotları farklı olduğu için veriler 5 dakikada bir kaynak sunucudan alınarak bir saat boyunca tutuluyor.
+Uygulama, birbirinden bağımsız kendi kimlik doğrulama (authentication) mekanizması olan kaynak ve hedef sunuculara bağlanıyor. İkisine de farklı aralıklarla giriş yapılarak oturumlar canlı tutuluyor. Verilerin alınma ve yüklenme periyotları farklı: kaynak sunucudan veriler 5 dakikada bir alınıyor ve bir saat boyunca tutuluyor.
 
 ![App Schema](/images/etl-app-schema.png)
 
-Bir saatin sonunda toplanan veriler, ortalamaları alınarak hedef sunucuya gönderiliyor. Gönderimde herhangi bir sorun çıkması durumunda ise işlem tekrar deneniyor. Gün sonunda hedef sunucudan eksik verilerin zaman aralığı talep ediliyor. Bu zaman aralıkları arasındaki veriler kaynak sunucudan alınarak hedef sunucuya gönderiliyor. Bu sayede tüm veriler gün içerisinde eksiksiz şekilde iletilmiş oluyor.
+Saatin sonunda toplanan veriler ortalanarak hedef sunucuya gönderiliyor. Gönderim başarısız olursa işlem kendiliğinden yeniden deneniyor. Gün sonunda hedef sunucu, verisi eksik olan aralıkları bildiriyor. Uygulama bu aralıkları kaynaktan yeniden alıp hedefe gönderiyor. Böylece tüm veriler gün içinde eksiksiz iletilmiş oluyor.
 
-Geçmiş verilerin senkronize edilmesi işlemi aynı zamanda arayüz üzerinden de tetiklenebiliyor. Tüm bu işlemler her cihaz için ayrı olarak yapılmakta. Bu yüzden senkronizasyon işlemi özellikle günlerce süren sorunlarda gönderilmesi gereken veriler biriktiği için uzun sürebiliyor.
+Geçmiş verilerin senkronizasyonu arayüzden elle de tetiklenebiliyor. Tüm bu işlemler her cihaz için ayrı yürüyor. Günlerce süren kesintilerin ardından, birikmiş veri nedeniyle senkronizasyon uzun sürebiliyor.
 
-Hedef sunucu dokümantasyonundaki eksiklikler ve süreç içindeki kısıtlamalara rağmen, esnek bir mimari kurarak tüm senaryoları başarıyla yönetebilen stabil bir yapı ortaya çıkarıldı.
-
+Hedef sunucunun kısıtları ve eksik dokümantasyonu vardı. Tasarımı esnek tuttum ve uygulama tüm uç senaryoları sorunsuz karşıladı.

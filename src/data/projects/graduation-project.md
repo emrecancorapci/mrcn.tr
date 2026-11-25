@@ -56,7 +56,7 @@ blocks:
 
 ## Overview
 
-This system collects environmental data from a greenhouse using Arduino-based sensor nodes and transmits it via light signals (VLC) to a receiver node. The data is then relayed through a local server to a backend API, where it is stored and served to a real-time web dashboard. Operators can monitor greenhouse conditions and control actuators (fans, lights, water pump) remotely through the web interface.
+The system collects environmental data from a greenhouse with Arduino-based sensor nodes and sends it to a receiver node over light signals (VLC). From there the data goes through a local server into a backend API, which stores it and serves it to a real-time web dashboard. Operators can watch greenhouse conditions and toggle actuators (fans, lights, water pump) from the web interface.
 
 ## Architecture
 
@@ -92,11 +92,11 @@ This system collects environmental data from a greenhouse using Arduino-based se
 
 ## Features
 
-- **VLC-based communication** — sensor data is transmitted via modulated light signals between Arduino nodes, with no RF or Wi-Fi required between hardware units
-- **Real-time monitoring** — live dashboard displays current greenhouse conditions
-- **Multi-sensor support** — tracks temperature, humidity, light intensity, and soil moisture
-- **Actuator control** — remotely toggle fans, grow lights, and water pump from the web interface
-- **Persistent storage** — historical sensor data is stored in PostgreSQL
+- **VLC-based communication**: sensor data travels between Arduino nodes as modulated light signals, with no RF or Wi-Fi between the hardware units
+- **Real-time monitoring**: the live dashboard shows current greenhouse conditions
+- **Multi-sensor support**: tracks temperature, humidity, light intensity, and soil moisture
+- **Actuator control**: fans, grow lights, and the water pump toggle from the web interface
+- **Persistent storage**: historical sensor data lives in PostgreSQL
 
 ## Tech Stack
 

@@ -11,5 +11,5 @@ end: "Şubat 2026"
 techs: ["C#", ".NET", "XAML", "WPF"]
 ---
 
-- .NET ile Windows masaüstü uygulaması geliştirdi; low-level sistem hook'ları kullanarak mouse ve klavye makrolarının kaydedilmesini ve tekrar oynatılmasını sağladı.
-- WPF/XAML kullanarak tablo ve görsel desteğine sahip, kapsamlı özellikli bir Rich Text ve Rapor Editörü geliştirdi; native .docx export için özel bir OpenXML çeviri katmanı (translation layer) oluşturdu.
+- .NET ile low-level sistem hook'larını kullanarak mouse ve klavye makrolarını kaydedip tekrar oynatan bir Windows masaüstü uygulaması geliştirdi.
+- WPF/XAML ile tablo ve görsel desteği sunan, native .docx export için özel bir OpenXML çeviri katmanı (translation layer) içeren bir Rich Text ve Rapor Editörü geliştirdi.

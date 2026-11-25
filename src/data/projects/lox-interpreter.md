@@ -1,6 +1,6 @@
 ---
 title: "Lox Interpreter"
-description: "A Lox language tokenizer and parser built in Rust. Only has lexing and token classification"
+description: "A tokenizer and parser for the Lox language, written in Rust. Lexing and token classification only, for now."
 projectType: oss
 year: 2024
 status: "ongoing"
@@ -19,8 +19,7 @@ blocks:
     {
       title: "Tags",
       type: "tags",
-      content:
-        ["rust", "lox", "tokenizer", "parser", "lexer", "system-programming"],
+      content: ["rust", "lox", "tokenizer", "parser", "lexer", "system-programming"],
     },
   ]
 ---

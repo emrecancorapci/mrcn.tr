@@ -1,7 +1,7 @@
 ---
 featured: true
 title: "Redis Clone"
-description: "TCP üzerinden RESP protokolünü uygulayan Redis uyumlu sunucu projesi. In-memory veri yapıları ve protokol parsing'e sahip."
+description: "TCP üzerinden RESP protokolünü uygulayan Redis uyumlu sunucu projesi. In-memory veri yapıları ve protokol parsing'i üzerine kurulu."
 projectType: oss
 year: 2024
 status: "prototype-completed"
@@ -49,11 +49,11 @@ Redis hakkında bildiğim tek şey, anahtar-değer tabanlı bir veritabanı oldu
 
 Önce rehber bana redis için bazı temel komutları ve RESP protokolünün temel kullanımını tanıttı. Sonra işler karmaşıklaştı ve eksiksiz bir RESPv2 protokolü uygulaması gerekli hale geldi.
 
-Protokolü uygulamak için [Redis dokümantasyonunu](https://redis.io/docs/latest/develop/reference/protocol-spec/) tekrar tekrar okumak gerekir. Bir insan dokümanları okuduğunu ve kuralları gerçekten iyi uyguladığını düşünse bile sorunlar çıkacaktır. Bu sorunları çözmek için bol bol test yazmak gerekir. Sonra da onları debug etmek.
+Protokolü uygulamak, [Redis dokümantasyonunu](https://redis.io/docs/latest/develop/reference/protocol-spec/) tekrar tekrar okumaktan geçiyor. Dokümanları okuduğunu ve kuralları iyice uyguladığını sanarken bile sorunlar çıkıyor. Bunları çözmek bol test yazmaktan, sonra da bol debug yapmaktan geçiyor.
 
-Çünkü protokollerin nasıl çalıştığını öğrenmek, redis'in onları nasıl kullandığından farklıdır. Ve redis hakkında hiçbir şey bilmemek de işe yaramaz. Uzun doküman okuma oturumları, bolca debug oturumu ve yeniden yazmaların ardından RESPv2 protokolünün ayrıştırma ve serileştirme işlemlerini tamamladım.
+Bir protokolün nasıl çalıştığını öğrenmek bir şey, redis'in onu gerçekte nasıl kullandığı başkadır. Ve redis hakkında hiçbir şey bilmemek de işe yaramıyor. Uzun doküman okuma oturumları, bolca debug ve birkaç yeniden yazmanın ardından RESPv2 protokolünün ayrıştırma ve serileştirme işlemlerini tamamladım.
 
-Sonra komut sayısı artmaya başladı. if else blokları içler acıtırcasına çirkin görünmeye başladı. Bu yüzden komutları farklı dosyalara ayırmaya ve bir komut yönlendirici oluşturmaya karar verdim.
+Sonra komut sayısı artmaya başladı ve if/else blokları içler acıtırcasına çirkin görünmeye başladı. Komutları ayrı dosyalara taşıyıp bir komut yönlendirici yazdım.
 
 ```typescript
 export default class ServerHandler {
@@ -68,8 +68,11 @@ export default class ServerHandler {
 
   public run: CommandRunner = (command: string, data: RESPv2Data[]) => {
     return this.commands.has(command.toLowerCase())
-      ? this.commandRunner(data, this.commands.get(command.toLowerCase()) as ServerAction<RESPv2Data>)
-      : this.sendError('Unknown command');
+      ? this.commandRunner(
+          data,
+          this.commands.get(command.toLowerCase()) as ServerAction<RESPv2Data>,
+        )
+      : this.sendError("Unknown command");
   };
 }
 ```

@@ -56,7 +56,7 @@ blocks:
 
 ## Genel Bakış
 
-Bu sistem, Arduino tabanlı sensör düğümleri kullanarak bir seradan ortam verilerini toplar ve ışık sinyalleri (VLC) aracılığıyla bir alıcı düğüme iletir. Veriler daha sonra yerel bir sunucu üzerinden bir backend API'sine aktarılır; burada saklanır ve gerçek zamanlı bir web paneline sunulur. Operatörler, sera koşullarını izleyebilir ve aktüatörleri (fanlar, ışıklar, su pompası) web arayüzünden uzaktan kontrol edebilir.
+Bu sistem, Arduino tabanlı sensör düğümleriyle bir seradan ortam verilerini toplar ve ışık sinyalleriyle (VLC) bir alıcı düğüme gönderir. Veriler buradan yerel bir sunucu üzerinden backend API'ye gider. API, veriyi saklayıp gerçek zamanlı web paneline sunar. Operatörler sera koşullarını izleyebilir ve aktüatörleri (fanlar, ışıklar, su pompası) web arayüzünden kontrol edebilir.
 
 ## Mimari
 
@@ -82,23 +82,23 @@ Bu sistem, Arduino tabanlı sensör düğümleri kullanarak bir seradan ortam ve
 
 ## Modüller
 
-| Modül            | Açıklama                                                        | Teknoloji                         |
-| ---------------- | --------------------------------------------------------------- | --------------------------------- |
-| `transmitter`    | Sensör verilerini okur ve ışık sinyallerine kodlar              | Arduino / C++                     |
-| `receiver`       | Gelen ışık sinyallerini çözer ve veriyi seri porttan iletir     | Arduino / C++                     |
-| `local-server`   | Seri port verisini backend sunucusuna köprüler                  | Node.js / TypeScript              |
-| `backend-server` | Sensör verilerini saklayan ve sunan REST API                    | Node.js / TypeScript / PostgreSQL |
-| `frontend`       | Gerçek zamanlı izleme ve kontrol için web paneli                | React / TypeScript / Tailwind CSS |
+| Modül            | Açıklama                                                    | Teknoloji                         |
+| ---------------- | ----------------------------------------------------------- | --------------------------------- |
+| `transmitter`    | Sensör verilerini okur ve ışık sinyallerine kodlar          | Arduino / C++                     |
+| `receiver`       | Gelen ışık sinyallerini çözer ve veriyi seri porttan iletir | Arduino / C++                     |
+| `local-server`   | Seri port verisini backend sunucusuna köprüler              | Node.js / TypeScript              |
+| `backend-server` | Sensör verilerini saklayan ve sunan REST API                | Node.js / TypeScript / PostgreSQL |
+| `frontend`       | Gerçek zamanlı izleme ve kontrol için web paneli            | React / TypeScript / Tailwind CSS |
 
 ## Özellikler
 
-- **Işık tabanlı iletişim** — sensör verileri, donanım birimleri arasında RF veya Wi-Fi gerektirmeden Arduino düğümleri arasında modüle edilmiş ışık sinyalleriyle iletilir
-- **Gerçek zamanlı izleme** — canlı panel, mevcut sera koşullarını gösterir
-- **Çoklu sensör desteği** — sıcaklık, nem, ışık şiddeti ve toprak nemi takip edilir
-- **Aktüatör kontrolü** — fanlar, büyüme ışıkları ve su pompası web arayüzünden uzaktan açılıp kapatılabilir
-- **Kalıcı depolama** — sensör verileri PostgreSQL'de saklanır
+- **Işık tabanlı iletişim**: sensör verileri Arduino düğümleri arasında modüle edilmiş ışık sinyalleriyle taşınır, donanım birimleri arasında RF veya Wi-Fi gerekmez
+- **Gerçek zamanlı izleme**: canlı panel, güncel sera koşullarını gösterir
+- **Çoklu sensör desteği**: sıcaklık, nem, ışık şiddeti ve toprak nemi takip edilir
+- **Aktüatör kontrolü**: fanlar, büyütme lambaları ve su pompası web arayüzünden açılıp kapatılır
+- **Kalıcı depolama**: geçmiş sensör verileri PostgreSQL'de tutulur
 
-## Tech Stack
+## Teknoloji Yığını
 
 - **Donanım:** Arduino (C / C++)
 - **İletişim:** Görünür Işık İletişimi (VLC), Seri port

@@ -11,5 +11,5 @@ end: "Feb 2026"
 techs: ["C#", ".NET", "XAML", "WPF"]
 ---
 
-- Developed a Windows desktop app in .NET for recording and replaying mouse and keyboard macros, implementing low-level system hooks.
-- Built a full-featured Rich Text and Report Editor in WPF/XAML with table and image support, a custom OpenXML translation layer for native .docx export.
+- Developed a Windows desktop app in .NET that records and replays mouse and keyboard macros using low-level system hooks.
+- Built a Rich Text and Report Editor in WPF/XAML with table and image support and a custom OpenXML translation layer for native .docx export.

@@ -24,8 +24,8 @@ techs:
   ]
 ---
 
-- Sıfırdan full-stack bir mentörlük e-ticaret platformu tasarladı ve geliştirdi; güvenli authentication, role-based access control ile Redis tabanlı caching ve rate limiting mekanizmalarını hayata geçirdi.
-- Ölçeklenebilir veri erişim modellerini ve servisler arasında tutarlı iş mantığını sağlayan bir GraphQL API ile modüler bir backend sistemi tasarladı.
-- Apollo Client, Zustand ve code splitting kullanarak, öğrenci, mentor ve paket iş akışlarının net bir şekilde ayrıştırılmasını sağlayan yüksek performanslı bir React front-end geliştirdi.
-- Secure token handling ve backend validation dahil olmak üzere PayTR ödeme akışlarını entegre etti.
-- Ubuntu (Nginx, PM2) üzerinde production altyapısını otomatik deployment süreçleriyle kurdu ve sürdürdü.
+- Sıfırdan, güvenli authentication, role-based access control ve Redis tabanlı caching ile rate limiting içeren full-stack bir mentörlük e-ticaret platformu geliştirdi.
+- Ölçeklenebilir veri erişimi ve servisler arasında tutarlı iş mantığı için GraphQL API'yi modüler bir backend üzerine tasarladı.
+- Apollo Client, Zustand ve code-splitting ile React front-end'ini geliştirdi. Öğrenci, mentor ve paket iş akışlarını birbirinden net şekilde ayırdı.
+- PayTR ödeme akışlarını güvenli token yönetimi ve backend doğrulamasıyla entegre etti.
+- Ubuntu üzerinde production altyapısını (Nginx, PM2) otomatik deployment süreciyle kurdu ve sürdürdü.
