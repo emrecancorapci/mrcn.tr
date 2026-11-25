@@ -1,12 +1,10 @@
 <script>
-  // PostHog write-keys are public by design; env vars allow per-environment overrides.
   const posthogKey =
     import.meta.env.PUBLIC_POSTHOG_KEY ?? "phc_vvVjicJoKRqy8l1G4XGF63KtIOFRYvzVSdPZkhBilyI";
   const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST ?? "https://ph.mrcn.tr";
 
   const w = window as any;
 
-  // Official PostHog snippet: installs the stub API only, no network yet.
   void (function (t: any, e: any) {
     var o: any, n: any, p: any, r: any;
     e.__SV ||
@@ -50,15 +48,14 @@
       (e.__SV = 1));
   })(document, w.posthog || []);
 
-  // Lazy-init: defer loading array.js (and any tracking) until the browser is idle.
   const init = () =>
     w.posthog.init(posthogKey, {
       api_host: posthogHost,
       ui_host: "https://eu.posthog.com",
       defaults: "2025-11-30",
-      person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-      cookieless_mode: "always", // no cookies, no local/session storage — must also be enabled in PostHog project settings
-      autocapture: false, // pageviews only
+      person_profiles: "identified_only",
+      cookieless_mode: "always",
+      autocapture: false,
       capture_dead_clicks: false,
       disable_session_recording: true,
     });
